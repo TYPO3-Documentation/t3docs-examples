@@ -1,3 +1,8 @@
-2010-02-05 Core Team  <info@typo3.org>
+2010-02-07 Francois Suter  <francois@typo3.org>
 
-	* initial code generated with kickstarter
+	* Added code example for select-type field definition
+	* Added code example for user-defined field
+
+2010-02-05 Francois Suter  <francois@typo3.org>
+
+	* Initial code generated with kickstarter

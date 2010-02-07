@@ -12,10 +12,14 @@
 			<label index="fe_users.tx_examples_options.I.3">Option 3</label>
 			<label index="fe_users.tx_examples_options">Test</label>
 			<label index="fe_users.tx_examples_special">Special field</label>
-			<label index="tt_content.list_type_pi1">Test plugin</label>
+			<label index="tt_content.list_type_pi1">Examples: simple FlexForm</label>
+			<label index="tt_content.list_type_pi2">Examples: advanced FlexForm</label>
 			<label index="examples.pi_flexform.sheetGeneral">General Setup</label>
 			<label index="examples.pi_flexform.pageSelector">Reference page</label>
 			<label index="examples.pi_flexform.choosePage">Choose a page</label>
+			<label index="examples.pi_flexform.s_Message">Message</label>
+			<label index="examples.pi_flexform.header">Header</label>
+			<label index="examples.pi_flexform.message">Message</label>
 		</languageKey>
 	</data>
 </T3locallang>
