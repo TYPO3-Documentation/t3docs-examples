@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'examples'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="fe_users.tx_examples_options.I.0">Option 1</label>
+			<label index="fe_users.tx_examples_options.I.1">Option 2</label>
+			<label index="fe_users.tx_examples_options.I.2">__Final options:__</label>
+			<label index="fe_users.tx_examples_options.I.3">Option 3</label>
+			<label index="fe_users.tx_examples_options">Test</label>
+			<label index="fe_users.tx_examples_special">Special field</label>
+			<label index="tt_content.list_type_pi1">Test plugin</label>
+			<label index="examples.pi_flexform.sheetGeneral">General Setup</label>
+			<label index="examples.pi_flexform.pageSelector">Reference page</label>
+			<label index="examples.pi_flexform.choosePage">Choose a page</label>
+		</languageKey>
+	</data>
+</T3locallang>
