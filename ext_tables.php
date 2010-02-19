@@ -46,8 +46,14 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi1', 'FILE:EXT:examples/flexform_ds1.xml');
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi2', 'FILE:EXT:examples/flexform_ds2.xml');
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi3', 'FILE:EXT:examples/flexform_ds3.xml');
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi4', 'FILE:EXT:examples/flexform_ds4.xml');
 
 	// Add the plugins to the list of plugins
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY . '_pi1'), 'list_type');
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi2', $_EXTKEY . '_pi2'), 'list_type');
+t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi3', $_EXTKEY . '_pi3'), 'list_type');
+t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi4', $_EXTKEY . '_pi4'), 'list_type');
 ?>
