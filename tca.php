@@ -42,13 +42,26 @@ $TCA['tx_examples_dummy'] = array(
 				'eval' => 'date',
 			)
 		),
+		'enforce_date' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_dummy.enforce_date',
+			'config' => array(
+				'type' => 'check',
+			)
+		),
 	),
 	'types' => array(
+			// NOTE: there are alternate versions of this row to demonstrate various features
 		'0' => array('showitem' => 'hidden, record_type, title, some_date '),
 			// Exchange this row with the one above for the example at the end of the types reference table
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, record_type;;;;2-2-2, title;;;;3-3-3, some_date '),
+			// Use this row to demonstrate usage of palettes
+//		'0' => array('showitem' => 'hidden;;;;1-1-1, record_type;;;;2-2-2, title;;;;3-3-3, some_date;;1 '),
 		'1' => array('showitem' => 'record_type, title '),
 		'2' => array('showitem' => 'title, some_date, hidden, record_type '),
+	),
+	'palettes' => array(
+		'1' => array('showitem' => 'enforce_date'),
 	),
 );
 ?>

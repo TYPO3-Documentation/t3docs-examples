@@ -17,6 +17,7 @@ CREATE TABLE tx_examples_dummy (
 	record_type tinyint(4) DEFAULT '0' NOT NULL,
 	title varchar(100) DEFAULT '' NOT NULL,
 	some_date int(11) DEFAULT '0' NOT NULL,
+	enforce_date tinyint(4) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 );

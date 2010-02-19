@@ -29,6 +29,7 @@
 			<label index="tx_examples_dummy.record_type.1">Short</label>
 			<label index="tx_examples_dummy.record_type.2">Weird</label>
 			<label index="tx_examples_dummy.some_date">Some date</label>
+			<label index="tx_examples_dummy.enforce_date">Enforce date</label>
 		</languageKey>
 	</data>
 </T3locallang>
