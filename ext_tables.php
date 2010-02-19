@@ -56,4 +56,27 @@ t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi2', $_EXTKEY . '_pi2'), 'list_type');
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi3', $_EXTKEY . '_pi3'), 'list_type');
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi4', $_EXTKEY . '_pi4'), 'list_type');
+
+	// Add dummy table for TCA manipulations
+	// Allow it anywhere in the page tree
+t3lib_extMgm::allowTableOnStandardPages('tx_examples_dummy');
+
+	// Main TCA definition
+$TCA['tx_examples_dummy'] = array(
+	'ctrl' => array(
+		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_dummy',
+		'label'     => 'title',
+		'tstamp'    => 'tstamp',
+		'crdate'    => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'type'		=> 'record_type',
+		'default_sortby' => 'ORDER BY title',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_examples_dummy.gif',
+	)
+);
 ?>
