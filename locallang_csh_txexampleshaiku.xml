@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- $Id: locallang_db.xml 30781 2010-03-05 13:13:22Z francois $ -->
 <T3locallang>
 	<meta type="array">
 		<description>Contents of examples csh for haiku table</description>
@@ -30,6 +31,8 @@
 
 				The file must contain the ###TYPO3_STATICFILE_EDIT### marker twice. The text of the haiku will be written between these two markers. Anything before and after that is ignored.
 			</label>
+			<label index="season.description">Choose a season from the list or create a new season.</label>
+			<label index="weirdness.description">This is a measure of weirdness. Use the wizard to increase or decrease it.</label>
 		</languageKey>
 	</data>
 </T3locallang>

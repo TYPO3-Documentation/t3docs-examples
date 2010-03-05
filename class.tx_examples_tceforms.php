@@ -32,6 +32,13 @@
  * $Id$
  */
 class tx_examples_tceforms {
+	/**
+	 * This method renders a user-defined field
+	 *
+	 * @param	array	$PA: parameters of the field
+	 * @param	object	$fObj: calling object (TCEform)
+	 * @return	string	HTML for the field
+	 */
 	function specialField($PA, $fObj) {
 		$formField  = '<div style="padding: 5px; background-color: yellow;">';
 		$formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
@@ -40,6 +47,36 @@ class tx_examples_tceforms {
 		$formField .= $PA['onFocus'];
 		$formField .= ' /></div>';
 		return $formField;
+	}
+
+	/**
+	 * This method renders a wizard providing JavaScript +/- controls
+	 * to increase or decrease an integer value in a field
+	 *
+	 * @param	array	$PA: parameters of the field
+	 * @param	object	$fObj: calling object (TCEform)
+	 * @return	string	HTML for the wizard
+	 */
+	function someWizard($PA, $fObj) {
+			// Note that the information is passed by reference,
+			// so it's possible to manipulate the field directly
+			// Here we highlight the field with the color passed as parameter
+		$backgroundColor = 'white';
+		if (!empty($PA['params']['color'])) {
+			$backgroundColor = $PA['params']['color'];
+		}
+		$PA['item'] = '<div style="background-color: ' . $backgroundColor . '; padding: 4px;">' . $PA['item'] . '</div>';
+
+			// Assemble the wizard itself
+		$output = '<div style="margin-top: 8px; margin-left: 4px;">';
+			// Create the + button
+		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value++; return false;";
+		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">+</a>';
+			// Create the - button
+		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value--; return false;";
+		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">-</a>';
+		$output .= '</div>';
+		return $output;
 	}
 }
 ?>

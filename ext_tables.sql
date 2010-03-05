@@ -46,6 +46,8 @@ CREATE TABLE tx_examples_haiku (
 	filename varchar(255) DEFAULT '' NOT NULL,
 	filesource tinyint(4) DEFAULT '0' NOT NULL,
 	filestatus varchar(255) DEFAULT '' NOT NULL,
+	season varchar(100) DEFAULT '' NOT NULL,
+	weirdness varchar(100) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 );

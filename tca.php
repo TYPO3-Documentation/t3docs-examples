@@ -131,10 +131,49 @@ $TCA['tx_examples_haiku'] = array(
 				'type' => 'input',
 				'size' => 30,
 			)
-		)
+		),
+		'season' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.season',
+			'config' => array(
+				'type' => 'input',
+				'size' => 20,
+				'eval' => 'trim',
+				'wizards' => array(
+					'season_picker' => array(
+						'type' => 'select',
+						'mode' => '',
+						'items' => array(
+							array('LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.season.spring', 'Spring'),
+							array('LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.season.summer', 'Summer'),
+							array('LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.season.autumn', 'Autumn'),
+							array('LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.season.winter', 'Winter'),
+						)
+					)
+				)
+			)
+		),
+		'weirdness' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.weirdness',
+			'config' => array(
+				'type' => 'input',
+				'size' => 10,
+				'eval' => 'int',
+				'wizards' => array(
+					'specialWizard' => array(
+						'type' => 'userFunc',
+						'userFunc' => 'EXT:examples/class.tx_examples_tceforms.php:tx_examples_tceforms->someWizard',
+						'params' => array(
+							'color' => 'green'
+						)
+					)
+				)
+			)
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden, title, poem, filename'),
+		'0' => array('showitem' => 'hidden, title, poem, filename, season, weirdness'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource
 //		'0' => array('showitem' => 'hidden, title, poem, filename;;1, filestatus'),
 	),
