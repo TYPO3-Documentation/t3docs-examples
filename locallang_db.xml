@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- $Id$ -->
 <T3locallang>
 	<meta type="array">
 		<type>database</type>
@@ -30,6 +31,7 @@
 			<label index="tx_examples_dummy.record_type.2">Weird</label>
 			<label index="tx_examples_dummy.some_date">Some date</label>
 			<label index="tx_examples_dummy.enforce_date">Enforce date</label>
+			<label index="tx_examples_dummy.description">Description</label>
 		</languageKey>
 	</data>
 </T3locallang>

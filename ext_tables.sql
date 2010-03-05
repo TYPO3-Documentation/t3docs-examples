@@ -1,10 +1,15 @@
+# $Id$
 #
 # Table structure for table 'fe_users'
 #
+
 CREATE TABLE fe_users (
 	tx_examples_options int(11) not null default 0,
 	tx_examples_special varchar(255) not null default ''
 );
+
+#
+# Table structure for example table 'dummy'
 
 CREATE TABLE tx_examples_dummy (
 	uid int(11) NOT NULL auto_increment,
@@ -18,6 +23,7 @@ CREATE TABLE tx_examples_dummy (
 	title varchar(100) DEFAULT '' NOT NULL,
 	some_date int(11) DEFAULT '0' NOT NULL,
 	enforce_date tinyint(4) DEFAULT '0' NOT NULL,
+	description text,
 
 	PRIMARY KEY (uid),
 );
