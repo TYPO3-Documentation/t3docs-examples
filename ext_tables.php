@@ -79,4 +79,29 @@ $TCA['tx_examples_dummy'] = array(
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_examples_dummy.gif',
 	)
 );
+
+	// Add another table for advanced TCA manipulations (special configuration, wizards)
+	// Allow it anywhere in the page tree
+t3lib_extMgm::allowTableOnStandardPages('tx_examples_haiku');
+
+	// Main TCA definition
+$TCA['tx_examples_haiku'] = array(
+	'ctrl' => array(
+		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku',
+		'label'     => 'title',
+		'tstamp'    => 'tstamp',
+		'crdate'    => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'default_sortby' => 'ORDER BY title',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_examples_haiku.gif',
+	)
+);
+
+// Add context sensitive help (csh) for this table
+t3lib_extMgm::addLLrefForTCAdescr('tx_examples_haiku', t3lib_extMgm::extPath($_EXTKEY) . 'locallang_csh_txexampleshaiku.xml');
 ?>

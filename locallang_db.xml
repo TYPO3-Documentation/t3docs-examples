@@ -32,6 +32,12 @@
 			<label index="tx_examples_dummy.some_date">Some date</label>
 			<label index="tx_examples_dummy.enforce_date">Enforce date</label>
 			<label index="tx_examples_dummy.description">Description</label>
+			<label index="tx_examples_haiku">Haiku</label>
+			<label index="tx_examples_haiku.title">Title</label>
+			<label index="tx_examples_haiku.poem">Text</label>
+			<label index="tx_examples_haiku.filename">File</label>
+			<label index="tx_examples_haiku.filesource">Load content from file</label>
+			<label index="tx_examples_haiku.filestatus">File status</label>
 		</languageKey>
 	</data>
 </T3locallang>

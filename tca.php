@@ -76,4 +76,73 @@ $TCA['tx_examples_dummy'] = array(
 		'1' => array('showitem' => 'enforce_date'),
 	),
 );
+
+$TCA['tx_examples_haiku'] = array(
+	'ctrl' => $TCA['tx_examples_haiku']['ctrl'],
+	'columns' => array(
+		'hidden' => array(
+			'exclude' => 1,
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+			'config'  => array(
+				'type'    => 'check',
+				'default' => '0'
+			)
+		),
+		'title' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'required,trim',
+			)
+		),
+		'poem' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.poem',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 6
+			),
+			'defaultExtras' => 'richtext[]:static_write[filename|poem]'
+				// NOTE: parameters 4 and 5 don't seem to apply, this must be broken. Investigate later.
+//			'defaultExtras' => 'richtext[]:static_write[filename|poem||filesource|filestatus]'
+		),
+		'filename' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.filename',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+			)
+		),
+		'filesource' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.filesource',
+			'config' => array(
+				'type' => 'check',
+			)
+		),
+		'filestatus' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.filestatus',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+			)
+		)
+	),
+	'types' => array(
+		'0' => array('showitem' => 'hidden, title, poem, filename'),
+			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource
+//		'0' => array('showitem' => 'hidden, title, poem, filename;;1, filestatus'),
+	),
+/*
+ * NOTE: use the filesource flag only when the problems of static_write have been solved
+	'palettes' => array(
+		'1' => array('showitem' => 'filesource'),
+	),
+ */
+);
 ?>

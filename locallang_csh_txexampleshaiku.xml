@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Contents of examples csh for haiku table</description>
+		<type>CSH</type>
+		<csh_table>tx_examples_haiku</csh_table>
+		<fileId>EXT:examples/locallang_csh_txexampleshaiku.xml</fileId>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index=".alttitle">Haikus</label>
+			<label index=".description">Haikus are short Japanese poems that follow a very strict structure.</label>
+			<label index="hidden.description">Use this field to hide a haiku that should not be published.</label>
+			<label index="title.description">Title of the haiku</label>
+			<label index="poem.alttitle">Text of the haiku</label>
+			<label index="poem.description">Enter the text of your haiku in this field.</label>
+			<label index="poem.syntax">
+				The structure of the haiku is very stric. It is comprised of three "lines". Those "lines" must be made of a very precise number of "syllables":
+
+				- 5 for the first line
+				- 7 for the second line
+				- 5 for the third line
+			</label>
+			<label index="filename.alttitle">Storage file</label>
+			<label index="filename.description">Name of the file where the text of the haiku will be stored.</label>
+			<label index="filename.details">
+				The file will be located in "fileadmin/static". It must already exist and be writeable.
+
+				The file must contain the ###TYPO3_STATICFILE_EDIT### marker twice. The text of the haiku will be written between these two markers. Anything before and after that is ignored.
+			</label>
+		</languageKey>
+	</data>
+</T3locallang>
