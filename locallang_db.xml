@@ -44,6 +44,8 @@
 			<label index="tx_examples_haiku.season.autumn">Autumn</label>
 			<label index="tx_examples_haiku.season.winter">Winter</label>
 			<label index="tx_examples_haiku.weirdness">Weirdness</label>
+			<label index="tx_examples_haiku.color">Color</label>
+			<label index="tx_examples_haiku.colorPick">Pick a color</label>
 		</languageKey>
 	</data>
 </T3locallang>

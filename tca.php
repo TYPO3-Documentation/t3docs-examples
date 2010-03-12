@@ -171,11 +171,32 @@ $TCA['tx_examples_haiku'] = array(
 				)
 			)
 		),
+		'color' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.color',
+			'config' => array(
+				'type' => 'input',
+				'size' => 10,
+				'eval' => 'trim',
+				'wizards' => array(
+					'colorChoice' => array(
+						'type' => 'colorbox',
+						'title' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.colorPick',
+						'script' => 'wizard_colorpicker.php',
+						'dim' => '20x20',
+						'tableStyle' => 'border: solid 1px black; margin-left: 20px;',
+						'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+						'exampleImg' => 'EXT:examples/res/images/japanese_garden.jpg',
+					)
+				)
+			)
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden, title, poem, filename, season, weirdness'),
-			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource
-//		'0' => array('showitem' => 'hidden, title, poem, filename;;1, filestatus'),
+		'0' => array('showitem' => 'hidden, title, poem, filename, season, weirdness, color'),
+			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
+			// but it should be made to work at some point (bug in the Core?)
+//		'0' => array('showitem' => 'hidden, title, poem, filename;;1, filestatus, season, weirdness, color'),
 	),
 /*
  * NOTE: use the filesource flag only when the problems of static_write have been solved

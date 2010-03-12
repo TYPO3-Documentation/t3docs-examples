@@ -1,6 +1,11 @@
+2010-03-12 Francois Suter  <francois@typo3.org>
+
+	* Added colorpicker wizard example
+
 2010-03-05 Francois Suter  <francois@typo3.org>
 
 	* Added examples for TCA special configurations
+	* Added custom wizard example
 
 2010-02-19 Francois Suter  <francois@typo3.org>
 

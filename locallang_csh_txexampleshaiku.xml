@@ -33,6 +33,7 @@
 			</label>
 			<label index="season.description">Choose a season from the list or create a new season.</label>
 			<label index="weirdness.description">This is a measure of weirdness. Use the wizard to increase or decrease it.</label>
+			<label index="color.description">Choose a color that expresses the mood of your haiku.</label>
 		</languageKey>
 	</data>
 </T3locallang>
