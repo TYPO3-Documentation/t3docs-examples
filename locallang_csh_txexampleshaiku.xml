@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<!-- $Id: locallang_db.xml 30781 2010-03-05 13:13:22Z francois $ -->
+<!-- $Id$ -->
 <T3locallang>
 	<meta type="array">
 		<description>Contents of examples csh for haiku table</description>
