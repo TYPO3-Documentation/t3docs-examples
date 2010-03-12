@@ -193,10 +193,10 @@ $TCA['tx_examples_haiku'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden, title, poem, filename, season, weirdness, color'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
-//		'0' => array('showitem' => 'hidden, title, poem, filename;;1, filestatus, season, weirdness, color'),
+//		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),
 	),
 /*
  * NOTE: use the filesource flag only when the problems of static_write have been solved
