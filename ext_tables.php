@@ -24,32 +24,32 @@ $tempColumns = array (
 		'config' => array (
 			'type' => 'user',
 			'size' => '30',
-			'userFunc' => 'EXT:examples/class.tx_examples_tceforms.php:tx_examples_tceforms->specialField'
+			'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->specialField'
 		)
 	),
 );
 
 t3lib_div::loadTCA('fe_users');
-t3lib_extMgm::addTCAcolumns('fe_users',$tempColumns,1);
-t3lib_extMgm::addToAllTCAtypes('fe_users','tx_examples_options;;;;1-1-1, tx_examples_special');
+t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns,1);
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_examples_options;;;;1-1-1, tx_examples_special');
 
 	// Load the full TCA
 t3lib_div::loadTCA('tt_content');
 
 	// Disable the display of layout and select_key fields for the plugins
 	// provided by the extension
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1'] = 'layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi2'] = 'layout,select_key,pages';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key,pages';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi2'] = 'layout,select_key,pages';
 
 	// Activate the display of the plug-in flexform field and set FlexForm definition
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi1', 'FILE:EXT:examples/flexform_ds1.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi1', 'FILE:EXT:examples/flexforms/flexform_ds1.xml');
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi2', 'FILE:EXT:examples/flexform_ds2.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi2', 'FILE:EXT:examples/flexforms/flexform_ds2.xml');
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi3', 'FILE:EXT:examples/flexform_ds3.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi3', 'FILE:EXT:examples/flexforms/flexform_ds3.xml');
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
-t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi4', 'FILE:EXT:examples/flexform_ds4.xml');
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi4', 'FILE:EXT:examples/flexforms/flexform_ds4.xml');
 
 	// Add the plugins to the list of plugins
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY . '_pi1'), 'list_type');
@@ -102,6 +102,6 @@ $TCA['tx_examples_haiku'] = array(
 	)
 );
 
-// Add context sensitive help (csh) for this table
+	// Add context sensitive help (csh) for this table
 t3lib_extMgm::addLLrefForTCAdescr('tx_examples_haiku', t3lib_extMgm::extPath($_EXTKEY) . 'locallang_csh_txexampleshaiku.xml');
 ?>

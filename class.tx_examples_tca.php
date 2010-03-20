@@ -31,7 +31,7 @@
  *
  * $Id$
  */
-class tx_examples_tceforms {
+class tx_examples_tca {
 	/**
 	 * This method renders a user-defined field
 	 *

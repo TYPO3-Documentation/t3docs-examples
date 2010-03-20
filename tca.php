@@ -163,7 +163,7 @@ $TCA['tx_examples_haiku'] = array(
 				'wizards' => array(
 					'specialWizard' => array(
 						'type' => 'userFunc',
-						'userFunc' => 'EXT:examples/class.tx_examples_tceforms.php:tx_examples_tceforms->someWizard',
+						'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->someWizard',
 						'params' => array(
 							'color' => 'green'
 						)
