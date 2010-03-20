@@ -11,10 +11,10 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Code examples from Core Documentation',
+	'title' => 'Core Documentation Code Examples',
 	'description' => 'This extension packages a number of code examples from the Core Documentation',
 	'category' => 'example',
-	'author' => 'Core Team',
+	'author' => 'TYPO3 Core Development Team',
 	'author_email' => 'info@typo3.org',
 	'shy' => '',
 	'dependencies' => '',
@@ -32,6 +32,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'version' => '0.0.0',
 	'constraints' => array(
 		'depends' => array(
+			'typo3' => '4.3.0-4.3.99',
 		),
 		'conflicts' => array(
 		),
