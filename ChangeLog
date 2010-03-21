@@ -1,3 +1,13 @@
+2010-03-20 Francois Suter  <francois@typo3.org>
+
+	* Added XCLASSing examples
+	* Added custom permission options
+	* Added listing of tt_news in Web > Page module
+	* Restructured files for improved clarity
+	* Added USAGE comments whereever appropriate
+	* Added manual
+	* Released to TER as version 0.1.0
+
 2010-03-12 Francois Suter  <francois@typo3.org>
 
 	* Added colorpicker wizard example
