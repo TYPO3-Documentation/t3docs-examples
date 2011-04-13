@@ -8,7 +8,7 @@ if (!defined('TYPO3_MODE')) {
 	// USAGE: Core APIs > Table Configuration Array, $TCA > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
 $tempColumns = array (
 	'tx_examples_options' => array (
-		'exclude' => 0,		
+		'exclude' => 0,
 		'label' => 'LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options',
 		'config' => array (
 			'type' => 'select',
@@ -18,12 +18,12 @@ $tempColumns = array (
 				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.2', '--div--'),
 				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.3', '3'),
 			),
-			'size' => 1,	
+			'size' => 1,
 			'maxitems' => 1,
 		)
 	),
 	'tx_examples_special' => array (
-		'exclude' => 0,		
+		'exclude' => 0,
 		'label' => 'LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_special',
 		'config' => array (
 			'type' => 'user',
@@ -102,6 +102,7 @@ $TCA['tx_examples_haiku'] = array(
 	'ctrl' => array(
 		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku',
 		'label'     => 'title',
+		'label_userFunc' => 'tx_examples_tca->haikuTitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',

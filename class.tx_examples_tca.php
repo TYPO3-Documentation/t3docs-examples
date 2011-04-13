@@ -39,7 +39,7 @@ class tx_examples_tca {
 	 * @param	object	$fObj: calling object (TCEform)
 	 * @return	string	HTML for the field
 	 */
-	function specialField($PA, $fObj) {
+	public function specialField($PA, $fObj) {
 		$formField  = '<div style="padding: 5px; background-color: yellow;">';
 		$formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
 		$formField .= ' value="' . htmlspecialchars($PA['itemFormElValue']) . '"';
@@ -57,7 +57,7 @@ class tx_examples_tca {
 	 * @param	object	$fObj: calling object (TCEform)
 	 * @return	string	HTML for the wizard
 	 */
-	function someWizard($PA, $fObj) {
+	public function someWizard($PA, $fObj) {
 			// Note that the information is passed by reference,
 			// so it's possible to manipulate the field directly
 			// Here we highlight the field with the color passed as parameter
@@ -77,6 +77,20 @@ class tx_examples_tca {
 		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">-</a>';
 		$output .= '</div>';
 		return $output;
+	}
+
+	/**
+	 * This method creates custom titles for the records of the tx_examples_haiku table
+	 *
+	 * @param array $parameters Parameters used to identify the current record
+	 * @param object $parentObject Calling object
+	 * @return void
+	 */
+	public function haikuTitle(&$parameters, $parentObject) {
+		$record = t3lib_BEfunc::getRecord($parameters['table'], $parameters['row']['uid']);
+		$newTitle = $record['title'];
+		$newTitle .= ' (' . substr(strip_tags($record['poem']), 0, 10) . '...)';
+		$parameters['title'] = $newTitle;
 	}
 }
 ?>
