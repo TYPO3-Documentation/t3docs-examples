@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Francois Suter <francois@typo3.org>
+*  (c) 2010-2011 Francois Suter <francois@typo3.org>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,9 +25,9 @@
 /**
  * This class XCLASSes t3lib_TCEforms to change the appearance of some fields
  *
- * @author		Francois Suter <francois@typo3.org>
- * @package		TYPO3
- * @subpackage	tx_examples
+ * @author Francois Suter <francois@typo3.org>
+ * @package TYPO3
+ * @subpackage tx_examples
  *
  * $Id$
  */
@@ -37,9 +37,9 @@ class ux_t3lib_TCEforms extends t3lib_TCEforms {
 	 *
 	 * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > A few examples of extending the backend classes
 	 *
-	 * @param	integer		$size: default filed size
-	 * @param	boolean		$textarea: TRUE if field is a textarea
-	 * @return	string		Either a "style" attribute string or "cols"/"size" attribute string
+	 * @param integer $size Default filed size
+	 * @param boolean $textarea TRUE if field is a textarea
+	 * @return string Either a "style" attribute string or "cols"/"size" attribute string
 	 */
 	function formWidth($size = 48, $textarea = FALSE) {
 		$size = round($size * 1.5);
@@ -51,8 +51,8 @@ class ux_t3lib_TCEforms extends t3lib_TCEforms {
 	 *
 	 * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > A few examples of extending the backend classes
 	 *
-	 * @param	array		The palette array to print
-	 * @return	string		HTML output
+	 * @param array $palArr The palette array to print
+	 * @return string HTML output
 	 */
 	function printPalette($palArr) {
 			// Change all field labels in the palette to uppercase
