@@ -56,8 +56,11 @@ class ux_t3lib_TCEforms extends t3lib_TCEforms {
 	 */
 	function printPalette($palArr) {
 			// Change all field labels in the palette to uppercase
+			// except if it's a line break (which would get broken)
 		foreach ($palArr as $key => $palette) {
-			$palArr[$key]['NAME'] = strtoupper($palArr[$key]['NAME']);
+			if ($palArr[$key]['NAME'] != '--linebreak--') {
+				$palArr[$key]['NAME'] = strtoupper($palArr[$key]['NAME']);
+			}
 		}
 		return parent::printPalette($palArr);
 	}
