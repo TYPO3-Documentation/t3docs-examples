@@ -49,6 +49,11 @@ CREATE TABLE tx_examples_haiku (
 	season varchar(100) DEFAULT '' NOT NULL,
 	weirdness varchar(100) DEFAULT '0' NOT NULL,
 	color varchar(20) DEFAULT '' NOT NULL,
+	image1 text,
+	image2 text,
+	image3 text,
+	image4 text,
+	image5 text,
 
 	PRIMARY KEY (uid),
 );

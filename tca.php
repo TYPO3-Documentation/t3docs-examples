@@ -191,9 +191,88 @@ $TCA['tx_examples_haiku'] = array(
 				)
 			)
 		),
+		'image1' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.image1',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/pics',
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+			),
+		),
+		'image2' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.image2',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/pics',
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+				'disable_controls' => 'browser'
+			),
+		),
+		'image3' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.image3',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/pics',
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+				'disable_controls' => 'upload'
+			),
+		),
+		'image4' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.image4',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/pics',
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+				'disable_controls' => 'list'
+			),
+		),
+		'image5' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.image5',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/pics',
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+				'disable_controls' => 'browser,upload,list'
+			),
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.images, image1, image2, image3, image4, image5'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),

@@ -1,3 +1,7 @@
+2011-10-10 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example fields for showing disable_controls property (group-type fields)
+
 2011-10-07 Francois Suter  <francois.suter@typo3.org>
 
 	* Fixed TCEform XCLASS so that it doesn't break TCA linebreaks anymore

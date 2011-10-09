@@ -111,6 +111,7 @@ $TCA['tx_examples_haiku'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
+		'dividers2tabs' => TRUE,
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_examples_haiku.gif',
 	)
