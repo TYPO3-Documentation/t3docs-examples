@@ -65,8 +65,10 @@ $TCA['tx_examples_dummy'] = array(
 		'0' => array('showitem' => 'hidden, record_type, title, some_date '),
 			// Use this row to demonstrate usage of palettes
 //		'0' => array('showitem' => 'hidden, record_type, title, some_date;;1 '),
-			// Use this row when discussion special configuration
+			// Use this row when discussing special configuration nowrap
+			// (paste this into the description field: This is a very long text that will not wrap when I get to the end of the box, which is very far away, away, away, away, away, away)
 //		'0' => array('showitem' => 'hidden, record_type, title, description;;;nowrap, some_date;;1 '),
+			// Additional types
 		'1' => array('showitem' => 'record_type, title '),
 		'2' => array('showitem' => 'title, some_date, hidden, record_type '),
 	),
