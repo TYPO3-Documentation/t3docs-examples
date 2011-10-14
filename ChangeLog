@@ -1,3 +1,7 @@
+2011-10-13 Francois Suter  <francois.suter@typo3.org>
+
+	* Removed unused types options from dummy table
+
 2011-10-10 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example fields for showing disable_controls property (group-type fields)
