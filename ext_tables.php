@@ -5,7 +5,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 	// Add some fields to FE Users table to show TCA fields definitions
-	// USAGE: Core APIs > Table Configuration Array, $TCA > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
+	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
 $tempColumns = array (
 	'tx_examples_options' => array (
 		'exclude' => 0,
@@ -38,7 +38,7 @@ t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns,1);
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_examples_options;;;;1-1-1, tx_examples_special');
 
 	// Create various FE plugins to demonstrate FlexForms definition
-	// USAGE: Core APIs > Table Configuration Array, $TCA > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
+	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
 
 	// Load the full TCA
 t3lib_div::loadTCA('tt_content');
@@ -66,8 +66,29 @@ t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi3', $_EXTKEY . '_pi3'), 'list_type');
 t3lib_extMgm::addPlugin(array('LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi4', $_EXTKEY . '_pi4'), 'list_type');
 
+	// Modify General Record Storage Page selector to make it into a page tree
+	// USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
+t3lib_div::loadTCA('pages');
+$tempConfiguration = array(
+	'type' => 'select',
+	'foreign_table' => 'pages',
+	'size' => 10,
+	'renderMode' => 'tree',
+	'treeConfig' => array(
+		'expandAll' => true,
+		'parentField' => 'pid',
+		'appearance' => array(
+			'showHeader' => TRUE,
+		),
+	),
+);
+$TCA['pages']['columns']['storage_pid']['config'] = array_merge(
+	$TCA['pages']['columns']['storage_pid']['config'],
+	$tempConfiguration
+);
+
 	// Add dummy table for TCA manipulations
-	// USAGE: Core APIs > Table Configuration Array, $TCA > $TCA array reference > ['types'][key] section
+	// USAGE: TCA Reference > $TCA array reference > ['types'][key] section
 
 	// Allow it anywhere in the page tree
 t3lib_extMgm::allowTableOnStandardPages('tx_examples_dummy');
@@ -92,7 +113,7 @@ $TCA['tx_examples_dummy'] = array(
 );
 
 	// Add another table for advanced TCA manipulations (special configuration, wizards)
-	// USAGE: Core APIs > Table Configuration Array, $TCA > Additional $TCA features
+	// USAGE: Core APIs > Additional $TCA features
 
 	// Allow it anywhere in the page tree
 t3lib_extMgm::allowTableOnStandardPages('tx_examples_haiku');
