@@ -54,6 +54,7 @@ CREATE TABLE tx_examples_haiku (
 	image3 text,
 	image4 text,
 	image5 text,
+	reference_page int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 );

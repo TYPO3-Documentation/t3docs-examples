@@ -270,9 +270,23 @@ $TCA['tx_examples_haiku'] = array(
 				'disable_controls' => 'browser,upload,list'
 			),
 		),
+			// USAGE: TCA reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select" > Examples
+			// Use the following TSconfig to show the effect:
+			// TCEFORM.tx_examples_haiku.reference_page.PAGE_TSCONFIG_STR = image
+		'reference_page' => array(
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.reference_page',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'pages',
+				'foreign_table_where' => "AND pages.title LIKE '%###PAGE_TSCONFIG_STR###%'",
+				'size' => 1,
+				'minitems' => 0,
+				'maxitems' => 1
+			),
+		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.images, image1, image2, image3, image4, image5'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.images, image1, image2, image3, image4, image5, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.relations, reference_page'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),

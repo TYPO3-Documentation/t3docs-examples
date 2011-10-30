@@ -113,7 +113,7 @@ $TCA['tx_examples_dummy'] = array(
 );
 
 	// Add another table for advanced TCA manipulations (special configuration, wizards)
-	// USAGE: Core APIs > Additional $TCA features
+	// USAGE: TCA Reference > Additional $TCA features
 
 	// Allow it anywhere in the page tree
 t3lib_extMgm::allowTableOnStandardPages('tx_examples_haiku');
