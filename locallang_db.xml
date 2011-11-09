@@ -51,7 +51,8 @@
 			<label index="tx_examples_haiku.image2">Images (no file browser)</label>
 			<label index="tx_examples_haiku.image3">Images (no upload button)</label>
 			<label index="tx_examples_haiku.image4">Images (no list display)</label>
-			<label index="tx_examples_haiku.image5">Images (no controls at all)</label>
+			<label index="tx_examples_haiku.image5">Images (no delete button)</label>
+			<label index="tx_examples_haiku.image6">Images (no controls at all)</label>
 			<label index="tx_examples_haiku.reference_page">Reference page</label>
 			<label index="tx_examples_haiku.relations">Relations</label>
 		</languageKey>
