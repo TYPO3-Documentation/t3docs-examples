@@ -28,7 +28,10 @@ $tempColumns = array (
 		'config' => array (
 			'type' => 'user',
 			'size' => '30',
-			'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->specialField'
+			'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->specialField',
+			'parameters' => array(
+				'color' => 'blue'
+			)
 		)
 	),
 );

@@ -40,7 +40,8 @@ class tx_examples_tca {
 	 * @return	string	HTML for the field
 	 */
 	public function specialField($PA, $fObj) {
-		$formField  = '<div style="padding: 5px; background-color: yellow;">';
+		$color = (isset($PA['parameters']['color'])) ? $PA['parameters']['color'] : 'red';
+		$formField  = '<div style="padding: 5px; background-color: ' . $color . ';">';
 		$formField .= '<input type="text" name="' . $PA['itemFormElName'] . '"';
 		$formField .= ' value="' . htmlspecialchars($PA['itemFormElValue']) . '"';
 		$formField .= ' onchange="' . htmlspecialchars(implode('', $PA['fieldChangeFunc'])) . '"';
