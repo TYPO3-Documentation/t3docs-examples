@@ -1,3 +1,7 @@
+2011-11-10 Francois Suter  <francois.suter@typo3.org>
+
+	* Added field for demonstrating slider wizard
+
 2011-11-09 Francois Suter  <francois.suter@typo3.org>
 
 	* Expanded disable_controls property example to cover new options with TYPO3 4.6

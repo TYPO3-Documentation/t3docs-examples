@@ -191,6 +191,27 @@ $TCA['tx_examples_haiku'] = array(
 				)
 			)
 		),
+		'angle' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.angle',
+			'config' => array(
+				'type' => 'input',
+				'size' => 5,
+				'eval' => 'trim,int',
+				'range' => array(
+					'lower' => -90,
+					'upper' => 90
+				),
+				'default' => 0,
+				'wizards' => array(
+					'angle' => array(
+						'type' => 'slider',
+						'step' => 10,
+						'width' => 200
+					)
+				)
+			)
+		),
 			// USAGE: TCA reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "group"
 			// Demonstrates the various values the property disable_controls can take
 		'image1' => array(
@@ -304,7 +325,7 @@ $TCA['tx_examples_haiku'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.relations, reference_page'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/locallang_db.xml:tx_examples_haiku.relations, reference_page'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),

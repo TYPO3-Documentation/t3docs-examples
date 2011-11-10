@@ -49,6 +49,7 @@ CREATE TABLE tx_examples_haiku (
 	season varchar(100) DEFAULT '' NOT NULL,
 	weirdness varchar(100) DEFAULT '0' NOT NULL,
 	color varchar(20) DEFAULT '' NOT NULL,
+	angle int(11) DEFAULT '0' NOT NULL,
 	image1 text,
 	image2 text,
 	image3 text,

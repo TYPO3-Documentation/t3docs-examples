@@ -46,6 +46,7 @@
 			<label index="tx_examples_haiku.weirdness">Weirdness</label>
 			<label index="tx_examples_haiku.color">Color</label>
 			<label index="tx_examples_haiku.colorPick">Pick a color</label>
+			<label index="tx_examples_haiku.angle">Angle</label>
 			<label index="tx_examples_haiku.images">Images</label>
 			<label index="tx_examples_haiku.image1">Images (all controls available)</label>
 			<label index="tx_examples_haiku.image2">Images (no file browser)</label>
