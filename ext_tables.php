@@ -37,7 +37,7 @@ $tempColumns = array (
 );
 
 t3lib_div::loadTCA('fe_users');
-t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns,1);
+t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_examples_options;;;;1-1-1, tx_examples_special');
 
 	// Create various FE plugins to demonstrate FlexForms definition
@@ -135,6 +135,7 @@ $TCA['tx_examples_haiku'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
+		'searchFields' => 'title,poem',
 		'dividers2tabs' => TRUE,
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'tca.php',
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_examples_haiku.gif',
