@@ -103,7 +103,8 @@ $TCA['tx_examples_haiku'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 6
+				'rows' => 6,
+				'softref' => 'typolink_tag,images,email[subst],url',
 			),
 			'defaultExtras' => 'richtext[]:static_write[filename|poem]'
 				// NOTE: parameters 4 and 5 don't seem to apply, this must be broken. Investigate later.
