@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 
 	// Add some fields to FE Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
-$tempColumns = array (
+$temporaryColumns = array (
 	'tx_examples_options' => array (
 		'exclude' => 0,
 		'label' => 'LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options',
@@ -37,7 +37,7 @@ $tempColumns = array (
 );
 
 t3lib_div::loadTCA('fe_users');
-t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
+t3lib_extMgm::addTCAcolumns('fe_users', $temporaryColumns, 1);
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_examples_options;;;;1-1-1, tx_examples_special');
 
 	// Create various FE plugins to demonstrate FlexForms definition
