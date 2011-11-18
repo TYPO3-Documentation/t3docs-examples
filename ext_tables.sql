@@ -1,17 +1,23 @@
 # $Id$
+
 #
 # Table structure for table 'fe_users'
 #
-
 CREATE TABLE fe_users (
 	tx_examples_options int(11) DEFAULT '0' NOT NULL,
 	tx_examples_special varchar(255) DEFAULT '' NOT NULL
 );
 
 #
+# Table structure for table 'tt_content'
+#
+CREATE TABLE tt_content (
+	tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
+);
+
+#
 # Table structure for example table 'dummy'
 #
-
 CREATE TABLE tx_examples_dummy (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -32,7 +38,6 @@ CREATE TABLE tx_examples_dummy (
 #
 # Table structure for example table 'haiku'
 #
-
 CREATE TABLE tx_examples_haiku (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

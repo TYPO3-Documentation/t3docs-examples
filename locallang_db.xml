@@ -13,6 +13,7 @@
 			<label index="fe_users.tx_examples_options.I.3">Option 3</label>
 			<label index="fe_users.tx_examples_options">Test</label>
 			<label index="fe_users.tx_examples_special">Special field</label>
+			<label index="tt_content.tx_examples_noprint">No print</label>
 			<label index="tt_content.list_type_pi1">Examples: simple FlexForm</label>
 			<label index="tt_content.list_type_pi2">Examples: advanced FlexForm</label>
 			<label index="tt_content.list_type_pi3">Examples: advanced FlexForm with localization type 1</label>

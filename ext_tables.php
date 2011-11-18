@@ -40,11 +40,25 @@ t3lib_div::loadTCA('fe_users');
 t3lib_extMgm::addTCAcolumns('fe_users', $temporaryColumns, 1);
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_examples_options;;;;1-1-1, tx_examples_special');
 
-	// Create various FE plugins to demonstrate FlexForms definition
-	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
-
 	// Load the full TCA
 t3lib_div::loadTCA('tt_content');
+
+	// Add a "no print" checkbox
+	// USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
+$temporaryColumn = array(
+	'tx_examples_noprint' => array (
+		'exclude' => 0,
+		'label' => 'LLL:EXT:examples/locallang_db.xml:tt_content.tx_examples_noprint',
+		'config' => array (
+			'type' => 'check',
+		)
+	)
+);
+t3lib_extMgm::addTCAcolumns('tt_content', $temporaryColumn, 1);
+t3lib_extMgm::addFieldsToPalette('tt_content', 'visibility', 'tx_examples_noprint', 'after:linkToTop');
+
+	// Create various FE plugins to demonstrate FlexForms definition
+	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
 
 	// Disable the display of layout and select_key fields for the plugins
 	// provided by the extension
@@ -144,4 +158,7 @@ $TCA['tx_examples_haiku'] = array(
 
 	// Add context sensitive help (csh) for this table
 t3lib_extMgm::addLLrefForTCAdescr('tx_examples_haiku', t3lib_extMgm::extPath($_EXTKEY) . 'locallang_csh_txexampleshaiku.xml');
+
+	// Declare static TS file
+t3lib_extMgm::addStaticFile($_EXTKEY, 'static/', 'Examples TypoScript');
 ?>
