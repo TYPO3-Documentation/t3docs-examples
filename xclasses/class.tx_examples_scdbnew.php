@@ -41,7 +41,12 @@ class ux_SC_db_new extends SC_db_new {
 	 */
 	function regularNew() {
 		parent::regularNew();
-		$this->code .= $this->doc->section($GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'), $GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'), 0, 1);
+		$this->code .= $this->doc->section(
+			$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
+			$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
+			0,
+			1
+		);
 	}
 }
 ?>
