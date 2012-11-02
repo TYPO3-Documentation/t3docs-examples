@@ -4,6 +4,28 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+	// Add examples BE module
+	// This module is used to demonstrate some features and take screenshots
+	// Avoid loading the module when in the frontend or the Install Tool
+if (TYPO3_MODE == 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
+		// Register the backend module
+	Tx_Extbase_Utility_Extension::registerModule(
+		$_EXTKEY,
+		'tools', // Make module a submodule of 'Admin Tools'
+		'examples', // Submodule key
+		'', // Position
+		array(
+				// An array holding the controller-action-combinations that are accessible
+			'Default' => 'flash'
+		),
+		array(
+			'access' => 'user,group',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml'
+		)
+	);
+}
+
 	// Add some fields to FE Users table to show TCA fields definitions
 	// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
 $temporaryColumns = array (

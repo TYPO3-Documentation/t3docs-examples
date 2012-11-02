@@ -1,3 +1,8 @@
+2012-11-02 Francois Suter  <francois.suter@typo3.org>
+
+	* Added BE module for code examples, started with flash messages, resolves #42625
+	* Raised compatibility to TYPO3 4.7
+
 2011-11-18 Francois Suter  <francois.suter@typo3.org>
 
 	* Added another example of TCA customization from start to finish, including TS tuning
