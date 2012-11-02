@@ -9,10 +9,6 @@ if (!defined ('TYPO3_MODE')) {
 	// USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
 $TYPO3_CONF_VARS['BE']['XCLASS']['typo3/db_new.php'] = t3lib_extMgm::extPath($_EXTKEY, 'xclasses/class.tx_examples_scdbnew.php');
 
-	// Load XCLASSing of TCEforms
-	// USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > A few examples of extending the backend classes
-$TYPO3_CONF_VARS['BE']['XCLASS']['t3lib/class.t3lib_tceforms.php'] = t3lib_extMgm::extPath($_EXTKEY, 'xclasses/class.tx_examples_tceforms.php');
-
 	// Add tt_news listing to Web > Page module
 	// USAGE: Core APIs > TYPO3 API overview > Various examples > Support for custom tables in the Page module
 $TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tt_news'][0] = array(

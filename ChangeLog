@@ -8,6 +8,10 @@
 
 2011-11-10 Francois Suter  <francois.suter@typo3.org>
 
+	* Removed TCEforms XCLASS example, resolves #42624
+
+2011-11-10 Francois Suter  <francois.suter@typo3.org>
+
 	* Added field for demonstrating slider wizard
 	* Added soft-reference parser to the RTE field of haiku records
 
