@@ -22,10 +22,18 @@ $TYPO3_CONF_VARS['BE']['customPermOptions'] = array(
 	'tx_coreunittest_cat1' => array(
 		'header' => '[Core Unittest] Category 1',
 		'items' => array(
-			'key1' => array('Key 1 header'),
-			'key2' => array('Key 2 header'),
-			'key3' => array('Key 3 header'),
-			)
+		'key1' => array('Key 1 header'),
+		'key2' => array('Key 2 header'),
+		'key3' => array('Key 3 header'),
 		)
-	);
+	)
+);
+
+	// Register ExtDirect method
+t3lib_extMgm::registerExtDirectComponent(
+	'TYPO3.Examples.ExtDirect',
+	t3lib_extMgm::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server'),
+	NULL,
+	'user,group'
+);
 ?>

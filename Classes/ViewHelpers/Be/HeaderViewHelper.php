@@ -26,55 +26,41 @@
  ***************************************************************/
 
 /**
- * Controller for the backend module
+ * This class is used to load application-specific files (JS and CSS) for the BE module
  *
  * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package		TYPO3
  * @subpackage	tx_examples
  *
- * $Id$
+ * $Id: HeaderViewHelper.php 67582 2012-11-01 17:43:20Z francois $
  */
-class Tx_Examples_Controller_DefaultController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Examples_ViewHelpers_Be_HeaderViewHelper extends Tx_Fluid_ViewHelpers_Be_AbstractBackendViewHelper {
 
 	/**
-	 * Renders the list of all possible flash messages
+	 * Renders the view helper
+	 *
+	 * In this case, it actually renders nothing, but only loads stuff in the page header
 	 *
 	 * @return void
 	 */
-	public function flashAction() {
-			// Issue one of each type of flash messages
-		$this->flashMessageContainer->add(
-			'This is a notice message',
-			'Notification',
-			t3lib_FlashMessage::NOTICE
+	public function render() {
+			/** @var $pageRenderer t3lib_PageRenderer */
+		$pageRenderer = $this->getDocInstance()->getPageRenderer();
+
+			// Add base ExtDirect code
+		$pageRenderer->addExtDirectCode(
+			array('TYPO3.Examples')
 		);
-		$this->flashMessageContainer->add(
-			'This is an information message',
-			'Information',
-			t3lib_FlashMessage::INFO
-		);
-		$this->flashMessageContainer->add(
-			'This is a success message',
-			'Hooray!',
-			t3lib_FlashMessage::OK
-		);
-		$this->flashMessageContainer->add(
-			'This is a warning message',
-			'Watch out',
-			t3lib_FlashMessage::WARNING
-		);
-		$this->flashMessageContainer->add(
-			'
-				<p>This is an error message</p>
-				<ul>
-					<li>It\'s inside a div</li>
-					<li>so it can contain</li>
-					<li>pretty much <strong>any markup</strong></li>
-				</ul>
-			',
-			'Whoops!',
-			t3lib_FlashMessage::ERROR
+			// Make localized labels available in JavaScript context
+		$pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xml');
+
+			// Load application specific JS
+		$pageRenderer->addJsFile(
+			t3lib_extMgm::extRelPath('examples') . 'Resources/Public/JavaScript/Application.js',
+			'text/javascript',
+			FALSE
 		);
 	}
 }
+
 ?>

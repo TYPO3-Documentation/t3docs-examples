@@ -1,3 +1,7 @@
+2012-11-08 Francois Suter  <francois.suter@typo3.org>
+
+	* Added ExtDirect call example, resolves #42799
+
 2012-11-02 Francois Suter  <francois.suter@typo3.org>
 
 	* Added BE module for code examples, started with flash messages, resolves #42625

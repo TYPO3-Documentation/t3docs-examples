@@ -1,9 +1,17 @@
-{namespace ExtImp=Tx_ExternalImport_ViewHelpers}
+{namespace Ex=Tx_Examples_ViewHelpers}
+
 <f:layout name="Module" />
 
 <f:section name="header">
+	<Ex:be.header />
 </f:section>
+
 <f:section name="main">
 	<h2><f:translate key="function_flash" /></h2>
 	<p><f:translate key="function_flash_intro" /></p>
+	<p><f:translate key="function_flash_javascript" /></p>
+	<p>
+		<f:form.submit value="Count pages" name="pages" class="action-button" />
+		<f:form.submit value="Count content elements" name="tt_content" class="action-button" />
+	</p>
 </f:section>
