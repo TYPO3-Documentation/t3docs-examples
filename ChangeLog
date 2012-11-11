@@ -1,3 +1,7 @@
+2012-11-11 Francois Suter  <francois.suter@typo3.org>
+
+	* Added examples related to the TYPO3 Viewport, resolves #42854
+
 2012-11-08 Francois Suter  <francois.suter@typo3.org>
 
 	* Added ExtDirect call example, resolves #42799

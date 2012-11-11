@@ -21,9 +21,12 @@ if (TYPO3_MODE == 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
 		array(
 			'access' => 'user,group',
 			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
-			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml'
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml',
+			'navigationComponentId' => 'typo3-navigation'
 		)
 	);
+		// Register the navigation component
+	t3lib_extMgm::addNavigationComponent('tools_Examples', 'typo3-navigation');
 }
 
 	// Add some fields to FE Users table to show TCA fields definitions

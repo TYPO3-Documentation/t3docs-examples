@@ -36,4 +36,13 @@ t3lib_extMgm::registerExtDirectComponent(
 	NULL,
 	'user,group'
 );
+
+/*
+	// Register a class for manipulating the page rendering process
+	// (used in TYPO3 Viewport manipulation demonstration)
+	// NOTE: even though the code itself works, it breaks the TYPO3 backend
+	// This code should be revisited at some point, but this requires solid ExtJS knowledge
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
+  'EXT:' . $_EXTKEY . '/Classes/Utilities/Viewport.php:Tx_Examples_Utilities_Viewport->renderPreProcess';
+*/
 ?>

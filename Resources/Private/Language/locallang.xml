@@ -11,7 +11,7 @@
 			<label index="mlang_labels_tabdescr">Core code examples to demonstrate various features</label>
 			<label index="mlang_labels_tablabel">Examples</label>
 			<label index="function_flash">Flash messages</label>
-			<label index="function_flash_intro">The above demonstrates Flash messages be showing one of each type. They can also come without title.</label>
+			<label index="function_flash_intro">The above demonstrates Flash messages by showing one of each type. They can also come without title.</label>
 			<label index="function_flash_javascript">It's also possible to pop flash messages in JavaScript. Click one of the buttons below to see some action.</label>
 			<label index="record_count_title">Record count</label>
 			<label index="record_count_message">{0} record(s) in table "{1}".</label>
