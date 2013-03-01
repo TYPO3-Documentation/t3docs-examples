@@ -1,4 +1,6 @@
 <?php
+namespace TYPO3\Examples\Xclass;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -23,7 +25,7 @@
 ***************************************************************/
 
 /**
- * This class XCLASSes SC_db_new to modify the layout of the New Record Wizard
+ * This class XCLASSes NewRecordController to modify the layout of the New Record Wizard
  *
  * @author		Francois Suter <francois@typo3.org>
  * @package		TYPO3
@@ -31,7 +33,7 @@
  *
  * $Id$
  */
-class ux_SC_db_new extends SC_db_new {
+class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
 	/**
 	 * This methods adds a section at the bottom of the New Record Wizard
 	 *

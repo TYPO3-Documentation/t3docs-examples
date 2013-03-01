@@ -1,8 +1,10 @@
 <?php
+namespace TYPO3\Examples\Userfuncs;
+
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Francois Suter <francois@typo3.org>
+*  (c) 2010-2013 Francois Suter <francois@typo3.org>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -31,7 +33,7 @@
  *
  * $Id$
  */
-class tx_examples_tca {
+class Tca {
 	/**
 	 * This method renders a user-defined field
 	 *
@@ -88,7 +90,7 @@ class tx_examples_tca {
 	 * @return void
 	 */
 	public function haikuTitle(&$parameters, $parentObject) {
-		$record = t3lib_BEfunc::getRecord($parameters['table'], $parameters['row']['uid']);
+		$record = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($parameters['table'], $parameters['row']['uid']);
 		$newTitle = $record['title'];
 		$newTitle .= ' (' . substr(strip_tags($record['poem']), 0, 10) . '...)';
 		$parameters['title'] = $newTitle;

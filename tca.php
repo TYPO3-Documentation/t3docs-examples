@@ -2,8 +2,8 @@
 /* $Id$*/
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-$TCA['tx_examples_dummy'] = array(
-	'ctrl' => $TCA['tx_examples_dummy']['ctrl'],
+$GLOBALS['TCA']['tx_examples_dummy'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_examples_dummy']['ctrl'],
 	'columns' => array(
 		'hidden' => array(
 			'exclude' => 1,
@@ -77,8 +77,8 @@ $TCA['tx_examples_dummy'] = array(
 	),
 );
 
-$TCA['tx_examples_haiku'] = array(
-	'ctrl' => $TCA['tx_examples_haiku']['ctrl'],
+$GLOBALS['TCA']['tx_examples_haiku'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_examples_haiku']['ctrl'],
 	'columns' => array(
 		'hidden' => array(
 			'exclude' => 1,
@@ -164,7 +164,7 @@ $TCA['tx_examples_haiku'] = array(
 				'wizards' => array(
 					'specialWizard' => array(
 						'type' => 'userFunc',
-						'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->someWizard',
+						'userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->someWizard',
 						'params' => array(
 							'color' => 'green'
 						)

@@ -34,7 +34,7 @@
  *
  * $Id: DefaultController.php 67714 2012-11-08 17:40:43Z francois $
  */
-class tx_examples_pierror {
+class tx_examples_pierror extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	var $prefixId      = 'tx_examples_pierror';		// Same as class name
 	var $scriptRelPath = 'pierror/class.tx_examples_pierror.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'examples';	// The extension key.
@@ -43,9 +43,10 @@ class tx_examples_pierror {
 	/**
 	 * This is the main method of the plugin. It returns the content to display
 	 *
-	 * @param	string		$content: The plugin content
-	 * @param	array		$conf: The plugin configuration
-	 * @return	string		The content that is displayed on the website
+	 * @param    string        $content: The plugin content
+	 * @param    array        $conf: The plugin configuration
+	 * @throws Exception
+	 * @return    string        The content that is displayed on the website
 	 */
 	function main($content, $conf) {
 		throw new \Exception('This is a test Exception', 1360332631);

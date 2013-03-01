@@ -56,7 +56,7 @@ $temporaryColumns = array (
 		'config' => array (
 			'type' => 'user',
 			'size' => '30',
-			'userFunc' => 'EXT:examples/class.tx_examples_tca.php:tx_examples_tca->specialField',
+			'userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->specialField',
 			'parameters' => array(
 				'color' => 'blue'
 			)
@@ -106,26 +106,26 @@ $temporaryColumn = array(
 
 // Disable the display of layout and select_key fields for the plugins
 // provided by the extension
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi2'] = 'layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi3'] = 'layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi4'] = 'layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pierror'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi2'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi3'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi4'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pierror'] = 'layout,select_key,pages';
 
 // Activate the display of the plug-in flexform field and set FlexForm definition
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	$_EXTKEY . '_pi1', 'FILE:EXT:examples/flexforms/flexform_ds1.xml'
 );
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	$_EXTKEY . '_pi2', 'FILE:EXT:examples/flexforms/flexform_ds2.xml'
 );
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	$_EXTKEY . '_pi3', 'FILE:EXT:examples/flexforms/flexform_ds3.xml'
 );
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	$_EXTKEY . '_pi4', 'FILE:EXT:examples/flexforms/flexform_ds4.xml'
 );
@@ -183,8 +183,8 @@ $tempConfiguration = array(
 		),
 	),
 );
-$TCA['pages']['columns']['storage_pid']['config'] = array_merge(
-	$TCA['pages']['columns']['storage_pid']['config'],
+$GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
+	$GLOBALS['TCA']['pages']['columns']['storage_pid']['config'],
 	$tempConfiguration
 );
 
@@ -195,7 +195,7 @@ $TCA['pages']['columns']['storage_pid']['config'] = array_merge(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
 
 // Main TCA definition
-$TCA['tx_examples_dummy'] = array(
+$GLOBALS['TCA']['tx_examples_dummy'] = array(
 	'ctrl' => array(
 		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_dummy',
 		'label'     => 'title',
@@ -220,11 +220,11 @@ $TCA['tx_examples_dummy'] = array(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_haiku');
 
 // Main TCA definition
-$TCA['tx_examples_haiku'] = array(
+$GLOBALS['TCA']['tx_examples_haiku'] = array(
 	'ctrl' => array(
 		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku',
 		'label'     => 'title',
-		'label_userFunc' => 'tx_examples_tca->haikuTitle',
+		'label_userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->haikuTitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',

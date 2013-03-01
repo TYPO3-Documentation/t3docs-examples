@@ -7,21 +7,20 @@ if (!defined ('TYPO3_MODE')) {
 
 	// Load XCLASSing of db_new
 	// USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
-$TYPO3_CONF_VARS['BE']['XCLASS']['typo3/db_new.php'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
-	$_EXTKEY,
-	'xclasses/class.tx_examples_scdbnew.php'
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
+	'className' => 'TYPO3\\Examples\\Xclass\\NewRecordController'
 );
 
 	// Add tt_news listing to Web > Page module
 	// USAGE: Core APIs > TYPO3 API overview > Various examples > Support for custom tables in the Page module
-$TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tt_news'][0] = array(
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['sys_template'][0] = array(
 	'fList' => 'title,short;author',
 	'icon' => TRUE
 );
 
 	// Define custom permission options
 	// USAGE: Core APIs > TYPO3 API overview > Various examples > Using custom permission options
-$TYPO3_CONF_VARS['BE']['customPermOptions'] = array(
+$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
 	'tx_coreunittest_cat1' => array(
 			'header' => '[Core Unittest] Category 1',
 			'items' => array(
