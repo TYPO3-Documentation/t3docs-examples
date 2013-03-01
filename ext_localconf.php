@@ -45,4 +45,6 @@ t3lib_extMgm::registerExtDirectComponent(
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
   'EXT:' . $_EXTKEY . '/Classes/Utilities/Viewport.php:Tx_Examples_Utilities_Viewport->renderPreProcess';
 */
+
+t3lib_extMgm::addPItoST43($_EXTKEY, 'pierror/class.tx_examples_pierror.php', '_pierror', 'list_type', 1);
 ?>

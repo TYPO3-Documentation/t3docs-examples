@@ -18,6 +18,7 @@
 			<label index="tt_content.list_type_pi2">Examples: advanced FlexForm</label>
 			<label index="tt_content.list_type_pi3">Examples: advanced FlexForm with localization type 1</label>
 			<label index="tt_content.list_type_pi4">Examples: advanced FlexForm with localization type 2</label>
+			<label index="tt_content.list_type_pierror">Examples: error handling</label>
 			<label index="examples.pi_flexform.sheetGeneral">General Setup</label>
 			<label index="examples.pi_flexform.pageSelector">Reference page</label>
 			<label index="examples.pi_flexform.choosePage">Choose a page</label>
