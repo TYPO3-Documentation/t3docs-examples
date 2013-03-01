@@ -1,4 +1,6 @@
 <?php
+namespace TYPO3\Examples\ViewHelpers\Be;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -34,7 +36,7 @@
  *
  * $Id: HeaderViewHelper.php 67582 2012-11-01 17:43:20Z francois $
  */
-class Tx_Examples_ViewHelpers_Be_HeaderViewHelper extends Tx_Fluid_ViewHelpers_Be_AbstractBackendViewHelper {
+class HeaderViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
 
 	/**
 	 * Renders the view helper
@@ -56,7 +58,7 @@ class Tx_Examples_ViewHelpers_Be_HeaderViewHelper extends Tx_Fluid_ViewHelpers_B
 
 			// Load application specific JS
 		$pageRenderer->addJsFile(
-			t3lib_extMgm::extRelPath('examples') . 'Resources/Public/JavaScript/Application.js',
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/JavaScript/Application.js',
 			'text/javascript',
 			FALSE
 		);

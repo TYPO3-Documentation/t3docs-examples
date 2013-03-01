@@ -44,7 +44,7 @@ class Tx_Examples_ExtDirect_Server {
 	public function countRecords($table) {
 			// Return the count of all non-deleted records for the given table
 		return array(
-			'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . t3lib_BEfunc::deleteClause($table))
+			'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($table))
 		);
 	}
 }

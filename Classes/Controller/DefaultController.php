@@ -1,8 +1,10 @@
 <?php
+namespace TYPO3\Examples\Controller;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2012 Documentation Team <documentation@typo3.org>
+ *  (c) 2012-2013 Documentation Team <documentation@typo3.org>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -34,7 +36,7 @@
  *
  * $Id$
  */
-class Tx_Examples_Controller_DefaultController extends Tx_Extbase_MVC_Controller_ActionController {
+class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
 	 * Renders the list of all possible flash messages
@@ -46,22 +48,22 @@ class Tx_Examples_Controller_DefaultController extends Tx_Extbase_MVC_Controller
 		$this->flashMessageContainer->add(
 			'This is a notice message',
 			'Notification',
-			t3lib_FlashMessage::NOTICE
+			\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE
 		);
 		$this->flashMessageContainer->add(
 			'This is an information message',
 			'Information',
-			t3lib_FlashMessage::INFO
+			\TYPO3\CMS\Core\Messaging\FlashMessage::INFO
 		);
 		$this->flashMessageContainer->add(
 			'This is a success message',
 			'Hooray!',
-			t3lib_FlashMessage::OK
+			\TYPO3\CMS\Core\Messaging\FlashMessage::OK
 		);
 		$this->flashMessageContainer->add(
 			'This is a warning message',
 			'Watch out',
-			t3lib_FlashMessage::WARNING
+			\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING
 		);
 		$this->flashMessageContainer->add(
 			'
@@ -73,7 +75,7 @@ class Tx_Examples_Controller_DefaultController extends Tx_Extbase_MVC_Controller
 				</ul>
 			',
 			'Whoops!',
-			t3lib_FlashMessage::ERROR
+			\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR
 		);
 	}
 }
