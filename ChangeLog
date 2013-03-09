@@ -1,6 +1,7 @@
 2013-03-09 Francois Suter  <francois.suter@typo3.org>
 
 	* Added Logging API examples, resolves #46149
+	* Moved language files to XLIFF, resolves #46150
 
 2013-03-01 Francois Suter  <francois.suter@typo3.org>
 

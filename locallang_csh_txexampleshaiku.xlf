@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:43:42Z" product-name="examples">
+		<header/>
+		<body>
+			<trans-unit id=".alttitle" xml:space="preserve">
+				<source>Haikus</source>
+			</trans-unit>
+			<trans-unit id=".description" xml:space="preserve">
+				<source>Haikus are short Japanese poems that follow a very strict structure.</source>
+			</trans-unit>
+			<trans-unit id="hidden.description" xml:space="preserve">
+				<source>Use this field to hide a haiku that should not be published.</source>
+			</trans-unit>
+			<trans-unit id="title.description" xml:space="preserve">
+				<source>Title of the haiku</source>
+			</trans-unit>
+			<trans-unit id="poem.alttitle" xml:space="preserve">
+				<source>Text of the haiku</source>
+			</trans-unit>
+			<trans-unit id="poem.description" xml:space="preserve">
+				<source>Enter the text of your haiku in this field.</source>
+			</trans-unit>
+			<trans-unit id="poem.syntax" xml:space="preserve">
+				<source>
+				The structure of the haiku is very stric. It is comprised of three &quot;lines&quot;. Those &quot;lines&quot; must be made of a very precise number of &quot;syllables&quot;:
+
+				- 5 for the first line
+				- 7 for the second line
+				- 5 for the third line
+			</source>
+			</trans-unit>
+			<trans-unit id="filename.alttitle" xml:space="preserve">
+				<source>Storage file</source>
+			</trans-unit>
+			<trans-unit id="filename.description" xml:space="preserve">
+				<source>Name of the file where the text of the haiku will be stored.</source>
+			</trans-unit>
+			<trans-unit id="filename.details" xml:space="preserve">
+				<source>
+				The file will be located in &quot;fileadmin/static&quot;. It must already exist and be writeable.
+
+				The file must contain the ###TYPO3_STATICFILE_EDIT### marker twice. The text of the haiku will be written between these two markers. Anything before and after that is ignored.
+			</source>
+			</trans-unit>
+			<trans-unit id="season.description" xml:space="preserve">
+				<source>Choose a season from the list or create a new season.</source>
+			</trans-unit>
+			<trans-unit id="weirdness.description" xml:space="preserve">
+				<source>This is a measure of weirdness. Use the wizard to increase or decrease it.</source>
+			</trans-unit>
+			<trans-unit id="color.description" xml:space="preserve">
+				<source>Choose a color that expresses the mood of your haiku.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
