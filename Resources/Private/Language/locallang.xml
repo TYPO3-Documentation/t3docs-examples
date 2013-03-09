@@ -13,8 +13,13 @@
 			<label index="function_flash">Flash messages</label>
 			<label index="function_flash_intro">The above demonstrates Flash messages by showing one of each type. They can also come without title.</label>
 			<label index="function_flash_javascript">It's also possible to pop flash messages in JavaScript. Click one of the buttons below to see some action.</label>
+			<label index="function_flash_content_elements">Count content elements</label>
+			<label index="function_flash_pages">Count pages</label>
 			<label index="record_count_title">Record count</label>
 			<label index="record_count_message">{0} record(s) in table "{1}".</label>
+			<label index="function_log">Create log entries</label>
+			<label index="function_log_intro">This module creates several log entries every time it is loaded. Click on the button below to reload it and create more entries.</label>
+			<label index="function_log_create">Create entries</label>
 		</languageKey>
 	</data>
 </T3locallang>

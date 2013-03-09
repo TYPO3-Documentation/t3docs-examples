@@ -1,0 +1,17 @@
+{namespace Ex=TYPO3\Examples\ViewHelpers}
+
+<f:layout name="Module" />
+
+<f:section name="header">
+	<Ex:be.header />
+</f:section>
+
+<f:section name="main">
+	<h2><f:translate key="function_log" /></h2>
+	<p><f:translate key="function_log_intro" /></p>
+	<f:form action="log" name="loggingForm" method="post">
+		<p>
+			<f:form.submit value="{f:translate(key:'function_log_create')}" name="log-entries" class="log-button" />
+		</p>
+	</f:form>
+</f:section>

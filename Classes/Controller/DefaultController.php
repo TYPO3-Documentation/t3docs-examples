@@ -78,5 +78,33 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR
 		);
 	}
+
+	/**
+	 * Creates some entries using the 6.0+ logging API
+	 *
+	 * @return void
+	 */
+	public function logAction() {
+		/** @var $logger \TYPO3\CMS\Core\Log\Logger */
+		$logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
+		$logger->info('Everything went fine.');
+		$logger->warning('Something went awry, check your configuration!');
+		$logger->error(
+		'This was not a good idea',
+			array(
+				'foo' => 'bar',
+				'bar' => $this,
+			)
+		);
+		$logger->log(
+			\TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
+			'This is an utter failure!'
+		);
+		$this->flashMessageContainer->add(
+			'3 log entries created',
+			'',
+			\TYPO3\CMS\Core\Messaging\FlashMessage::INFO
+		);
+	}
 }
 ?>

@@ -5,21 +5,21 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-	// Load XCLASSing of db_new
-	// USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
+// Load XCLASSing of db_new
+// USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
 	'className' => 'TYPO3\\Examples\\Xclass\\NewRecordController'
 );
 
-	// Add tt_news listing to Web > Page module
-	// USAGE: Core APIs > TYPO3 API overview > Various examples > Support for custom tables in the Page module
+// Add tt_news listing to Web > Page module
+// USAGE: Core APIs > TYPO3 API overview > Various examples > Support for custom tables in the Page module
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['sys_template'][0] = array(
 	'fList' => 'title,short;author',
 	'icon' => TRUE
 );
 
-	// Define custom permission options
-	// USAGE: Core APIs > TYPO3 API overview > Various examples > Using custom permission options
+// Define custom permission options
+// USAGE: Core APIs > TYPO3 API overview > Various examples > Using custom permission options
 $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
 	'tx_coreunittest_cat1' => array(
 			'header' => '[Core Unittest] Category 1',
@@ -27,6 +27,24 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
 			'key1' => array('Key 1 header'),
 			'key2' => array('Key 2 header'),
 			'key3' => array('Key 3 header'),
+		)
+	)
+);
+
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG];
+// Add example configuration for the logging API
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::WARNING] = array(
+	// configuration for WARNING severity, including all
+	// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
+		// add a SyslogWriter
+		'TYPO3\CMS\Core\Log\Writer\SyslogWriter' => array(),
+);
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
+	// configuration for ERROR level log entries
+	\TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
+		// add a MemoryUsageProcessor
+		'TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor' => array(
+			'formatSize' => TRUE
 		)
 	)
 );
