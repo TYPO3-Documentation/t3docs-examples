@@ -37,13 +37,13 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerCon
 	// configuration for WARNING severity, including all
 	// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
 		// add a SyslogWriter
-		'TYPO3\CMS\Core\Log\Writer\SyslogWriter' => array(),
+		'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
 );
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
 	// configuration for ERROR level log entries
 	\TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
 		// add a MemoryUsageProcessor
-		'TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor' => array(
+		'TYPO3\\CMS\\Core\\Log\\Processor\\MemoryUsageProcessor' => array(
 			'formatSize' => TRUE
 		)
 	)
