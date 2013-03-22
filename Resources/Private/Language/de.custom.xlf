@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+		<header/>
+		<body>
+			<trans-unit id="pages.title_formlabel" xml:space="preserve">
+				<source>Most important tile</source>
+				<target>Wichtigster Titel</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

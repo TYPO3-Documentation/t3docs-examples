@@ -1,3 +1,7 @@
+2013-03-22 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example usage of locallangXMLOverride, resolves #46531
+
 2013-03-09 Francois Suter  <francois.suter@typo3.org>
 
 	* Added Logging API examples, resolves #46149
