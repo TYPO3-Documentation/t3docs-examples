@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Examples\Userfuncs;
+namespace Documentation\Examples\Userfuncs;
 
 /***************************************************************
 *  Copyright notice

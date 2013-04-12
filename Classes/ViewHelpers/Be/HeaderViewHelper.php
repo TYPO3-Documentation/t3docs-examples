@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Examples\ViewHelpers\Be;
+namespace Documentation\Examples\ViewHelpers\Be;
 
 /***************************************************************
  *  Copyright notice

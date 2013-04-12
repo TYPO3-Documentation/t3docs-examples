@@ -56,7 +56,7 @@ $temporaryColumns = array (
 		'config' => array (
 			'type' => 'user',
 			'size' => '30',
-			'userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->specialField',
+			'userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->specialField',
 			'parameters' => array(
 				'color' => 'blue'
 			)
@@ -224,7 +224,7 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 	'ctrl' => array(
 		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku',
 		'label'     => 'title',
-		'label_userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->haikuTitle',
+		'label_userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->haikuTitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',

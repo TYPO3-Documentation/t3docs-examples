@@ -164,7 +164,7 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 				'wizards' => array(
 					'specialWizard' => array(
 						'type' => 'userFunc',
-						'userFunc' => 'TYPO3\\Examples\\Userfuncs\\Tca->someWizard',
+						'userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->someWizard',
 						'params' => array(
 							'color' => 'green'
 						)

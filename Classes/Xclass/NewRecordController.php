@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Examples\Xclass;
+namespace Documentation\Examples\Xclass;
 
 /***************************************************************
 *  Copyright notice

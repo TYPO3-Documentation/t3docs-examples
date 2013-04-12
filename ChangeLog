@@ -10,7 +10,7 @@
 2013-03-01 Francois Suter  <francois.suter@typo3.org>
 
 	* Adapted extension icon to orange-only logo, resolves #45939
-	* Added error handlign demonstration FE plugin, resolves #45940
+	* Added error handling demonstration FE plugin, resolves #45940
 
 2013-02-21 Francois Suter  <francois.suter@typo3.org>
 

@@ -8,7 +8,7 @@ if (!defined ('TYPO3_MODE')) {
 // Load XCLASSing of db_new
 // USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
-	'className' => 'TYPO3\\Examples\\Xclass\\NewRecordController'
+	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
 );
 
 // Add tt_news listing to Web > Page module
