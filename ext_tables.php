@@ -10,13 +10,13 @@ if (!defined('TYPO3_MODE')) {
 if (TYPO3_MODE == 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
 	// Register the backend module
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'TYPO3.' . $_EXTKEY,
+		'Documentation.' . $_EXTKEY,
 		'tools', // Make module a submodule of 'Admin Tools'
 		'examples', // Submodule key
 		'', // Position
 		array(
 			// An array holding the controller-action-combinations that are accessible
-			'Default' => 'flash,log'
+			'Default' => 'flash,log,tree'
 		),
 		array(
 			'access' => 'user,group',

@@ -42,6 +42,12 @@
 			<trans-unit id="function_log_create" xml:space="preserve">
 				<source>Create entries</source>
 			</trans-unit>
+			<trans-unit id="function_tree" xml:space="preserve">
+				<source>Page tree</source>
+			</trans-unit>
+			<trans-unit id="function_tree_intro" xml:space="preserve">
+				<source>This module demonstrates how a page tree can be created and displayed.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
