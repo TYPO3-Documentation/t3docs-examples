@@ -48,6 +48,30 @@
 			<trans-unit id="function_tree_intro" xml:space="preserve">
 				<source>This module demonstrates how a page tree can be created and displayed.</source>
 			</trans-unit>
+			<trans-unit id="function_clipboard" xml:space="preserve">
+				<source>Clipboard</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_intro" xml:space="preserve">
+				<source>This module displays the content of the clipboard.</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_current_pad" xml:space="preserve">
+				<source>Current clipboard pad</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_normal_pad" xml:space="preserve">
+				<source>Normal clipboard pad</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_files" xml:space="preserve">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_no_files" xml:space="preserve">
+				<source>No files in this clipboard pad.</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_pages" xml:space="preserve">
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="function_clipboard_no_pages" xml:space="preserve">
+				<source>No pages in this clipboard pad.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

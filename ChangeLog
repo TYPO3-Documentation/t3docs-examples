@@ -1,3 +1,7 @@
+2013-04-19 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example code for clipboard access, resolves #47374
+
 2013-04-17 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example for creating page tree, resolves #47310

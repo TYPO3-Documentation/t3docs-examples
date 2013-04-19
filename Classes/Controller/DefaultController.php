@@ -152,5 +152,40 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			$tree->tree
 		);
 	}
+
+	/**
+	 * Displays the content of the clipboard
+	 *
+	 * @return void
+	 */
+	public function clipboardAction() {
+		/** @var $clipboard \TYPO3\CMS\Backend\Clipboard\Clipboard */
+		$clipboard = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Backend\\Clipboard\\Clipboard');
+		// Read the clipboard content from the user session
+		$clipboard->initializeClipboard();
+		// Uncomment to produce debug output
+//		\TYPO3\CMS\Core\Utility\DebugUtility::debug($clipboard->clipData);
+
+		// Access files and pages content of current pad
+		$currentPad = array(
+			'files' => $clipboard->elFromTable('_FILE'),
+			'pages' => $clipboard->elFromTable('pages'),
+		);
+
+		// Switch to normal pad and retrieve files and pages content
+		$clipboard->setCurrentPad('normal');
+		$normalPad = array(
+			'files' => $clipboard->elFromTable('_FILE'),
+			'pages' => $clipboard->elFromTable('pages'),
+		);
+
+		// Pass data to the view for display
+		$this->view->assignMultiple(
+			array(
+				'current' => $currentPad,
+				'normal' => $normalPad
+			)
+		);
+	}
 }
 ?>
