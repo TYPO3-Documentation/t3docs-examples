@@ -29,7 +29,7 @@
  * @package		TYPO3
  * @subpackage	tx_examples
  *
- * $Id: Server.php 63469 2012-06-15 07:54:52Z francois $
+ * $Id$
  */
 class Tx_Examples_Utilities_Viewport {
 

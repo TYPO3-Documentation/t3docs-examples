@@ -34,7 +34,7 @@ namespace Documentation\Examples\ViewHelpers\Be;
  * @package		TYPO3
  * @subpackage	tx_examples
  *
- * $Id: HeaderViewHelper.php 67582 2012-11-01 17:43:20Z francois $
+ * $Id$
  */
 class HeaderViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
 
