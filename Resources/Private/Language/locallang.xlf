@@ -72,6 +72,9 @@
 			<trans-unit id="function_clipboard_no_pages" xml:space="preserve">
 				<source>No pages in this clipboard pad.</source>
 			</trans-unit>
+			<trans-unit id="csm_view_page" xml:space="preserve">
+				<source>View page in tree</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

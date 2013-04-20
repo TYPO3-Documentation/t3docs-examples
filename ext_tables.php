@@ -4,6 +4,9 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+$fullExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY);
+$relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY);
+
 // Add examples BE module
 // This module is used to demonstrate some features and take screenshots
 // Avoid loading the module when in the frontend or the Install Tool
@@ -30,6 +33,16 @@ if (TYPO3_MODE == 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
 		'tools_Examples',
 		'typo3-navigation'
 	);
+}
+
+if (TYPO3_MODE == 'BE') {
+	$GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
+		'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
+	);
+	$icons = array(
+		'page-tree' => $relativeExtensionPath . 'Resources/Public/Images/PageTree.png'
+	);
+	\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
 }
 
 // Add some fields to FE Users table to show TCA fields definitions
@@ -208,8 +221,8 @@ $GLOBALS['TCA']['tx_examples_dummy'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'tca.php',
-		'iconfile'          => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'icon_tx_examples_dummy.gif',
+		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
+		'iconfile'          => $relativeExtensionPath . 'icon_tx_examples_dummy.gif',
 	)
 );
 
@@ -235,15 +248,15 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 		),
 		'searchFields' => 'title,poem',
 		'dividers2tabs' => TRUE,
-		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'tca.php',
-		'iconfile'          => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'icon_tx_examples_haiku.gif',
+		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
+		'iconfile'          => $relativeExtensionPath . 'icon_tx_examples_haiku.gif',
 	)
 );
 
 // Add context sensitive help (csh) for this table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
 	'tx_examples_haiku',
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'locallang_csh_txexampleshaiku.xml'
+	$fullExtensionPath . 'locallang_csh_txexampleshaiku.xml'
 );
 
 // Declare static TS file

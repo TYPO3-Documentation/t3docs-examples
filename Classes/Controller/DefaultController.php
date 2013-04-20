@@ -113,8 +113,13 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function treeAction() {
-		// Get page record for tree starting point
-		$startingPoint = 1;
+		// Get page record for tree starting point. May be passed as an argument.
+		try {
+			$startingPoint = $this->request->getArgument('page');
+		}
+		catch (\Exception $e) {
+			$startingPoint = 1;
+		}
 		$pageRecord = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
 			'pages',
 			$startingPoint
@@ -145,6 +150,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			$depth,
 			''
 		);
+		\TYPO3\CMS\Core\Utility\GeneralUtility::devLog('page tree', 'examples', 0, $tree->tree);
 
 		// Pass the tree to the view
 		$this->view->assign(

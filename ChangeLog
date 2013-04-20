@@ -1,3 +1,7 @@
+2013-04-20 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example code for non-page tree CSM, resolves #47405
+
 2013-04-19 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example code for clipboard access, resolves #47374
