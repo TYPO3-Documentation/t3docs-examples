@@ -124,6 +124,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi3'] = 'layout,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi4'] = 'layout,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pierror'] = 'layout,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pihtml'] = 'layout,select_key,pages';
 
 // Activate the display of the plug-in flexform field and set FlexForm definition
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
@@ -176,6 +177,13 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
 	array(
 		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pierror',
 		$_EXTKEY . '_pierror'
+	),
+	'list_type'
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+	array(
+		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pihtml',
+		$_EXTKEY . '_pihtml'
 	),
 	'list_type'
 );

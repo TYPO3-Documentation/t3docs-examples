@@ -39,6 +39,9 @@
 			<trans-unit id="tt_content.list_type_pierror" xml:space="preserve">
 				<source>Examples: error handling</source>
 			</trans-unit>
+			<trans-unit id="tt_content.list_type_pihtml" xml:space="preserve">
+				<source>Examples: HTML parsing</source>
+			</trans-unit>
 			<trans-unit id="examples.pi_flexform.sheetGeneral" xml:space="preserve">
 				<source>General Setup</source>
 			</trans-unit>
