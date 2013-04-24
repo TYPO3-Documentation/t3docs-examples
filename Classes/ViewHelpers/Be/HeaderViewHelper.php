@@ -46,7 +46,6 @@ class HeaderViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendVi
 	 * @return void
 	 */
 	public function render() {
-			/** @var $pageRenderer t3lib_PageRenderer */
 		$pageRenderer = $this->getDocInstance()->getPageRenderer();
 
 			// Add base ExtDirect code
