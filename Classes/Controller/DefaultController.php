@@ -193,5 +193,14 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			)
 		);
 	}
+
+	/**
+	 * Displays links to edit records
+	 *
+	 * @return void
+	 */
+	public function linksAction() {
+
+	}
 }
 ?>

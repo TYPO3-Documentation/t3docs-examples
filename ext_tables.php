@@ -19,7 +19,7 @@ if (TYPO3_MODE == 'BE' && !(TYPO3_REQUESTTYPE & TYPO3_REQUESTTYPE_INSTALL)) {
 		'', // Position
 		array(
 			// An array holding the controller-action-combinations that are accessible
-			'Default' => 'flash,log,tree,clipboard'
+			'Default' => 'flash,log,tree,clipboard,links'
 		),
 		array(
 			'access' => 'user,group',

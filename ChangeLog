@@ -1,3 +1,7 @@
+2013-04-24 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example code for edit links, resolves #47536
+
 2013-04-22 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example code for parsing HTML, resolves #47434
