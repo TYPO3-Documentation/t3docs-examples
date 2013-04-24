@@ -1,6 +1,7 @@
 2013-04-24 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example code for edit links, resolves #47536
+	* Removed code for extra tables in Page module, resolves #47553
 
 2013-04-22 Francois Suter  <francois.suter@typo3.org>
 

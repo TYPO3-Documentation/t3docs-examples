@@ -11,13 +11,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\
 	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
 );
 
-// Add tt_news listing to Web > Page module
-// USAGE: Core APIs > TYPO3 API overview > Various examples > Support for custom tables in the Page module
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['sys_template'][0] = array(
-	'fList' => 'title,short;author',
-	'icon' => TRUE
-);
-
 // Define custom permission options
 // USAGE: Core APIs > TYPO3 API overview > Various examples > Using custom permission options
 $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
