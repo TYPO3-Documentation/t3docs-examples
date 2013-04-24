@@ -2,6 +2,7 @@
 
 	* Added example code for edit links, resolves #47536
 	* Removed code for extra tables in Page module, resolves #47553
+	* Added plugin registration example, resolves #47557
 
 2013-04-22 Francois Suter  <francois.suter@typo3.org>
 

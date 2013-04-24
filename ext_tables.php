@@ -188,6 +188,12 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
 	'list_type'
 );
 
+// Add "pierror" plugin to new element wizard
+if (TYPO3_MODE == 'BE') {
+	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_examples_pierror_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'pierror/class.tx_examples_pierror_wizicon.php';
+}
+
+
 // Modify General Record Storage Page selector to make it into a page tree
 // USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
 \TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('pages');
