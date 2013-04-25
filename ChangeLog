@@ -1,3 +1,7 @@
+2013-04-25 Francois Suter  <francois.suter@typo3.org>
+
+	* Improved custom options example, resolves #47591
+
 2013-04-24 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example code for edit links, resolves #47536

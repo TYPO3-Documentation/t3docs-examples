@@ -90,6 +90,21 @@
 			<trans-unit id="function_links_new_haiku" xml:space="preserve">
 				<source>Create a new haiku with a predefined title</source>
 			</trans-unit>
+			<trans-unit id="permissions_header" xml:space="preserve">
+				<source>Custom permissions</source>
+			</trans-unit>
+			<trans-unit id="permissions_option1" xml:space="preserve">
+				<source>Custom permission #1</source>
+			</trans-unit>
+			<trans-unit id="permissions_option1_description" xml:space="preserve">
+				<source>This allows the user to save things.</source>
+			</trans-unit>
+			<trans-unit id="permissions_option2" xml:space="preserve">
+				<source>Custom permission #2</source>
+			</trans-unit>
+			<trans-unit id="permissions_option3" xml:space="preserve">
+				<source>Custom permission #3</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

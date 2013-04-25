@@ -12,14 +12,18 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\
 );
 
 // Define custom permission options
-// USAGE: Core APIs > TYPO3 API overview > Various examples > Using custom permission options
+// USAGE: Core APIs > TYPO3 API overview > Various examples > Custom permission
 $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
-	'tx_coreunittest_cat1' => array(
-			'header' => '[Core Unittest] Category 1',
-			'items' => array(
-			'key1' => array('Key 1 header'),
-			'key2' => array('Key 2 header'),
-			'key3' => array('Key 3 header'),
+	'tx_examples_cat1' => array(
+		'header' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_header',
+		'items' => array(
+			'key1' => array(
+				'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
+				'EXT:t3skin/icons/gfx/savedok.gif',
+				'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
+			),
+			'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
+			'key3' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option3'),
 		)
 	)
 );
