@@ -79,4 +79,13 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php'][
 // Add custom translations overriding default labels
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
+
+// Register custom RTE transformation
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_examples_transformation'] = 'Documentation\Examples\Service\RteTransformation';
+
+// Add necessary TSconfig to active custom RTE transformation
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+	'RTE.default.proc.usertrans.tx_examples_transformation.addHrulerInRTE = 1
+	 RTE.config.tx_examples_haiku.poem.proc.overruleMode = tx_examples_transformation,ts_css'
+);
 ?>

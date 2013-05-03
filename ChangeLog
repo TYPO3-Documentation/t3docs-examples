@@ -1,3 +1,7 @@
+2013-05-03 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example RTE transformation, resolves #47884
+
 2013-04-25 Francois Suter  <francois.suter@typo3.org>
 
 	* Improved custom options example, resolves #47591

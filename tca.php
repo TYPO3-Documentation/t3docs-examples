@@ -106,7 +106,7 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 				'rows' => 6,
 				'softref' => 'typolink_tag,images,email[subst],url',
 			),
-			'defaultExtras' => 'richtext[]:static_write[filename|poem]'
+			'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]:static_write[filename|poem]'
 				// NOTE: parameters 4 and 5 don't seem to apply, this must be broken. Investigate later.
 //			'defaultExtras' => 'richtext[]:static_write[filename|poem||filesource|filestatus]'
 		),
