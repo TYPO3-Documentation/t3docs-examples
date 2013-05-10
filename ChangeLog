@@ -1,3 +1,7 @@
+2013-05-10 Francois Suter  <francois.suter@typo3.org>
+
+	* Added code samples using system collections, resolves #48104
+
 2013-05-03 Francois Suter  <francois.suter@typo3.org>
 
 	* Added example RTE transformation, resolves #47884

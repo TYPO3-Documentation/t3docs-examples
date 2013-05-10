@@ -1,0 +1,16 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<ul>
+		<f:for each="{collections}" as="collection">
+			<li>
+				{collection.title} (Records from <code>{collection.itemTableName}</code>)
+				<ul>
+					<f:for each="{collection}" as="record">
+						<li>{record.title}</li>
+					</f:for>
+				</ul>
+			</li>
+		</f:for>
+	</ul>
+</f:section>

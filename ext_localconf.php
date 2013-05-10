@@ -76,6 +76,15 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php'][
 	1
 );
 
+// Register the collections plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Documentation.' . $_EXTKEY,
+	'Collections',
+	array(
+		'Collection' => 'index',
+	)
+);
+
 // Add custom translations overriding default labels
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';

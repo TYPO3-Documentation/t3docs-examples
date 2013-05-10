@@ -187,6 +187,12 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
 	),
 	'list_type'
 );
+// Register the collections plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	'Collections',
+	'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:collections_plugin_title'
+);
 
 // Add "pierror" plugin to new element wizard
 if (TYPO3_MODE == 'BE') {
