@@ -242,7 +242,7 @@ $GLOBALS['TCA']['tx_examples_dummy'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
-		'iconfile'          => $relativeExtensionPath . 'icon_tx_examples_dummy.gif',
+		'iconfile'          => $relativeExtensionPath . 'Resources/Public/Images/Dummy.png',
 	)
 );
 
@@ -269,7 +269,7 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 		'searchFields' => 'title,poem',
 		'dividers2tabs' => TRUE,
 		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
-		'iconfile'          => $relativeExtensionPath . 'icon_tx_examples_haiku.gif',
+		'iconfile'          => $relativeExtensionPath . 'Resources/Public/Images/Haiku.png',
 	)
 );
 
