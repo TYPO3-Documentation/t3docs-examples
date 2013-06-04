@@ -108,6 +108,9 @@
 			<trans-unit id="collections_plugin_title" xml:space="preserve">
 				<source>Collections usage</source>
 			</trans-unit>
+			<trans-unit id="archive_page_type" xml:space="preserve">
+				<source>Archive page</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

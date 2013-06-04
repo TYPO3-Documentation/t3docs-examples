@@ -1,3 +1,7 @@
+2013-06-04 Francois Suter  <francois.suter@typo3.org>
+
+	* Added example for creating new page types, resolves #48816
+
 2013-05-13 Francois Suter  <francois.suter@typo3.org>
 
 	* Changed table icons and added attribution, resolves #48130

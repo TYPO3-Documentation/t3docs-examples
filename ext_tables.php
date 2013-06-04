@@ -285,4 +285,32 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 	'static/',
 	'Examples TypoScript'
 );
+
+// Define a new doktype
+$customPageDoktype = 116;
+$customPageIcon = $relativeExtensionPath . 'Resources/Public/Images/Archive.png';
+// Add the new doktype to the list of page types
+$GLOBALS['PAGES_TYPES'][$customPageDoktype] = array(
+	'type' => 'sys',
+	'icon' => $customPageIcon,
+	'allowedTables' => '*'
+);
+// Add the new doktype to the page type selector
+$GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = array(
+	'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+	$customPageDoktype,
+	$customPageIcon
+);
+// Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
+$GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items'][] = array(
+	'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+	$customPageDoktype,
+	$customPageIcon
+);
+// Add the icon for the new doktype
+\TYPO3\CMS\Backend\Sprite\SpriteManager::addTcaTypeIcon('pages', $customPageDoktype, $customPageIcon);
+// Add the new doktype to the list of types available from the new page menu at the top of the page tree
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+	'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
+);
 ?>
