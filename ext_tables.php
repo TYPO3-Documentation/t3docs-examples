@@ -313,4 +313,21 @@ $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
 	'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
 );
+
+// Add an extra categories selection field to the pages table
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
+	'examples',
+	'pages',
+	// Do not use the default field name ("categories"), which is already used
+	// Also do not use a field name containing "categories" (see http://forum.typo3.org/index.php/t/199595/)
+	'tx_examples_cats',
+	array(
+		// Set a custom label
+		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
+		// Override generic configuration, e.g. sort by title rather than by sorting
+		'fieldConfiguration' => array(
+			'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
+		)
+	)
+);
 ?>

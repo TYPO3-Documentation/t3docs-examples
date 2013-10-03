@@ -111,6 +111,9 @@
 			<trans-unit id="archive_page_type" xml:space="preserve">
 				<source>Archive page</source>
 			</trans-unit>
+			<trans-unit id="additional_categories" xml:space="preserve">
+				<source>Additional categories</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
