@@ -50,14 +50,14 @@ if (TYPO3_MODE == 'BE') {
 $temporaryColumns = array (
 	'tx_examples_options' => array (
 		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options',
+		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
 		'config' => array (
 			'type' => 'select',
 			'items' => array (
-				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.0', '1'),
-				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.1', '2'),
-				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.2', '--div--'),
-				array('LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_options.I.3', '3'),
+				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0', '1'),
+				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1', '2'),
+				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2', '--div--'),
+				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3', '3'),
 			),
 			'size' => 1,
 			'maxitems' => 1,
@@ -65,7 +65,7 @@ $temporaryColumns = array (
 	),
 	'tx_examples_special' => array (
 		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/locallang_db.xml:fe_users.tx_examples_special',
+		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
 		'config' => array (
 			'type' => 'user',
 			'size' => '30',
@@ -96,7 +96,7 @@ $temporaryColumns = array (
 $temporaryColumn = array(
 	'tx_examples_noprint' => array (
 		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/locallang_db.xml:tt_content.tx_examples_noprint',
+		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
 		'config' => array (
 			'type' => 'check',
 		)
@@ -147,42 +147,42 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
 // Add the plugins to the list of plugins
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi1',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
 		$_EXTKEY . '_pi1'
 	),
 	'list_type'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi2',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi2',
 		$_EXTKEY . '_pi2'
 	),
 	'list_type'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi3',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi3',
 		$_EXTKEY . '_pi3'
 	),
 	'list_type'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pi4',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi4',
 		$_EXTKEY . '_pi4'
 	),
 	'list_type'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pierror',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
 		$_EXTKEY . '_pierror'
 	),
 	'list_type'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
 	array(
-		'LLL:EXT:examples/locallang_db.xml:tt_content.list_type_pihtml',
+		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pihtml',
 		$_EXTKEY . '_pihtml'
 	),
 	'list_type'
@@ -230,7 +230,7 @@ $GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
 // Main TCA definition
 $GLOBALS['TCA']['tx_examples_dummy'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_dummy',
+		'title'     => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy',
 		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -255,7 +255,7 @@ $GLOBALS['TCA']['tx_examples_dummy'] = array(
 // Main TCA definition
 $GLOBALS['TCA']['tx_examples_haiku'] = array(
 	'ctrl' => array(
-		'title'     => 'LLL:EXT:examples/locallang_db.xml:tx_examples_haiku',
+		'title'     => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
 		'label'     => 'title',
 		'label_userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->haikuTitle',
 		'tstamp'    => 'tstamp',
@@ -276,7 +276,7 @@ $GLOBALS['TCA']['tx_examples_haiku'] = array(
 // Add context sensitive help (csh) for this table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
 	'tx_examples_haiku',
-	$fullExtensionPath . 'locallang_csh_txexampleshaiku.xml'
+	$fullExtensionPath . 'Resources/Private/Language/locallang_csh_txexampleshaiku.xml'
 );
 
 // Declare static TS file

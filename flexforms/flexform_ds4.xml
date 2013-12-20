@@ -7,18 +7,18 @@
 		<sDEF>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.sheetGeneral</sheetTitle>
+					<sheetTitle>LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.sheetGeneral</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<pageSelector>
 						<TCEforms>
-							<label>LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.pageSelector</label>
+							<label>LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.pageSelector</label>
 							<config>
 								<type>select</type>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.choosePage</numIndex>
+										<numIndex index="0">LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.choosePage</numIndex>
 										<numIndex index="1">0</numIndex>
 									</numIndex>
 								</items>
@@ -35,13 +35,13 @@
 		<s_Message>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.s_Message</sheetTitle>
+					<sheetTitle>LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.s_Message</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<header>
 						<TCEforms>
-							<label>LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.header</label>
+							<label>LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.header</label>
 							<config>
 								<type>input</type>
 								<size>30</size>
@@ -50,7 +50,7 @@
 					</header>
 					<message>
 						<TCEforms>
-							<label>LLL:EXT:examples/locallang_db.xml:examples.pi_flexform.message</label>
+							<label>LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.message</label>
 							<config>
 								<type>text</type>
 								<cols>40</cols>

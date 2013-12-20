@@ -44,8 +44,8 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
 	function regularNew() {
 		parent::regularNew();
 		$this->code .= $this->doc->section(
-			$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:help'),
-			$GLOBALS['LANG']->sL('LLL:EXT:examples/locallang.xml:make_choice'),
+			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help'),
+			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice'),
 			0,
 			1
 		);
