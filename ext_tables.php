@@ -7,6 +7,14 @@ if (!defined('TYPO3_MODE')) {
 $fullExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY);
 $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY);
 
+// Declare static TS file
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+	$_EXTKEY,
+	'static/',
+	'Examples TypoScript'
+);
+
+
 // Add examples BE module
 // This module is used to demonstrate some features and take screenshots
 // Avoid loading the module when in the frontend or the Install Tool
@@ -44,6 +52,7 @@ if (TYPO3_MODE == 'BE') {
 	);
 	\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
 }
+
 
 // Add some fields to FE Users table to show TCA fields definitions
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
@@ -88,8 +97,6 @@ $temporaryColumns = array (
 	'tx_examples_options;;;;1-1-1, tx_examples_special'
 );
 
-// Load the full TCA
-\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('tt_content');
 
 // Add a "no print" checkbox
 // USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
@@ -113,6 +120,7 @@ $temporaryColumn = array(
 	'tx_examples_noprint',
 	'after:linkToTop'
 );
+
 
 // Create various FE plugins to demonstrate FlexForms definition
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
@@ -221,70 +229,20 @@ $GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
 	$tempConfiguration
 );
 
-// Add dummy table for TCA manipulations
-// USAGE: TCA Reference > $TCA array reference > ['types'][key] section
+// New tables for demonstrating various TCA features
 
-// Allow it anywhere in the page tree
+// Allow dummy table anywhere in the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
 
-// Main TCA definition
-$GLOBALS['TCA']['tx_examples_dummy'] = array(
-	'ctrl' => array(
-		'title'     => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy',
-		'label'     => 'title',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'type'		=> 'record_type',
-		'default_sortby' => 'ORDER BY title',
-		'delete' => 'deleted',
-		'enablecolumns' => array(
-			'disabled' => 'hidden',
-		),
-		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
-		'iconfile'          => $relativeExtensionPath . 'Resources/Public/Images/Dummy.png',
-	)
-);
-
-// Add another table for advanced TCA manipulations (special configuration, wizards)
-// USAGE: TCA Reference > Additional $TCA features
-
-// Allow it anywhere in the page tree
+// Allow the haiku table anywhere in the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_haiku');
 
-// Main TCA definition
-$GLOBALS['TCA']['tx_examples_haiku'] = array(
-	'ctrl' => array(
-		'title'     => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
-		'label'     => 'title',
-		'label_userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->haikuTitle',
-		'tstamp'    => 'tstamp',
-		'crdate'    => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'default_sortby' => 'ORDER BY title',
-		'delete' => 'deleted',
-		'enablecolumns' => array(
-			'disabled' => 'hidden',
-		),
-		'searchFields' => 'title,poem',
-		'dividers2tabs' => TRUE,
-		'dynamicConfigFile' => $fullExtensionPath . 'tca.php',
-		'iconfile'          => $relativeExtensionPath . 'Resources/Public/Images/Haiku.png',
-	)
-);
-
-// Add context sensitive help (csh) for this table
+// Add context sensitive help (csh) for the haiku table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
 	'tx_examples_haiku',
 	$fullExtensionPath . 'Resources/Private/Language/locallang_csh_txexampleshaiku.xml'
 );
 
-// Declare static TS file
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-	$_EXTKEY,
-	'static/',
-	'Examples TypoScript'
-);
 
 // Define a new doktype
 $customPageDoktype = 116;
@@ -313,6 +271,7 @@ $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
 	'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
 );
+
 
 // Add an extra categories selection field to the pages table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
