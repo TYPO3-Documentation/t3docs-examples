@@ -16,6 +16,11 @@ return array(
 		'dividers2tabs' => TRUE,
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/Images/Haiku.png',
 	),
+	'interface' => array(
+		'showRecordFieldList' => 'title,season,angle',
+		'maxDBListItems' => 5,
+		'maxSingleDBListItems' => 20
+	),
 	'columns' => array(
 		'hidden' => array(
 			'exclude' => 1,
