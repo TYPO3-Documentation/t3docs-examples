@@ -86,7 +86,6 @@ $temporaryColumns = array (
 	),
 );
 
-\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('fe_users');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'fe_users',
 	$temporaryColumns,
@@ -210,7 +209,6 @@ if (TYPO3_MODE == 'BE') {
 
 // Modify General Record Storage Page selector to make it into a page tree
 // USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
-\TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA('pages');
 $tempConfiguration = array(
 	'type' => 'select',
 	'foreign_table' => 'pages',
