@@ -62,6 +62,7 @@ CREATE TABLE tx_examples_haiku (
 	image5 text,
 	image6 text,
 	reference_page int(11) DEFAULT '0' NOT NULL,
+	related_records text,
 
 	PRIMARY KEY (uid),
 );
