@@ -43,27 +43,27 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	public function flashAction() {
 			// Issue one of each type of flash messages
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'This is a notice message',
 			'Notification',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE
 		);
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'This is an information message',
 			'Information',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::INFO
 		);
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'This is a success message',
 			'Hooray!',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::OK
 		);
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'This is a warning message',
 			'Watch out',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING
 		);
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'
 				<p>This is an error message</p>
 				<ul>
@@ -75,6 +75,13 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			'Whoops!',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR
 		);
+		$this->addFlashMessage(
+			'This message is forced to be NOT stored in the session by setting the forth argument to FALSE.',
+			'Success',
+			\TYPO3\CMS\Core\Messaging\FlashMessage::OK,
+			FALSE
+		);
+		$this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
 	}
 
 	/**
@@ -98,7 +105,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			\TYPO3\CMS\Core\Log\LogLevel::CRITICAL,
 			'This is an utter failure!'
 		);
-		$this->flashMessageContainer->add(
+		$this->addFlashMessage(
 			'3 log entries created',
 			'',
 			\TYPO3\CMS\Core\Messaging\FlashMessage::INFO
