@@ -30,11 +30,9 @@ namespace Documentation\Examples\Controller;
 /**
  * Frontend plugin for demonstrating collections
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id: DefaultController.php 74771 2013-04-24 10:01:29Z francois $
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class CollectionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	/**

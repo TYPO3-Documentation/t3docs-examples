@@ -27,11 +27,9 @@ namespace Documentation\Examples\Service;
 /**
  * This class performs RTE transformations
  *
- * @author		Francois Suter <francois@typo3.org>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter <francois@typo3.org>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class RteTransformation {
 	/**

@@ -27,11 +27,9 @@ namespace Documentation\Examples\Userfuncs;
 /**
  * Class that implements many examples related to TCA or TCEform manipulations
  *
- * @author		Francois Suter <francois@typo3.org>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter <francois@typo3.org>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class Tca {
 	/**
@@ -61,21 +59,21 @@ class Tca {
 	 * @return	string	HTML for the wizard
 	 */
 	public function someWizard($PA, $fObj) {
-			// Note that the information is passed by reference,
-			// so it's possible to manipulate the field directly
-			// Here we highlight the field with the color passed as parameter
+		// Note that the information is passed by reference,
+		// so it's possible to manipulate the field directly
+		// Here we highlight the field with the color passed as parameter
 		$backgroundColor = 'white';
 		if (!empty($PA['params']['color'])) {
 			$backgroundColor = $PA['params']['color'];
 		}
 		$PA['item'] = '<div style="background-color: ' . $backgroundColor . '; padding: 4px;">' . $PA['item'] . '</div>';
 
-			// Assemble the wizard itself
+		// Assemble the wizard itself
 		$output = '<div style="margin-top: 8px; margin-left: 4px;">';
-			// Create the + button
+		// Create the + button
 		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value++; return false;";
 		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">+</a>';
-			// Create the - button
+		// Create the - button
 		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value--; return false;";
 		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">-</a>';
 		$output .= '</div>';

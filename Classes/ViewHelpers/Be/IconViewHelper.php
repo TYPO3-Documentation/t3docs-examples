@@ -13,11 +13,9 @@ namespace Documentation\Examples\ViewHelpers\Be;
  * <span title="Open document" class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-open">&nbsp;</span>
  * </output>
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class IconViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
 

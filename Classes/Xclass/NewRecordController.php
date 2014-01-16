@@ -27,11 +27,9 @@ namespace Documentation\Examples\Xclass;
 /**
  * This class XCLASSes NewRecordController to modify the layout of the New Record Wizard
  *
- * @author		Francois Suter <francois@typo3.org>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter <francois@typo3.org>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
 	/**

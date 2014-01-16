@@ -30,11 +30,9 @@ namespace Documentation\Examples\ViewHelpers\Be;
 /**
  * This class is used to load application-specific files (JS and CSS) for the BE module
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class HeaderViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
 
@@ -48,14 +46,14 @@ class HeaderViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendVi
 	public function render() {
 		$pageRenderer = $this->getDocInstance()->getPageRenderer();
 
-			// Add base ExtDirect code
+		// Add base ExtDirect code
 		$pageRenderer->addExtDirectCode(
 			array('TYPO3.Examples')
 		);
-			// Make localized labels available in JavaScript context
+		// Make localized labels available in JavaScript context
 		$pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xml');
 
-			// Load application specific JS
+		// Load application specific JS
 		$pageRenderer->addJsFile(
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/JavaScript/Application.js',
 			'text/javascript',

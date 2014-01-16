@@ -25,11 +25,9 @@
 /**
  * This class answers to ExtDirect calls from the 'examples' BE module
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class Tx_Examples_ExtDirect_Server {
 
@@ -42,7 +40,7 @@ class Tx_Examples_ExtDirect_Server {
 	 * @return array
 	 */
 	public function countRecords($table) {
-			// Return the count of all non-deleted records for the given table
+		// Return the count of all non-deleted records for the given table
 		return array(
 			'data' => $GLOBALS['TYPO3_DB']->exec_SELECTcountRows('uid', $table, '1 = 1' . \TYPO3\CMS\Backend\Utility\BackendUtility::deleteClause($table))
 		);

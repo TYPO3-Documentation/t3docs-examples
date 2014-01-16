@@ -39,11 +39,9 @@ namespace Documentation\Examples\ViewHelpers\Be;
  * <a title="Edit page" href="alt_doc.php?edit[pages][1]=edit">...</a>
  * </output>
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class EditLinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 

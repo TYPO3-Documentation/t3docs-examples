@@ -30,11 +30,9 @@ namespace Documentation\Examples\Controller;
 /**
  * Controller for the backend module
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_examples
- *
- * $Id$
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_examples
  */
 class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
