@@ -287,10 +287,32 @@ return array(
 					)
 				)
 			)
+		),
+		'related_content' => array(
+			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tt_content',
+				'foreign_table_where' => 'ORDER BY header ASC',
+				'size' => 5,
+				'minitems' => 0,
+				'maxitems' => 999,
+				'enableMultiSelectFilterTextfield' => TRUE,
+				'multiSelectFilterItems' => array(
+					array(
+						'image',
+						'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content.image'
+					),
+					array(
+						'typo3',
+						'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content.typo3'
+					),
+				)
+			)
 		)
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations, reference_page, related_records'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations, reference_page, related_records, related_content'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),

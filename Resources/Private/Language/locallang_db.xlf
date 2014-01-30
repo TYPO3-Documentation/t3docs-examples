@@ -159,6 +159,15 @@
 			<trans-unit id="tx_examples_haiku.related_records" xml:space="preserve">
 				<source>Related records</source>
 			</trans-unit>
+			<trans-unit id="tx_examples_haiku.related_content" xml:space="preserve">
+				<source>Related content</source>
+			</trans-unit>
+			<trans-unit id="tx_examples_haiku.related_content.image" xml:space="preserve">
+				<source>Contains "image"</source>
+			</trans-unit>
+			<trans-unit id="tx_examples_haiku.related_content.typo3" xml:space="preserve">
+				<source>Contains "typo3"</source>
+			</trans-unit>
 			<trans-unit id="tx_examples_haiku.relations" xml:space="preserve">
 				<source>Relations</source>
 			</trans-unit>
