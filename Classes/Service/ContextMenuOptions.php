@@ -32,6 +32,7 @@ namespace Documentation\Examples\Service;
  * @subpackage tx_examples
  */
 class ContextMenuOptions {
+
 	/**
 	 * Adds a sample item to the CSM
 	 *
@@ -44,10 +45,16 @@ class ContextMenuOptions {
 	 */
 	public function main(\TYPO3\CMS\Backend\ClickMenu\ClickMenu $parentObject, $menuItems, $table, $uid) {
 		// Activate the menu item only for "pages" table
-		if ($table == 'pages') {
+		if ($table === 'pages') {
 			// URL for the menu item. Point to the page tree example module, passing the page id.
-			$baseUrl = 'mod.php?M=tools_ExamplesExamples&tx_examples_tools_examplesexamples%5Baction%5D=tree&tx_examples_tools_examplesexamples%5Bcontroller%5D=Default';
-			$baseUrl .= '&tx_examples_tools_examplesexamples%5Bpage%5D=' . $uid;
+			$baseUrl = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl(
+				'tools_ExamplesExamples',
+				array(
+					'tx_examples_tools_examplesexamples[action]' => 'tree',
+					'tx_examples_tools_examplesexamples[controller]' => 'Default',
+					'tx_examples_tools_examplesexamples[page]' => $uid
+				)
+			);
 
 			// Add new menu item with the following parameters:
 			// 1) Label
