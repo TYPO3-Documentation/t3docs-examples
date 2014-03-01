@@ -70,11 +70,13 @@ class Tca {
 
 		// Assemble the wizard itself
 		$output = '<div style="margin-top: 8px; margin-left: 4px;">';
+
+		$commonJavascriptCalls = $PA['fieldChangeFunc']['TBE_EDITOR_fieldChanged'] . $PA['fieldChangeFunc']['typo3form.fieldGet'] . ' return false;';
 		// Create the + button
-		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value++; return false;";
+		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value++; " . $commonJavascriptCalls;
 		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">+</a>';
 		// Create the - button
-		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value--; return false;";
+		$onClick = "document." . $PA['formName'] . "['" . $PA['itemName'] . "'].value--; " . $commonJavascriptCalls;
 		$output .= '<a href="#" onclick="' . htmlspecialchars($onClick) . '" style="padding: 6px; border: 1px solid black; background-color: #999">-</a>';
 		$output .= '</div>';
 		return $output;
