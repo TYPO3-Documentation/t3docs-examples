@@ -125,7 +125,11 @@ return array(
 					'colorChoice' => array(
 						'type' => 'colorbox',
 						'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.colorPick',
-						'script' => 'wizard_colorpicker.php',
+						// Pre-TYPO3 6.2, use "script" property
+//						'script' => 'wizard_colorpicker.php',
+						'module' => array(
+							'name' => 'wizard_colorpicker',
+						),
 						'dim' => '20x20',
 						'tableStyle' => 'border: solid 1px black; margin-left: 20px;',
 						'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
