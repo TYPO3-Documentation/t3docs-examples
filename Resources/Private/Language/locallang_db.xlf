@@ -153,6 +153,15 @@
 			<trans-unit id="tx_examples_haiku.image6" xml:space="preserve">
 				<source>Images (no controls at all)</source>
 			</trans-unit>
+			<trans-unit id="tx_examples_haiku.images_fal" xml:space="preserve">
+				<source>Images (FAL)</source>
+			</trans-unit>
+			<trans-unit id="tx_examples_haiku.image_fal_group" xml:space="preserve">
+				<source>Images (group-type)</source>
+			</trans-unit>
+			<trans-unit id="tx_examples_haiku.image_fal_irre" xml:space="preserve">
+				<source>Images (inline-type)</source>
+			</trans-unit>
 			<trans-unit id="tx_examples_haiku.reference_page" xml:space="preserve">
 				<source>Reference page</source>
 			</trans-unit>

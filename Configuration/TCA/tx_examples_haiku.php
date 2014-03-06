@@ -256,6 +256,35 @@ return array(
 				'disable_controls' => 'browser,upload,list,delete'
 			),
 		),
+		'image_fal_group' => array(
+			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.image_fal_group',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'sys_file',
+				'MM' => 'sys_file_reference',
+				'MM_match_fields' => array(
+					'fieldname' => 'image_fal_group'
+				),
+				'prepend_tname' => TRUE,
+				'appearance' => array(
+					'elementBrowserAllowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+					'elementBrowserType' => 'file'
+				),
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'show_thumbs' => '1',
+				'size' => '3',
+				'maxitems' => '200',
+				'minitems' => '0',
+				'autoSizeMax' => 40,
+			),
+		),
+		'image_fal_irre' => array(
+			'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.image_fal_irre',
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'image_fal_irre'
+			),
+		),
 		// USAGE: TCA reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select" > Examples
 		// Use the following TSconfig to show the effect:
 		// TCEFORM.tx_examples_haiku.reference_page.PAGE_TSCONFIG_STR = image
@@ -316,7 +345,7 @@ return array(
 		)
 	),
 	'types' => array(
-		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations, reference_page, related_records, related_content'),
+		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images_fal, image_fal_group, image_fal_irre, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations, reference_page, related_records, related_content'),
 			// NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
 			// but it should be made to work at some point (bug in the Core?)
 //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),

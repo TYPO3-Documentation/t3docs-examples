@@ -61,6 +61,8 @@ CREATE TABLE tx_examples_haiku (
 	image4 text,
 	image5 text,
 	image6 text,
+	image_fal_group text,
+	image_fal_irre text,
 	reference_page int(11) DEFAULT '0' NOT NULL,
 	related_records text,
 	related_content text,
