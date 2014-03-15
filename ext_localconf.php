@@ -28,15 +28,15 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
 	)
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG];
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG];
 // Add example configuration for the logging API
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::WARNING] = array(
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::WARNING] = array(
 	// configuration for WARNING severity, including all
 	// levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-		// add a SyslogWriter
-		'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
+	// add a SyslogWriter
+	'TYPO3\\CMS\\Core\\Log\\Writer\\SyslogWriter' => array(),
 );
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['Examples']['Controller']['processorConfiguration'] = array(
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['processorConfiguration'] = array(
 	// configuration for ERROR level log entries
 	\TYPO3\CMS\Core\Log\LogLevel::ERROR => array(
 		// add a MemoryUsageProcessor
