@@ -120,6 +120,27 @@ $temporaryColumn = array(
 	'after:linkToTop'
 );
 
+// Add extra fields to User Settings and be_user TCA fields
+
+$tempColumnsBackend = array(
+	'tx_examples_mobile' => array(
+		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
+		'config' => array(
+			'type' => 'input',
+			'size' => 30
+		)
+	)
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_users', $tempColumnsBackend, TRUE);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('be_users', 'tx_examples_mobile', '', 'after:email');
+
+$GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
+	'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
+	'type' => 'text',
+	'table' => 'be_users',
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile', 'after:email');
 
 // Create various FE plugins to demonstrate FlexForms definition
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"

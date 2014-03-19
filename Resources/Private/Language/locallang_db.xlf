@@ -21,6 +21,9 @@
 			<trans-unit id="fe_users.tx_examples_special" xml:space="preserve">
 				<source>Special field</source>
 			</trans-unit>
+			<trans-unit id="be_users.tx_examples_mobile" xml:space="preserve">
+				<source>Mobile number</source>
+			</trans-unit>
 			<trans-unit id="tt_content.tx_examples_noprint" xml:space="preserve">
 				<source>No print</source>
 			</trans-unit>

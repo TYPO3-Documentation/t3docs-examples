@@ -9,6 +9,13 @@ CREATE TABLE fe_users (
 );
 
 #
+# Table structure for table 'be_users'
+#
+CREATE TABLE be_users (
+	tx_examples_mobile varchar(60) DEFAULT '' NOT NULL
+);
+
+#
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
