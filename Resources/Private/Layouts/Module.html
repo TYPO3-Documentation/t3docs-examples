@@ -1,30 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
 <f:render section="header" />
+
 <f:be.container pageTitle="" enableJumpToUrl="true" enableClickMenu="false" loadPrototype="false" loadScriptaculous="false" loadExtJs="true" loadExtJsTheme="false" extJsAdapter="" enableExtJsDebug="false">
 	<div class="typo3-fullDoc">
 		<!-- Page header with buttons, path details and csh -->
-		<div id="typo3-docheader">
-			<div id="typo3-docheader-row1">
-				<div class="buttonsleft">&nbsp;</div>
-				<div class="buttonsright">
-					<f:be.buttons.shortcut />
-				</div>
-			</div>
-			<div id="typo3-docheader-row2">
-				<div class="docheader-row2-left">
-					<f:be.menus.actionMenu>
-						<f:be.menus.actionMenuItem label="{f:translate(key: 'function_flash')}" controller="Default" action="flash" />
-						<f:be.menus.actionMenuItem label="{f:translate(key: 'function_log')}" controller="Default" action="log" />
-						<f:be.menus.actionMenuItem label="{f:translate(key: 'function_tree')}" controller="Default" action="tree" />
-						<f:be.menus.actionMenuItem label="{f:translate(key: 'function_clipboard')}" controller="Default" action="clipboard" />
-						<f:be.menus.actionMenuItem label="{f:translate(key: 'function_links')}" controller="Default" action="links" />
-					</f:be.menus.actionMenu>
-				</div>
-				<div class="docheader-row2-right">&nbsp;</div>
-			</div>
-		</div>
+		<f:render partial="Module/Header" section="Header" />
 		<!-- Content of module, for instance listing, info or editing -->
 		<div id="typo3-docbody">
 			<div id="typo3-inner-docbody">
+				<f:render section="module-headline" />
 				<f:flashMessages renderMode="div" />
 				<f:render section="main" />
 			</div>

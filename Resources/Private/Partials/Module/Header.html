@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:section name="Header">
+	<div id="typo3-docheader">
+		<div class="typo3-docheader-functions">
+			<div class="left">
+				<f:be.menus.actionMenu>
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'function_flash')}" controller="Default" action="flash" />
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'function_log')}" controller="Default" action="log" />
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'function_tree')}" controller="Default" action="tree" />
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'function_clipboard')}" controller="Default" action="clipboard" />
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'function_links')}" controller="Default" action="links" />
+				</f:be.menus.actionMenu>
+			</div>
+			<div class="right">&nbsp;</div>
+		</div>
+		<div class="typo3-docheader-buttons">
+			<div class="left">&nbsp;</div>
+			<div class="right">
+				<f:be.buttons.shortcut />
+			</div>
+		</div>
+	</div>
+</f:section>
