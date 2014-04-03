@@ -45,7 +45,7 @@ class tx_examples_pierror_wizicon {
 			'icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/Images/PiErrorWizard.png',
 			'title' => $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_title'),
 			'description' => $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description'),
-			'params' => '&defVals[tt_content][CType]=list&[list_type]=examples_pierror'
+			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=examples_pierror'
 		);
 
 		return $wizardItems;
