@@ -250,6 +250,15 @@ $GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
 
 // New tables for demonstrating various TCA features
 
+// Add table icons to sprite
+\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons(
+	array(
+		'dummy-default' => $relativeExtensionPath . 'Resources/Public/Images/Dummy.png',
+		'haiku-default' => $relativeExtensionPath . 'Resources/Public/Images/Haiku.png'
+	),
+	$_EXTKEY
+);
+
 // Allow dummy table anywhere in the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
 

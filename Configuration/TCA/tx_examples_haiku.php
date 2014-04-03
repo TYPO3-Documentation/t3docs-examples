@@ -14,7 +14,9 @@ return array(
 		),
 		'searchFields' => 'title,poem',
 		'dividers2tabs' => TRUE,
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/Images/Haiku.png',
+		'typeicon_classes' => array(
+			'default' => 'extensions-examples-haiku-default'
+		)
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'title,season,angle',

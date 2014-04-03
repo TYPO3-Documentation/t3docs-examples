@@ -12,7 +12,9 @@ return array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('examples') . 'Resources/Public/Images/Dummy.png',
+		'typeicon_classes' => array(
+			'default' => 'extensions-examples-dummy-default'
+		)
 	),
 	'columns' => array(
 		'hidden' => array(
