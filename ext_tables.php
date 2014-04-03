@@ -10,7 +10,7 @@ $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::ext
 // Declare static TS file
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
 	$_EXTKEY,
-	'static/',
+	'Configuration/TypoScript/',
 	'Examples TypoScript'
 );
 
