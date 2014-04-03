@@ -157,19 +157,19 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY 
 // Activate the display of the plug-in flexform field and set FlexForm definition
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	$_EXTKEY . '_pi1', 'FILE:EXT:examples/flexforms/flexform_ds1.xml'
+	$_EXTKEY . '_pi1', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	$_EXTKEY . '_pi2', 'FILE:EXT:examples/flexforms/flexform_ds2.xml'
+	$_EXTKEY . '_pi2', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	$_EXTKEY . '_pi3', 'FILE:EXT:examples/flexforms/flexform_ds3.xml'
+	$_EXTKEY . '_pi3', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	$_EXTKEY . '_pi4', 'FILE:EXT:examples/flexforms/flexform_ds4.xml'
+	$_EXTKEY . '_pi4', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
 );
 
 // Add the plugins to the list of plugins
