@@ -1,5 +1,4 @@
 <?php
-/* $Id$ */
 if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -52,73 +51,6 @@ if (TYPO3_MODE == 'BE') {
 	);
 	\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
 }
-
-
-// Add some fields to FE Users table to show TCA fields definitions
-// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
-$temporaryColumns = array (
-	'tx_examples_options' => array (
-		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
-		'config' => array (
-			'type' => 'select',
-			'items' => array (
-				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0', '1'),
-				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1', '2'),
-				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2', '--div--'),
-				array('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3', '3'),
-			),
-			'size' => 1,
-			'maxitems' => 1,
-		)
-	),
-	'tx_examples_special' => array (
-		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
-		'config' => array (
-			'type' => 'user',
-			'size' => '30',
-			'userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->specialField',
-			'parameters' => array(
-				'color' => 'blue'
-			)
-		)
-	),
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-	'fe_users',
-	$temporaryColumns,
-	1
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-	'fe_users',
-	'tx_examples_options;;;;1-1-1, tx_examples_special'
-);
-
-
-// Add a "no print" checkbox
-// USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
-$temporaryColumn = array(
-	'tx_examples_noprint' => array (
-		'exclude' => 0,
-		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
-		'config' => array (
-			'type' => 'check',
-		)
-	)
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-	'tt_content',
-	$temporaryColumn,
-	1
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-	'tt_content',
-	'visibility',
-	'tx_examples_noprint',
-	'after:linkToTop'
-);
 
 // Add extra fields to User Settings and be_user TCA fields
 
@@ -228,26 +160,6 @@ if (TYPO3_MODE == 'BE') {
 }
 
 
-// Modify General Record Storage Page selector to make it into a page tree
-// USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
-$tempConfiguration = array(
-	'type' => 'select',
-	'foreign_table' => 'pages',
-	'size' => 10,
-	'renderMode' => 'tree',
-	'treeConfig' => array(
-		'expandAll' => true,
-		'parentField' => 'pid',
-		'appearance' => array(
-			'showHeader' => TRUE,
-		),
-	),
-);
-$GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
-	$GLOBALS['TCA']['pages']['columns']['storage_pid']['config'],
-	$tempConfiguration
-);
-
 // New tables for demonstrating various TCA features
 
 // Add table icons to sprite
@@ -299,24 +211,3 @@ $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
 	'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
 );
-
-
-// Add an extra categories selection field to the pages table
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-	'examples',
-	'pages',
-	// Do not use the default field name ("categories"), which is already used
-	// Also do not use a field name containing "categories" (see http://forum.typo3.org/index.php/t/199595/)
-	'tx_examples_cats',
-	array(
-		// Set a custom label
-		'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:additional_categories',
-		// This field should not be an exclude-field
-		'exclude' => FALSE,
-		// Override generic configuration, e.g. sort by title rather than by sorting
-		'fieldConfiguration' => array(
-			'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
-		)
-	)
-);
-?>
