@@ -1,8 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
+defined('TYPO3_MODE') or die();
 
 // Add some fields to FE Users table to show TCA fields definitions
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select"
@@ -39,8 +36,9 @@ $temporaryColumns = array (
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'fe_users',
 	$temporaryColumns,
-	1
+	TRUE
 );
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
 	'fe_users',
 	'tx_examples_options;;;;1-1-1, tx_examples_special'

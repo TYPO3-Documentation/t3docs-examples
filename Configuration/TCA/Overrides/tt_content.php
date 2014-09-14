@@ -1,8 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
+defined('TYPO3_MODE') or die();
 
 // Add a "no print" checkbox
 // USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
@@ -15,11 +12,13 @@ $temporaryColumn = array(
 		)
 	)
 );
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'tt_content',
 	$temporaryColumn,
-	1
+	TRUE
 );
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
 	'tt_content',
 	'visibility',

@@ -1,9 +1,5 @@
 <?php
-/* $Id$ */
-
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
-}
+defined('TYPO3_MODE') or die();
 
 // Load XCLASSing of db_new
 // USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
@@ -97,4 +93,3 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php'
 	'RTE.default.proc.usertrans.tx_examples_transformation.addHrulerInRTE = 1
 	 RTE.config.tx_examples_haiku.poem.proc.overruleMode = tx_examples_transformation,ts_css'
 );
-?>

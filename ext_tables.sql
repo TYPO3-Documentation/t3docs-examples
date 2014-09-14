@@ -1,5 +1,3 @@
-# $Id$
-
 #
 # Table structure for table 'fe_users'
 #

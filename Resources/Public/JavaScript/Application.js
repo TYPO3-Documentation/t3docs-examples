@@ -1,7 +1,5 @@
 /**
  * ExtJS code for extension "examples" BE module
- *
- * $Id: Application.js 67582 2012-11-01 17:43:20Z francois $
  */
 Ext.namespace('TYPO3.Examples');
 

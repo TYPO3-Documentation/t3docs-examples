@@ -1,8 +1,5 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
+defined('TYPO3_MODE') or die();
 
 // Modify General Record Storage Page selector to make it into a page tree
 // USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
@@ -19,11 +16,11 @@ $tempConfiguration = array(
 		),
 	),
 );
+
 $GLOBALS['TCA']['pages']['columns']['storage_pid']['config'] = array_merge(
 	$GLOBALS['TCA']['pages']['columns']['storage_pid']['config'],
 	$tempConfiguration
 );
-
 
 // Add an extra categories selection field to the pages table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
