@@ -1,3 +1,23 @@
+commit f71a7b95fc2c571a092012ebbf2fb2bc5c14ea97
+Author: Francois Suter <francois@typo3.org>
+
+    [TASK] Release version 0.6.1
+
+commit 3ca4e1e346733bd8e909a5dd67529b20e8ac4f8d
+Author: Francois Suter <francois@typo3.org>
+
+    [FEATURE] Use TCA/Overrides for TCA changes
+
+commit 35be91418e7c4bd12d05d8b3e105aeacc9e29b79
+Author: Francois Suter <francois@typo3.org>
+
+    [BUGFIX] Wrong code in content wizard
+
+commit 034ebb7a383b4059f34881c2becf20f2f03213b6
+Author: Francois Suter <francois@typo3.org>
+
+    [TASK] Release version 0.6.0
+
 commit 751c7a49c80a8789e0eb370ff6931e8e466b5aaa
 Author: Francois Suter <francois@typo3.org>
 
