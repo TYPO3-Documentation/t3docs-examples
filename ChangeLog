@@ -1,4 +1,9 @@
-commit fce505e3ba9c36e40459c0453733ec943fc15429
+commit bb94b40a7727a6742087724c75a010cf6bb39519
+Author: Francois Suter <francois@typo3.org>
+
+    [TASK] Release version 0.6.2
+
+commit 3a466466d1ae53dd7b9c4592624a73345b03024d
 Author: Wouter Wolters <typo3@wouterwolters.nl>
 
     [TASK] Cleanup code base
