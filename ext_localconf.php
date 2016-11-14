@@ -64,12 +64,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php'][
 	'list_type',
 	1
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
-	$_EXTKEY,
-	'pihtml/class.tx_examples_pihtml.php',
-	'_pihtml',
-	'list_type',
-	1
+
+// Register the HTML parser plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Documentation.' . $_EXTKEY,
+	'HtmlParser',
+	array(
+		'HtmlParser' => 'index',
+	)
 );
 
 // Register the collections plugin

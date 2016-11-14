@@ -138,12 +138,12 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
 	),
 	'list_type'
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-	array(
-		'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pihtml',
-		$_EXTKEY . '_pihtml'
-	),
-	'list_type'
+
+// Register the HTML Parser plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	'HtmlParser',
+	'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title'
 );
 // Register the collections plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
