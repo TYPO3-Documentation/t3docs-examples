@@ -26,7 +26,7 @@ $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::ext
         ),
         array(
                 'access' => 'user,group',
-                'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/moduleIcon.png',
+                'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Images/BackendModule.svg',
                 'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml',
                 'navigationComponentId' => 'typo3-navigation'
         )
