@@ -42,21 +42,6 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['p
 	)
 );
 
-	// Register ExtDirect method
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerExtDirectComponent(
-	'TYPO3.Examples.ExtDirect',
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY, 'Classes/ExtDirect/Server.php:Tx_Examples_ExtDirect_Server')
-);
-
-/*
-	// Register a class for manipulating the page rendering process
-	// (used in TYPO3 Viewport manipulation demonstration)
-	// NOTE: even though the code itself works, it breaks the TYPO3 backend
-	// This code should be revisited at some point, but this requires solid ExtJS knowledge
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
-  'EXT:' . $_EXTKEY . '/Classes/Utilities/Viewport.php:Tx_Examples_Utilities_Viewport->renderPreProcess';
-*/
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
 	$_EXTKEY,
 	'pierror/class.tx_examples_pierror.php',
