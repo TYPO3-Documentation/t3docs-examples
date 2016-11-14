@@ -1,16 +1,10 @@
-{namespace Ex=Documentation\Examples\ViewHelpers}
+<html data-namespace-typo3-fluid="true"
+	  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-<f:layout name="Module" />
+	<f:flashMessages />
 
-<f:section name="header">
-	<Ex:be.header />
-</f:section>
-
-<f:section name="module-headline">
 	<h1><f:translate key="function_clipboard" /></h1>
-</f:section>
 
-<f:section name="main">
 	<p><f:translate key="function_clipboard_intro" /></p>
 
 	<h3><f:translate key="function_clipboard_current_pad" /></h3>
@@ -68,4 +62,5 @@
 			<p><f:translate key="function_clipboard_no_pages" /></p>
 		</f:else>
 	</f:if>
-</f:section>
+
+</html>
