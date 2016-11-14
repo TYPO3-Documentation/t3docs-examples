@@ -22,7 +22,7 @@ $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::ext
         '', // Position
         array(
             // An array holding the controller-action-combinations that are accessible
-            'Module' => 'flash,log,tree,clipboard,links'
+            'Module' => 'flash,log,tree,clipboard,links,fileReference,fileReferenceCreate'
         ),
         array(
                 'access' => 'user,group',

@@ -22,11 +22,14 @@ use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
@@ -87,7 +90,7 @@ class ModuleController extends ActionController
         // Add menu items
         /** @var MenuItem $menuItem */
         $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = array('flash', 'log', 'tree', 'clipboard', 'links');
+        $items = array('flash', 'log', 'tree', 'clipboard', 'links', 'fileReference');
 
         foreach ($items as $item) {
             $isActive = $this->actionMethodName === $item . 'Action';
@@ -272,13 +275,136 @@ class ModuleController extends ActionController
     }
 
     /**
-     * Displays links to edit records
+     * Displays links to edit records.
      *
      * @return void
      */
     public function linksAction()
     {
 
+    }
+
+    /**
+     * Displays a form to create relations between content elements and files.
+     *
+     * @param int $element Uid of the just processed content element (see fileReferenceCreateAction)
+     * @return void
+     */
+    public function fileReferenceAction($element = 0)
+    {
+        /** @var FileRepository $fileRepository */
+        $fileRepository = $this->objectManager->get(FileRepository::class);
+        // Get all non-deleted content elements (this should normally be put away in a nice, clean
+        // repository class; don't do this at home).
+        try {
+            $contentElements = $this->getDatabaseConnection()->exec_SELECTgetRows(
+                    'uid, header',
+                    'tt_content',
+                    '1 = 1' . BackendUtility::deleteClause('tt_content'),
+                    '',
+                    'header ASC'
+            );
+        } catch (\Exception $e) {
+            $contentElements = array();
+        }
+        // If we just handled a content element, get related data to display as a confirmation
+        if ((int)$element > 0) {
+            $contentElement = BackendUtility::getRecord(
+                    'tt_content',
+                    (int)$element
+            );
+            try {
+                $fileObjects = $fileRepository->findByRelation(
+                        'tt_content',
+                        'image',
+                        $element
+                );
+            } catch (\Exception $e) {
+                $fileObjects = array();
+            }
+        } else {
+            $contentElement = null;
+            $fileObjects = array();
+        }
+        $this->view->assignMultiple(
+                array(
+                        'files' => $fileRepository->findAll(),
+                        'elements' => $contentElements,
+                        'content' => $contentElement,
+                        'references' => $fileObjects
+                )
+        );
+    }
+
+    /**
+     * Creates a file reference and redirects to the form screen.
+     *
+     * @param int $file Uid of the file
+     * @param int $element Uid of the content element
+     * @return void
+     */
+    public function fileReferenceCreateAction($file, $element)
+    {
+        // Early return if either item is missing
+        if ((int)$file === 0 || (int)$element === 0) {
+            // NOTE: there would normally a nice error Flash Message added here
+            $this->redirect('fileReference');
+        }
+        $resourceFactory = ResourceFactory::getInstance();
+        $fileObject = $resourceFactory->getFileObject((int)$file);
+        $contentElement = BackendUtility::getRecord(
+                'tt_content',
+                (int)$element
+        );
+        // Assemble DataHandler data
+        $newId = 'NEW1234';
+        $data = array();
+        $data['sys_file_reference'][$newId] = array(
+                'table_local' => 'sys_file',
+                'uid_local' => $fileObject->getUid(),
+                'tablenames' => 'tt_content',
+                'uid_foreign' => $contentElement['uid'],
+                'fieldname' => 'image',
+                'pid' => $contentElement['pid']
+        );
+        $data['tt_content'][$contentElement['uid']] = array(
+                'image' => $newId
+        );
+        // Get an instance of the DataHandler and process the data
+        /** @var DataHandler $dataHandler */
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+        $dataHandler->start($data, array());
+        $dataHandler->process_datamap();
+        // Error or success reporting
+        if (count($dataHandler->errorLog) === 0) {
+            $this->addFlashMessage(
+                    LocalizationUtility::translate(
+                            'create_relation_success',
+                            'examples'
+                    ),
+                    ''
+            );
+        } else {
+            foreach ($dataHandler->errorLog as $log) {
+                $this->addFlashMessage(
+                        $log,
+                        LocalizationUtility::translate(
+                                'create_relation_error',
+                                'examples'
+                        ),
+                        FlashMessage::ERROR
+                );
+            }
+        }
+
+        $this->redirect(
+                'fileReference',
+                null,
+                null,
+                array(
+                        'element' => $contentElement['uid']
+                )
+        );
     }
 
     /**

@@ -72,6 +72,12 @@
 			<trans-unit id="function_clipboard_no_pages" xml:space="preserve">
 				<source>No pages in this clipboard pad.</source>
 			</trans-unit>
+			<trans-unit id="function_fileReference" xml:space="preserve">
+				<source>File references</source>
+			</trans-unit>
+			<trans-unit id="function_fileReference_intro" xml:space="preserve">
+				<source>This tool demonstrates the creation of File References in the backend. Choose a content element and a file, then click on the "Create relation" button.</source>
+			</trans-unit>
 			<trans-unit id="csm_view_page" xml:space="preserve">
 				<source>View page in tree</source>
 			</trans-unit>
@@ -128,6 +134,27 @@
 			</trans-unit>
 			<trans-unit id="pierror_wizard_description" xml:space="preserve">
 				<source>Displays error in the frontend to demonstrate error reporting in TYPO3.</source>
+			</trans-unit>
+			<trans-unit id="choose_content_element" xml:space="preserve">
+				<source>Choose a content element</source>
+			</trans-unit>
+			<trans-unit id="choose_file" xml:space="preserve">
+				<source>Choose file</source>
+			</trans-unit>
+			<trans-unit id="create_relation" xml:space="preserve">
+				<source>Create relation</source>
+			</trans-unit>
+			<trans-unit id="create_relation_success" xml:space="preserve">
+				<source>The relation was created successfully.</source>
+			</trans-unit>
+			<trans-unit id="create_relation_error" xml:space="preserve">
+				<source>Relation creation error</source>
+			</trans-unit>
+			<trans-unit id="new_relation_confirmation" xml:space="preserve">
+				<source>Confirmation</source>
+			</trans-unit>
+			<trans-unit id="new_relation" xml:space="preserve">
+				<source>Content element "%1$s" (uid: %2$d) has the following relations:</source>
 			</trans-unit>
 		</body>
 	</file>
