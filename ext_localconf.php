@@ -15,7 +15,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
 		'items' => array(
 			'key1' => array(
 				'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
-				'EXT:t3skin/icons/gfx/savedok.gif',
+				'actions-system-typoscript-documentation-open',
 				'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
 			),
 			'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
