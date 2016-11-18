@@ -68,6 +68,19 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['p
 	)
 );
 
+// Register the FAL examples plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Documentation.' . $_EXTKEY,
+	'FalExamples',
+	array(
+		'FalExample' => 'index,listFiles,collection',
+	),
+	// non-cacheable actions
+	array(
+            'FalExample' => 'index,listFiles,collection',
+	)
+);
+
 // Add custom translations overriding default labels
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';

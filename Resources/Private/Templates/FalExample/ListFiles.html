@@ -1,0 +1,13 @@
+<html data-namespace-typo3-fluid="true"
+	  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+	<h2>FAL Examples</h2>
+	<h3>Listing files from a folder</h3>
+
+	<p>Folder: {folder.identifier}</p>
+	<ul>
+		<f:for each="{files}" as="file">
+			<li>{file.publicUrl}</li>
+		</f:for>
+	</ul>
+</html>

@@ -148,6 +148,13 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_
         'Collections',
         'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:collections_plugin_title'
 );
+// Register the FAL example plugin
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Documentation.' . $_EXTKEY,
+	'FalExamples',
+    'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:falexample_plugin_title'
+);
+
 
 // Add "pierror" plugin to new element wizard
 if (TYPO3_MODE == 'BE') {
