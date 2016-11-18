@@ -21,6 +21,13 @@ CREATE TABLE tt_content (
 );
 
 #
+# Table structure for table 'pages'
+#
+CREATE TABLE pages (
+	tx_examples_related_pages int(11) DEFAULT '0' NOT NULL
+);
+
+#
 # Table structure for example table 'dummy'
 #
 CREATE TABLE tx_examples_dummy (
@@ -37,7 +44,7 @@ CREATE TABLE tx_examples_dummy (
 	enforce_date tinyint(4) DEFAULT '0' NOT NULL,
 	description text,
 
-	PRIMARY KEY (uid),
+	PRIMARY KEY (uid)
 );
 
 #
@@ -72,5 +79,5 @@ CREATE TABLE tx_examples_haiku (
 	related_records text,
 	related_content text,
 
-	PRIMARY KEY (uid),
+	PRIMARY KEY (uid)
 );
