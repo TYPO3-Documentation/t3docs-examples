@@ -13,7 +13,7 @@ return array(
 			'disabled' => 'hidden',
 		),
 		'typeicon_classes' => array(
-			'default' => 'extensions-examples-dummy-default'
+			'default' => 'tx_examples-dummy'
 		)
 	),
 	'columns' => array(

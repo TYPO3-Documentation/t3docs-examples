@@ -86,8 +86,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tc
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
 
 // Register custom RTE transformation
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_examples_transformation'] = 'Documentation\Examples\Service\RteTransformation';
-
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_examples_transformation'] = \Documentation\Examples\Service\RteTransformation::class;
 // Add necessary TSconfig to active custom RTE transformation
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
 	'RTE.default.proc.usertrans.tx_examples_transformation.addHrulerInRTE = 1

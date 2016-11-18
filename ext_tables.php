@@ -57,17 +57,27 @@ $tempColumnsBackend = array(
         )
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_users', $tempColumnsBackend, true);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('be_users', 'tx_examples_mobile', '',
-        'after:email');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+        'be_users',
+        $tempColumnsBackend,
+        true
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+        'be_users',
+        'tx_examples_mobile',
+        '',
+        'after:email'
+);
 
 $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
         'type' => 'text',
         'table' => 'be_users',
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile',
-        'after:email');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
+        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile',
+        'after:email'
+);
 
 // Create various FE plugins to demonstrate FlexForms definition
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
@@ -164,13 +174,23 @@ if (TYPO3_MODE == 'BE') {
 
 // New tables for demonstrating various TCA features
 
-// Add table icons to sprite
-\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons(
-        array(
-                'dummy-default' => $relativeExtensionPath . 'Resources/Public/Images/Dummy.png',
-                'haiku-default' => $relativeExtensionPath . 'Resources/Public/Images/Haiku.png'
-        ),
-        $_EXTKEY
+
+// Register sprite icons for news tables
+/** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$iconRegistry->registerIcon(
+        'tx_examples-dummy',
+        \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
+        [
+            'name' => 'flask'
+        ]
+);
+$iconRegistry->registerIcon(
+        'tx_examples-haiku',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+            'source' => 'EXT:examples/Resources/Public/Images/Haiku.svg'
+        ]
 );
 
 // Allow dummy table anywhere in the page tree

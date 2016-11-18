@@ -3,7 +3,7 @@ return array(
 	'ctrl' => array(
 		'title'     => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
 		'label'     => 'title',
-		'label_userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->haikuTitle',
+		'label_userFunc' => \Documentation\Examples\Userfuncs\Tca::class . '->haikuTitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -15,7 +15,7 @@ return array(
 		'searchFields' => 'title,poem',
 		'dividers2tabs' => TRUE,
 		'typeicon_classes' => array(
-			'default' => 'extensions-examples-haiku-default'
+			'default' => 'tx_examples-haiku'
 		)
 	),
 	'interface' => array(
@@ -108,7 +108,7 @@ return array(
 				'wizards' => array(
 					'specialWizard' => array(
 						'type' => 'userFunc',
-						'userFunc' => 'Documentation\\Examples\\Userfuncs\\Tca->someWizard',
+						'userFunc' => \Documentation\Examples\Controller\PlusMinusWizardController::class . '->render',
 						'params' => array(
 							'color' => 'green'
 						)
@@ -127,8 +127,6 @@ return array(
 					'colorChoice' => array(
 						'type' => 'colorbox',
 						'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.colorPick',
-						// Pre-TYPO3 6.2, use "script" property
-//						'script' => 'wizard_colorpicker.php',
 						'module' => array(
 							'name' => 'wizard_colorpicker',
 						),
