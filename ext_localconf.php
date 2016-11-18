@@ -3,8 +3,8 @@ defined('TYPO3_MODE') or die();
 
 // Load XCLASSing of db_new
 // USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['TYPO3\\CMS\\Backend\\Controller\\NewRecordController'] = array(
-	'className' => 'Documentation\\Examples\\Xclass\\NewRecordController'
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\TYPO3\CMS\Backend\Controller\NewRecordController::class] = array(
+	'className' => \Documentation\Examples\Xclass\NewRecordController::class
 );
 
 // Define custom permission options

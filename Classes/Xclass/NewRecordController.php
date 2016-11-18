@@ -23,15 +23,15 @@ namespace Documentation\Examples\Xclass;
  */
 class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
 	/**
-	 * This methods adds a section at the bottom of the New Record Wizard
+	 * Adds a section at the bottom of the New Record Wizard
 	 *
 	 * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
 	 *
 	 * @return	void
 	 */
-	function regularNew() {
+	public function regularNew() {
 		parent::regularNew();
-		$this->code .= $this->doc->section(
+		$this->code .= $this->moduleTemplate->section(
 			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help'),
 			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice'),
 			0,
