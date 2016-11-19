@@ -40,10 +40,6 @@ $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::ext
 $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
         'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
 );
-$icons = array(
-        'page-tree' => $relativeExtensionPath . 'Resources/Public/Images/PageTree.png'
-);
-\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
 
 // Add extra fields to User Settings and be_user TCA fields
 
@@ -79,98 +75,6 @@ $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
         'after:email'
 );
 
-// Create various FE plugins to demonstrate FlexForms definition
-// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
-
-// Disable the display of layout and select_key fields for the plugins
-// provided by the extension
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi1'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi2'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi3'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pi4'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pierror'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY . '_pihtml'] = 'layout,select_key,pages';
-
-// Activate the display of the plug-in flexform field and set FlexForm definition
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        $_EXTKEY . '_pi1', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi2'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        $_EXTKEY . '_pi2', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi3'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        $_EXTKEY . '_pi3', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi4'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        $_EXTKEY . '_pi4', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
-);
-
-// Add the plugins to the list of plugins
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
-                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-                $_EXTKEY . '_pi1'
-        ),
-        'list_type'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
-                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi2',
-                $_EXTKEY . '_pi2'
-        ),
-        'list_type'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
-                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi3',
-                $_EXTKEY . '_pi3'
-        ),
-        'list_type'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
-                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi4',
-                $_EXTKEY . '_pi4'
-        ),
-        'list_type'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-        array(
-                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
-                $_EXTKEY . '_pierror'
-        ),
-        'list_type'
-);
-
-// Register the HTML Parser plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        $_EXTKEY,
-        'HtmlParser',
-        'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title'
-);
-// Register the collections plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        $_EXTKEY,
-        'Collections',
-        'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:collections_plugin_title'
-);
-// Register the FAL example plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Documentation.' . $_EXTKEY,
-	'FalExamples',
-    'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf:falexample_plugin_title'
-);
-
-
-// Add "pierror" plugin to new element wizard
-if (TYPO3_MODE == 'BE') {
-    $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_examples_pierror_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'pierror/class.tx_examples_pierror_wizicon.php';
-}
-
 
 // New tables for demonstrating various TCA features
 
@@ -190,6 +94,14 @@ $iconRegistry->registerIcon(
         \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
         [
             'source' => 'EXT:examples/Resources/Public/Images/Haiku.svg'
+        ]
+);
+// Add sprite icon for new content element wizard
+$iconRegistry->registerIcon(
+        'tx_examples-error-plugin',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+            'source' => 'EXT:examples/Resources/Public/Images/ErrorWizard.svg'
         ]
 );
 
@@ -233,3 +145,8 @@ $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
         'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
 );
+// Add sprite icon for new page type
+$icons = array(
+        'page-tree' => $relativeExtensionPath . 'Resources/Public/Images/PageTree.png'
+);
+\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
