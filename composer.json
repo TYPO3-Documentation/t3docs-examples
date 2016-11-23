@@ -1,0 +1,27 @@
+{
+	"name": "documentation/examples",
+	"type": "typo3-cms-extension",
+	"description": "This extension packages a number of code examples from the Core Documentation.",
+	"license": [
+		"GPL-2.0+"
+	],
+	"authors": [
+		{
+			"name": "Documentation Team",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Documentation\\Examples\\": "Classes/"
+		}
+	},
+	"version": "0.7.0",
+	"require": {
+		"typo3/cms-core": ">=7.6.0,<8.0"
+	},
+	"replace": {
+		"examples": "self.version",
+		"typo3-ter/examples": "self.version"
+	}
+}

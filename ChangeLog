@@ -1,4 +1,102 @@
-commit bb94b40a7727a6742087724c75a010cf6bb39519
+commit 99bc4fd1b0097c58cf675043c4ed5c5855319cc2
+Author: Francois Suter <francois@typo3.org>
+
+    Updated code related to adding a new doktype
+
+commit cc25e9168b1204c9b690dbe2d1f3f5f692339b46
+Author: Francois Suter <francois@typo3.org>
+
+    Improved code for additional be_users field
+
+commit be45ce24f5e847f94d7a923d2249138c193f2ca3
+Author: Francois Suter <francois@typo3.org>
+
+    Updated code for adding a click-menu item
+
+commit 0f55053283908b91d179493b977fc996977b2404
+Author: Francois Suter <francois@typo3.org>
+
+    Updated the "error" plugin and related code
+    Cleaned up some code according to PSR-2
+
+commit 85746d6d5a9b3530ea43025e3578af9ddf261315
+Author: Francois Suter <francois@typo3.org>
+
+    Updated all code related to "dummy" and "haiku" tables
+    (TCA, user functions, wizards, etc.)
+
+commit f8c54421f6b81781204e7f2569e116aaf49be06b
+Author: Francois Suter <francois@typo3.org>
+
+    Updated user-type field TCA example
+
+commit 46a7025a0393aa6406f0da57ce6b9d1381b239a0
+Author: Francois Suter <francois@typo3.org>
+
+    Fixed tree rendering example for select-type fields (general record storage page field does not exist anymore)
+
+commit b172dd33cc364c1cd96d5930f0690b4da0fcbf16
+Author: Francois Suter <francois@typo3.org>
+
+    Updated custom user permissions example
+
+commit 52937d7395b17d2f148d24dcc892a60bff4d9ba6
+Author: Francois Suter <francois@typo3.org>
+
+    Updated the XCLASS example
+
+commit 5c84525a0906a400c66324b08724ec89ceea971a
+Author: Francois Suter <francois@typo3.org>
+
+    Added FAL frontend examples
+
+commit fa562b7d48393cc90b7e31691d0beb243438f298
+Author: Francois Suter <francois@typo3.org>
+
+    Updated extension icon
+
+commit d5c0478205dff10c7aa8727f1abb5113e4a22c49
+Author: Francois Suter <francois@typo3.org>
+
+    Added example code for created sys_file_reference entries with DataHandler
+
+commit 546bc5384394d7cc0525be7601f00a023a5ce8f7
+Author: Francois Suter <francois@typo3.org>
+
+    Changed backend module icon to SVG
+
+commit 8614a0b62a780eb8ade3a97480d651e163557f9b
+Author: Francois Suter <francois@typo3.org>
+
+    Removed last bit of old backend module structure
+
+commit 29685c431dd2de3d7ed3a43bfb076da98f43bf5d
+Author: Francois Suter <francois@typo3.org>
+
+    Removed unused backend module layout
+    Removed code related to ExtJS/ExtDirect
+
+commit cb318f619cb7323d6d643d0b0b0688dc43056803
+Author: Francois Suter <francois@typo3.org>
+
+    Updated the backend module
+
+commit b088452b121321a5aa840dcbb748772d849a5e5a
+Author: Martin Bless <martin@mbless.de>
+
+    Update Includes.txt
+
+commit fb255da7e6cf89b7171ca64273f9bf01b559862d
+Author: Francois Suter <francois@typo3.org>
+
+    Moved HTML Parser example to Extbase plugin
+
+commit 5f87aa1d6648da6a7b56026d2d9f4d4740d5003d
+Author: Wouter Wolters <typo3@wouterwolters.nl>
+
+    [BUGFIX] Remove usage of enableJumpToUrl in be.container
+
+commit 9e07bdac4e27b23a1bd0ccf063f964c2cc22e55e
 Author: Francois Suter <francois@typo3.org>
 
     [TASK] Release version 0.6.2
