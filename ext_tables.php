@@ -37,12 +37,12 @@ $relativeExtensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::ext
         'typo3-navigation'
 );
 
+// Register the context menu item
 $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
-        'name' => 'Documentation\\Examples\\Service\\ContextMenuOptions'
+        'name' => \Documentation\Examples\Service\ContextMenuOptions::class
 );
 
 // Add extra fields to User Settings and be_user TCA fields
-
 $tempColumnsBackend = array(
         'tx_examples_mobile' => array(
                 'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
@@ -104,6 +104,14 @@ $iconRegistry->registerIcon(
             'source' => 'EXT:examples/Resources/Public/Images/ErrorWizard.svg'
         ]
 );
+// Add sprite icon for the context menu item
+$iconRegistry->registerIcon(
+        'tx_examples-page-tree',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+            'source' => 'EXT:examples/Resources/Public/Images/PageTree.svg'
+        ]
+);
 
 // Allow dummy table anywhere in the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
@@ -145,8 +153,3 @@ $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
         'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
 );
-// Add sprite icon for new page type
-$icons = array(
-        'page-tree' => $relativeExtensionPath . 'Resources/Public/Images/PageTree.png'
-);
-\TYPO3\CMS\Backend\Sprite\SpriteManager::addSingleIcons($icons, $_EXTKEY);
