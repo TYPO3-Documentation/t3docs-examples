@@ -42,29 +42,7 @@ $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = array(
         'name' => \Documentation\Examples\Service\ContextMenuOptions::class
 );
 
-// Add extra fields to User Settings and be_user TCA fields
-$tempColumnsBackend = array(
-        'tx_examples_mobile' => array(
-                'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
-                'config' => array(
-                        'type' => 'input',
-                        'size' => 30
-                )
-        )
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-        'be_users',
-        $tempColumnsBackend,
-        true
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-        'be_users',
-        'tx_examples_mobile',
-        '',
-        'after:email'
-);
-
+// Add extra fields to User Settings (field is defined for TCA too in Configuration/TCA/Overrides/be_users.php)
 $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
         'type' => 'text',
