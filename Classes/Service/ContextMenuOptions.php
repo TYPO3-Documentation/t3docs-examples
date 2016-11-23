@@ -21,7 +21,7 @@ use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * This class XCLASSes NewRecordController to modify the layout of the New Record Wizard
+ * Class for declaring a new context menu item.
  *
  * @author Francois Suter <francois@typo3.org>
  * @package TYPO3
@@ -31,7 +31,7 @@ class ContextMenuOptions
 {
 
     /**
-     * Adds a sample item to the CSM
+     * Adds a sample item to the CSM.
      *
      * @param ClickMenu $parentObject Back-reference to the calling object
      * @param array $menuItems Current list of menu items

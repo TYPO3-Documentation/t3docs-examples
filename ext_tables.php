@@ -53,11 +53,7 @@ $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = array(
         'after:email'
 );
 
-
-// New tables for demonstrating various TCA features
-
-
-// Register sprite icons for news tables
+// Register sprite icons (for news tables, click-menu items, etc.)
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $iconRegistry->registerIcon(
@@ -91,6 +87,8 @@ $iconRegistry->registerIcon(
         ]
 );
 
+// Settings for new tables, which do not belong to Configuration/TCA
+
 // Allow dummy table anywhere in the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
 
@@ -106,27 +104,37 @@ $iconRegistry->registerIcon(
 
 // Define a new doktype
 $customPageDoktype = 116;
-$customPageIcon = $relativeExtensionPath . 'Resources/Public/Images/Archive.png';
+$customIconClass = 'tx_examples-archive-page';
+// Add sprite icon for the context menu item
+$iconRegistry->registerIcon(
+        $customIconClass,
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+            'source' => 'EXT:examples/Resources/Public/Images/ArchivePage.svg'
+        ]
+);
 // Add the new doktype to the list of page types
 $GLOBALS['PAGES_TYPES'][$customPageDoktype] = array(
         'type' => 'sys',
-        'icon' => $customPageIcon,
+        'icon' => $customIconClass,
         'allowedTables' => '*'
 );
+// NOTE: all TCA modifications could be stored to Configuration/TCA/Overrides/pages.php,
+// but that would force duplication of icon declaration, etc.
 // Add the new doktype to the page type selector
 $GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = array(
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
         $customPageDoktype,
-        $customPageIcon
+        $customIconClass
 );
 // Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
 $GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items'][] = array(
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
         $customPageDoktype,
-        $customPageIcon
+        $customIconClass
 );
-// Add the icon for the new doktype
-\TYPO3\CMS\Backend\Sprite\SpriteManager::addTcaTypeIcon('pages', $customPageDoktype, $customPageIcon);
+// Add the icon to the icon class configuration
+$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;
 // Add the new doktype to the list of types available from the new page menu at the top of the page tree
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
         'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
