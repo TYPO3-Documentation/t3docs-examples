@@ -14,7 +14,7 @@ define([
 		/**
 		 * Initializes this module.
 		 */
-		$(function() {
+		$(function () {
 			$('.action-button').on('click', function () {
 				var table = $(this).attr('name');
 				$.ajax({
@@ -32,6 +32,6 @@ define([
 			});
 		});
 
-	   return ExamplesApplication;
+		return ExamplesApplication;
    }
 );

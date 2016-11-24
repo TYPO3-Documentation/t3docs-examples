@@ -2,18 +2,16 @@
  * JS code for extension "examples" wizard example
  */
 define([
-	   'jquery'
-   ],
-   function ($) {
-	   'use strict';
-	   var PlusMinusWizard = {
-
-	   };
+		'jquery'
+	],
+	function ($) {
+		'use strict';
+		var PlusMinusWizard = {};
 
 		/**
 		 * Initializes this module.
 		 */
-		$(function() {
+		$(function () {
 			// Activate the "+" and "-" buttons
 			$('.tx_examples_weirdness').on('click', function () {
 				var action = $(this).data('action');
@@ -33,6 +31,6 @@ define([
 			});
 		});
 
-	   return PlusMinusWizard;
-   }
+		return PlusMinusWizard;
+	}
 );

@@ -62,43 +62,43 @@ class HtmlParserController extends ActionController
         /** @var HtmlParser $parseObj */
         $parseObj = GeneralUtility::makeInstance(HtmlParser::class);
         $this->view->assign(
-                'result1',
-                $parseObj->splitIntoBlock('div,table', $testHTML)
+            'result1',
+            $parseObj->splitIntoBlock('div,table', $testHTML)
         );
 
         // Splitting HTML into blocks defined by <img> and <br> single tags
         $this->view->assign(
-                'result2',
-                $parseObj->splitTags('img,br', $testHTML)
+            'result2',
+            $parseObj->splitTags('img,br', $testHTML)
         );
 
         // Cleaning HTML
-        $tagCfg = array(
-                'b' => array(
-                        'nesting' => 1,
-                        'remap' => 'strong',
-                        'allowedAttribs' => 0
-                ),
-                'img' => array(),
-                'div' => array(),
-                'br' => array(),
-                'p' => array(
-                        'fixAttrib' => array(
-                                'class' => array(
-                                        'set' => 'bodytext'
-                                )
-                        )
-                )
-        );
+        $tagCfg = [
+            'b' => [
+                'nesting' => 1,
+                'remap' => 'strong',
+                'allowedAttribs' => 0,
+            ],
+            'img' => [],
+            'div' => [],
+            'br' => [],
+            'p' => [
+                'fixAttrib' => [
+                    'class' => [
+                        'set' => 'bodytext',
+                    ],
+                ],
+            ],
+        ];
         $this->view->assign(
-                'result3',
-                $result = $parseObj->HTMLcleaner(
-                        $testHTML,
-                        $tagCfg,
-                        false,
-                        false,
-                        array('xhtml' => 1)
-                )
+            'result3',
+            $result = $parseObj->HTMLcleaner(
+                $testHTML,
+                $tagCfg,
+                false,
+                false,
+                ['xhtml' => 1]
+            )
         );
     }
 }

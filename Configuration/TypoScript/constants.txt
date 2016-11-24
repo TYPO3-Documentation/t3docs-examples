@@ -1,0 +1,2 @@
+# cat=examples//a; type=int+; label=Some value: A longer description for this constant
+myValue =

@@ -40,11 +40,15 @@ class PlusMinusWizardController
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         // Load the related JavaScript module
         $pageRenderer->loadRequireJsModule(
-                'TYPO3/CMS/Examples/PlusMinusWizard'
+            'TYPO3/CMS/Examples/PlusMinusWizard'
         );
         // Render the two buttons
-        $wizard = '<button class="btn btn-default tx_examples_weirdness" data-item="' . $fieldParameters['itemName'] . '" data-action="minus"><span class="t3-icon fa fa-minus"></span></button>';
-        $wizard .= '<button class="btn btn-default tx_examples_weirdness" data-item="' . $fieldParameters['itemName'] . '" data-action="plus"><span class="t3-icon fa fa-plus"></span></button>';
+        $wizard = '<button class="btn btn-default tx_examples_weirdness" data-item="' .
+                  $fieldParameters['itemName'] .
+                  '" data-action="minus"><span class="t3-icon fa fa-minus"></span></button>';
+        $wizard .= '<button class="btn btn-default tx_examples_weirdness" data-item="' .
+                   $fieldParameters['itemName'] .
+                   '" data-action="plus"><span class="t3-icon fa fa-plus"></span></button>';
         return $wizard;
     }
 }

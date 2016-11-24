@@ -1,28 +1,34 @@
 <html data-namespace-typo3-fluid="true"
-	  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	  xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-	  xmlns:ex="http://typo3.org/ns/Documentation/Examples/ViewHelpers">
+			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+			xmlns:ex="http://typo3.org/ns/Documentation/Examples/ViewHelpers"
+>
 
-	<h1><f:translate key="function_links" /></h1>
+<h1>
+	<f:translate key="function_links"/>
+</h1>
 
-	<p><f:translate key="function_links_intro" /></p>
-	<p>
-		<ex:be.editLink table="pages" uid="1" action="edit">
-			<core:icon identifier="actions-document-open" />
-			<f:translate key="function_links_edit_page_1" />
-		</ex:be.editLink>
-	</p>
-	<p>
-		<ex:be.editLink table="pages" uid="1" action="edit">
-			<core:icon identifier="actions-document-open" />
-			<f:translate key="function_links_edit_page_1_restricted" />
-		</ex:be.editLink>
-	</p>
-	<p>
-		<ex:be.editLink table="tx_examples_haiku" uid="1" action="new" defaultValues="{tx_examples_haiku: {title: 'New haiku'}}">
-			<core:icon identifier="actions-document-new" />
-			<f:translate key="function_links_new_haiku" />
-		</ex:be.editLink>
-	</p>
+<p>
+	<f:translate key="function_links_intro"/>
+</p>
+<p>
+	<ex:be.editLink table="pages" uid="1" action="edit">
+		<core:icon identifier="actions-document-open"/>
+		<f:translate key="function_links_edit_page_1"/>
+	</ex:be.editLink>
+</p>
+<p>
+	<ex:be.editLink table="pages" uid="1" action="edit">
+		<core:icon identifier="actions-document-open"/>
+		<f:translate key="function_links_edit_page_1_restricted"/>
+	</ex:be.editLink>
+</p>
+<p>
+	<ex:be.editLink table="tx_examples_haiku" uid="1" action="new"
+									defaultValues="{tx_examples_haiku: {title: 'New haiku'}}">
+		<core:icon identifier="actions-document-new"/>
+		<f:translate key="function_links_new_haiku"/>
+	</ex:be.editLink>
+</p>
 
 </html>

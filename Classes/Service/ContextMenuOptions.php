@@ -46,12 +46,12 @@ class ContextMenuOptions
         if ($table === 'pages') {
             // URL for the menu item. Point to the page tree example module, passing the page id.
             $baseUrl = BackendUtility::getModuleUrl(
-                    'tools_ExamplesExamples',
-                    array(
-                            'tx_examples_tools_examplesexamples[action]' => 'tree',
-                            'tx_examples_tools_examplesexamples[controller]' => 'Module',
-                            'tx_examples_tools_examplesexamples[page]' => $uid
-                    )
+                'tools_ExamplesExamples',
+                [
+                    'tx_examples_tools_examplesexamples[action]' => 'tree',
+                    'tx_examples_tools_examplesexamples[controller]' => 'Module',
+                    'tx_examples_tools_examplesexamples[page]' => $uid,
+                ]
             );
 
             // Add new menu item with the following parameters:
@@ -61,13 +61,13 @@ class ContextMenuOptions
             // 4) = 1 disable item in docheader
             $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
             $menuItems[] = $parentObject->linkItem(
-                    $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xml:csm_view_page'),
-                    $iconFactory->getIcon(
-                            'tx_examples-page-tree',
-                            Icon::SIZE_SMALL
-                    ),
-                    $parentObject->urlRefForCM($baseUrl),
-                    1
+                $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xml:csm_view_page'),
+                $iconFactory->getIcon(
+                    'tx_examples-page-tree',
+                    Icon::SIZE_SMALL
+                ),
+                $parentObject->urlRefForCM($baseUrl),
+                1
             );
         }
         return $menuItems;

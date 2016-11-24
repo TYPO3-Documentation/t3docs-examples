@@ -1,27 +1,34 @@
-<html data-namespace-typo3-fluid="true"
-	  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-	<f:flashMessages />
+<f:flashMessages/>
 
-	<h1><f:translate key="function_tree" /></h1>
+<h1>
+	<f:translate key="function_tree"/>
+</h1>
 
-	<p><f:translate key="function_tree_intro" /></p>
+<p>
+	<f:translate key="function_tree_intro"/>
+</p>
 
-	<table class="table table-striped">
-		<thead>
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th>Icon / Title:</th>
+		<th>Page UID:</th>
+	</tr>
+	</thead>
+	<tbody>
+	<f:for each="{tree}" as="page">
 		<tr>
-			<th>Icon / Title:</th>
-			<th>Page UID:</th>
+			<td>
+				<f:format.raw>{page.depthData}</f:format.raw>
+				<f:format.raw>{page.HTML}</f:format.raw>
+				{page.row.title}
+			</td>
+			<td>{page.row.uid}</td>
 		</tr>
-		</thead>
-		<tbody>
-		<f:for each="{tree}" as="page">
-			<tr>
-				<td><f:format.raw>{page.depthData}</f:format.raw> <f:format.raw>{page.HTML}</f:format.raw> {page.row.title}</td>
-				<td>{page.row.uid}</td>
-			</tr>
-		</f:for>
-		</tbody>
-	</table>
+	</f:for>
+	</tbody>
+</table>
 
 </html>

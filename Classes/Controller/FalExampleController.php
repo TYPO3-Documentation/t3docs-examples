@@ -19,6 +19,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class FalExampleController
+ *
  * @package Documentation\Examples\Controller
  */
 class FalExampleController extends ActionController
@@ -45,10 +46,10 @@ class FalExampleController extends ActionController
         $folder = $defaultStorage->getFolder('/user_upload/images/galerie/');
         $files = $defaultStorage->getFilesInFolder($folder);
         $this->view->assignMultiple(
-                array(
-                        'folder' => $folder,
-                        'files' => $files
-                )
+            [
+                'folder' => $folder,
+                'files' => $files,
+            ]
         );
     }
 
@@ -64,10 +65,10 @@ class FalExampleController extends ActionController
         /** @var \TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection $files */
         $collection->loadContents();
         $this->view->assignMultiple(
-                array(
-                        'collection' => $collection,
-                        'files' => $collection->getItems()
-                )
+            [
+                'collection' => $collection,
+                'files' => $collection->getItems(),
+            ]
         );
     }
 }

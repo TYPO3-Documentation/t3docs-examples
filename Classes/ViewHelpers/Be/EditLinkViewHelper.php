@@ -65,19 +65,19 @@ class EditLinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBas
      * @return string The <a> tag
      * @see \TYPO3\CMS\Backend\Utility::editOnClick()
      */
-    public function render($action, $table, $uid, $columnsOnly = '', $defaultValues = array(), $returnUrl = '')
+    public function render($action, $table, $uid, $columnsOnly = '', $defaultValues = [], $returnUrl = '')
     {
 
         // Edit all icon:
         $urlParameters = [
-                'edit' => [
-                        $table => [
-                                $uid => $action
-                        ]
+            'edit' => [
+                $table => [
+                    $uid => $action,
                 ],
-                'columnsOnly' => $columnsOnly,
-                'createExtension' => 0,
-                'returnUrl' => GeneralUtility::getIndpEnv('REQUEST_URI')
+            ],
+            'columnsOnly' => $columnsOnly,
+            'createExtension' => 0,
+            'returnUrl' => GeneralUtility::getIndpEnv('REQUEST_URI'),
         ];
         if (count($defaultValues) > 0) {
             $urlParameters['defVals'] = $defaultValues;

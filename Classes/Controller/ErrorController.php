@@ -29,7 +29,7 @@ class ErrorController extends ActionController
     /**
      * Throws an exception (to demonstrate Core error handling).
      *
-     * @return void
+     * @throws \Exception
      */
     public function indexAction()
     {

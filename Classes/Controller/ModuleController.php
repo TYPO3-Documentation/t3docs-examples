@@ -90,20 +90,20 @@ class ModuleController extends ActionController
         // Add menu items
         /** @var MenuItem $menuItem */
         $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = array('flash', 'log', 'tree', 'clipboard', 'links', 'fileReference');
+        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
 
         foreach ($items as $item) {
             $isActive = $this->actionMethodName === $item . 'Action';
             $menuItem->setTitle(
-                    LocalizationUtility::translate(
-                            'function_' . $item,
-                            'examples'
-                    )
+                LocalizationUtility::translate(
+                    'function_' . $item,
+                    'examples'
+                )
             );
             $uri = $uriBuilder->reset()->uriFor(
-                    $item,
-                    array(),
-                    'Module'
+                $item,
+                [],
+                'Module'
             );
             $menuItem->setActive($isActive)->setHref($uri);
             $menu->addMenuItem($menuItem);
@@ -121,38 +121,38 @@ class ModuleController extends ActionController
     {
         // Issue one of each type of flash messages
         $this->addFlashMessage(
-                'This is a notice message',
-                'Notification',
-                FlashMessage::NOTICE
+            'This is a notice message',
+            'Notification',
+            FlashMessage::NOTICE
         );
         $this->addFlashMessage(
-                'This is an information message',
-                'Information',
-                FlashMessage::INFO
+            'This is an information message',
+            'Information',
+            FlashMessage::INFO
         );
         $this->addFlashMessage(
-                'This is a success message',
-                'Hooray!',
-                FlashMessage::OK
+            'This is a success message',
+            'Hooray!',
+            FlashMessage::OK
         );
         $this->addFlashMessage(
-                'This is a warning message',
-                'Watch out',
-                FlashMessage::WARNING
+            'This is a warning message',
+            'Watch out',
+            FlashMessage::WARNING
         );
         $this->addFlashMessage(
-                '
+            '
 				<p>This is an error message</p>
 				<p><strong>It shows that flash messages may not contain HTML (anymore, since TYPO3 7 LTS).</strong></p>
 			',
-                'Whoops!',
-                FlashMessage::ERROR
+            'Whoops!',
+            FlashMessage::ERROR
         );
         $this->addFlashMessage(
-                'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
-                'Success',
-                FlashMessage::OK,
-                false
+            'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
+            'Success',
+            FlashMessage::OK,
+            false
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
     }
@@ -169,20 +169,20 @@ class ModuleController extends ActionController
         $logger->info('Everything went fine.');
         $logger->warning('Something went awry, check your configuration!');
         $logger->error(
-                'This was not a good idea',
-                array(
-                        'foo' => 'bar',
-                        'bar' => $this,
-                )
+            'This was not a good idea',
+            [
+                'foo' => 'bar',
+                'bar' => $this,
+            ]
         );
         $logger->log(
-                LogLevel::CRITICAL,
-                'This is an utter failure!'
+            LogLevel::CRITICAL,
+            'This is an utter failure!'
         );
         $this->addFlashMessage(
-                '3 log entries created',
-                '',
-                FlashMessage::INFO
+            '3 log entries created',
+            '',
+            FlashMessage::INFO
         );
     }
 
@@ -200,8 +200,8 @@ class ModuleController extends ActionController
             $startingPoint = 1;
         }
         $pageRecord = BackendUtility::getRecord(
-                'pages',
-                $startingPoint
+            'pages',
+            $startingPoint
         );
 
         // Create and initialize the tree object
@@ -213,28 +213,28 @@ class ModuleController extends ActionController
         /** @var IconFactory $iconFactory */
         $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
         $html = $iconFactory->getIconForRecord(
-                'pages',
-                $pageRecord,
-                Icon::SIZE_SMALL
+            'pages',
+            $pageRecord,
+            Icon::SIZE_SMALL
         )->render();
-        $tree->tree[] = array(
-                'row' => $pageRecord,
-                'HTML' => $html
-        );
+        $tree->tree[] = [
+            'row' => $pageRecord,
+            'HTML' => $html,
+        ];
 
         // Create the page tree, from the starting point, 2 levels deep
         $depth = 2;
         $tree->getTree(
-                $startingPoint,
-                $depth,
-                ''
+            $startingPoint,
+            $depth,
+            ''
         );
         GeneralUtility::devLog('page tree', 'examples', 0, $tree->tree);
 
         // Pass the tree to the view
         $this->view->assign(
-                'tree',
-                $tree->tree
+            'tree',
+            $tree->tree
         );
     }
 
@@ -253,24 +253,24 @@ class ModuleController extends ActionController
         //		\TYPO3\CMS\Core\Utility\DebugUtility::debug($clipboard->clipData);
 
         // Access files and pages content of current pad
-        $currentPad = array(
-                'files' => $clipboard->elFromTable('_FILE'),
-                'pages' => $clipboard->elFromTable('pages'),
-        );
+        $currentPad = [
+            'files' => $clipboard->elFromTable('_FILE'),
+            'pages' => $clipboard->elFromTable('pages'),
+        ];
 
         // Switch to normal pad and retrieve files and pages content
         $clipboard->setCurrentPad('normal');
-        $normalPad = array(
-                'files' => $clipboard->elFromTable('_FILE'),
-                'pages' => $clipboard->elFromTable('pages'),
-        );
+        $normalPad = [
+            'files' => $clipboard->elFromTable('_FILE'),
+            'pages' => $clipboard->elFromTable('pages'),
+        ];
 
         // Pass data to the view for display
         $this->view->assignMultiple(
-                array(
-                        'current' => $currentPad,
-                        'normal' => $normalPad
-                )
+            [
+                'current' => $currentPad,
+                'normal' => $normalPad,
+            ]
         );
     }
 
@@ -298,41 +298,41 @@ class ModuleController extends ActionController
         // repository class; don't do this at home).
         try {
             $contentElements = $this->getDatabaseConnection()->exec_SELECTgetRows(
-                    'uid, header',
-                    'tt_content',
-                    '1 = 1' . BackendUtility::deleteClause('tt_content'),
-                    '',
-                    'header ASC'
+                'uid, header',
+                'tt_content',
+                '1 = 1' . BackendUtility::deleteClause('tt_content'),
+                '',
+                'header ASC'
             );
         } catch (\Exception $e) {
-            $contentElements = array();
+            $contentElements = [];
         }
         // If we just handled a content element, get related data to display as a confirmation
         if ((int)$element > 0) {
             $contentElement = BackendUtility::getRecord(
-                    'tt_content',
-                    (int)$element
+                'tt_content',
+                (int)$element
             );
             try {
                 $fileObjects = $fileRepository->findByRelation(
-                        'tt_content',
-                        'image',
-                        $element
+                    'tt_content',
+                    'image',
+                    $element
                 );
             } catch (\Exception $e) {
-                $fileObjects = array();
+                $fileObjects = [];
             }
         } else {
             $contentElement = null;
-            $fileObjects = array();
+            $fileObjects = [];
         }
         $this->view->assignMultiple(
-                array(
-                        'files' => $fileRepository->findAll(),
-                        'elements' => $contentElements,
-                        'content' => $contentElement,
-                        'references' => $fileObjects
-                )
+            [
+                'files' => $fileRepository->findAll(),
+                'elements' => $contentElements,
+                'content' => $contentElement,
+                'references' => $fileObjects,
+            ]
         );
     }
 
@@ -353,57 +353,57 @@ class ModuleController extends ActionController
         $resourceFactory = ResourceFactory::getInstance();
         $fileObject = $resourceFactory->getFileObject((int)$file);
         $contentElement = BackendUtility::getRecord(
-                'tt_content',
-                (int)$element
+            'tt_content',
+            (int)$element
         );
         // Assemble DataHandler data
         $newId = 'NEW1234';
-        $data = array();
-        $data['sys_file_reference'][$newId] = array(
-                'table_local' => 'sys_file',
-                'uid_local' => $fileObject->getUid(),
-                'tablenames' => 'tt_content',
-                'uid_foreign' => $contentElement['uid'],
-                'fieldname' => 'image',
-                'pid' => $contentElement['pid']
-        );
-        $data['tt_content'][$contentElement['uid']] = array(
-                'image' => $newId
-        );
+        $data = [];
+        $data['sys_file_reference'][$newId] = [
+            'table_local' => 'sys_file',
+            'uid_local' => $fileObject->getUid(),
+            'tablenames' => 'tt_content',
+            'uid_foreign' => $contentElement['uid'],
+            'fieldname' => 'image',
+            'pid' => $contentElement['pid'],
+        ];
+        $data['tt_content'][$contentElement['uid']] = [
+            'image' => $newId,
+        ];
         // Get an instance of the DataHandler and process the data
         /** @var DataHandler $dataHandler */
         $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-        $dataHandler->start($data, array());
+        $dataHandler->start($data, []);
         $dataHandler->process_datamap();
         // Error or success reporting
         if (count($dataHandler->errorLog) === 0) {
             $this->addFlashMessage(
-                    LocalizationUtility::translate(
-                            'create_relation_success',
-                            'examples'
-                    ),
-                    ''
+                LocalizationUtility::translate(
+                    'create_relation_success',
+                    'examples'
+                ),
+                ''
             );
         } else {
             foreach ($dataHandler->errorLog as $log) {
                 $this->addFlashMessage(
-                        $log,
-                        LocalizationUtility::translate(
-                                'create_relation_error',
-                                'examples'
-                        ),
-                        FlashMessage::ERROR
+                    $log,
+                    LocalizationUtility::translate(
+                        'create_relation_error',
+                        'examples'
+                    ),
+                    FlashMessage::ERROR
                 );
             }
         }
 
         $this->redirect(
-                'fileReference',
-                null,
-                null,
-                array(
-                        'element' => $contentElement['uid']
-                )
+            'fileReference',
+            null,
+            null,
+            [
+                'element' => $contentElement['uid'],
+            ]
         );
     }
 
@@ -418,8 +418,8 @@ class ModuleController extends ActionController
     {
         $requestParameters = $request->getQueryParams();
         $count = $this->getDatabaseConnection()->exec_SELECTcountRows(
-                'uid',
-                addslashes($requestParameters['table'])
+            'uid',
+            addslashes($requestParameters['table'])
         );
 
         // Send the response

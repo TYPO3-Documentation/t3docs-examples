@@ -21,21 +21,23 @@ namespace Documentation\Examples\Xclass;
  * @package TYPO3
  * @subpackage tx_examples
  */
-class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController {
-	/**
-	 * Adds a section at the bottom of the New Record Wizard
-	 *
-	 * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
-	 *
-	 * @return	void
-	 */
-	public function regularNew() {
-		parent::regularNew();
-		$this->code .= $this->moduleTemplate->section(
-			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help'),
-			$GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice'),
-			0,
-			1
-		);
-	}
+class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
+{
+    /**
+     * Adds a section at the bottom of the New Record Wizard
+     *
+     * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
+     *
+     * @return    void
+     */
+    public function regularNew()
+    {
+        parent::regularNew();
+        $this->code .= $this->moduleTemplate->section(
+            $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help'),
+            $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice'),
+            0,
+            1
+        );
+    }
 }
