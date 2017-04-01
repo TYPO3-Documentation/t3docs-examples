@@ -102,3 +102,5 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php'
 	        RTE.config.tx_examples_haiku.poem.proc.overruleMode = tx_examples_transformation,ts_css
     '
 );
+
+$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = \Documentation\Examples\ContextMenu\HelloWorldItemProvider::class;
