@@ -44,7 +44,7 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['p
 
 // Register the "error " plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Documentation.Example',
+    'Documentation.Examples',
     'Error',
     [
         'Error' => 'index',
@@ -58,7 +58,7 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['p
 
 // Register the HTML parser plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Documentation.Example',
+    'Documentation.Examples',
     'HtmlParser',
     [
         'HtmlParser' => 'index',
@@ -67,16 +67,18 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Documentation']['Examples']['Controller']['p
 
 // Register the collections plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Documentation.Example',
+    'Documentation.Examples',
     'Collections',
     [
+        'Collection' => 'index',
+    ],    [
         'Collection' => 'index',
     ]
 );
 
 // Register the FAL examples plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Documentation.Example',
+    'Documentation.Examples',
     'FalExamples',
     [
         'FalExample' => 'index,listFiles,collection',
