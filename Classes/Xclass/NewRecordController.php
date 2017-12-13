@@ -33,11 +33,10 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
     public function regularNew()
     {
         parent::regularNew();
-        $this->code .= $this->moduleTemplate->section(
-            $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help'),
-            $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice'),
-            0,
-            1
-        );
+        $label = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help');
+        $text = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice');
+        $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label) . '</h2>' . $text . '</div>';
+
+        $this->code .= $str;
     }
 }

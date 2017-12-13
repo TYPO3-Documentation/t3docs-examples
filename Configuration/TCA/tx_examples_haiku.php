@@ -49,10 +49,10 @@ return [
                 'cols' => 40,
                 'rows' => 6,
                 'softref' => 'typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
             ],
-            'defaultExtras' => 'richtext[]:rte_transform[mode=tx_examples_transformation-ts_css]:static_write[filename|poem]'
-            // NOTE: parameters 4 and 5 don't seem to apply, this must be broken. Investigate later.
-            //			'defaultExtras' => 'richtext[]:static_write[filename|poem||filesource|filestatus]'
+
         ],
         'filename' => [
             'exclude' => 0,
@@ -84,29 +84,30 @@ return [
                 'type' => 'input',
                 'size' => 20,
                 'eval' => 'trim',
-                'wizards' => [
-                    'season_picker' => [
-                        'type' => 'select',
-                        'mode' => '',
-                        'items' => [
+                'valuePicker' => [
+                    'items' => [
+                        0 =>
                             [
-                                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.spring',
-                                'Spring',
+                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.spring',
+                                1 => 'Spring',
                             ],
+                        1 =>
                             [
-                                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.summer',
-                                'Summer',
+                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.summer',
+                                1 => 'Summer',
                             ],
+                        2 =>
                             [
-                                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.autumn',
-                                'Autumn',
+                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.autumn',
+                                1 => 'Autumn',
                             ],
+                        3 =>
                             [
-                                'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.winter',
-                                'Winter',
+                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.winter',
+                                1 => 'Winter',
                             ],
-                        ],
                     ],
+                    'mode' => '',
                 ],
             ],
         ],
@@ -135,19 +136,7 @@ return [
                 'type' => 'input',
                 'size' => 10,
                 'eval' => 'trim',
-                'wizards' => [
-                    'colorChoice' => [
-                        'type' => 'colorbox',
-                        'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.colorPick',
-                        'module' => [
-                            'name' => 'wizard_colorpicker',
-                        ],
-                        'dim' => '20x20',
-                        'tableStyle' => 'border: solid 1px black; margin-left: 20px;',
-                        'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
-                        'exampleImg' => 'EXT:examples/Resources/Public/Images/JapaneseGarden.jpg',
-                    ],
-                ],
+                'renderType' => 'colorpicker',
             ],
         ],
         'angle' => [
@@ -162,12 +151,9 @@ return [
                     'upper' => 90,
                 ],
                 'default' => 0,
-                'wizards' => [
-                    'angle' => [
-                        'type' => 'slider',
-                        'step' => 10,
-                        'width' => 200,
-                    ],
+                'slider' => [
+                    'width' => 200,
+                    'step' => 10,
                 ],
             ],
         ],
@@ -181,7 +167,6 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
@@ -196,12 +181,15 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
                 'autoSizeMax' => 40,
-                'disable_controls' => 'browser',
+                'fieldControl' => [
+                    'elementBrowser' => [
+                        'disabled' => true,
+                    ],
+                ],
             ],
         ],
         'image3' => [
@@ -212,12 +200,16 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
                 'autoSizeMax' => 40,
-                'disable_controls' => 'upload',
+                'fieldWizard' => [
+                    'fileUpload' => [
+                        'disabled' => true,
+                    ],
+                ],
+
             ],
         ],
         'image4' => [
@@ -228,7 +220,6 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
@@ -244,12 +235,11 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
                 'autoSizeMax' => 40,
-                'disable_controls' => 'delete',
+                'hideDeleteIcon' => true,
             ],
         ],
         'image6' => [
@@ -260,7 +250,6 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
                 'uploadfolder' => 'uploads/pics',
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
@@ -284,7 +273,6 @@ return [
                     'elementBrowserType' => 'file',
                 ],
                 'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
-                'show_thumbs' => '1',
                 'size' => '3',
                 'maxitems' => '200',
                 'minitems' => '0',
@@ -309,6 +297,7 @@ return [
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
+                'renderType' => 'selectSingle',
             ],
         ],
         'related_records' => [
@@ -320,15 +309,12 @@ return [
                 'size' => 5,
                 'minitems' => 0,
                 'maxitems' => 10,
-                'wizards' => [
-                    'suggest' => [
-                        'type' => 'suggest',
-                        'default' => [
-                            'searchWholePhrase' => 1,
-                        ],
-                        'pages' => [
-                            'searchCondition' => 'doktype = 1',
-                        ],
+                'suggestOptions' => [
+                    'default' => [
+                        'searchWholePhrase' => 1,
+                    ],
+                    'pages' => [
+                        'searchCondition' => 'doktype = 1',
                     ],
                 ],
             ],
@@ -353,11 +339,15 @@ return [
                         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content.typo3',
                     ],
                 ],
+                'renderType' => 'selectMultipleSideBySide',
             ],
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;;;3-3-3, season;;;;4-4-4, weirdness, color, angle, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images, image1, image2, image3, image4, image5, image6, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images_fal, image_fal_group, image_fal_irre, --div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations, reference_page, related_records, related_content'],
+        0 =>
+            [
+                'showitem' => 'hidden,title,poem,filename,season,weirdness,color,angle,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images,image1,image2,image3,image4,image5,image6,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images_fal,image_fal_group,image_fal_irre,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
+            ],
         // NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
         // but it should be made to work at some point (bug in the Core?)
         //		'0' => array('showitem' => 'hidden;;;;1-1-1, title;;;;2-2-2, poem, filename;;1;;3-3-3, filestatus, season;;;;4-4-4, weirdness, color'),
