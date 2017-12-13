@@ -29,11 +29,6 @@ if (TYPO3_MODE === 'BE') {
         'examples'
     );
 
-    // Register the context menu item
-    $GLOBALS['TBE_MODULES_EXT']['xMOD_alt_clickmenu']['extendCMclasses'][] = [
-        'name' => \Documentation\Examples\Service\ContextMenuOptions::class,
-    ];
-
     // Add extra fields to User Settings (field is defined for TCA too in Configuration/TCA/Overrides/be_users.php)
     // IMPORTANT: We need to define a dependency on sysext:setup to ensure that the loading order is correct and
     // the configuration is properly applied.
