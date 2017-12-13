@@ -25,7 +25,8 @@ if (TYPO3_MODE === 'BE') {
     // Register the navigation component
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addNavigationComponent(
         'tools_Examples',
-        'typo3-navigation'
+        'typo3-navigation',
+        'examples'
     );
 
     // Register the context menu item
