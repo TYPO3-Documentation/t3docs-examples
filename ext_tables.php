@@ -108,4 +108,9 @@ if (TYPO3_MODE === 'BE') {
         'icon' => $customIconClass,
         'allowedTables' => '*',
     ];
+
+    // Add custom doktype to the page tree toolbar
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+    'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
+    );
 }
