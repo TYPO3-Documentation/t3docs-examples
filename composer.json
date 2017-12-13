@@ -17,7 +17,7 @@
 		}
 	},
 	"require": {
-		"typo3/cms-core": "~7.6.0"
+		"typo3/cms-core": "~8.7.0"
 	},
 	"replace": {
 		"examples": "self.version",
