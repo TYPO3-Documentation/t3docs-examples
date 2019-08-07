@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\Userfuncs;
+namespace T3docs\Examples\Userfuncs;
 
 /**
  * This file is part of the TYPO3 CMS project.

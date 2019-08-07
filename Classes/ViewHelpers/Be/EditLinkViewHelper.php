@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\ViewHelpers\Be;
+namespace T3docs\Examples\ViewHelpers\Be;
 
 /**
  * This file is part of the TYPO3 CMS project.

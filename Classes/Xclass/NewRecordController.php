@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\Xclass;
+namespace T3docs\Examples\Xclass;
 
 /**
  * This file is part of the TYPO3 CMS project.
