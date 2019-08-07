@@ -3,7 +3,7 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
         'label' => 'title',
-        'label_userFunc' => \Documentation\Examples\Userfuncs\Tca::class . '->haikuTitle',
+        'label_userFunc' => \T3docs\Examples\Userfuncs\Tca::class . '->haikuTitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -121,7 +121,7 @@ return [
                 'wizards' => [
                     'specialWizard' => [
                         'type' => 'userFunc',
-                        'userFunc' => \Documentation\Examples\Controller\PlusMinusWizardController::class . '->render',
+                        'userFunc' => \T3docs\Examples\Controller\PlusMinusWizardController::class . '->render',
                         'params' => [
                             'color' => 'green',
                         ],

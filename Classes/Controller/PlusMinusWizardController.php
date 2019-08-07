@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\Controller;
+namespace T3docs\Examples\Controller;
 
 /*
  * This file is part of the TYPO3 CMS project.
