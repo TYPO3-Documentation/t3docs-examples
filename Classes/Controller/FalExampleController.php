@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\Controller;
+namespace T3docs\Examples\Controller;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -20,7 +20,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 /**
  * Class FalExampleController
  *
- * @package Documentation\Examples\Controller
+ * @package T3docs\Examples\Controller
  */
 class FalExampleController extends ActionController
 {

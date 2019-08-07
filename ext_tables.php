@@ -6,7 +6,7 @@ if (TYPO3_MODE === 'BE') {
     // This module is used to demonstrate some features and take screenshots
     // Register the backend module
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Documentation.Examples',
+        'T3docs.Examples',
         'tools', // Make module a submodule of 'Admin Tools'
         'examples', // Submodule key
         '', // Position
