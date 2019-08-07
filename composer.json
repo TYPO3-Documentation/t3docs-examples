@@ -1,5 +1,5 @@
 {
-	"name": "documentation/examples",
+	"name": "t3docs/examples",
 	"type": "typo3-cms-extension",
 	"description": "This extension packages a number of code examples from the Core Documentation.",
 	"license": [
@@ -13,7 +13,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"Documentation\\Examples\\": "Classes/"
+			"T3docs\\Examples\\": "Classes/"
 		}
 	},
 	"require": {

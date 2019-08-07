@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\ContextMenu;
+namespace T3docs\Examples\ContextMenu;
 
 /**
  * This file is part of the TYPO3 CMS project.

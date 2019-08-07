@@ -1,5 +1,5 @@
 <?php
-namespace Documentation\Examples\Service;
+namespace T3docs\Examples\Service;
 
 /**
  * This file is part of the TYPO3 CMS project.
