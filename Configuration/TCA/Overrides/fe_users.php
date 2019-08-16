@@ -40,7 +40,8 @@ $temporaryColumns = [
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
         'config' => [
             'type' => 'user',
-            'userFunc' => \T3docs\Examples\Userfuncs\Tca::class . '->specialField',
+            // renderType needs to be registered in ext_localconf.php
+            'renderType' => 'specialField', 
             'parameters' => [
                 'size' => '30',
                 'color' => 'blue',
