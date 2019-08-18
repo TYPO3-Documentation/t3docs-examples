@@ -28,9 +28,15 @@ class CollectionController extends ActionController
 
     /**
      * @var \TYPO3\CMS\Core\Collection\RecordCollectionRepository
-     * @inject
      */
     protected $collectionRepository;
+
+    /**
+     * @param \TYPO3\CMS\Core\Collection\RecordCollectionRepository
+     */
+    public function __construct(\TYPO3\CMS\Core\Collection\RecordCollectionRepository $collectionRepository) {
+        $this->collectionRepository = $collectionRepository;
+    }
 
     /**
      * Renders the list of all existing collections and their content
