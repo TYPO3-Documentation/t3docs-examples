@@ -24,8 +24,26 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = [
     ],
 ];
 
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG];
+
 // Add example configuration for the logging API
+
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
+    // configuration for ERROR level log entries
+    \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+        // add a FileWriter
+        \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+            // configuration for the writer
+            'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
+        ]
+    ]
+];
+
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [
+    \TYPO3\CMS\Core\Log\Writer\DatabaseWriter::class => [
+        'logTable' => 'tx_examples_log'
+    ],
+];
+
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::WARNING] = [
     // configuration for WARNING severity, including all
     // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
@@ -41,6 +59,7 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
         ],
     ],
 ];
+
 
 // Register the "error " plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
