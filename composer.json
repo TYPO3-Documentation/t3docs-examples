@@ -20,7 +20,6 @@
 		"typo3/cms-core": "~8.7.0"
 	},
 	"replace": {
-		"examples": "self.version",
 		"typo3-ter/examples": "self.version"
 	}
 }
