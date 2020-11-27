@@ -31,7 +31,6 @@
         ]
     },
     "replace": {
-        "examples": "self.version",
         "typo3-ter/examples": "self.version"
     },
     "extra": {
