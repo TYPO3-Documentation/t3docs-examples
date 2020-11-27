@@ -1,26 +1,42 @@
 {
-	"name": "t3docs/examples",
-	"type": "typo3-cms-extension",
-	"description": "This extension packages a number of code examples from the Core Documentation.",
-	"license": [
-		"GPL-2.0+"
-	],
-	"authors": [
-		{
-			"name": "Documentation Team",
-			"role": "Developer"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"T3docs\\Examples\\": "Classes/"
-		}
-	},
-	"require": {
-		"typo3/cms-core": "~9.5.0"
-	},
-	"replace": {
-		"examples": "self.version",
-		"typo3-ter/examples": "self.version"
-	}
+    "name": "t3docs/examples",
+    "type": "typo3-cms-extension",
+    "description": "This extension packages a number of code examples from the Core Documentation.",
+    "license": [
+        "GPL-2.0+"
+    ],
+    "authors": [
+        {
+            "name": "Documentation Team",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "T3docs\\Examples\\": "Classes/"
+        }
+    },
+    "require": {
+        "typo3/cms-core": "^9.5.23"
+    },
+    "require-dev": {
+        "bk2k/extension-helper": "^1.0"
+    },
+    "scripts": {
+        "set-version": [
+            "extension-helper version:set"
+        ],
+        "changelog": [
+            "extension-helper changelog:create"
+        ]
+    },
+    "replace": {
+        "examples": "self.version",
+        "typo3-ter/examples": "self.version"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-9.5": "9.5.x-dev"
+        }
+    }
 }
