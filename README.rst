@@ -10,6 +10,11 @@ Sample Extension "examples"
 **Important:** The extension in the Extension Repository and the rendered documentation
 is currently outdated. The most recent version of this extension is 0.8.0 for TYPO3 8.
 
+**Instalation:** Can be installed via composer:
+.. code:: bash
+
+    composer req t3docs/examples
+
 This extension provides a number of code examples used in the TYPO3 Core Documentation.
 
 Refer to the documentation for more details.
