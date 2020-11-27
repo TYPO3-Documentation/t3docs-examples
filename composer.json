@@ -1,26 +1,31 @@
 {
-	"name": "t3docs/examples",
-	"type": "typo3-cms-extension",
-	"description": "This extension packages a number of code examples from the Core Documentation.",
-	"license": [
-		"GPL-2.0+"
-	],
-	"authors": [
-		{
-			"name": "Documentation Team",
-			"role": "Developer"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"T3docs\\Examples\\": "Classes/"
-		}
-	},
-	"require": {
-		"typo3/cms-core": "^10.4.10"
-	},
-	"replace": {
-		"examples": "self.version",
-		"typo3-ter/examples": "self.version"
-	}
+    "name": "t3docs/examples",
+    "type": "typo3-cms-extension",
+    "description": "This extension packages a number of code examples from the Core Documentation.",
+    "license": [
+        "GPL-2.0+"
+    ],
+    "authors": [
+        {
+            "name": "Documentation Team",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "T3docs\\Examples\\": "Classes/"
+        }
+    },
+    "require": {
+        "typo3/cms-core": "^10.4.10"
+    },
+    "replace": {
+        "examples": "self.version",
+        "typo3-ter/examples": "self.version"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "10.0.x-dev"
+        }
+    }
 }
