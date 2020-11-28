@@ -18,12 +18,19 @@ return [
     ],
     'columns' => [
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
             'config' => [
                 'type' => 'check',
-                'default' => '0',
-            ],
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
         ],
         'record_type' => [
             'exclude' => 0,
