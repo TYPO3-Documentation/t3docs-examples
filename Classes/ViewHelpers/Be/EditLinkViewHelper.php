@@ -15,6 +15,8 @@ namespace T3docs\Examples\ViewHelpers\Be;
  */
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 
 /**
  * This class generates links to edit records or create new ones
@@ -51,38 +53,40 @@ class EditLinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBa
         $this->registerUniversalTagAttributes();
         $this->registerTagAttribute('name', 'string', 'Specifies the name of an anchor');
         $this->registerTagAttribute('target', 'string', 'Specifies where to open the linked document');
+        $this->registerArgument('table', 'string', 'The table to be edited');
+        $this->registerArgument('uid', 'integer', 'The uid of the record to be edited');
+        $this->registerArgument('action', 'string', 'The action to be executed');
+        $this->registerArgument('columnsOnly', 'string', 'Only edit these columns');
+        $this->registerArgument('defaultValues', 'array', 'The default values');
     }
 
     /**
      * Crafts a link to edit a database record or create a new one
      *
-     * @param string $action Action to perform (new, edit)
-     * @param string $table Name of the related table
-     * @param int $uid Id of the record to edit
-     * @param string $columnsOnly Comma-separated list of fields to restrict editing to
-     * @param array $defaultValues List of default values for some fields (key-value pairs)
-     * @param string $returnUrl URL to return to
      * @return string The <a> tag
      * @see \TYPO3\CMS\Backend\Utility::editOnClick()
      */
-    public function render($action, $table, $uid, $columnsOnly = '', $defaultValues = [], $returnUrl = '')
+    public function render()
     {
+        /** @var UriBuilder $uriBuilder */
+        $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
 
         // Edit all icon:
-        $urlParameters = [
+        $uriParameters = [
             'edit' => [
-                $table => [
-                    $uid => $action,
+                $this->arguments['table'] => [
+                    $this->arguments['uid'] => $this->arguments['action'],
                 ],
             ],
-            'columnsOnly' => $columnsOnly,
+            'columnsOnly' => $this->arguments['columnsOnly'],
             'createExtension' => 0,
             'returnUrl' => GeneralUtility::getIndpEnv('REQUEST_URI'),
         ];
-        if (count($defaultValues) > 0) {
-            $urlParameters['defVals'] = $defaultValues;
+        $defaultValues = $this->arguments['defaultValues'];
+        if (is_array($defaultValues) && count($defaultValues) > 0) {
+            $uriParameters['defVals'] = $defaultValues;
         }
-        $uri = BackendUtility::getModuleUrl('record_edit', $urlParameters);
+        $uri = $uriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
         $this->tag->addAttribute('href', $uri);
         $this->tag->setContent($this->renderChildren());
