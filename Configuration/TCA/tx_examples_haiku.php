@@ -25,12 +25,19 @@ return [
     ],
     'columns' => [
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
             'config' => [
                 'type' => 'check',
-                'default' => '0',
-            ],
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
         ],
         'title' => [
             'exclude' => 0,
@@ -157,6 +164,7 @@ return [
                 ],
             ],
         ],
+        /*
         'image_fal_group' => [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.image_fal_group',
             'config' => [
@@ -185,6 +193,7 @@ return [
                 'image_fal_irre'
             ),
         ],
+        */
         // USAGE: TCA reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "select" > Examples
         // Use the following TSconfig to show the effect:
         // TCEFORM.tx_examples_haiku.reference_page.PAGE_TSCONFIG_STR = image
@@ -246,7 +255,7 @@ return [
     'types' => [
         0 =>
             [
-                'showitem' => 'hidden,title,poem,filename,season,weirdness,color,angle,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images,image1,image2,image3,image4,image5,image6,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images_fal,image_fal_group,image_fal_irre,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
+                'showitem' => 'hidden,title,poem,filename,season,weirdness,color,angle,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images,image1,image2,image3,image4,image5,image6,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
             ],
         // NOTE: since filestatus is not used yet, let's not show it, nor the palette with filesource,
         // but it should be made to work at some point (bug in the Core?)
