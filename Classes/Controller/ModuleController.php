@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /**
@@ -52,67 +53,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * @var BackendTemplateView
      */
     protected $view;
-
-    /**
-     * Initializes the template to use for all actions.
-     *
-     * @return void
-     */
-    protected function initializeAction()
-    {
-        $this->defaultViewObjectName = BackendTemplateView::class;
-    }
-
-    /**
-     * Initializes the view before invoking an action method.
-     *
-     * @param ViewInterface $view The view to be initialized
-     * @return void
-     * @api
-     */
-    protected function initializeView(ViewInterface $view)
-    {
-        if ($view instanceof BackendTemplateView) {
-            parent::initializeView($view);
-        }
-        $pageRenderer = $view->getModuleTemplate()->getPageRenderer();
-        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/Application');
-        // Make localized labels available in JavaScript context
-        $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xlf');
-
-        // Add action menu
-        /** @var Menu $menu */
-        $menu = GeneralUtility::makeInstance(Menu::class);
-        $menu->setIdentifier('_examplesMenu');
-
-        /** @var UriBuilder $uriBuilder */
-        $uriBuilder = $this->objectManager->get(UriBuilder::class);
-        $uriBuilder->setRequest($this->request);
-
-        // Add menu items
-        /** @var MenuItem $menuItem */
-        $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
-
-        foreach ($items as $item) {
-            $isActive = $this->actionMethodName === $item . 'Action';
-            $menuItem->setTitle(
-                LocalizationUtility::translate(
-                    'function_' . $item,
-                    'examples'
-                )
-            );
-            $uri = $uriBuilder->reset()->uriFor(
-                $item,
-                [],
-                'Module'
-            );
-            $menuItem->setActive($isActive)->setHref($uri);
-            $menu->addMenuItem($menuItem);
-        }
-
-        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
-    }
 
     /**
      * Renders the list of all possible flash messages
@@ -282,8 +222,54 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction()
     {
+        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
-        $this->uriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+
+        $uriParameters =
+            [
+                'edit' =>
+                    [
+                        'pages' =>
+                            [
+                                1 => 'edit',
+                                2 => 'edit'
+                            ],
+                        'tx_examples_haiku' =>
+                            [
+                                1 => 'edit'
+                            ]
+                    ],
+                'columnsOnly' => 'title,doktype'
+            ];
+        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $uriParameters =
+            [
+                'edit' =>
+                    [
+                        'tx_examples_haiku' =>
+                            [
+                                1 => 'new'
+                            ]
+                    ],
+                'defVals' =>
+                    [
+                        'tx_examples_haiku' =>
+                            [
+                                'title' => 'New Haiku?',
+                                'season' => 'Spring'
+                            ]
+                    ],
+                'columnsOnly' => 'title,season,color'
+            ];
+        $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $this->view->assignMultiple(
+            [
+                'editPage1Link' => $editPage1Link,
+                'editPagesDoktypeLink' => $editPagesDoktypeLink,
+                'createHaikuLink' => $createHaikuLink,
+            ]
+        );
     }
 
     /**
@@ -336,6 +322,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'references' => $fileObjects,
             ]
         );
+    }
+
+    /**
+     * Returns the global database connection object.
+     *
+     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
+     */
+    protected function getDatabaseConnection()
+    {
+        return $GLOBALS['TYPO3_DB'];
     }
 
     /**
@@ -430,12 +426,63 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     }
 
     /**
-     * Returns the global database connection object.
+     * Initializes the template to use for all actions.
      *
-     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
+     * @return void
      */
-    protected function getDatabaseConnection()
+    protected function initializeAction()
     {
-        return $GLOBALS['TYPO3_DB'];
+        $this->defaultViewObjectName = BackendTemplateView::class;
+    }
+
+    /**
+     * Initializes the view before invoking an action method.
+     *
+     * @param ViewInterface $view The view to be initialized
+     * @return void
+     * @api
+     */
+    protected function initializeView(ViewInterface $view)
+    {
+        if ($view instanceof BackendTemplateView) {
+            parent::initializeView($view);
+        }
+        $pageRenderer = $view->getModuleTemplate()->getPageRenderer();
+        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/Application');
+        // Make localized labels available in JavaScript context
+        $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xlf');
+
+        // Add action menu
+        /** @var Menu $menu */
+        $menu = GeneralUtility::makeInstance(Menu::class);
+        $menu->setIdentifier('_examplesMenu');
+
+        /** @var UriBuilder $uriBuilder */
+        $uriBuilder = $this->objectManager->get(UriBuilder::class);
+        $uriBuilder->setRequest($this->request);
+
+        // Add menu items
+        /** @var MenuItem $menuItem */
+        $menuItem = GeneralUtility::makeInstance(MenuItem::class);
+        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
+
+        foreach ($items as $item) {
+            $isActive = $this->actionMethodName === $item . 'Action';
+            $menuItem->setTitle(
+                LocalizationUtility::translate(
+                    'function_' . $item,
+                    'examples'
+                )
+            );
+            $uri = $uriBuilder->reset()->uriFor(
+                $item,
+                [],
+                'Module'
+            );
+            $menuItem->setActive($isActive)->setHref($uri);
+            $menu->addMenuItem($menuItem);
+        }
+
+        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
     }
 }

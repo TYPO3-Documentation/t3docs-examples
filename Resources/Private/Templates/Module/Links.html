@@ -1,7 +1,7 @@
 <html data-namespace-typo3-fluid="true"
 			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 			xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-			xmlns:ex="http://typo3.org/ns/T3docs/Examples/ViewHelpers"
+			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
 >
 
 <h1>
@@ -12,23 +12,35 @@
 	<f:translate key="function_links_intro"/>
 </p>
 <p>
-	<ex:be.editLink table="pages" uid="1" action="edit">
+	<a href="{editPage1Link}">
 		<core:icon identifier="actions-document-open"/>
-		<f:translate key="function_links_edit_page_1"/>
-	</ex:be.editLink>
+		<f:translate key="function_links_edit_page"/> 1
+	</a>
 </p>
 <p>
-	<ex:be.editLink table="pages" uid="1" action="edit" columnsOnly="title,hidden">
+	<f:comment>Would only output the uri: <be:uri.editRecord uid="2" table="pages" returnUrl="foo/bar" /></f:comment>
+	<a href="{be:uri.editRecord(uid:2, table:'pages', returnUrl:'foo/bar')}">
 		<core:icon identifier="actions-document-open"/>
-		<f:translate key="function_links_edit_page_1_restricted"/>
-	</ex:be.editLink>
+		<f:translate key="function_links_edit_page"/> 2
+	</a>
 </p>
 <p>
-	<ex:be.editLink table="tx_examples_haiku" uid="1" action="new"
-									defaultValues="{tx_examples_haiku: {title: 'New haiku'}}">
+	<a href="{editPagesDoktypeLink}">
+		<core:icon identifier="actions-document-open"/>
+		<f:translate key="function_links_edit_pages_doktype"/>
+	</a>
+</p>
+<p>
+	<f:comment>Would only output the uri: <be:uri.newRecord pid="1" table="tx_examples_haiku" returnUrl="foo/bar" /></f:comment>
+	<a href="{be:uri.newRecord(pid:1, table:'tx_examples_haiku', returnUrl:'foo/bar')}">
 		<core:icon identifier="actions-document-new"/>
 		<f:translate key="function_links_new_haiku"/>
-	</ex:be.editLink>
+	</a>
 </p>
-
+<p>
+	<a href="{createHaikuLink}">
+		<core:icon identifier="actions-document-new"/>
+		<f:translate key="function_links_new_spring_haiku"/>
+	</a>
+</p>
 </html>
