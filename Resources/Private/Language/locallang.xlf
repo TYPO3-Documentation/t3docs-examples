@@ -87,13 +87,22 @@
 			<trans-unit id="function_links_intro" xml:space="preserve">
 				<source>This module shows how to generate links to edit records or create new ones.</source>
 			</trans-unit>
-			<trans-unit id="function_links_edit_page_1" xml:space="preserve">
-				<source>Edit page 1</source>
+			<trans-unit id="function_links_edit_page" xml:space="preserve">
+				<source>Edit page</source>
 			</trans-unit>
 			<trans-unit id="function_links_edit_page_1_restricted" xml:space="preserve">
 				<source>Edit page 1 (only title and hidden fields)</source>
 			</trans-unit>
+			<trans-unit id="function_links_edit_pages_doktype" xml:space="preserve">
+				<source>Edit title and doktype of pages 1 and 2</source>
+			</trans-unit>
 			<trans-unit id="function_links_new_haiku" xml:space="preserve">
+				<source>Create a new haiku (blank)</source>
+			</trans-unit>
+			<trans-unit id="function_links_new_spring_haiku" xml:space="preserve">
+				<source>Create a new haiku for season spring with a predefined title</source>
+			</trans-unit>
+			<trans-unit id="function_links_new_haiku_with_title" xml:space="preserve">
 				<source>Create a new haiku with a predefined title</source>
 			</trans-unit>
 			<trans-unit id="permissions_header" xml:space="preserve">
