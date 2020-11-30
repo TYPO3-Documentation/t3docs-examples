@@ -282,7 +282,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction()
     {
-
+        $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
+        $this->uriBuilder->buildUriFromRoute('record_edit', $uriParameters);
     }
 
     /**
