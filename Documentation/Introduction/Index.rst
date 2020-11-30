@@ -50,19 +50,6 @@ The extension introduces a Backend Module with different Pages that introduce on
 - Edit links: Backend edit links and Usage of View Helpers in the Backend :ref:`t3extbasebook:creating-html-tags-using-tagbasedviewhelper`
 - File references
 
-.. _page_tree_examples
-
-Page Tree Examples
-^^^^^^^^^^^^^^^^^^
-
-- Additional context menu item :ref:`t3coreapi:context-menu`
-- Additional page type :ref:`t3coreapi:page-types-example`
-
-RTE Configuration
-^^^^^^^^^^^^^^^^^^
-
-- RTE Transformations: :ref:`t3coreapi:transformations-custom`
-
 .. _introduction-credits:
 
 Credits
