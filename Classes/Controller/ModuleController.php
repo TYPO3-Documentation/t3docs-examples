@@ -16,6 +16,8 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
@@ -43,9 +45,9 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * @package TYPO3
  * @subpackage tx_examples
  */
-class ModuleController extends ActionController
+class ModuleController extends ActionController implements LoggerAwareInterface
 {
-
+    use LoggerAwareTrait;
     /**
      * @var BackendTemplateView
      */
@@ -158,24 +160,23 @@ class ModuleController extends ActionController
     }
 
     /**
-     * Creates some entries using the 6.0+ logging API
+     * Creates some entries using the logging API
+     * $this->logger gets set by usage of the LoggerAwareTrait
      *
      * @return void
      */
     public function logAction()
     {
-        /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
-        $logger->info('Everything went fine.');
-        $logger->warning('Something went awry, check your configuration!');
-        $logger->error(
+        $this->logger->info('Everything went fine.');
+        $this->logger->warning('Something went awry, check your configuration!');
+        $this->logger->error(
             'This was not a good idea',
             [
                 'foo' => 'bar',
                 'bar' => $this,
             ]
         );
-        $logger->log(
+        $this->logger->log(
             LogLevel::CRITICAL,
             'This is an utter failure!'
         );
