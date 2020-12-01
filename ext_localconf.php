@@ -33,14 +33,14 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerCo
         // add a FileWriter
         \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
             // configuration for the writer
-            'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
+            'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log',
         ]
     ]
 ];
 
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [
     \TYPO3\CMS\Core\Log\Writer\DatabaseWriter::class => [
-        'logTable' => 'tx_examples_log'
+        'logTable' => 'tx_examples_log',
     ],
 ];
 
