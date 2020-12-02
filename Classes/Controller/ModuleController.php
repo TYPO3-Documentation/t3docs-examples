@@ -29,7 +29,6 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Log\LogLevel;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -37,6 +36,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use TYPO3\CMS\Backend\Routing\UriBuilder as BackendUriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -222,7 +222,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction()
     {
-        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
+        /** @var BackendUriBuilder $backendUriBuilder */
+        $backendUriBuilder = GeneralUtility::makeInstance(BackendUriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
         $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
