@@ -58,6 +58,11 @@ Page Tree Examples
 - Additional context menu item :ref:`t3coreapi:context-menu`
 - Additional page type :ref:`t3coreapi:page-types-example`
 
+RTE Configuration
+^^^^^^^^^^^^^^^^^^
+
+- RTE Transformations: :ref:`t3coreapi:transformations-custom`
+
 .. _introduction-credits:
 
 Credits
