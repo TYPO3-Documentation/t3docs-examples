@@ -26,7 +26,6 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = [
 
 
 // Add example configuration for the logging API
-
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
     // configuration for ERROR level log entries
     \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
