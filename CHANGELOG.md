@@ -1,3 +1,9 @@
+# 10.0.2
+
+## MISC
+
+- correct composer.json for composer 2.0 236cb46
+
 # 10.0.1
 
 ## TASK
