@@ -59,7 +59,6 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
     ],
 ];
 
-
 // Register the "error " plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'T3docs.Examples',

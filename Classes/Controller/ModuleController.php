@@ -1,5 +1,4 @@
 <?php
-
 namespace T3docs\Examples\Controller;
 
 /**
@@ -29,6 +28,7 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -222,8 +222,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction()
     {
-        /** @var BackendUriBuilder $backendUriBuilder */
-        $backendUriBuilder = GeneralUtility::makeInstance(BackendUriBuilder::class);
+        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
         $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
