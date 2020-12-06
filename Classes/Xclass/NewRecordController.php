@@ -1,6 +1,8 @@
 <?php
 namespace T3docs\Examples\Xclass;
 
+use Psr\Http\Message\ServerRequestInterface;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -30,9 +32,9 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
      *
      * @return    void
      */
-    public function regularNew()
+    protected function renderNewRecordControls(ServerRequestInterface $request): void
     {
-        parent::regularNew();
+        parent::renderNewRecordControls($request);
         $label = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help');
         $text = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice');
         $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label) . '</h2>' . $text . '</div>';
