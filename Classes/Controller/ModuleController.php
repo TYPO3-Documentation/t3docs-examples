@@ -24,11 +24,12 @@ use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Database\Connection;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Log\LogLevel;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -36,7 +37,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-use TYPO3\CMS\Backend\Routing\UriBuilder as BackendUriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -283,13 +283,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $fileRepository = $this->objectManager->get(FileRepository::class);
         // Get all non-deleted content elements (this should normally be put away in a nice, clean
         // repository class; don't do this at home).
+        /** @var Connection $connection */
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tt_content');
         try {
-            $contentElements = $this->getDatabaseConnection()->exec_SELECTgetRows(
-                'uid, header',
+            $contentElements = $connection->select(
+                ['uid', 'header'],
                 'tt_content',
-                '1 = 1' . BackendUtility::deleteClause('tt_content'),
-                '',
-                'header ASC'
+                [] ,
+                [],
+                ['header' => 'ASC']
             );
         } catch (\Exception $e) {
             $contentElements = [];
@@ -321,16 +324,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'references' => $fileObjects,
             ]
         );
-    }
-
-    /**
-     * Returns the global database connection object.
-     *
-     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
-     */
-    protected function getDatabaseConnection()
-    {
-        return $GLOBALS['TYPO3_DB'];
     }
 
     /**
@@ -414,10 +407,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     public function countAction(ServerRequestInterface $request, ResponseInterface $response)
     {
         $requestParameters = $request->getQueryParams();
-        $count = $this->getDatabaseConnection()->exec_SELECTcountRows(
-            'uid',
-            addslashes($requestParameters['table'])
-        );
+        $tablename = addslashes($requestParameters['table']);
+        /** @var Connection $connection */
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable($tablename);
+        $count = $connection->count('uid', $tablename, []);
 
         // Send the response
         $response->getBody()->write(json_encode($count));
