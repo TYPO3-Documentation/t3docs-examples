@@ -1,5 +1,4 @@
 <?php
-
 namespace T3docs\Examples\Controller;
 
 /**
