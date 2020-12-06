@@ -10,13 +10,18 @@ $temporaryColumn = [
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:pages.tx_examples_related_pages',
         'config' => [
             'type' => 'select',
+            'renderType' => 'selectTree',
             'foreign_table' => 'pages',
-            'size' => 10,
-            'renderMode' => 'tree',
+            'foreign_table_where' => 'ORDER BY pages.sorting',
+            'size' => 20,
+            'items' => [
+                ['static from tca 4711', 4711],
+                ['static from tca 4712', 4712],
+            ],
             'treeConfig' => [
-                'expandAll' => true,
                 'parentField' => 'pid',
                 'appearance' => [
+                    'expandAll' => true,
                     'showHeader' => true,
                 ],
             ],
