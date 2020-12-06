@@ -170,7 +170,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $depth,
             ''
         );
-        GeneralUtility::devLog('page tree', 'examples', 0, $tree->tree);
 
         // Pass the tree to the view
         $this->view->assign(
