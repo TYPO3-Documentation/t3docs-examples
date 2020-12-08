@@ -398,24 +398,25 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     }
 
     /**
-     * Returns a count of log entries, based on various grouping criteria, in JSON format.
+     * Returns a count of entries in a table defined by a request parameter, in JSON format.
      *
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @return ResponseInterface
      */
-    public function countAction(ServerRequestInterface $request, ResponseInterface $response)
+    public function countAction(ServerRequestInterface $request)
     {
         $requestParameters = $request->getQueryParams();
-        $tablename = addslashes($requestParameters['table']);
+        // TYPO3\CMS\Core\Database\Connection::count($item, $tableName) uses QueryBuilder internally
+        // therefore it is safe to pass $tablename directly from the parameters to it.
+        $tablename = $requestParameters['table'];
         /** @var Connection $connection */
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getConnectionForTable($tablename);
         $count = $connection->count('uid', $tablename, []);
 
         // Send the response
-        $response->getBody()->write(json_encode($count));
-        return $response;
+        $jsonArray = json_encode($count);
+        return new \TYPO3\CMS\Core\Http\JsonResponse($jsonArray);
     }
 
     /**
