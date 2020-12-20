@@ -111,6 +111,6 @@ if (TYPO3_MODE === 'BE') {
 
     // Add custom doktype to the page tree toolbar
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-    'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
+        "@import 'EXT:examples/Configuration/TSconfig/User/*.typoscript'"
     );
 }

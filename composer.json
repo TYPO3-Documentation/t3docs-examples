@@ -24,7 +24,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "10.0.x-dev"
+            "dev-lwolf-remove-deprecations-10": "10.1.x-dev"
         }
     }
 }

@@ -72,7 +72,8 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
 );
 // Add TSconfig for new content element wizard
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:examples/Configuration/TSconfig/Page/ContentElementWizard.txt">');
+    "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
+);
 
 // Register the HTML parser plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
