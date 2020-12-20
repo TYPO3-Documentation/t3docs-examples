@@ -52,4 +52,3 @@ Core Documentation Code Examples
    Introduction/Index
    Users/Index
    Maintainers/Index
-
