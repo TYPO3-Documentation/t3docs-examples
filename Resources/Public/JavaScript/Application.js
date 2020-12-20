@@ -24,7 +24,7 @@ define([
 					},
 					success: function (data, status, xhr) {
 						var message = TYPO3.lang['record_count_message'];
-						message = message.replace('{0}', data);
+						message = message.replace('{0}', data['count']);
 						message = message.replace('{1}', table);
 						Notification.success(TYPO3.lang['record_count_title'], message, 5);
 					}

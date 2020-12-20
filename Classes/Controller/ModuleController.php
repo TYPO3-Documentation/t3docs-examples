@@ -416,10 +416,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getConnectionForTable($tablename);
         $count = $connection->count('uid', $tablename, []);
-
-        // Send the response
-        $jsonArray = json_encode($count);
-        return new \TYPO3\CMS\Core\Http\JsonResponse($jsonArray);
+        $array = ['count' => $count];
+        return new \TYPO3\CMS\Core\Http\JsonResponse($array);
     }
 
     /**
