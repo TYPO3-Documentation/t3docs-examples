@@ -153,11 +153,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Create the icon for the current page and add it to the tree
         /** @var IconFactory $iconFactory */
         $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-        $html = $iconFactory->getIconForRecord(
-            'pages',
-            $pageRecord,
-            Icon::SIZE_SMALL
-        )->render();
+        if ($pageRecord) {
+            $html = $iconFactory->getIconForRecord(
+                'pages',
+                $pageRecord,
+                Icon::SIZE_SMALL
+            )->render();
+        }
         $tree->tree[] = [
             'row' => $pageRecord,
             'HTML' => $html,
@@ -340,7 +342,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             // NOTE: there would normally a nice error Flash Message added here
             $this->redirect('fileReference');
         }
-        $resourceFactory = ResourceFactory::getInstance();
+        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         $fileObject = $resourceFactory->getFileObject((int)$file);
         $contentElement = BackendUtility::getRecord(
             'tt_content',
