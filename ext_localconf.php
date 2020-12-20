@@ -71,7 +71,8 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
     ]
 );
 // Add TSconfig for new content element wizard
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:examples/Configuration/TSconfig/Page/ContentElementWizard.txt">');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:examples/Configuration/TSconfig/Page/ContentElementWizard.txt">');
 
 // Register the HTML parser plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -107,8 +108,12 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
 );
 
 // Add custom translations overriding default labels
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/custom.xlf';
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:cms/locallang_tca.xlf'][] = 'EXT:examples/Resources/Private/Language/de.custom.xlf';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']
+        ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
+    'EXT:examples/Resources/Private/Language/custom.xlf';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
+        ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
+    'EXT:examples/Resources/Private/Language/de.custom.xlf';
 
 // Register custom RTE transformation
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']['tx_examples_transformation'] = \T3docs\Examples\Service\RteTransformation::class;

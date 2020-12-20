@@ -37,6 +37,7 @@ return [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type.0', 0],
                     ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type.1', 1],
@@ -58,6 +59,7 @@ return [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.some_date',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputDateTime',
                 'size' => 12,
                 'eval' => 'date',
             ],
@@ -83,7 +85,7 @@ return [
         // NOTE: there are alternate versions of this row to demonstrate various features
         //		'0' => array('showitem' => 'hidden, record_type, title, some_date '),
         // Use this row to demonstrate usage of palettes
-        '0' => ['showitem' => 'hidden, record_type, title, some_date;;1 '],
+        '0' => ['showitem' => 'hidden, record_type, title, some_date, --palette--;;1'],
         // Use this row when discussing special configuration nowrap
         // (paste this into the description field: This is a very long text that will not wrap when I get to the end of the box, which is very far away, away, away, away, away, away)
         //		'0' => array('showitem' => 'hidden, record_type, title, description;;;nowrap, some_date;;1 '),
