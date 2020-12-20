@@ -16,17 +16,20 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Database\Connection;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Log\LogLevel;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -43,74 +46,13 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * @package TYPO3
  * @subpackage tx_examples
  */
-class ModuleController extends ActionController
+class ModuleController extends ActionController implements LoggerAwareInterface
 {
-
+    use LoggerAwareTrait;
     /**
      * @var BackendTemplateView
      */
     protected $view;
-
-    /**
-     * Initializes the template to use for all actions.
-     *
-     * @return void
-     */
-    protected function initializeAction()
-    {
-        $this->defaultViewObjectName = BackendTemplateView::class;
-    }
-
-    /**
-     * Initializes the view before invoking an action method.
-     *
-     * @param ViewInterface $view The view to be initialized
-     * @return void
-     * @api
-     */
-    protected function initializeView(ViewInterface $view)
-    {
-        if ($view instanceof BackendTemplateView) {
-            parent::initializeView($view);
-        }
-        $pageRenderer = $view->getModuleTemplate()->getPageRenderer();
-        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/Application');
-        // Make localized labels available in JavaScript context
-        $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xlf');
-
-        // Add action menu
-        /** @var Menu $menu */
-        $menu = GeneralUtility::makeInstance(Menu::class);
-        $menu->setIdentifier('_examplesMenu');
-
-        /** @var UriBuilder $uriBuilder */
-        $uriBuilder = $this->objectManager->get(UriBuilder::class);
-        $uriBuilder->setRequest($this->request);
-
-        // Add menu items
-        /** @var MenuItem $menuItem */
-        $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
-
-        foreach ($items as $item) {
-            $isActive = $this->actionMethodName === $item . 'Action';
-            $menuItem->setTitle(
-                LocalizationUtility::translate(
-                    'function_' . $item,
-                    'examples'
-                )
-            );
-            $uri = $uriBuilder->reset()->uriFor(
-                $item,
-                [],
-                'Module'
-            );
-            $menuItem->setActive($isActive)->setHref($uri);
-            $menu->addMenuItem($menuItem);
-        }
-
-        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
-    }
 
     /**
      * Renders the list of all possible flash messages
@@ -158,24 +100,23 @@ class ModuleController extends ActionController
     }
 
     /**
-     * Creates some entries using the 6.0+ logging API
+     * Creates some entries using the logging API
+     * $this->logger gets set by usage of the LoggerAwareTrait
      *
      * @return void
      */
     public function logAction()
     {
-        /** @var $logger \TYPO3\CMS\Core\Log\Logger */
-        $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
-        $logger->info('Everything went fine.');
-        $logger->warning('Something went awry, check your configuration!');
-        $logger->error(
+        $this->logger->info('Everything went fine.');
+        $this->logger->warning('Something went awry, check your configuration!');
+        $this->logger->error(
             'This was not a good idea',
             [
                 'foo' => 'bar',
                 'bar' => $this,
             ]
         );
-        $logger->log(
+        $this->logger->log(
             LogLevel::CRITICAL,
             'This is an utter failure!'
         );
@@ -229,7 +170,6 @@ class ModuleController extends ActionController
             $depth,
             ''
         );
-        GeneralUtility::devLog('page tree', 'examples', 0, $tree->tree);
 
         // Pass the tree to the view
         $this->view->assign(
@@ -281,7 +221,54 @@ class ModuleController extends ActionController
      */
     public function linksAction()
     {
+        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
+        $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
+        $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
+        $uriParameters =
+            [
+                'edit' =>
+                    [
+                        'pages' =>
+                            [
+                                1 => 'edit',
+                                2 => 'edit'
+                            ],
+                        'tx_examples_haiku' =>
+                            [
+                                1 => 'edit'
+                            ]
+                    ],
+                'columnsOnly' => 'title,doktype'
+            ];
+        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $uriParameters =
+            [
+                'edit' =>
+                    [
+                        'tx_examples_haiku' =>
+                            [
+                                1 => 'new'
+                            ]
+                    ],
+                'defVals' =>
+                    [
+                        'tx_examples_haiku' =>
+                            [
+                                'title' => 'New Haiku?',
+                                'season' => 'Spring'
+                            ]
+                    ],
+                'columnsOnly' => 'title,season,color'
+            ];
+        $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $this->view->assignMultiple(
+            [
+                'editPage1Link' => $editPage1Link,
+                'editPagesDoktypeLink' => $editPagesDoktypeLink,
+                'createHaikuLink' => $createHaikuLink,
+            ]
+        );
     }
 
     /**
@@ -296,13 +283,16 @@ class ModuleController extends ActionController
         $fileRepository = $this->objectManager->get(FileRepository::class);
         // Get all non-deleted content elements (this should normally be put away in a nice, clean
         // repository class; don't do this at home).
+        /** @var Connection $connection */
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tt_content');
         try {
-            $contentElements = $this->getDatabaseConnection()->exec_SELECTgetRows(
-                'uid, header',
+            $contentElements = $connection->select(
+                ['uid', 'header'],
                 'tt_content',
-                '1 = 1' . BackendUtility::deleteClause('tt_content'),
-                '',
-                'header ASC'
+                [] ,
+                [],
+                ['header' => 'ASC']
             );
         } catch (\Exception $e) {
             $contentElements = [];
@@ -408,32 +398,85 @@ class ModuleController extends ActionController
     }
 
     /**
-     * Returns a count of log entries, based on various grouping criteria, in JSON format.
+     * Returns a count of entries in a table defined by a request parameter, in JSON format.
      *
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @return ResponseInterface
      */
-    public function countAction(ServerRequestInterface $request, ResponseInterface $response)
+    public function countAction(ServerRequestInterface $request)
     {
         $requestParameters = $request->getQueryParams();
-        $count = $this->getDatabaseConnection()->exec_SELECTcountRows(
-            'uid',
-            addslashes($requestParameters['table'])
-        );
+        // TYPO3\CMS\Core\Database\Connection::count($item, $tableName) uses QueryBuilder internally
+        // therefore it is safe to pass $tablename directly from the parameters to it.
+        $tablename = $requestParameters['table'];
+        /** @var Connection $connection */
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable($tablename);
+        $count = $connection->count('uid', $tablename, []);
 
         // Send the response
-        $response->getBody()->write(json_encode($count));
-        return $response;
+        $jsonArray = json_encode($count);
+        return new \TYPO3\CMS\Core\Http\JsonResponse($jsonArray);
     }
 
     /**
-     * Returns the global database connection object.
+     * Initializes the template to use for all actions.
      *
-     * @return \TYPO3\CMS\Core\Database\DatabaseConnection
+     * @return void
      */
-    protected function getDatabaseConnection()
+    protected function initializeAction()
     {
-        return $GLOBALS['TYPO3_DB'];
+        $this->defaultViewObjectName = BackendTemplateView::class;
+    }
+
+    /**
+     * Initializes the view before invoking an action method.
+     *
+     * @param ViewInterface $view The view to be initialized
+     * @return void
+     * @api
+     */
+    protected function initializeView(ViewInterface $view)
+    {
+        if ($view instanceof BackendTemplateView) {
+            parent::initializeView($view);
+        }
+        $pageRenderer = $view->getModuleTemplate()->getPageRenderer();
+        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/Application');
+        // Make localized labels available in JavaScript context
+        $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xlf');
+
+        // Add action menu
+        /** @var Menu $menu */
+        $menu = GeneralUtility::makeInstance(Menu::class);
+        $menu->setIdentifier('_examplesMenu');
+
+        /** @var UriBuilder $uriBuilder */
+        $uriBuilder = $this->objectManager->get(UriBuilder::class);
+        $uriBuilder->setRequest($this->request);
+
+        // Add menu items
+        /** @var MenuItem $menuItem */
+        $menuItem = GeneralUtility::makeInstance(MenuItem::class);
+        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
+
+        foreach ($items as $item) {
+            $isActive = $this->actionMethodName === $item . 'Action';
+            $menuItem->setTitle(
+                LocalizationUtility::translate(
+                    'function_' . $item,
+                    'examples'
+                )
+            );
+            $uri = $uriBuilder->reset()->uriFor(
+                $item,
+                [],
+                'Module'
+            );
+            $menuItem->setActive($isActive)->setHref($uri);
+            $menu->addMenuItem($menuItem);
+        }
+
+        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
     }
 }

@@ -16,12 +16,19 @@
 
 - [TASK] Fix extension name in plugin registration bee59de
 - [TASK] Update code to match TYPO3 7.6 guidelines 32d98e2
+- [TASK] remove example RTE transformation
 
 ## MISC
 
 - Change vendor from "Documentation" to "T3docs" 0c367c4
 - Changes for 9.5 3a737c0
 - Changes for version 9.5 9b7b7eb
+- correct requirements 0ab988d
+- corrected requirements ed38642
+- Corrected Version 97b3d39
+- Change version for 10 b8e31bc
+- Changes for TYPO3 10 9dd3cc0
+- Change vendor from "Documentation" to "T3docs" f0e5aef
 - Remove changelog 5648622
 - Update for 9.5 ab0a136
 - Fix minor typo c51cdf5
@@ -37,6 +44,7 @@
 - Fix NewRecordController xclass 9d2abae
 - Change version constraint for TYPO3 8.7 4cdeb96
 - Fix extension name in plugin registration aba78e5
+- correct composer.json for composer 2.0 236cb46
 
 # 0.7.0
 

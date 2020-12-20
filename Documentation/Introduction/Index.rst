@@ -1,4 +1,4 @@
-﻿.. ==================================================
+﻿﻿.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
@@ -36,15 +36,32 @@ from the TYPO3 Core itself. Furthermore priority is given to those
 code samples that are related to screenshots.
 
 
-.. _introduction-status:
+.. _backend_module:
 
-Current status
+Backend Module
 ^^^^^^^^^^^^^^
 
-The current version was tested with TYPO3 CMS 6.2. Examples may apply
-to older versions, but since all examples use namespaces, porting them
-to versions prior to TYPO3 CMS 6.0 will require extra work.
+The extension introduces a Backend Module with different Pages that introduce one concept each:
 
+- Flash messages
+- Logging Framework: :ref:`t3coreapi:logging-writers` and :ref:`t3coreapi:logging-logger`
+- Page tree display
+- Accessing the clipboard
+- Edit links: Backend edit links and Usage of View Helpers in the Backend :ref:`t3extbasebook:creating-html-tags-using-tagbasedviewhelper`
+- File references
+
+.. _page_tree_examples
+
+Page Tree Examples
+^^^^^^^^^^^^^^^^^^
+
+- Additional context menu item :ref:`t3coreapi:context-menu`
+- Additional page type :ref:`t3coreapi:page-types-example`
+
+RTE Configuration
+^^^^^^^^^^^^^^^^^^
+
+- RTE Transformations: :ref:`t3coreapi:transformations-custom`
 
 .. _introduction-credits:
 

@@ -19,17 +19,6 @@
     "require": {
         "typo3/cms-core": "^9.5.23"
     },
-    "require-dev": {
-        "bk2k/extension-helper": "^1.0"
-    },
-    "scripts": {
-        "set-version": [
-            "extension-helper version:set"
-        ],
-        "changelog": [
-            "extension-helper changelog:create"
-        ]
-    },
     "replace": {
         "typo3-ter/examples": "self.version"
     },
