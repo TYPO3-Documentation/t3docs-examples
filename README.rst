@@ -8,7 +8,7 @@ Sample Extension "examples"
 ===========================
 
 **Important:** The extension in the Extension Repository and the rendered documentation
-is currently outdated. The most recent version of this extension is 0.8.0 for TYPO3 8.
+may be outdated. The most recent version of this extension is 10.0.2 for TYPO3 10.
 
 **Installation:** Can be installed via composer:
 ``composer req t3docs/examples``
