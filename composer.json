@@ -23,8 +23,8 @@
         "typo3-ter/examples": "self.version"
     },
     "extra": {
-        "branch-alias": {
-            "dev-lwolf-remove-deprecations-10": "10.1.x-dev"
-        }
-    }
+      "typo3/cms": {
+         "extension-key": "examples"
+      }
+   }
 }
