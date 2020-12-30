@@ -23,8 +23,8 @@
         "typo3-ter/examples": "self.version"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "10.0.x-dev"
-        }
-    }
+      "typo3/cms": {
+         "extension-key": "examples"
+      }
+   }
 }

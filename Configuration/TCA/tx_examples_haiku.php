@@ -19,7 +19,6 @@ return [
         ],
     ],
     'interface' => [
-        'showRecordFieldList' => 'title,season,angle',
         'maxDBListItems' => 5,
         'maxSingleDBListItems' => 20,
     ],

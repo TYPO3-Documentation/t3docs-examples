@@ -1,7 +1,30 @@
-# 10.0.2
+# 10.1.0
 
 ## TASK
-- [TASK] remove example RTE transformation
+
+- [TASK] remove deprecations relatet to LTS 10 dd5150d
+- [TASK] remove example RTE transformation (#14) 772b568
+
+## MISC
+
+- [Bugfix] Fix JsonArray example 7a96ae2
+- [Feature] List examples in Extension documentation (#13) 5bfad2f
+- Task remove deprecations (#15) b7627b3
+- Squash merge missing commits (#12) cfa871d
+- use UriBuilder as BackendUriBuilder 4f1fd77
+- remove commented out part alltogether ea40fa0
+- Updated examples for edit or create record links. There is now a viewhelper in the sysextension "backend" therefore the custom viewhelper could be removed. 633921b
+- PHP call of buildUriFromRoute 117bf53
+- Fix TCA errors and exchange hidden field defination to match LTS 9 31e56a4
+- Update EditLinkViewHelper to use UriBuilder instead of getModuleurl d528361
+- Merge remote-tracking branch 'origin/master' d3572a3
+- add commata to the end of lines c36f1c7
+- Remove non-working Logger writer example and create an example for logging to a custom database table. 96193b6
+- Updated Examples for the Logging Framework dc42b6f
+- Update README.rst c7def36
+- Added Information on Installation a0a030f
+
+# 10.0.2
 
 ## MISC
 

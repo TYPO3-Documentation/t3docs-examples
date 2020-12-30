@@ -61,49 +61,50 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processo
 
 // Register the "error " plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'T3docs.Examples',
+    'Examples',
     'Error',
     [
-        'Error' => 'index',
+        \T3docs\Examples\Controller\ErrorController::class => 'index',
     ],
     [
-        'Error' => 'index',
+        \T3docs\Examples\Controller\ErrorController::class => 'index',
     ]
 );
 // Add TSconfig for new content element wizard
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:examples/Configuration/TSconfig/Page/ContentElementWizard.txt">');
+    "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
+);
 
 // Register the HTML parser plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'T3docs.Examples',
+    'Examples',
     'HtmlParser',
     [
-        'HtmlParser' => 'index',
+        \T3docs\Examples\Controller\HtmlParserController::class => 'index',
     ]
 );
 
 // Register the collections plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'T3docs.Examples',
+    'Examples',
     'Collections',
     [
-        'Collection' => 'index',
+        \T3docs\Examples\Controller\CollectionController::class => 'index',
     ],    [
-        'Collection' => 'index',
+        \T3docs\Examples\Controller\CollectionController::class => 'index',
     ]
 );
 
 // Register the FAL examples plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'T3docs.Examples',
+    'Examples',
     'FalExamples',
     [
-        'FalExample' => 'index,listFiles,collection',
+        \T3docs\Examples\Controller\FalExampleController::class => 'index,listFiles,collection',
     ],
     // non-cacheable actions
     [
-        'FalExample' => 'index,listFiles,collection',
+        \T3docs\Examples\Controller\FalExampleController::class => 'index,listFiles,collection',
     ]
 );
 

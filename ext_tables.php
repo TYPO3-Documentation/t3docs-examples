@@ -6,18 +6,18 @@ if (TYPO3_MODE === 'BE') {
     // This module is used to demonstrate some features and take screenshots
     // Register the backend module
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'T3docs.Examples',
+        'Examples',
         'tools', // Make module a submodule of 'Admin Tools'
         'examples', // Submodule key
         '', // Position
         [
             // An array holding the controller-action-combinations that are accessible
-            'Module' => 'flash,log,tree,clipboard,links,fileReference,fileReferenceCreate',
+            \T3docs\Examples\Controller\ModuleController::class => 'flash,log,tree,clipboard,links,fileReference,fileReferenceCreate',
         ],
         [
             'access' => 'user,group',
             'icon' => 'EXT:examples/Resources/Public/Images/BackendModule.svg',
-            'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xml',
+            'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf',
             'navigationComponentId' => 'typo3-navigation',
         ]
     );
@@ -38,7 +38,7 @@ if (TYPO3_MODE === 'BE') {
         'table' => 'be_users',
     ];
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile,tx_examples_mobile',
+        'tx_examples_mobile',
         'after:email'
     );
 
@@ -88,7 +88,7 @@ if (TYPO3_MODE === 'BE') {
     // Add context sensitive help (csh) for the haiku table
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
         'tx_examples_haiku',
-        'EXT:examples/Resources/Private/Language/locallang_csh_txexampleshaiku.xml'
+        'EXT:examples/Resources/Private/Language/locallang_csh_txexampleshaiku.xlf'
     );
 
     // Define a new doktype
@@ -111,6 +111,6 @@ if (TYPO3_MODE === 'BE') {
 
     // Add custom doktype to the page tree toolbar
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-    'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
+        "@import 'EXT:examples/Configuration/TSconfig/User/*.typoscript'"
     );
 }

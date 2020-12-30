@@ -14,6 +14,7 @@ namespace T3docs\Examples\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -41,16 +42,19 @@ class FalExampleController extends ActionController
      */
     public function listFilesAction()
     {
-        $resourceFactory = ResourceFactory::getInstance();
+        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         $defaultStorage = $resourceFactory->getDefaultStorage();
-        $folder = $defaultStorage->getFolder('/user_upload/images/galerie/');
-        $files = $defaultStorage->getFilesInFolder($folder);
-        $this->view->assignMultiple(
-            [
-                'folder' => $folder,
-                'files' => $files,
-            ]
-        );
+        if ($defaultStorage) {
+            $folder = $defaultStorage->getFolder('/user_upload/images/galerie/');
+            $files = $defaultStorage->getFilesInFolder($folder);
+            $this->view->assignMultiple(
+                [
+                    'folder' => $folder,
+                    'files' => $files,
+                ]
+            );
+        }
     }
 
     /**
@@ -60,15 +64,17 @@ class FalExampleController extends ActionController
      */
     public function collectionAction()
     {
-        $resourceFactory = ResourceFactory::getInstance();
+        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         $collection = $resourceFactory->getCollectionObject(1);
-        /** @var \TYPO3\CMS\Core\Resource\Collection\AbstractFileCollection $files */
-        $collection->loadContents();
-        $this->view->assignMultiple(
-            [
-                'collection' => $collection,
-                'files' => $collection->getItems(),
-            ]
-        );
+        if ($collection) {
+            $collection->loadContents();
+            $this->view->assignMultiple(
+                [
+                    'collection' => $collection,
+                    'files' => $collection->getItems(),
+                ]
+            );
+        }
     }
 }
