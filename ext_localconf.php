@@ -121,10 +121,19 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = 
 // Register default link handlers
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 TCEMAIN.linkHandler {
+  haiku {
+    handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+    label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
+    configuration {
+        table = tx_examples_haiku
+    }
+    displayAfter = url
+    scanBefore = page
+  }
   github {
     handler = T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
     label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
-    displayAfter = telephone
+    displayAfter = haiku
     scanBefore = url
     configuration {
         project = TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
