@@ -116,21 +116,3 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
     'EXT:examples/Resources/Private/Language/de.custom.xlf';
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = \T3docs\Examples\ContextMenu\HelloWorldItemProvider::class;
-
-
-// Register default link handlers
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
-TCEMAIN.linkHandler {
-  github {
-    handler = T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
-    label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
-    displayAfter = telephone
-    scanBefore = url
-    configuration {
-        project = TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
-        action = issues
-    }
-  }
-}
-');
-

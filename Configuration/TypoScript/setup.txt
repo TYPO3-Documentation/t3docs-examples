@@ -3,11 +3,3 @@
 tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
 tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
 
-config.recordLinks.github {
-    // Do not force link generation when the record is hidden
-    forceLink = 1
-    typolink {
-        parameter.wrap = https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/|
-        parameter.field = github
-    }
-}
