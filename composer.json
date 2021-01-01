@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "typo3/cms-core": "^10.4.10"
+        "typo3/cms-core": "^11.0.0"
     },
     "replace": {
         "typo3-ter/examples": "self.version"
