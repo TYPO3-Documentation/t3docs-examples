@@ -191,6 +191,18 @@
 			<trans-unit id="examples_dataprocsplit_description" xml:space="preserve">
 				<source>Split data </source>
 			</trans-unit>
+			<trans-unit id="examples_dataprocfiles_title" xml:space="preserve">
+				<source>FilesProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocfiles_description" xml:space="preserve">
+				<source>Show images</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocgallery_title" xml:space="preserve">
+				<source>GalleryProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocgallery_description" xml:space="preserve">
+				<source>Show images in gallery </source>
+			</trans-unit>
 
 
 			<trans-unit id="choose_content_element" xml:space="preserve">

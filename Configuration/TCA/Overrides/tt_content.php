@@ -202,8 +202,8 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
     'CType',
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
-        'examples_dataprocmenu',
-        'mimetypes-x-content-table',
+        'content-menu-pages',
+        'content-special-uploads',
     ],
     );
 
@@ -222,7 +222,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
         'examples_dataproclang',
-        'mimetypes-x-content-table',
+        'install-manage-language',
     ],
     );
 
@@ -241,7 +241,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
         'examples_dataprocsite',
-        'mimetypes-x-content-table',
+        'apps-pagetree-folder-root',
     ],
     );
 
@@ -260,7 +260,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
         'examples_dataprocsplit',
-        'mimetypes-x-content-table',
+        'content-timeline',
     ],
     );
 
@@ -269,5 +269,47 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsplit'] = [
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
             --palette--;;headers,
+    '.$standardTabs,
+];
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title',
+        'examples_dataprocfiles',
+        'content-image',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocfiles'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            image,
+            --palette--;;mediaAdjustments,
+    '.$standardTabs,
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title',
+        'examples_dataprocgallery',
+        'content-dashboard',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            image,
+            --palette--;;mediaAdjustments,
+            --palette--;;gallerySettings,
     '.$standardTabs,
 ];

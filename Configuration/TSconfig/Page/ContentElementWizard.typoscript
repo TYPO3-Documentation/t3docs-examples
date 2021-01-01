@@ -32,7 +32,7 @@ mod.wizards.newContentElement.wizardItems {
 			}
 		}
 		examples_dataproclang {
-			iconIdentifier = content-special-uploads
+			iconIdentifier = install-manage-language
 			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title
 			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_description
 			tt_content_defValues {
@@ -40,7 +40,7 @@ mod.wizards.newContentElement.wizardItems {
 			}
 		}
 		examples_dataprocmenu {
-			iconIdentifier = content-special-uploads
+			iconIdentifier = content-menu-pages
 			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title
 			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_description
 			tt_content_defValues {
@@ -48,7 +48,7 @@ mod.wizards.newContentElement.wizardItems {
 			}
 		}
 		examples_dataprocsite {
-			iconIdentifier = content-special-uploads
+			iconIdentifier = apps-pagetree-folder-root
 			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title
 			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_description
 			tt_content_defValues {
@@ -56,13 +56,29 @@ mod.wizards.newContentElement.wizardItems {
 			}
 		}
 		examples_dataprocsplit {
-			iconIdentifier = content-special-uploads
+			iconIdentifier = content-timeline
 			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title
 			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_description
 			tt_content_defValues {
 				CType = examples_dataprocsplit
 			}
 		}
+		examples_dataprocfiles {
+			iconIdentifier = content-image
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_description
+			tt_content_defValues {
+				CType = examples_dataprocfiles
+			}
+		}
+		examples_dataprocgallery {
+			iconIdentifier = content-dashboard
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_description
+			tt_content_defValues {
+				CType = examples_dataprocgallery
+			}
+		}
 	}
-	dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit
+	dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit, examples_dataprocfiles,examples_dataprocgallery
 }
