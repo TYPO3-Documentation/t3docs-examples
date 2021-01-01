@@ -64,12 +64,6 @@ $GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = [
     $customPageDoktype,
     $customIconClass,
 ];
-// Also add the new doktype to the page language overlays type selector (so that translations can inherit the same type)
-$GLOBALS['TCA']['pages_language_overlay']['columns']['doktype']['config']['items'][] = [
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
-    $customPageDoktype,
-    $customIconClass,
-];
 // Add the icon to the icon class configuration
 $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;
 // Add the new doktype to the list of types available from the new page menu at the top of the page tree

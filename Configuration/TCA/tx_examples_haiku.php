@@ -206,7 +206,6 @@ return [
                 'size' => 5,
                 'minitems' => 0,
                 'maxitems' => 999,
-                'enableMultiSelectFilterTextfield' => true,
                 'multiSelectFilterItems' => [
                     [
                         'image',
