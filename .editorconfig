@@ -19,8 +19,8 @@ indent_size = 4
 
 # HTML-Files
 [*.html]
-indent_style = tab
-indent_size = 2
+indent_style = space
+indent_size = 3
 
 # TMPL-Files
 [*.tmpl]

@@ -18,6 +18,23 @@ $temporaryColumn = [
             'type' => 'check',
         ],
     ],
+    'tx_examples_separator' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_separator',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['Standard CSV data formats', '--div--'],
+                ['Comma separated', ','],
+                ['Semicolon separated', ';'],
+                ['Special formats', '--div--'],
+                ['Pipe separated (TYPO3 tables)', '|'],
+                ['Tab separated', "\t"],
+            ],
+            'default' => ','
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
@@ -111,3 +128,146 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi4
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi4', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
 );
+
+
+$standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+            categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,';
+
+
+// Adds the content element to the "Type" dropdown
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title',
+        'examples_newcontentcsv',
+        'mimetypes-x-content-table',
+    ],
+    );
+
+
+$GLOBALS['TCA']['tt_content']['types']['examples_newcontentcsv'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            imagecols,
+            tx_examples_separator,
+            bodytext;LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_bodytext,
+    '.$standardTabs,
+    'columnsOverrides' => [
+        'bodytext' => [
+            'config' => [
+                'enableRichtext' => false,
+            ],
+        ],
+    ],
+];
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title',
+        'examples_dataprocdb',
+        'mimetypes-x-content-table',
+    ],
+);
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+            recursive,
+    '.$standardTabs,
+];
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
+        'examples_dataprocmenu',
+        'mimetypes-x-content-table',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+    '.$standardTabs,
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
+        'examples_dataproclang',
+        'mimetypes-x-content-table',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+    '.$standardTabs,
+];
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
+        'examples_dataprocsite',
+        'mimetypes-x-content-table',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+    '.$standardTabs,
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
+        'examples_dataprocsplit',
+        'mimetypes-x-content-table',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocsplit'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+    '.$standardTabs,
+];

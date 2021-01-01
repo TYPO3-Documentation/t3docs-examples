@@ -17,7 +17,8 @@ CREATE TABLE be_users (
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
-	tx_examples_noprint TINYINT(4) DEFAULT '0' NOT NULL
+	tx_examples_noprint TINYINT(4) DEFAULT '0' NOT NULL,
+	tx_examples_separator VARCHAR(255) DEFAULT '0' NOT NULL,
 );
 
 #
@@ -60,21 +61,11 @@ CREATE TABLE tx_examples_haiku (
 	hidden          TINYINT(4) DEFAULT '0'   NOT NULL,
 	title           VARCHAR(100) DEFAULT ''  NOT NULL,
 	poem            TEXT,
-	filename        VARCHAR(255) DEFAULT ''  NOT NULL,
-	filesource      TINYINT(4) DEFAULT '0'   NOT NULL,
-	filestatus      VARCHAR(255) DEFAULT ''  NOT NULL,
+	image        		INT(11) DEFAULT '0'      NOT NULL,
 	season          VARCHAR(100) DEFAULT ''  NOT NULL,
 	weirdness       VARCHAR(100) DEFAULT '0' NOT NULL,
 	color           VARCHAR(20) DEFAULT ''   NOT NULL,
 	angle           INT(11) DEFAULT '0'      NOT NULL,
-	image1          TEXT,
-	image2          TEXT,
-	image3          TEXT,
-	image4          TEXT,
-	image5          TEXT,
-	image6          TEXT,
-	image_fal_group TEXT,
-	image_fal_irre  TEXT,
 	reference_page  INT(11) DEFAULT '0'      NOT NULL,
 	related_records TEXT,
 	related_content TEXT,

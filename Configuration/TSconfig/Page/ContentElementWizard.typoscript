@@ -11,3 +11,58 @@ mod.wizards.newContentElement.wizardItems.plugins {
 		}
 	}
 }
+
+mod.wizards.newContentElement.wizardItems {
+	dataProcessingExamples.header = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:dataProcessingExamples
+	dataProcessingExamples.elements {
+		examples_newcontentcsv {
+			iconIdentifier = mimetypes-x-content-table
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_description
+			tt_content_defValues {
+				CType = examples_newcontentcsv
+			}
+		}
+		examples_dataprocdb {
+			iconIdentifier = content-special-uploads
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_description
+			tt_content_defValues {
+				CType = examples_dataprocdb
+			}
+		}
+		examples_dataproclang {
+			iconIdentifier = content-special-uploads
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_description
+			tt_content_defValues {
+				CType = examples_dataproclang
+			}
+		}
+		examples_dataprocmenu {
+			iconIdentifier = content-special-uploads
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_description
+			tt_content_defValues {
+				CType = examples_dataprocmenu
+			}
+		}
+		examples_dataprocsite {
+			iconIdentifier = content-special-uploads
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_description
+			tt_content_defValues {
+				CType = examples_dataprocsite
+			}
+		}
+		examples_dataprocsplit {
+			iconIdentifier = content-special-uploads
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_description
+			tt_content_defValues {
+				CType = examples_dataprocsplit
+			}
+		}
+	}
+	dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit
+}

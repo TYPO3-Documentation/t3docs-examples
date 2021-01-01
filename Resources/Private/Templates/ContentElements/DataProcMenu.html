@@ -1,0 +1,39 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+   <h2>Data in variable headerMenu</h2>
+   <f:debug inline="true">{headerMenu}</f:debug>
+
+   <h2>Output</h2>
+   <ul class="nav nav-pills">
+      <f:for each="{headerMenu}" as="menuItem">
+         <li class="nav-item {f:if(condition:'{menuItem.children}',then:'dropdown')}">
+            <f:if condition="{menuItem.children}">
+               <f:then>
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                     aria-haspopup="true" aria-expanded="false">
+                     <f:if condition="{menuItem.files}">
+                        <f:image image="{menuItem.files.0}" class="" width="20"/>
+                     </f:if>
+                     {menuItem.title}</a>
+                  <div class="dropdown-menu">
+                     <f:for each="{menuItem.children}" as="menuItemLevel2">
+                        <f:link.page pageUid="{menuItemLevel2.uid}"
+                                     class="dropdown-item {f:if(condition:'{menuItemLevel2.active}',then:'active')}">
+                           {menuItemLevel2.title}
+                        </f:link.page>
+                     </f:for>
+                  </div>
+               </f:then>
+               <f:else>
+                  <f:link.page pageUid="{menuItem.data.uid}"  class="nav-link {f:if(condition:'{menuItem.active}',then:'active')}">
+                     <f:if condition="{menuItem.files}">
+                        <f:image image="{menuItem.files.0}" class="" width="20"/>
+                     </f:if>
+                     {menuItem.title}
+                  </f:link.page>
+               </f:else>
+            </f:if>
+         </li>
+      </f:for>
+   </ul>
+
+</html>

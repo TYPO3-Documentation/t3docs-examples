@@ -3,3 +3,92 @@
 tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
 tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
 
+lib.contentElement {
+    templateRootPaths.200 = EXT:examples/Resources/Private/Templates/ContentElements/
+    partialRootPaths.200 = EXT:examples/Resources/Private/Partials/ContentElements/
+    layoutRootPaths.200 = EXT:examples/Resources/Private/Layout/
+}
+
+tt_content {
+    examples_newcontentcsv =< lib.contentElement
+    examples_newcontentcsv {
+        templateName = DataProcCsv
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
+        dataProcessing.10 {
+            if.isTrue.field = bodytext
+            fieldName = bodytext
+            fieldDelimiter.field = tx_examples_separator
+            fieldEnclosure = "
+            maximumColumns.field = imagecols
+            as = table
+        }
+    }
+    examples_dataprocdb =< lib.contentElement
+    examples_dataprocdb {
+        templateName = DataProcLangMenu
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        dataProcessing.10 {
+            if.isTrue.field = pages
+            table = tx_examples_haiku
+            orderBy = title
+            pidInList.field = pages
+            as = myHaikus
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = image
+                }
+            }
+        }
+    }
+    examples_dataproclang =< lib.contentElement
+    examples_dataproclang {
+        templateName = DataProcLangMenu
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+        dataProcessing.10 {
+            languages = auto
+            as = languageNavigation
+        }
+    }
+    examples_dataprocmenu =< lib.contentElement
+    examples_dataprocmenu {
+        templateName = DataProcMenu
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        dataProcessing.10 {
+            levels = 2
+            as = headerMenu
+            expandAll = 1
+            includeSpacer = 1
+            titleField = nav_title // title
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+
+    examples_dataprocsite =< lib.contentElement
+    examples_dataprocsite {
+        templateName = DataProcSite
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+        dataProcessing.10 {
+            languages = auto
+            as = languageNavigation
+        }
+    }
+    examples_dataprocsplit =< lib.contentElement
+    examples_dataprocsplit {
+        templateName = DataProcSplit
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+        dataProcessing.10 {
+            levels = 2
+            as = headerMenu
+            expandAll = 1
+            includeSpacer = 1
+            titleField = nav_title // title
+        }
+    }
+}
+

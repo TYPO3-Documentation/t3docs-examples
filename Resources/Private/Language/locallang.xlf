@@ -147,6 +147,52 @@
 			<trans-unit id="pierror_wizard_description" xml:space="preserve">
 				<source>Displays error in the frontend to demonstrate error reporting in TYPO3.</source>
 			</trans-unit>
+
+			<!-- Data processing examples -->
+			<trans-unit id="dataProcessingExamples" xml:space="preserve">
+				<source>DataProcessing examples</source>
+			</trans-unit>
+			<trans-unit id="examples_newcontentcsv_title" xml:space="preserve">
+				<source>CommaSeparatedValueProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_newcontentcsv_description" xml:space="preserve">
+				<source>Output comma separated data</source>
+			</trans-unit>
+			<trans-unit id="examples_newcontentcsv_bodytext" xml:space="preserve">
+				<source>Please enter CSV data, separated by Semicolon (';')</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocdb_title" xml:space="preserve">
+				<source>DatabaseQueryProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocdb_description" xml:space="preserve">
+				<source>Show list of Haikus </source>
+			</trans-unit>
+			<trans-unit id="examples_dataproclang_title" xml:space="preserve">
+				<source>LanguageMenuProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataproclang_description" xml:space="preserve">
+				<source>Show languge menu</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocmenu_title" xml:space="preserve">
+				<source>MenuProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocmenu_description" xml:space="preserve">
+				<source>Page menu </source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocsite_title" xml:space="preserve">
+				<source>SiteProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocsite_description" xml:space="preserve">
+				<source>Show site info</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocsplit_title" xml:space="preserve">
+				<source>SplitProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocsplit_description" xml:space="preserve">
+				<source>Split data </source>
+			</trans-unit>
+
+
 			<trans-unit id="choose_content_element" xml:space="preserve">
 				<source>Choose a content element</source>
 			</trans-unit>
