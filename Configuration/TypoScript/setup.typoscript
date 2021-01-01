@@ -74,8 +74,7 @@ tt_content {
         templateName = DataProcSite
         dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
         dataProcessing.10 {
-            languages = auto
-            as = languageNavigation
+            as = site
         }
     }
     examples_dataprocsplit =< lib.contentElement
@@ -83,11 +82,12 @@ tt_content {
         templateName = DataProcSplit
         dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
         dataProcessing.10 {
-            levels = 2
-            as = headerMenu
-            expandAll = 1
-            includeSpacer = 1
-            titleField = nav_title // title
+            as = urlParts
+            delimiter = /
+            fieldName = header_link
+            removeEmptyEntries = 0
+            filterIntegers = 0
+            filterUnique = 0
         }
     }
 }
