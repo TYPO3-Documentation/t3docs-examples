@@ -68,19 +68,19 @@ $temporaryColumn = [
 
 // Register the "error" plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'T3docs.Examples',
+    'Examples',
     'Error',
     'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror'
 );
 // Register the HTML Parser plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'T3docs.Examples',
+    'Examples',
     'HtmlParser',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title'
 );
 // Register the FAL example plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'T3docs.Examples',
+    'Examples',
     'FalExamples',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title'
 );
