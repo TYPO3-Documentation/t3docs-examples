@@ -1,13 +1,20 @@
-# 10.1.0
+# 11.0.0
 
 ## TASK
 
-- [TASK] remove deprecations relatet to LTS 10 dd5150d
+- [TASK] Fix flexforms f619ddf
+- [TASK] Make master availible for 11 f535c95
+- [TASK] remove deprecations 10 (#16) 19a8d9e
 - [TASK] remove example RTE transformation (#14) 772b568
 
 ## MISC
 
-- [Bugfix] Fix JsonArray example 7a96ae2
+- Remove Deprecations. e79b483
+- Remove Deprecations. 535a39a
+- remove TCA deprecations f30d0ee
+- Revert "[Feature] Introduce custom Linkhandler Example" bf7630c
+- [Feature] Introduce custom Linkhandler Example c7b6276
+- TYPO3 10 is supported (#17) 429c801
 - [Feature] List examples in Extension documentation (#13) 5bfad2f
 - Task remove deprecations (#15) b7627b3
 - Squash merge missing commits (#12) cfa871d
