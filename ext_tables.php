@@ -1,7 +1,10 @@
 <?php
-defined('TYPO3_MODE') or die();
+// Prevent Script from being called directly
+defined('TYPO3') or die();
 
-if (TYPO3_MODE === 'BE') {
+// encapsulate all locally defined variables
+(function () {
+
     // Add examples BE module
     // This module is used to demonstrate some features and take screenshots
     // Register the backend module
@@ -113,4 +116,4 @@ if (TYPO3_MODE === 'BE') {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
         "@import 'EXT:examples/Configuration/TSconfig/User/*.typoscript'"
     );
-}
+})();

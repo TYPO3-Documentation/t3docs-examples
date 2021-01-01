@@ -78,12 +78,6 @@ $temporaryColumn = [
     'HtmlParser',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title'
 );
-// Register the collections plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'T3docs.Examples',
-    'Collections',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:collections_plugin_title'
-);
 // Register the FAL example plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'T3docs.Examples',
