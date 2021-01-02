@@ -41,6 +41,9 @@
             array $processorConfiguration,
             array $processedData
         ) {
+            if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
+                return $processedData;
+            }
             // categories by comma separated list
             $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration ?? []);
             if ($categoryIdList) {
