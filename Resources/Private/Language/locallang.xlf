@@ -148,6 +148,14 @@
 				<source>Displays error in the frontend to demonstrate error reporting in TYPO3.</source>
 			</trans-unit>
 
+			<!-- New content element example -->
+			<trans-unit id="examples_newcontentelement_title" xml:space="preserve">
+				<source>Example of a custom content element</source>
+			</trans-unit>
+			<trans-unit id="examples_newcontentelement_description" xml:space="preserve">
+				<source>It just displays the content of the field bodytext.</source>
+			</trans-unit>
+
 			<!-- Data processing examples -->
 			<trans-unit id="dataProcessingExamples" xml:space="preserve">
 				<source>DataProcessing examples</source>
