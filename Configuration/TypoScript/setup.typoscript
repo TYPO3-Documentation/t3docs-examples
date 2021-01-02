@@ -31,7 +31,7 @@ tt_content {
             fieldDelimiter.field = tx_examples_separator
             fieldEnclosure = "
             maximumColumns.field = imagecols
-            as = table
+            as = myTable
         }
     }
     examples_dataprocdb =< lib.contentElement

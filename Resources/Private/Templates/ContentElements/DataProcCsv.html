@@ -1,10 +1,10 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-   <h2>Data in variable table</h2>
-   <f:debug inline="true">{table}</f:debug>
+   <h2>Data in variable "myTable"</h2>
+   <f:debug inline="true">{myTable}</f:debug>
 
-   <h2>Output</h2>
+   <h2>Output, separated by char {data.tx_examples_separator}</h2>
    <table class="table table-hover">
-      <f:for as="columns" each="{table}" iteration="i">
+      <f:for each="{myTable}" as="columns" iteration="i">
          <tr>
             <th scope="row">{i.cycle}</th>
             <f:for as="column" each="{columns}">
