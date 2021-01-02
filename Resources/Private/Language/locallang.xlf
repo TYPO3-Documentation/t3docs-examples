@@ -203,6 +203,12 @@
 			<trans-unit id="examples_dataprocgallery_description" xml:space="preserve">
 				<source>Show images in gallery </source>
 			</trans-unit>
+			<trans-unit id="examples_dataproccustom_title" xml:space="preserve">
+				<source>Custom data processor</source>
+			</trans-unit>
+			<trans-unit id="examples_dataproccustom_description" xml:space="preserve">
+				<source>Show category data</source>
+			</trans-unit>
 
 
 			<trans-unit id="choose_content_element" xml:space="preserve">

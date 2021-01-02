@@ -79,6 +79,14 @@ mod.wizards.newContentElement.wizardItems {
 				CType = examples_dataprocgallery
 			}
 		}
+		examples_dataproccustom {
+			iconIdentifier = content-dashboard
+			title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title
+			description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_description
+			tt_content_defValues {
+				CType = examples_dataproccustom
+			}
+		}
 	}
-	dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit, examples_dataprocfiles,examples_dataprocgallery
+	dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit, examples_dataprocfiles,examples_dataprocgallery,examples_dataproccustom
 }

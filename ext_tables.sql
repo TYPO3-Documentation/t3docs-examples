@@ -19,6 +19,7 @@ CREATE TABLE be_users (
 CREATE TABLE tt_content (
 	tx_examples_noprint TINYINT(4) DEFAULT '0' NOT NULL,
 	tx_examples_separator VARCHAR(255) DEFAULT '0' NOT NULL,
+	tx_examples_main_category INT(11) DEFAULT '0' NOT NULL,
 );
 
 #

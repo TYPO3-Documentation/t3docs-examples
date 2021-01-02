@@ -35,6 +35,19 @@ $temporaryColumn = [
             'default' => ','
         ],
     ],
+    'tx_examples_main_category' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_main_category',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['None', '0'],
+            ],
+            'foreign_table' => 'sys_category',
+            'default' => '0'
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
@@ -311,5 +324,24 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
             image,
             --palette--;;mediaAdjustments,
             --palette--;;gallerySettings,
+    '.$standardTabs,
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title',
+        'examples_dataproccustom',
+        'content-dashboard',
+    ],
+    );
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataproccustom'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            tx_examples_main_category,
     '.$standardTabs,
 ];
