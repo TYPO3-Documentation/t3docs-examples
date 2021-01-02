@@ -22,7 +22,7 @@
     use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 
     /**
-     * Class for data processing for the content element "My new content element"
+     * Class for data processing comma separated categories
      */
     class CustomCategoryProcessor implements DataProcessorInterface
     {
@@ -35,7 +35,7 @@
          * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
          * @return array the processed data as key/value store
          */
-        public function process(
+        public function process (
             ContentObjectRenderer $cObj,
             array $contentObjectConfiguration,
             array $processorConfiguration,
