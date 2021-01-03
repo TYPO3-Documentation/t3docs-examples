@@ -36,7 +36,7 @@ tt_content {
     }
     examples_dataprocdb =< lib.contentElement
     examples_dataprocdb {
-        templateName = DataProcLangMenu
+        templateName = DataProcDb
         dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         dataProcessing.10 {
             if.isTrue.field = pages
@@ -44,6 +44,7 @@ tt_content {
             orderBy = title
             pidInList.field = pages
             as = myHaikus
+            // recursively process the images in the records with the FilesProcessor
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
@@ -141,7 +142,7 @@ tt_content {
                 columnSpacing = 0
                 borderEnabled.field = imageborder
                 borderWidth = 5
-                borderPadding = 10
+                borderPadding = 3
                 as = gallery
             }
         }

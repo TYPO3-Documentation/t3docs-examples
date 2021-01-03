@@ -8,6 +8,7 @@
          <li class="nav-item {f:if(condition:'{menuItem.children}',then:'dropdown')}">
             <f:if condition="{menuItem.children}">
                <f:then>
+                  <!-- Item has children -->
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                      aria-haspopup="true" aria-expanded="false">
                      <f:if condition="{menuItem.files}">
@@ -16,14 +17,20 @@
                      {menuItem.title}</a>
                   <div class="dropdown-menu">
                      <f:for each="{menuItem.children}" as="menuItemLevel2">
-                        <f:link.page pageUid="{menuItemLevel2.uid}"
-                                     class="dropdown-item {f:if(condition:'{menuItemLevel2.active}',then:'active')}">
-                           {menuItemLevel2.title}
-                        </f:link.page>
+                        <f:if condition="{menuItemLevel2.spacer}">
+                           <f:then><div class="dropdown-divider"></div></f:then>
+                           <f:else>
+                              <f:link.page pageUid="{menuItemLevel2.uid}"
+                                           class="dropdown-item {f:if(condition:'{menuItemLevel2.active}',then:'active')}">
+                                 {menuItemLevel2.title}
+                              </f:link.page>
+                           </f:else>
+                        </f:if>
                      </f:for>
                   </div>
                </f:then>
                <f:else>
+                  <!-- Item has no children -->
                   <f:link.page pageUid="{menuItem.data.uid}"  class="nav-link {f:if(condition:'{menuItem.active}',then:'active')}">
                      <f:if condition="{menuItem.files}">
                         <f:image image="{menuItem.files.0}" class="" width="20"/>
