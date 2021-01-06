@@ -3,3 +3,158 @@
 tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
 tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
 
+lib.contentElement {
+   templateRootPaths.100 = EXT:examples/Resources/Private/Templates/
+}
+
+tt_content {
+   examples_newcontentelement =< lib.contentElement
+   examples_newcontentelement {
+      templateName = NewContentElement
+   }
+}
+
+lib.contentElement {
+    templateRootPaths.200 = EXT:examples/Resources/Private/Templates/ContentElements/
+    partialRootPaths.200 = EXT:examples/Resources/Private/Partials/ContentElements/
+    layoutRootPaths.200 = EXT:examples/Resources/Private/Layout/
+}
+
+tt_content {
+    examples_newcontentcsv =< lib.contentElement
+    examples_newcontentcsv {
+        templateName = DataProcCsv
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
+        dataProcessing.10 {
+            if.isTrue.field = bodytext
+            fieldName = bodytext
+            fieldDelimiter.field = tx_examples_separator
+            fieldEnclosure = "
+            maximumColumns.field = imagecols
+            as = myTable
+        }
+    }
+    examples_dataprocdb =< lib.contentElement
+    examples_dataprocdb {
+        templateName = DataProcDb
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        dataProcessing.10 {
+            if.isTrue.field = pages
+            table = tx_examples_haiku
+            orderBy = title
+            pidInList.field = pages
+            as = myHaikus
+            // recursively process the images in the records with the FilesProcessor
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = image
+                }
+            }
+        }
+    }
+    examples_dataproclang =< lib.contentElement
+    examples_dataproclang {
+        templateName = DataProcLangMenu
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+        dataProcessing.10 {
+            languages = auto
+            as = languageNavigation
+        }
+    }
+    examples_dataprocmenu =< lib.contentElement
+    examples_dataprocmenu {
+        templateName = DataProcMenu
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        dataProcessing.10 {
+            levels = 2
+            as = headerMenu
+            expandAll = 1
+            includeSpacer = 1
+            titleField = nav_title // title
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+
+    examples_dataprocsite =< lib.contentElement
+    examples_dataprocsite {
+        templateName = DataProcSite
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+        dataProcessing.10 {
+            as = site
+        }
+    }
+    examples_dataprocsplit =< lib.contentElement
+    examples_dataprocsplit {
+        templateName = DataProcSplit
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+        dataProcessing.10 {
+            as = urlParts
+            delimiter = /
+            fieldName = header_link
+            removeEmptyEntries = 0
+            filterIntegers = 0
+            filterUnique = 0
+        }
+    }
+
+    examples_dataprocfiles =< lib.contentElement
+    examples_dataprocfiles {
+        templateName = DataProcFiles
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        dataProcessing.10 {
+            as = images
+            references.fieldName = image
+            references.table = tt_content
+            sorting = title
+            sorting.direction = descending
+        }
+    }
+    examples_dataprocgallery =< lib.contentElement
+    examples_dataprocgallery {
+        templateName = DataProcGallery
+        dataProcessing {
+            # Process files
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                as = images
+                references.fieldName = image
+                references.table = tt_content
+                sorting = title
+                sorting.direction = descending
+            }
+
+            # Calculate gallery info
+            20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
+            20 {
+                filesProcessedDataKey = images
+                mediaOrientation.field = imageorient
+                numberOfColumns.field = imagecols
+                equalMediaHeight.field = imageheight
+                equalMediaWidth.field = imagewidth
+                maxGalleryWidth = 1000
+                maxGalleryWidthInText = 1000
+                columnSpacing = 0
+                borderEnabled.field = imageborder
+                borderWidth = 5
+                borderPadding = 3
+                as = gallery
+            }
+        }
+    }
+    examples_dataproccustom =< lib.contentElement
+    examples_dataproccustom {
+        templateName = DataProcCustom
+        dataProcessing.10 = T3docs\Examples\DataProcessing\CustomCategoryProcessor
+        dataProcessing.10 {
+            as = categories
+            categoryList.field = tx_examples_main_category
+        }
+    }
+}
+
