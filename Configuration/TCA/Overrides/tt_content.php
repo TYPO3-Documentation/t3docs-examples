@@ -16,17 +16,27 @@ $temporaryColumn = [
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
         'config' => [
             'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => [
+                [
+                    0 => '',
+                    1 => ''
+                ]
+            ],
         ],
     ],
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+    'tt_content',
+    $temporaryColumn
+);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
-    'visibility',
+    'access',
     'tx_examples_noprint',
-    'after:linkToTop'
+    'before:editlock'
 );
 
 // Create various FE plugins to demonstrate FlexForms definition

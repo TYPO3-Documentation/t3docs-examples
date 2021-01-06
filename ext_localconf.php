@@ -28,6 +28,13 @@ defined('TYPO3') or die();
         ],
     ];
 
+    // Register a node in ext_localconf.php
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1609888016] = [
+        'nodeName' => 'specialField',
+        'priority' => 40,
+        'class' => \T3docs\Examples\Form\Element\SpecialFieldElement::class,
+    ];
+
 
     // Add example configuration for the logging API
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
