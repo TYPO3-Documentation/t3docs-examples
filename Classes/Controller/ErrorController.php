@@ -14,6 +14,7 @@ namespace T3docs\Examples\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -31,7 +32,7 @@ class ErrorController extends ActionController
      *
      * @throws \Exception
      */
-    public function indexAction()
+    public function indexAction(): ResponseInterface
     {
         throw new \Exception('This is a test Exception', 1479561148);
     }

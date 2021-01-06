@@ -183,6 +183,12 @@
 			<trans-unit id="tx_examples_haiku.relations" xml:space="preserve">
 				<source>Relations</source>
 			</trans-unit>
+			<trans-unit id="tt_content.tx_examples_separator" xml:space="preserve">
+				<source>CSV separator</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_examples_main_category" xml:space="preserve">
+				<source>Main category</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

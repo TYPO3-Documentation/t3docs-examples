@@ -14,6 +14,7 @@ namespace T3docs\Examples\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Html\HtmlParser;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -32,9 +33,8 @@ class HtmlParserController extends ActionController
     /**
      * Parses some HTML using TYPO3's HTML parser and sends the result to debug output.
      *
-     * @return void
      */
-    public function indexAction()
+    public function indexAction(): ResponseInterface
     {
         $testHTML = '
 			<DIV>
@@ -100,5 +100,6 @@ class HtmlParserController extends ActionController
                 ['xhtml' => 1]
             )
         );
+        return $this->htmlResponse();
     }
 }

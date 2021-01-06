@@ -60,28 +60,33 @@ return [
             ],
 
         ],
-        'filename' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.filename',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-            ],
-        ],
-        'filesource' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.filesource',
-            'config' => [
-                'type' => 'check',
-            ],
-        ],
-        'filestatus' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.filestatus',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-            ],
+        'image' => [
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    // custom configuration for displaying fields in the overlay/reference table
+                    // to use the image overlay palette instead of the basic overlay palette
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette'
+                            ],
+                        ],
+                    ],
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
         ],
         'season' => [
             'exclude' => 0,
@@ -206,7 +211,6 @@ return [
                 'size' => 5,
                 'minitems' => 0,
                 'maxitems' => 999,
-                'enableMultiSelectFilterTextfield' => true,
                 'multiSelectFilterItems' => [
                     [
                         'image',
@@ -224,7 +228,7 @@ return [
     'types' => [
         0 =>
             [
-                'showitem' => 'hidden,title,poem,filename,season,weirdness,color,angle,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.images,image1,image2,image3,image4,image5,image6,--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
+                'showitem' => 'hidden,title,poem,image,season,weirdness,color,angle--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
             ],
     ],
 ];

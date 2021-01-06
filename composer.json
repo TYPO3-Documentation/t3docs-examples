@@ -17,14 +17,18 @@
         }
     },
     "require": {
-        "typo3/cms-core": "^10.4.10"
+        "typo3/cms-core": "^11.0.0",
+		"typo3/cms-fluid-styled-content": "^11.0.0"
     },
     "replace": {
         "typo3-ter/examples": "self.version"
     },
     "extra": {
-      "typo3/cms": {
-         "extension-key": "examples"
-      }
-   }
+        "typo3/cms": {
+            "extension-key": "examples"
+        },
+        "branch-alias": {
+            "dev-master": "11.0.x-dev"
+        }
+    }
 }

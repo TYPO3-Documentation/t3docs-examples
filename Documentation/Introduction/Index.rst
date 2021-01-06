@@ -58,10 +58,33 @@ Page Tree Examples
 - Additional context menu item :ref:`t3coreapi:context-menu`
 - Additional page type :ref:`t3coreapi:page-types-example`
 
+
+Content element example
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Example of a custom content element beeing added: :ref:`t3coreapi:adding-your-own-content-elements`
+
+
+Data processor examles
+^^^^^^^^^^^^^^^^^^^^^^
+
+- Examples using all Core data processors are provided as content elements.
+   They are used in :ref:`t3coreapi:AddingCE-Extended-Example` and
+   :ref:`t3tsref:dataProcessing`
+- Example using a custom data processor, used in :ref:`t3coreapi:content-elements-custom-data-processor`
+
+
 RTE Configuration
 ^^^^^^^^^^^^^^^^^^
 
 - RTE Transformations: :ref:`t3coreapi:transformations-custom`
+
+Extending TCA
+^^^^^^^^^^^^^
+- Field of type=user in fe-user: :ref:`t3coreapi:extending-examples-feusers`
+  and :ref:`t3tca:columns-user-examples`
+- Additional field :php:`tx_examples_noprint` in table :php:`tt_content`
+  ref:`t3coreapi:extending-examples-ttcontent`.
 
 .. _introduction-credits:
 

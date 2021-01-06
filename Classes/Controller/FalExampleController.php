@@ -14,6 +14,7 @@ namespace T3docs\Examples\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -28,19 +29,18 @@ class FalExampleController extends ActionController
     /**
      * Displays a list of links to the other actions.
      *
-     * @return void
      */
-    public function indexAction()
+    public function indexAction(): ResponseInterface
     {
 
+        return $this->htmlResponse();
     }
 
     /**
      * Displays a list of files for a chosen storage and folder.
      *
-     * @return void
      */
-    public function listFilesAction()
+    public function listFilesAction(): ResponseInterface
     {
         /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
@@ -55,14 +55,13 @@ class FalExampleController extends ActionController
                 ]
             );
         }
+        return $this->htmlResponse();
     }
 
     /**
-     * Displays a list of files from a chosen collection.
-     *
-     * @return void
+     * Displays a list of files from a chosen collection
      */
-    public function collectionAction()
+    public function collectionAction(): ResponseInterface
     {
         /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
@@ -76,5 +75,6 @@ class FalExampleController extends ActionController
                 ]
             );
         }
+        return $this->htmlResponse();
     }
 }

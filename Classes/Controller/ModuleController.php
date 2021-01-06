@@ -57,9 +57,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * Renders the list of all possible flash messages
      *
-     * @return void
      */
-    public function flashAction()
+    public function flashAction(): ResponseInterface
     {
         // Issue one of each type of flash messages
         $this->addFlashMessage(
@@ -97,15 +96,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             false
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
+        return $this->htmlResponse();
     }
 
     /**
      * Creates some entries using the logging API
      * $this->logger gets set by usage of the LoggerAwareTrait
      *
-     * @return void
      */
-    public function logAction()
+    public function logAction(): ResponseInterface
     {
         $this->logger->info('Everything went fine.');
         $this->logger->warning('Something went awry, check your configuration!');
@@ -125,14 +124,14 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             '',
             FlashMessage::INFO
         );
+        return $this->htmlResponse();
     }
 
     /**
      * Displays a page tree
      *
-     * @return void
      */
-    public function treeAction()
+    public function treeAction(): ResponseInterface
     {
         // Get page record for tree starting point. May be passed as an argument.
         try {
@@ -178,14 +177,14 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             'tree',
             $tree->tree
         );
+        return $this->htmlResponse();
     }
 
     /**
      * Displays the content of the clipboard
      *
-     * @return void
      */
-    public function clipboardAction()
+    public function clipboardAction(): ResponseInterface
     {
         /** @var $clipboard Clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
@@ -214,14 +213,14 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'normal' => $normalPad,
             ]
         );
+        return $this->htmlResponse();
     }
 
     /**
      * Displays links to edit records.
      *
-     * @return void
      */
-    public function linksAction()
+    public function linksAction(): ResponseInterface
     {
         $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
@@ -271,15 +270,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'createHaikuLink' => $createHaikuLink,
             ]
         );
+        return $this->htmlResponse();
     }
 
     /**
      * Displays a form to create relations between content elements and files.
      *
      * @param int $element Uid of the just processed content element (see fileReferenceCreateAction)
-     * @return void
      */
-    public function fileReferenceAction($element = 0)
+    public function fileReferenceAction($element = 0): ResponseInterface
     {
         /** @var FileRepository $fileRepository */
         $fileRepository = $this->objectManager->get(FileRepository::class);
@@ -326,6 +325,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'references' => $fileObjects,
             ]
         );
+        return $this->htmlResponse();
     }
 
     /**
@@ -333,9 +333,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      *
      * @param int $file Uid of the file
      * @param int $element Uid of the content element
-     * @return void
      */
-    public function fileReferenceCreateAction($file, $element)
+    public function fileReferenceCreateAction($file, $element): ResponseInterface
     {
         // Early return if either item is missing
         if ((int)$file === 0 || (int)$element === 0) {
@@ -398,6 +397,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'element' => $contentElement['uid'],
             ]
         );
+        return $this->htmlResponse();
     }
 
     /**
@@ -406,7 +406,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * @param ServerRequestInterface $request
      * @return ResponseInterface
      */
-    public function countAction(ServerRequestInterface $request)
+    public function countAction(ServerRequestInterface $request): ResponseInterface
     {
         $requestParameters = $request->getQueryParams();
         // TYPO3\CMS\Core\Database\Connection::count($item, $tableName) uses QueryBuilder internally

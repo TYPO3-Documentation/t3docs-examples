@@ -1,0 +1,14 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+   <h2>Data in variable categories</h2>
+   <f:debug inline="true">{categories}</f:debug>
+
+   <h2>Output</h2>
+   <ul>
+      <f:for as="category" each="{categories}" iteration="i">
+         <li>
+            {category.title}
+         </li>
+      </f:for>
+   </ul>
+
+</html>

@@ -1,0 +1,11 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+   <h2>Data in variable urlParts</h2>
+   <f:debug inline="true">{urlParts}</f:debug>
+
+   <h2>Output</h2>
+   <f:for each="{urlParts}" as="part" iteration="i">
+      <span class="text-primary">{part}</span>
+      <f:if condition="{i.isLast} == false">/</f:if>
+   </f:for>
+
+</html>

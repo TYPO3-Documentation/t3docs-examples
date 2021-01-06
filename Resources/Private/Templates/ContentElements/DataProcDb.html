@@ -1,0 +1,22 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+   <h2>Data in variable myHaikus</h2>
+   <f:debug inline="true">{myHaikus}</f:debug>
+
+   <h2>Output</h2>
+   <div class="row">
+      <f:for each="{myHaikus}" as="haiku">
+         <div class="col-12 col-md-3">
+            <div class="card" style="backgorund-color: {haiku.color};">
+               <f:if condition="{haiku.files.0}">
+                  <f:image image="{haiku.files.0}" class="card-img-top" height="300"/>
+               </f:if>
+               <div class="card-body">
+                  <h5 class="card-title">{haiku.data.title}</h5>
+                  <div class="card-text"><f:format.html>{haiku.data.poem}</f:format.html></div>
+               </div>
+            </div>
+         </div>
+      </f:for>
+   </div>
+
+</html>
