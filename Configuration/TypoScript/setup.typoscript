@@ -3,6 +3,18 @@
 tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
 tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
 
+config.recordLinks.haiku {
+    // Do not force link generation when the record is hidden
+    forceLink = 0
+
+    typolink {
+        parameter = 1
+        additionalParams.data = field:uid
+        additionalParams.wrap = &tx_example_pi1[haiku]=|
+        useCacheHash = 1
+    }
+}
+
 lib.contentElement {
    templateRootPaths.100 = EXT:examples/Resources/Private/Templates/
 }
@@ -157,4 +169,3 @@ tt_content {
         }
     }
 }
-
