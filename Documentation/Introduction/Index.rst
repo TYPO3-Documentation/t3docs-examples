@@ -63,6 +63,13 @@ RTE Configuration
 
 - RTE Transformations: :ref:`t3coreapi:transformations-custom`
 
+Extending TCA
+^^^^^^^^^^^^^
+- Field of type=user in fe-user: :ref:`t3coreapi:extending-examples-feusers`
+  and :ref:`t3tca:columns-user-examples`
+- Additional field :php:`tx_examples_noprint` in table :php:`tt_content`
+  ref:`t3coreapi:extending-examples-ttcontent`.
+
 .. _introduction-credits:
 
 Credits
