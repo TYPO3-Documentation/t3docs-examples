@@ -1,21 +1,15 @@
-﻿﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../Includes.txt
-
-
+﻿.. include:: /Includes.rst.txt
 .. _introduction:
 
+============
 Introduction
-------------
+============
 
 
 .. _introduction-what:
 
 What does it do?
-^^^^^^^^^^^^^^^^
+================
 
 This extension contains a lot of code samples that are used throughout
 the TYPO3 Core Documentation. The goals are two-fold:
@@ -39,56 +33,71 @@ code samples that are related to screenshots.
 .. _backend_module:
 
 Backend Module
-^^^^^^^^^^^^^^
+==============
 
 The extension introduces a Backend Module with different Pages that introduce one concept each:
 
-- Flash messages
-- Logging Framework: :ref:`t3coreapi:logging-writers` and :ref:`t3coreapi:logging-logger`
-- Page tree display
-- Accessing the clipboard
-- Edit links: Backend edit links and Usage of View Helpers in the Backend :ref:`t3extbasebook:creating-html-tags-using-tagbasedviewhelper`
-- File references
+*  Flash messages
 
-.. _page_tree_examples
+*  Logging Framework: :ref:`t3coreapi:logging-writers` and :ref:`t3coreapi:logging-logger`
+
+*  Page tree display
+
+*  Accessing the clipboard
+
+*  Edit links: Backend edit links and Usage of View Helpers in the Backend
+   :ref:`t3extbasebook:creating-html-tags-using-tagbasedviewhelper`
+
+*  File references
+
+
+.. _page_tree_examples:
 
 Page Tree Examples
-^^^^^^^^^^^^^^^^^^
+==================
 
-- Additional context menu item :ref:`t3coreapi:context-menu`
-- Additional page type :ref:`t3coreapi:page-types-example`
+*  Additional context menu item :ref:`t3coreapi:context-menu`
+
+*  Additional page type :ref:`t3coreapi:page-types-example`
 
 
 Content element example
-^^^^^^^^^^^^^^^^^^^^^^^^
+=======================
 
-- Example of a custom content element beeing added: :ref:`t3coreapi:adding-your-own-content-elements`
+*  Example of a custom content element beeing added:
+   :ref:`t3coreapi:adding-your-own-content-elements`
 
 
-Data processor examles
-^^^^^^^^^^^^^^^^^^^^^^
+Data processor examples
+=======================
 
-- Examples using all Core data processors are provided as content elements.
+*  Examples using all Core data processors are provided as content elements.
    They are used in :ref:`t3coreapi:AddingCE-Extended-Example` and
    :ref:`t3tsref:dataProcessing`
-- Example using a custom data processor, used in :ref:`t3coreapi:content-elements-custom-data-processor`
+
+*  Example using a custom data processor, used in
+   :ref:`t3coreapi:content-elements-custom-data-processor`
 
 
 RTE Configuration
-^^^^^^^^^^^^^^^^^^
+=================
 
-- RTE Transformations: :ref:`t3coreapi:transformations-custom`
+*  RTE Transformations: :ref:`t3coreapi:transformations`
+
 
 Extending TCA
-^^^^^^^^^^^^^
-- Field of type=user in fe-user: :ref:`t3coreapi:extending-examples-feusers`
-  and :ref:`t3tca:columns-user-examples`
-- Additional field :php:`tx_examples_noprint` in table :php:`tt_content`
-  ref:`t3coreapi:extending-examples-ttcontent`.
+=============
+
+*  Field of type=user in fe-user: :ref:`t3coreapi:extending-examples-feusers`
+   and :ref:`t3tca:columns-user-examples`
+
+*  Additional field :php:`tx_examples_noprint` in table :php:`tt_content`
+   ref:`t3coreapi:extending-examples-ttcontent`.
+
 
 .. _introduction-credits:
 
 Credits
-^^^^^^^
+=======
 
 Some of the examples were originally created by Kasper Skårhøj.

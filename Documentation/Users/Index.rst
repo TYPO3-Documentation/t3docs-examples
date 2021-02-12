@@ -1,15 +1,9 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../Includes.txt
-
-
+﻿.. include:: /Includes.rst.txt
 .. _users:
 
+============
 Users manual
-------------
+============
 
 If you install this extension, a lot of changes will happen to your
 TYPO3 backend. Thus you should take care to install it only in a

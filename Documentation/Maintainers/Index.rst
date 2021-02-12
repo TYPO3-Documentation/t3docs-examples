@@ -1,15 +1,9 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../Includes.txt
-
-
+﻿.. include:: /Includes.rst.txt
 .. _maintainers:
 
+=============================
 For documentation maintainers
------------------------------
+=============================
 
 Most of the customizations provided by the code samples contained in
 this example are activated by default. So don't be surprised if you
@@ -28,10 +22,8 @@ chapter title in the source code and find the relevant code sample.
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
    :glob:
 
-   ErrorHandlingDemo/Index
-   FlashMessagesDemo/Index
+   */Index
 
