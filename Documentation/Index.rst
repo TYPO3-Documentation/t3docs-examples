@@ -1,53 +1,41 @@
-﻿.. include:: Images.txt
-
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: Includes.txt
-
+﻿.. include:: /Includes.rst.txt
 .. _start:
 
 ================================
-Core Documentation Code Examples
+Core documentation code examples
 ================================
 
-.. only:: html
+:Language:
+     en
 
-	:Language:
-		  en
+:Version:
+   |release|
 
-	:Version:
-		|release|
+:Description:
+     General TYPO3 CMS code examples. Used in particular for maintaining the official documentation.
 
-	:Description:
-		  General TYPO3 CMS code examples. Used in particular for maintaining the official documentation.
+:Keywords:
+     examples, tutorial, documentation
 
-	:Keywords:
-		  examples, tutorial, documentation
+:Copyright:
+   2013-2016
 
-	:Copyright:
-		2013-2016
+:Author:
+     TYPO3 Documentation Team
 
-	:Author:
-		  TYPO3 Documentation Team
+:Email:
+     documentation@typo3.org
 
-	:Email:
-		  documentation@typo3.org
+:License:
+   This document is published under the Open Content License
+   available from http://www.opencontent.org/opl.shtml
 
-	:License:
-		This document is published under the Open Content License
-		available from http://www.opencontent.org/opl.shtml
-
-	:Rendered:
-		|today|
+:Rendered:
+   |today|
 
 
 .. toctree::
-   :maxdepth: 5
    :titlesonly:
-   :glob:
 
    Introduction/Index
    Users/Index

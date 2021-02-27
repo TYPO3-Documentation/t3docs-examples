@@ -1,15 +1,9 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../../Includes.txt
-
-
+﻿.. include:: /Includes.rst.txt
 .. _demo-error-handling:
 
+============================
 Error handling demonstration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================
 
 The extension provides a simple FE plugin for demonstrating error
 handling output in the FE. The settings related to the error handler
