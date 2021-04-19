@@ -52,6 +52,8 @@ $temporaryColumn = [
                 ['None', '0'],
             ],
             'foreign_table' => 'sys_category',
+            'foreign_table_where' => 'AND {#sys_category}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#sys_category}.{#hidden} = 0 ' .
+                   'AND {#sys_category}.{#deleted} = 0 AND {#sys_category}.{#sys_language_uid} IN (0,-1) ORDER BY sys_category.uid',
             'default' => '0'
         ],
     ],
