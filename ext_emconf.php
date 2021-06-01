@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'distribution',
     'author' => 'Documentation Team',
     'author_email' => 'documentation@typo3.org',
-    'state' => 'alpha',
+    'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
@@ -24,7 +24,7 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '11.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.0.0-11.0.99',
+            'typo3' => '11.0.0-11.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],
