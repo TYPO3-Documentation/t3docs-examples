@@ -17,9 +17,10 @@ the TYPO3 Core Documentation. The goals are two-fold:
 #. provide an easy way for users to gain access to these examples for
    their own use.
 
-#. store all code examples in a central place, so that it is easier for
-   documentation maintainers to reproduce the examples from the
-   documentation, in particular when refreshing the screenshots.
+#. store all code examples and content elements in a central place,
+   so that it is easier for documentation maintainers to reproduce
+   the examples from the documentation, in particular when refreshing
+   the screenshots.
 
 The usage of these examples is **not** explained in this manual. It
 is explained in the relevant documentation.
@@ -35,7 +36,7 @@ code samples that are related to screenshots.
 Backend Module
 ==============
 
-The extension introduces a Backend Module with different Pages that introduce one concept each:
+The extension introduces a backend module with different pages that introduce one concept each:
 
 *  Flash messages
 
@@ -51,6 +52,28 @@ The extension introduces a Backend Module with different Pages that introduce on
 *  File references
 
 
+.. _page_tree:
+
+Page Tree
+=========
+
+The extension initializes a page tree with custom content elements that
+introduce further concepts. Currently it contains only one dummy page,
+but should in perspective contain all custom pages and content needed
+for the documentation and not provided by other official TYPO3
+distributions like
+`EXT:introduction <https://github.com/FriendsOfTYPO3/introduction>`_
+or
+`EXT:styleguide <https://github.com/TYPO3/styleguide>`_.
+The latter are not primarily used for documentation.
+
+An export preset "Examples Export Preset" is included in the dataset
+to export the page tree repeatedly during the development of the
+distribution, i.e. when having added a new page or content element.
+Read the manual ":ref:`t3coreapi:distribution`" for more information on
+how to reliably export page trees.
+
+
 .. _page_tree_examples:
 
 Page Tree Examples
@@ -64,7 +87,7 @@ Page Tree Examples
 Content element example
 =======================
 
-*  Example of a custom content element beeing added:
+*  Example of a custom content element being added:
    :ref:`t3coreapi:adding-your-own-content-elements`
 
 
