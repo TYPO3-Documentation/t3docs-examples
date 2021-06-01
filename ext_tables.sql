@@ -26,7 +26,7 @@ CREATE TABLE tt_content (
 # Table structure for table 'pages'
 #
 CREATE TABLE pages (
-	tx_examples_related_pages INT(11) DEFAULT '0' NOT NULL
+	tx_examples_related_pages text
 );
 
 #
