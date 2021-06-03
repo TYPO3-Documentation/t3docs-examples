@@ -11,7 +11,7 @@ class ImportDataControl extends AbstractNode
     {
         $result = [
             'iconIdentifier' => 'import-data',
-            'title' => 'xxx' . $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:pages.importData'),
+            'title' => $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:pages.importData'),
             'linkAttributes' => [
                 'class' => 'importData ',
                 'data-id' => $this->data['databaseRow']['somefield']

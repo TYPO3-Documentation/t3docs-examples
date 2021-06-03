@@ -18,7 +18,7 @@ define(function () {
 	ImportData.import = function (id) {
 		$.ajax({
 			type: 'POST',
-			url: TYPO3.settings.ajaxUrls['something-import-data'],
+			url: TYPO3.settings.ajaxUrls['examples-import-data'],
 			data: {
 				'id': id
 			}

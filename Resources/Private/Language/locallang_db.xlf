@@ -45,6 +45,12 @@
 			<trans-unit id="pages.tx_examples_related_pages" xml:space="preserve">
 				<source>Related pages</source>
 			</trans-unit>
+			<trans-unit id="pages.tx_examples_import_data_control" xml:space="preserve">
+				<source>Ajax import example</source>
+			</trans-unit>
+			<trans-unit id="pages.importData" xml:space="preserve">
+				<source>Import data</source>
+			</trans-unit>
 			<trans-unit id="examples.pi_flexform.sheetGeneral" xml:space="preserve">
 				<source>General Setup</source>
 			</trans-unit>

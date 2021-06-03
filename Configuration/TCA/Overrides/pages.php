@@ -30,7 +30,7 @@ $temporaryColumn = [
         ],
     ],
     'tx_examples_import_data_control' => [
-        'label'   => $langFile . ':pages.somefield',
+        'label'   => $langFile . ':pages.tx_examples_import_data_control',
         'config'  => [
             'type' => 'input',
             'eval' => 'int, unique',
@@ -46,8 +46,13 @@ $temporaryColumn = [
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'pages',
     'media',
-    '--linebreak--,tx_examples_related_pages, tx_examples_import_data_control',
+    '--linebreak--,tx_examples_related_pages',
     'after:media'
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'pages',
+    'tx_examples_import_data_control'
 );
 
 // Add an extra categories selection field to the pages table
