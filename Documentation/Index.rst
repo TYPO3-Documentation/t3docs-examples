@@ -18,7 +18,7 @@ Core documentation code examples
      examples, tutorial, documentation
 
 :Copyright:
-   2013-2016
+     2013-2021
 
 :Author:
      TYPO3 Documentation Team

@@ -3,7 +3,7 @@ defined('TYPO3_MODE') or die();
 
 // Add a "related pages" field to demonstrate select-type fields with tree rendering
 // USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"
-// https://docs.typo3.org/typo3cms/TCAReference/Reference/Columns/Select/Index.html#render-the-general-record-storage-page-selector-as-a-tree-of-page
+// https://docs.typo3.org/m/typo3/reference-tca/master/en-us/ColumnsConfig/Type/Select/Index.html#columns-select
 $temporaryColumn = [
     'tx_examples_related_pages' => [
         'exclude' => 0,
