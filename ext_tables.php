@@ -119,4 +119,11 @@ defined('TYPO3') or die();
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
         "@import 'EXT:examples/Configuration/TSconfig/User/*.typoscript'"
     );
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1485351217] = [
+        'nodeName' => 'importDataControl',
+        'priority' => 30,
+        'class' => T3docs\Examples\FormEngine\FieldControl\ImportDataControl::class
+    ];
+
 })();
