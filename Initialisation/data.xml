@@ -311,8 +311,6 @@
 				<field index="canonical_link"></field>
 				<field index="sitemap_priority">0.5</field>
 				<field index="sitemap_changefreq"></field>
-				<field index="nav_icon" type="integer">0</field>
-				<field index="thumbnail" type="integer">0</field>
 				<field index="tx_examples_related_pages"></field>
 				<field index="categories" type="integer">0</field>
 				<field index="tx_examples_cats" type="integer">0</field>
@@ -395,33 +393,6 @@
 				<field index="table_header_position" type="integer">0</field>
 				<field index="table_tfoot" type="integer">0</field>
 				<field index="tx_impexp_origuid" type="integer">1</field>
-				<field index="teaser" type="NULL"></field>
-				<field index="aspect_ratio">1.3333333333333</field>
-				<field index="items_per_page" type="integer">10</field>
-				<field index="readmore_label"></field>
-				<field index="quote_source"></field>
-				<field index="quote_link"></field>
-				<field index="panel_class">default</field>
-				<field index="file_folder" type="NULL"></field>
-				<field index="icon"></field>
-				<field index="icon_set"></field>
-				<field index="icon_file" type="integer">0</field>
-				<field index="icon_position"></field>
-				<field index="icon_size">default</field>
-				<field index="icon_type">default</field>
-				<field index="icon_color">#FFFFFF</field>
-				<field index="icon_background">#333333</field>
-				<field index="external_media_source"></field>
-				<field index="external_media_ratio"></field>
-				<field index="tx_bootstrappackage_card_group_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_carousel_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_accordion_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_icon_group_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_tab_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_timeline_item" type="integer">0</field>
-				<field index="background_color_class"></field>
-				<field index="background_image" type="integer">0</field>
-				<field index="background_image_options" type="NULL"></field>
 				<field index="tx_examples_noprint" type="integer">0</field>
 				<field index="tx_examples_separator">,</field>
 				<field index="tx_examples_main_category" type="integer">0</field>
@@ -536,8 +507,6 @@
 				<field index="canonical_link"></field>
 				<field index="sitemap_priority">0.5</field>
 				<field index="sitemap_changefreq"></field>
-				<field index="nav_icon" type="integer">0</field>
-				<field index="thumbnail" type="integer">0</field>
 				<field index="tx_examples_related_pages" type="NULL"></field>
 				<field index="categories" type="integer">0</field>
 				<field index="tx_examples_cats" type="integer">0</field>
@@ -624,8 +593,6 @@
 				<field index="canonical_link"></field>
 				<field index="sitemap_priority">0.5</field>
 				<field index="sitemap_changefreq"></field>
-				<field index="nav_icon" type="integer">0</field>
-				<field index="thumbnail" type="integer">0</field>
 				<field index="tx_examples_related_pages" type="NULL"></field>
 				<field index="categories" type="integer">0</field>
 				<field index="tx_examples_cats" type="integer">0</field>
@@ -728,50 +695,6 @@
 				<field index="table_header_position" type="integer">0</field>
 				<field index="table_tfoot" type="integer">0</field>
 				<field index="tx_impexp_origuid" type="integer">0</field>
-				<field index="teaser" type="NULL"></field>
-				<field index="aspect_ratio">1.3333333333333</field>
-				<field index="items_per_page" type="integer">10</field>
-				<field index="readmore_label"></field>
-				<field index="quote_source"></field>
-				<field index="quote_link"></field>
-				<field index="panel_class">default</field>
-				<field index="file_folder" type="NULL"></field>
-				<field index="icon"></field>
-				<field index="icon_set"></field>
-				<field index="icon_file" type="integer">0</field>
-				<field index="icon_position"></field>
-				<field index="icon_size">default</field>
-				<field index="icon_type">default</field>
-				<field index="icon_color">#FFFFFF</field>
-				<field index="icon_background">#333333</field>
-				<field index="external_media_source"></field>
-				<field index="external_media_ratio"></field>
-				<field index="tx_bootstrappackage_card_group_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_carousel_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_accordion_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_icon_group_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_tab_item" type="integer">0</field>
-				<field index="tx_bootstrappackage_timeline_item" type="integer">0</field>
-				<field index="background_color_class">none</field>
-				<field index="background_image" type="integer">0</field>
-				<field index="background_image_options">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot; ?&gt;
-&lt;T3FlexForms&gt;
-    &lt;data&gt;
-        &lt;sheet index=&quot;sDEF&quot;&gt;
-            &lt;language index=&quot;lDEF&quot;&gt;
-                &lt;field index=&quot;parallax&quot;&gt;
-                    &lt;value index=&quot;vDEF&quot;&gt;0&lt;/value&gt;
-                &lt;/field&gt;
-                &lt;field index=&quot;fade&quot;&gt;
-                    &lt;value index=&quot;vDEF&quot;&gt;0&lt;/value&gt;
-                &lt;/field&gt;
-                &lt;field index=&quot;filter&quot;&gt;
-                    &lt;value index=&quot;vDEF&quot;&gt;&lt;/value&gt;
-                &lt;/field&gt;
-            &lt;/language&gt;
-        &lt;/sheet&gt;
-    &lt;/data&gt;
-&lt;/T3FlexForms&gt;</field>
 				<field index="tx_examples_noprint" type="integer">0</field>
 				<field index="tx_examples_separator">,</field>
 				<field index="tx_examples_main_category" type="integer">0</field>
@@ -789,13 +712,6 @@
 								</element>
 							</path>
 						</db_relations>
-						<softref_relations index="softrefs" type="array"></softref_relations>
-					</flexform>
-				</field>
-				<field index="background_image_options" type="array">
-					<type>flex</type>
-					<flexform index="flexFormRels" type="array">
-						<db_relations index="db" type="array"></db_relations>
 						<softref_relations index="softrefs" type="array"></softref_relations>
 					</flexform>
 				</field>
