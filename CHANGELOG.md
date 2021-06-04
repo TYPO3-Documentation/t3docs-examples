@@ -1,3 +1,14 @@
+# 11.1.0
+
+## TASK
+
+- [TASK] Make it a distribution f0cb489
+- [TASK] Support all TYPO3 v11 instances
+
+## BUGFIX
+
+- [BUGFIX] Use database field type "text" for TCA m:n relation
+
 # 11.0.0
 
 ## TASK
