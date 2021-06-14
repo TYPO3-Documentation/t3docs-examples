@@ -14,7 +14,7 @@ This extension provides a number of code examples used in the TYPO3 Core Documen
 
 Refer to the documentation for more details.
 
-:Code Repository:  https://github.com/TYPO3-Documentation/TYPO3CMS-Code-Examples
+:Code Repository:  https://github.com/TYPO3-Documentation/t3docs-examples
 :Read Documentation Online: https://docs.typo3.org/typo3cms/extensions/examples/
 :TYPO3 Extension Repository: https://extensions.typo3.org/extension/examples/
 :Extension Key:  examples
