@@ -1,3 +1,9 @@
+# 9.6.2
+
+## BUGFIX
+
+- [BUGFIX] TER API requires composer extra.typo3/cms.extension-key a6dceba
+
 # 9.6.1
 
 ## TASK
