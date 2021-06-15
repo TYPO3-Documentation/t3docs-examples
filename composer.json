@@ -23,6 +23,9 @@
         "typo3-ter/examples": "self.version"
     },
     "extra": {
+        "typo3/cms": {
+            "extension-key": "examples"
+        },
         "branch-alias": {
             "dev-9.5": "9.5.x-dev"
         }
