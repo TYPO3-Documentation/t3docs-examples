@@ -26,5 +26,12 @@
         "branch-alias": {
             "dev-9.5": "9.5.x-dev"
         }
+    },
+    "scripts": {
+        "prepare-release": [
+            "rm -rf .github",
+            "rm .gitignore",
+            "rm .editorconfig"
+        ]
     }
 }
