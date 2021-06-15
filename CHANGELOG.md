@@ -1,3 +1,9 @@
+# 9.6.1
+
+## TASK
+
+- [TASK] Publish TER release by GitHub Action 47f265f
+
 # 9.5.2
 
 ## TASK
