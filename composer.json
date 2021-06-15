@@ -26,5 +26,12 @@
       "typo3/cms": {
          "extension-key": "examples"
       }
-   }
+    },
+    "scripts": {
+        "prepare-release": [
+            "rm -rf .github",
+            "rm .gitignore",
+            "rm .editorconfig"
+        ]
+    }
 }
