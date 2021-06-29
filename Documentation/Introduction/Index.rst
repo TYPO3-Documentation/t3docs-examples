@@ -20,10 +20,10 @@ What does it do?
 This extension contains a lot of code samples that are used throughout
 the TYPO3 Core Documentation. The goals are two-fold:
 
-#. provide an easy way for users to gain access to these examples for
+#. Provide an easy way for users to gain access to these examples for
    their own use.
 
-#. store all code examples in a central place, so that it is easier for
+#. Store all code examples in a central place, so that it is easier for
    documentation maintainers to reproduce the examples from the
    documentation, in particular when refreshing the screenshots.
 
