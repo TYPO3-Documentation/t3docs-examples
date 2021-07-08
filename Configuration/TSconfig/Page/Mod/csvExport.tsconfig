@@ -1,0 +1,4 @@
+mod.web_list {
+   csvDelimiter = ;
+   csvQuote = '
+}
