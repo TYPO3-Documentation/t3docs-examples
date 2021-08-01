@@ -16,6 +16,8 @@
 		<excludeMap type="array">
 			<item index="sys_file:2">1</item>
 			<item index="sys_file_metadata:2">1</item>
+			<item index="sys_file:3">1</item>
+			<item index="sys_file_metadata:3">1</item>
 		</excludeMap>
 		<softrefCfg type="array"></softrefCfg>
 		<extensionDependencies type="array"></extensionDependencies>
@@ -49,6 +51,9 @@
 							<node index="3" type="array">
 								<uid>3</uid>
 							</node>
+							<node index="9" type="array">
+								<uid>9</uid>
+							</node>
 							<node index="2" type="array">
 								<uid>2</uid>
 							</node>
@@ -58,7 +63,32 @@
 			</node>
 		</pagetree>
 		<records type="array">
+			<table index="be_groups" type="array">
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>0</pid>
+					<title>Example Group</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+			</table>
 			<table index="sys_file" type="array">
+				<rec index="4" type="array">
+					<uid>4</uid>
+					<pid>0</pid>
+					<title>Frog_Getsuju.jpg</title>
+					<relations index="rels" type="array">
+						<element index="sys_file_storage:1" type="array">
+							<id>1</id>
+							<table>sys_file_storage</table>
+						</element>
+						<element index="sys_file_metadata:4" type="array">
+							<id>4</id>
+							<table>sys_file_metadata</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
 				<rec index="1" type="array">
 					<uid>1</uid>
 					<pid>0</pid>
@@ -77,6 +107,18 @@
 				</rec>
 			</table>
 			<table index="sys_file_metadata" type="array">
+				<rec index="4" type="array">
+					<uid>4</uid>
+					<pid>0</pid>
+					<title>Frog_Getsuju.jpg</title>
+					<relations index="rels" type="array">
+						<element index="sys_file:4" type="array">
+							<id>4</id>
+							<table>sys_file</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
 				<rec index="1" type="array">
 					<uid>1</uid>
 					<pid>0</pid>
@@ -136,6 +178,13 @@
 					<uid>2</uid>
 					<pid>1</pid>
 					<title>Frontend Users</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="9" type="array">
+					<uid>9</uid>
+					<pid>1</pid>
+					<title>Haikus</title>
 					<relations index="rels" type="array"></relations>
 					<softrefs type="array"></softrefs>
 				</rec>
@@ -205,6 +254,18 @@
 							</subst>
 						</softref_element>
 					</softrefs>
+				</rec>
+				<rec index="2" type="array">
+					<uid>2</uid>
+					<pid>9</pid>
+					<title>Frog_Getsuju.jpg</title>
+					<relations index="rels" type="array">
+						<element index="sys_file:4" type="array">
+							<id>4</id>
+							<table>sys_file</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
 				</rec>
 			</table>
 			<table index="tt_content" type="array">
@@ -281,6 +342,73 @@
 					<softrefs type="array"></softrefs>
 				</rec>
 			</table>
+			<table index="tx_examples_haiku" type="array">
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>9</pid>
+					<title>old pond (old pond f...)</title>
+					<relations index="rels" type="array">
+						<element index="sys_file_reference:2" type="array">
+							<id>2</id>
+							<table>sys_file_reference</table>
+						</element>
+						<element index="pages:1" type="array">
+							<id>1</id>
+							<table>pages</table>
+						</element>
+						<element index="tt_content:3" type="array">
+							<id>3</id>
+							<table>tt_content</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="2" type="array">
+					<uid>2</uid>
+					<pid>9</pid>
+					<title>the first cold shower (the first ...)</title>
+					<relations index="rels" type="array">
+						<element index="pages:1" type="array">
+							<id>1</id>
+							<table>pages</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="3" type="array">
+					<uid>3</uid>
+					<pid>9</pid>
+					<title>the wind of Fuji (the wind o...)</title>
+					<relations index="rels" type="array">
+						<element index="pages:1" type="array">
+							<id>1</id>
+							<table>pages</table>
+						</element>
+					</relations>
+					<softrefs type="array">
+						<softref_element index="poem:typolink_tag:1" type="array">
+							<field>poem</field>
+							<spKey>typolink_tag</spKey>
+							<matchString>&lt;a href=&quot;https://en.wikipedia.org/wiki/Mount_Fuji&quot; title=&quot;Mount Fuji&quot;&gt;</matchString>
+							<subst type="array">
+								<type>external</type>
+								<tokenID>7ba3e409bf277ecd615babeb9df37f1f</tokenID>
+								<tokenValue>https://en.wikipedia.org/wiki/Mount_Fuji</tokenValue>
+							</subst>
+						</softref_element>
+						<softref_element index="poem:typolink_tag:3" type="array">
+							<field>poem</field>
+							<spKey>typolink_tag</spKey>
+							<matchString>&lt;a href=&quot;https://en.wikipedia.org/wiki/Edo&quot; title=&quot;Edo&quot;&gt;</matchString>
+							<subst type="array">
+								<type>external</type>
+								<tokenID>5e79bc90a85ebdb010352d9d0f8677cd</tokenID>
+								<tokenValue>https://en.wikipedia.org/wiki/Edo</tokenValue>
+							</subst>
+						</softref_element>
+					</softrefs>
+				</rec>
+			</table>
 			<table index="sys_template" type="array">
 				<rec index="1" type="array">
 					<uid>1</uid>
@@ -309,10 +437,15 @@
 		</records>
 		<pid_lookup type="array">
 			<page_contents index="0" type="array">
+				<table index="be_groups" type="array">
+					<item index="1">1</item>
+				</table>
 				<table index="sys_file" type="array">
+					<item index="4">1</item>
 					<item index="1">1</item>
 				</table>
 				<table index="sys_file_metadata" type="array">
+					<item index="4">1</item>
 					<item index="1">1</item>
 				</table>
 				<table index="sys_file_storage" type="array">
@@ -338,6 +471,7 @@
 				</table>
 				<table index="pages" type="array">
 					<item index="2">1</item>
+					<item index="9">1</item>
 					<item index="3">1</item>
 					<item index="6">1</item>
 					<item index="4">1</item>
@@ -349,6 +483,16 @@
 				</table>
 				<table index="fe_users" type="array">
 					<item index="1">1</item>
+				</table>
+			</page_contents>
+			<page_contents index="9" type="array">
+				<table index="sys_file_reference" type="array">
+					<item index="2">1</item>
+				</table>
+				<table index="tx_examples_haiku" type="array">
+					<item index="1">1</item>
+					<item index="2">1</item>
+					<item index="3">1</item>
 				</table>
 			</page_contents>
 			<page_contents index="3" type="array">
@@ -384,6 +528,10 @@
 			</page_contents>
 		</pid_lookup>
 		<files_fal type="array">
+			<file index="70103bf85729abcf9ec2d9b3c0b6180f" type="array">
+				<filename>Frog_Getsuju.jpg</filename>
+				<filemtime>1627836193</filemtime>
+			</file>
 			<file index="ef2f273baba03681fe92931e8ed9b373" type="array">
 				<filename>t3docs-collaboration.jpg</filename>
 				<filemtime>1627823730</filemtime>
@@ -391,6 +539,79 @@
 		</files_fal>
 	</header>
 	<records type="array">
+		<tablerow index="be_groups:1" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">1</field>
+				<field index="pid" type="integer">0</field>
+				<field index="tstamp" type="integer">1627825168</field>
+				<field index="crdate" type="integer">1627825168</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="description"></field>
+				<field index="title">Example Group</field>
+				<field index="non_exclude_fields"></field>
+				<field index="explicit_allowdeny"></field>
+				<field index="allowed_languages"></field>
+				<field index="custom_options"></field>
+				<field index="db_mountpoints"></field>
+				<field index="pagetypes_select"></field>
+				<field index="tables_select"></field>
+				<field index="tables_modify"></field>
+				<field index="groupMods"></field>
+				<field index="availableWidgets"></field>
+				<field index="mfa_providers"></field>
+				<field index="file_mountpoints"></field>
+				<field index="file_permissions">readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile</field>
+				<field index="TSconfig"></field>
+				<field index="subgroup"></field>
+				<field index="workspace_perms" type="integer">0</field>
+				<field index="category_perms"></field>
+			</fieldlist>
+			<related index="rels" type="array"></related>
+		</tablerow>
+		<tablerow index="sys_file:4" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">4</field>
+				<field index="pid" type="integer">0</field>
+				<field index="tstamp" type="integer">1627836193</field>
+				<field index="last_indexed" type="integer">0</field>
+				<field index="missing" type="integer">0</field>
+				<field index="storage" type="integer">1</field>
+				<field index="type">2</field>
+				<field index="metadata" type="integer">0</field>
+				<field index="identifier">/examples/Haikus/Frog_Getsuju.jpg</field>
+				<field index="identifier_hash">127e326771baff99017db5ce289f0fb6e8ac5783</field>
+				<field index="folder_hash">b252c629b21f4bb7d6b0057eaf8119ccc0db1360</field>
+				<field index="extension">jpg</field>
+				<field index="mime_type">image/jpeg</field>
+				<field index="name">Frog_Getsuju.jpg</field>
+				<field index="sha1">19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</field>
+				<field index="size" type="integer">74744</field>
+				<field index="creation_date" type="integer">1627836193</field>
+				<field index="modification_date" type="integer">1627836193</field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="storage" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>1</id>
+							<table>sys_file_storage</table>
+						</element>
+					</relations>
+				</field>
+				<field index="metadata" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>4</id>
+							<table>sys_file_metadata</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
 		<tablerow index="sys_file:1" type="array">
 			<fieldlist index="data" type="array">
 				<field index="uid" type="integer">1</field>
@@ -428,6 +649,67 @@
 						<element index="0" type="array">
 							<id>1</id>
 							<table>sys_file_metadata</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
+		<tablerow index="sys_file_metadata:4" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">4</field>
+				<field index="pid" type="integer">0</field>
+				<field index="tstamp" type="integer">1627836193</field>
+				<field index="crdate" type="integer">1627836193</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="sys_language_uid" type="integer">0</field>
+				<field index="l10n_parent" type="integer">0</field>
+				<field index="l10n_state" type="NULL"></field>
+				<field index="t3_origuid" type="integer">0</field>
+				<field index="l10n_diffsource"></field>
+				<field index="t3ver_oid" type="integer">0</field>
+				<field index="t3ver_wsid" type="integer">0</field>
+				<field index="t3ver_state" type="integer">0</field>
+				<field index="t3ver_stage" type="integer">0</field>
+				<field index="file" type="integer">4</field>
+				<field index="title" type="NULL"></field>
+				<field index="width" type="integer">322</field>
+				<field index="height" type="integer">603</field>
+				<field index="description" type="NULL"></field>
+				<field index="alternative" type="NULL"></field>
+				<field index="visible" type="integer">1</field>
+				<field index="status"></field>
+				<field index="keywords" type="NULL"></field>
+				<field index="caption" type="NULL"></field>
+				<field index="creator_tool"></field>
+				<field index="download_name"></field>
+				<field index="creator"></field>
+				<field index="publisher"></field>
+				<field index="source"></field>
+				<field index="copyright" type="NULL"></field>
+				<field index="location_country"></field>
+				<field index="location_region"></field>
+				<field index="location_city"></field>
+				<field index="latitude">0.00000000000000</field>
+				<field index="longitude">0.00000000000000</field>
+				<field index="ranking" type="integer">0</field>
+				<field index="content_creation_date" type="integer">0</field>
+				<field index="content_modification_date" type="integer">0</field>
+				<field index="note" type="NULL"></field>
+				<field index="unit"></field>
+				<field index="duration" type="double">0</field>
+				<field index="color_space"></field>
+				<field index="pages" type="integer">0</field>
+				<field index="language"></field>
+				<field index="fe_groups" type="NULL"></field>
+				<field index="categories" type="integer">0</field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="file" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>4</id>
+							<table>sys_file</table>
 						</element>
 					</relations>
 				</field>
@@ -996,6 +1278,273 @@
 						<element index="0" type="array">
 							<id>1</id>
 							<table>fe_groups</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
+		<tablerow index="pages:9" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">9</field>
+				<field index="pid" type="integer">1</field>
+				<field index="tstamp" type="integer">1627836067</field>
+				<field index="crdate" type="integer">1627836057</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="starttime" type="integer">0</field>
+				<field index="endtime" type="integer">0</field>
+				<field index="fe_group">0</field>
+				<field index="sorting" type="integer">192</field>
+				<field index="rowDescription" type="NULL"></field>
+				<field index="editlock" type="integer">0</field>
+				<field index="sys_language_uid" type="integer">0</field>
+				<field index="l10n_parent" type="integer">0</field>
+				<field index="l10n_source" type="integer">0</field>
+				<field index="l10n_state" type="NULL"></field>
+				<field index="t3_origuid" type="integer">0</field>
+				<field index="l10n_diffsource">{&quot;hidden&quot;:&quot;&quot;}</field>
+				<field index="t3ver_oid" type="integer">0</field>
+				<field index="t3ver_wsid" type="integer">0</field>
+				<field index="t3ver_state" type="integer">0</field>
+				<field index="t3ver_stage" type="integer">0</field>
+				<field index="perms_userid" type="integer">1</field>
+				<field index="perms_groupid" type="integer">0</field>
+				<field index="perms_user" type="integer">31</field>
+				<field index="perms_group" type="integer">27</field>
+				<field index="perms_everybody" type="integer">0</field>
+				<field index="title">Haikus</field>
+				<field index="slug">/haikus</field>
+				<field index="doktype" type="integer">254</field>
+				<field index="TSconfig" type="NULL"></field>
+				<field index="is_siteroot" type="integer">0</field>
+				<field index="php_tree_stop" type="integer">0</field>
+				<field index="url"></field>
+				<field index="shortcut" type="integer">0</field>
+				<field index="shortcut_mode" type="integer">0</field>
+				<field index="subtitle"></field>
+				<field index="layout" type="integer">0</field>
+				<field index="target"></field>
+				<field index="media" type="integer">0</field>
+				<field index="lastUpdated" type="integer">0</field>
+				<field index="keywords" type="NULL"></field>
+				<field index="cache_timeout" type="integer">0</field>
+				<field index="cache_tags"></field>
+				<field index="newUntil" type="integer">0</field>
+				<field index="description" type="NULL"></field>
+				<field index="no_search" type="integer">0</field>
+				<field index="SYS_LASTCHANGED" type="integer">0</field>
+				<field index="abstract" type="NULL"></field>
+				<field index="module"></field>
+				<field index="extendToSubpages" type="integer">0</field>
+				<field index="author"></field>
+				<field index="author_email"></field>
+				<field index="nav_title"></field>
+				<field index="nav_hide" type="integer">0</field>
+				<field index="content_from_pid" type="integer">0</field>
+				<field index="mount_pid" type="integer">0</field>
+				<field index="mount_pid_ol" type="integer">0</field>
+				<field index="l18n_cfg" type="integer">0</field>
+				<field index="fe_login_mode" type="integer">0</field>
+				<field index="backend_layout"></field>
+				<field index="backend_layout_next_level"></field>
+				<field index="tsconfig_includes" type="NULL"></field>
+				<field index="tx_impexp_origuid" type="integer">0</field>
+				<field index="seo_title"></field>
+				<field index="no_index" type="integer">0</field>
+				<field index="no_follow" type="integer">0</field>
+				<field index="og_title"></field>
+				<field index="og_description" type="NULL"></field>
+				<field index="og_image" type="integer">0</field>
+				<field index="twitter_title"></field>
+				<field index="twitter_description" type="NULL"></field>
+				<field index="twitter_image" type="integer">0</field>
+				<field index="twitter_card">summary</field>
+				<field index="canonical_link"></field>
+				<field index="sitemap_priority">0.5</field>
+				<field index="sitemap_changefreq"></field>
+				<field index="categories" type="integer">0</field>
+				<field index="tx_examples_related_pages" type="NULL"></field>
+				<field index="tx_examples_cats" type="integer">0</field>
+			</fieldlist>
+			<related index="rels" type="array"></related>
+		</tablerow>
+		<tablerow index="sys_file_reference:2" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">2</field>
+				<field index="pid" type="integer">9</field>
+				<field index="tstamp" type="integer">1627836337</field>
+				<field index="crdate" type="integer">1627836337</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="sys_language_uid" type="integer">-1</field>
+				<field index="l10n_parent" type="integer">0</field>
+				<field index="l10n_state" type="NULL"></field>
+				<field index="l10n_diffsource"></field>
+				<field index="t3ver_oid" type="integer">0</field>
+				<field index="t3ver_wsid" type="integer">0</field>
+				<field index="t3ver_state" type="integer">0</field>
+				<field index="t3ver_stage" type="integer">0</field>
+				<field index="uid_local" type="integer">4</field>
+				<field index="uid_foreign" type="integer">1</field>
+				<field index="tablenames">tx_examples_haiku</field>
+				<field index="fieldname">image</field>
+				<field index="sorting_foreign" type="integer">1</field>
+				<field index="table_local">sys_file</field>
+				<field index="title" type="NULL"></field>
+				<field index="description">Frog and Mouse by Getsuju Japan, late 18th-early 19th century 90.3 x 167.8cm Ink on paper Kaikodo, New York</field>
+				<field index="alternative" type="NULL"></field>
+				<field index="link"></field>
+				<field index="crop"></field>
+				<field index="autoplay" type="integer">0</field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="uid_local" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>4</id>
+							<table>sys_file</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
+		<tablerow index="tx_examples_haiku:1" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">1</field>
+				<field index="pid" type="integer">9</field>
+				<field index="tstamp" type="integer">1627836337</field>
+				<field index="crdate" type="integer">1627836337</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="title">old pond</field>
+				<field index="poem">&lt;p&gt;old pond&lt;br /&gt; frog leaps in&lt;br /&gt; water's sound&lt;/p&gt;</field>
+				<field index="image" type="integer">1</field>
+				<field index="season">Summer</field>
+				<field index="weirdness">2</field>
+				<field index="color">#05800f</field>
+				<field index="angle" type="integer">0</field>
+				<field index="reference_page" type="integer">1</field>
+				<field index="related_records"></field>
+				<field index="related_content">3</field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="image" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>2</id>
+							<table>sys_file_reference</table>
+						</element>
+					</relations>
+				</field>
+				<field index="reference_page" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>1</id>
+							<table>pages</table>
+						</element>
+					</relations>
+				</field>
+				<field index="related_content" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>3</id>
+							<table>tt_content</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
+		<tablerow index="tx_examples_haiku:2" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">2</field>
+				<field index="pid" type="integer">9</field>
+				<field index="tstamp" type="integer">1627836443</field>
+				<field index="crdate" type="integer">1627836443</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="title">the first cold shower</field>
+				<field index="poem">&lt;p&gt;the first cold shower&lt;br /&gt; even the monkey seems to want&lt;br /&gt; a little coat of straw&lt;/p&gt;</field>
+				<field index="image" type="integer">0</field>
+				<field index="season">Spring</field>
+				<field index="weirdness">1</field>
+				<field index="color">#64b2f2</field>
+				<field index="angle" type="integer">0</field>
+				<field index="reference_page" type="integer">1</field>
+				<field index="related_records"></field>
+				<field index="related_content"></field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="reference_page" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>1</id>
+							<table>pages</table>
+						</element>
+					</relations>
+				</field>
+			</related>
+		</tablerow>
+		<tablerow index="tx_examples_haiku:3" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">3</field>
+				<field index="pid" type="integer">9</field>
+				<field index="tstamp" type="integer">1627836493</field>
+				<field index="crdate" type="integer">1627836493</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="title">the wind of Fuji</field>
+				<field index="poem">&lt;p&gt;the wind of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Mount_Fuji&quot; title=&quot;Mount Fuji&quot;&gt;Fuji&lt;/a&gt;&lt;br /&gt; I've brought on my fan&lt;br /&gt; a gift from&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Edo&quot; title=&quot;Edo&quot;&gt;Edo&lt;/a&gt;&lt;/p&gt;</field>
+				<field index="image" type="integer">0</field>
+				<field index="season">Autumn</field>
+				<field index="weirdness">0</field>
+				<field index="color">#fa0303</field>
+				<field index="angle" type="integer">0</field>
+				<field index="reference_page" type="integer">1</field>
+				<field index="related_records"></field>
+				<field index="related_content"></field>
+			</fieldlist>
+			<related index="rels" type="array">
+				<field index="poem" type="array">
+					<softrefs type="array">
+						<keys type="array">
+							<softref_key index="typolink_tag" type="array">
+								<softref_element index="1" type="array">
+									<matchString>&lt;a href=&quot;https://en.wikipedia.org/wiki/Mount_Fuji&quot; title=&quot;Mount Fuji&quot;&gt;</matchString>
+									<subst type="array">
+										<type>external</type>
+										<tokenID>7ba3e409bf277ecd615babeb9df37f1f</tokenID>
+										<tokenValue>https://en.wikipedia.org/wiki/Mount_Fuji</tokenValue>
+									</subst>
+								</softref_element>
+								<softref_element index="3" type="array">
+									<matchString>&lt;a href=&quot;https://en.wikipedia.org/wiki/Edo&quot; title=&quot;Edo&quot;&gt;</matchString>
+									<subst type="array">
+										<type>external</type>
+										<tokenID>5e79bc90a85ebdb010352d9d0f8677cd</tokenID>
+										<tokenValue>https://en.wikipedia.org/wiki/Edo</tokenValue>
+									</subst>
+								</softref_element>
+							</softref_key>
+						</keys>
+						<tokenizedContent>&lt;p&gt;the wind of&amp;nbsp;&lt;a href=&quot;{softref:7ba3e409bf277ecd615babeb9df37f1f}&quot; title=&quot;Mount Fuji&quot;&gt;Fuji&lt;/a&gt;&lt;br /&gt; I've brought on my fan&lt;br /&gt; a gift from&amp;nbsp;&lt;a href=&quot;{softref:5e79bc90a85ebdb010352d9d0f8677cd}&quot; title=&quot;Edo&quot;&gt;Edo&lt;/a&gt;&lt;/p&gt;</tokenizedContent>
+					</softrefs>
+				</field>
+				<field index="reference_page" type="array">
+					<type>db</type>
+					<relations index="itemArray" type="array">
+						<element index="0" type="array">
+							<id>1</id>
+							<table>pages</table>
 						</element>
 					</relations>
 				</field>
@@ -1854,6 +2403,11 @@ page.10 &lt; lib.custommenu
 		</tablerow>
 	</records>
 	<files_fal type="array">
+		<file index="70103bf85729abcf9ec2d9b3c0b6180f" type="array">
+			<filename>Frog_Getsuju.jpg</filename>
+			<filemtime>1627836193</filemtime>
+			<content_sha1>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</content_sha1>
+		</file>
 		<file index="ef2f273baba03681fe92931e8ed9b373" type="array">
 			<filename>t3docs-collaboration.jpg</filename>
 			<filemtime>1627823730</filemtime>
