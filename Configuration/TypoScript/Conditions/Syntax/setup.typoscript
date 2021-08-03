@@ -1,0 +1,9 @@
+# ... some TypoScript, always parsed
+
+[condition]
+
+   # .... some more TypoScript (only parsed if the condition is met.)
+
+[GLOBAL]
+
+# ... some TypoScript, always parsed

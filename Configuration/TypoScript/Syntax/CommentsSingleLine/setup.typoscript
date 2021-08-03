@@ -1,0 +1,4 @@
+// This is a comment
+myObject = TEXT
+myObject.value = <strong>Some HTML code</strong>
+# This line also is a comment.

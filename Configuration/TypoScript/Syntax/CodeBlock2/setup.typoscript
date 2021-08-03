@@ -1,0 +1,9 @@
+myObject = TEXT
+myObject {
+   stdWrap {
+      field = title
+      ifEmpty {
+         data = leveltitle:0
+      }
+   }
+}

@@ -1,0 +1,7 @@
+someObject = TEXT
+someObject {
+   value = Hello world!
+   stdWrap.wrap = <p>|<p>
+}
+anotherObject =< someObject
+someObject.stdWrap.wrap = <h1>|<h1>

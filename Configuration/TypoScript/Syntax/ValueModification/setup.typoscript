@@ -1,0 +1,4 @@
+myObject = TEXT
+myObject.value = 1,2,3
+myObject.value := addToList(4,5)
+myObject.value := removeFromList(2,1)

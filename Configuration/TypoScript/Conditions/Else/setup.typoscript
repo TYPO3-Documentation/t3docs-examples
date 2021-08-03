@@ -1,0 +1,10 @@
+page = PAGE
+page.10 = TEXT
+
+[loginUser('*')]
+   page.10.value = Logged in
+[ELSE]
+   page.10.value = Not logged in
+[END]
+
+page.10.stdWrap.wrap = <strong>|</strong>

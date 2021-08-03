@@ -1,0 +1,3 @@
+[condition1() or condition2()]
+   temp.value = Condition 1 or condition 2 met
+[END]

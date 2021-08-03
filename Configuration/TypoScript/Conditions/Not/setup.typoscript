@@ -1,0 +1,3 @@
+[!loginUser('*')]
+   page.10.value = No user is logged in!
+[END]

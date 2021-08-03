@@ -1,0 +1,8 @@
+someObject {
+   1property = 234
+}
+[loginUser('*')]
+   someObject {
+      2property = 567
+   }
+[GLOBAL]

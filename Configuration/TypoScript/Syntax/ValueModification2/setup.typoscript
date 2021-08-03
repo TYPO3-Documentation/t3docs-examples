@@ -1,0 +1,2 @@
+myObject = TEXT
+myObject.value = 3,4,5

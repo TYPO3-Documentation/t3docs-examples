@@ -1,0 +1,5 @@
+pageObj {
+   10 = TEXT
+   10.value = <p class="warning">This is HTML code.</p>
+   20 < pageObj.10
+}

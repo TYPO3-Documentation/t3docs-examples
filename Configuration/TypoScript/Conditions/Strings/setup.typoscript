@@ -1,0 +1,3 @@
+[request.getNormalizedParams().getHttpHost() == 'www.example.org']
+   page.42.value = Http Host is www.example.org
+[END]

@@ -1,0 +1,6 @@
+myObject = TEXT
+myObject.value (
+   <p class="warning">
+      This is HTML code.
+   </p>
+)
