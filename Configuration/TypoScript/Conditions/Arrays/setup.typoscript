@@ -1,0 +1,3 @@
+[page["pid"] in [17,24]]
+   page.42.value = This page is a child of page 17 or page 24
+[END]

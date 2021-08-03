@@ -1,0 +1,4 @@
+[applicationContext == "Development"]
+   page.42.value = The application context is exactly "Development"
+[END]
+

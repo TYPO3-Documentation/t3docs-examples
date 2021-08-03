@@ -1,0 +1,3 @@
+[applicationContext matches "/^Development/"]
+   page.42.value = The application context starts with "Development"
+[END]

@@ -1,0 +1,3 @@
+[page["backend_layout"] == 1]
+   page.42.value = Backend layout 1 choosen
+[END]

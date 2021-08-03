@@ -1,0 +1,6 @@
+[loginUser('*')]
+   page.42.value = Frontend user logged in
+[END]
+[getTSFE().isBackendUserLoggedIn()]
+   page.42.value = Backend user logged in
+[END]

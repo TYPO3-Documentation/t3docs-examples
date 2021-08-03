@@ -1,0 +1,4 @@
+myObject = TEXT
+myObject.value = <strong> HTML - code </strong>
+
+myObject >
