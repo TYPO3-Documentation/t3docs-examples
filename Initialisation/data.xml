@@ -10,7 +10,7 @@
 			<packager_name></packager_name>
 			<packager_email></packager_email>
 			<TYPO3_version>11.4.0-dev</TYPO3_version>
-			<created>Tuesday  3. August 2021</created>
+			<created>Friday  6. August 2021</created>
 		</meta>
 		<static_tables index="relStaticTables" type="array"></static_tables>
 		<excludeMap type="array">
@@ -72,6 +72,9 @@
 											</node>
 											<node index="43" type="array">
 												<uid>43</uid>
+											</node>
+											<node index="47" type="array">
+												<uid>47</uid>
 											</node>
 											<node index="42" type="array">
 												<uid>42</uid>
@@ -517,6 +520,13 @@
 					<uid>42</uid>
 					<pid>30</pid>
 					<title>MultiLine</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="47" type="array">
+					<uid>47</uid>
+					<pid>30</pid>
+					<title>Introduction</title>
 					<relations index="rels" type="array"></relations>
 					<softrefs type="array"></softrefs>
 				</rec>
@@ -1103,6 +1113,13 @@
 					<relations index="rels" type="array"></relations>
 					<softrefs type="array"></softrefs>
 				</rec>
+				<rec index="36" type="array">
+					<uid>36</uid>
+					<pid>47</pid>
+					<title>MultiLine</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
 				<rec index="25" type="array">
 					<uid>25</uid>
 					<pid>43</pid>
@@ -1363,6 +1380,7 @@
 					<item index="40">1</item>
 					<item index="41">1</item>
 					<item index="42">1</item>
+					<item index="47">1</item>
 					<item index="43">1</item>
 					<item index="44">1</item>
 					<item index="45">1</item>
@@ -1415,6 +1433,11 @@
 			<page_contents index="42" type="array">
 				<table index="sys_template" type="array">
 					<item index="26">1</item>
+				</table>
+			</page_contents>
+			<page_contents index="47" type="array">
+				<table index="sys_template" type="array">
+					<item index="36">1</item>
 				</table>
 			</page_contents>
 			<page_contents index="43" type="array">
@@ -6202,7 +6225,7 @@ page.10 &lt; lib.custommenu
 			<fieldlist index="data" type="array">
 				<field index="uid" type="integer">28</field>
 				<field index="pid" type="integer">40</field>
-				<field index="tstamp" type="integer">1627978765</field>
+				<field index="tstamp" type="integer">1628077499</field>
 				<field index="crdate" type="integer">1627978560</field>
 				<field index="cruser_id" type="integer">1</field>
 				<field index="deleted" type="integer">0</field>
@@ -6221,7 +6244,8 @@ page.10 &lt; lib.custommenu
 				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
-				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectCopying2/setup.typoscript'</field>
+				<field index="config">config &gt;
+@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectCopying2/setup.typoscript'</field>
 				<field index="basedOn"></field>
 				<field index="includeStaticAfterBasedOn" type="integer">0</field>
 				<field index="static_file_mode" type="integer">0</field>
@@ -6456,6 +6480,123 @@ page.10 &lt; lib.custommenu
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/MultiLine/setup.typoscript'</field>
+				<field index="basedOn"></field>
+				<field index="includeStaticAfterBasedOn" type="integer">0</field>
+				<field index="static_file_mode" type="integer">0</field>
+				<field index="tx_impexp_origuid" type="integer">0</field>
+			</fieldlist>
+			<related index="rels" type="array"></related>
+		</tablerow>
+		<tablerow index="pages:47" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">47</field>
+				<field index="pid" type="integer">30</field>
+				<field index="tstamp" type="integer">1628260847</field>
+				<field index="crdate" type="integer">1628260837</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="starttime" type="integer">0</field>
+				<field index="endtime" type="integer">0</field>
+				<field index="fe_group"></field>
+				<field index="sorting" type="integer">96</field>
+				<field index="rowDescription" type="NULL"></field>
+				<field index="editlock" type="integer">0</field>
+				<field index="sys_language_uid" type="integer">0</field>
+				<field index="l10n_parent" type="integer">0</field>
+				<field index="l10n_source" type="integer">0</field>
+				<field index="l10n_state" type="NULL"></field>
+				<field index="t3_origuid" type="integer">42</field>
+				<field index="l10n_diffsource">{&quot;hidden&quot;:&quot;&quot;}</field>
+				<field index="t3ver_oid" type="integer">0</field>
+				<field index="t3ver_wsid" type="integer">0</field>
+				<field index="t3ver_state" type="integer">0</field>
+				<field index="t3ver_stage" type="integer">0</field>
+				<field index="perms_userid" type="integer">1</field>
+				<field index="perms_groupid" type="integer">0</field>
+				<field index="perms_user" type="integer">31</field>
+				<field index="perms_group" type="integer">27</field>
+				<field index="perms_everybody" type="integer">0</field>
+				<field index="title">Introduction</field>
+				<field index="slug">/typoscript/conditions/syntax/multiline</field>
+				<field index="doktype" type="integer">1</field>
+				<field index="TSconfig" type="NULL"></field>
+				<field index="is_siteroot" type="integer">0</field>
+				<field index="php_tree_stop" type="integer">0</field>
+				<field index="url"></field>
+				<field index="shortcut" type="integer">0</field>
+				<field index="shortcut_mode" type="integer">0</field>
+				<field index="subtitle"></field>
+				<field index="layout" type="integer">0</field>
+				<field index="target"></field>
+				<field index="media" type="integer">0</field>
+				<field index="lastUpdated" type="integer">0</field>
+				<field index="keywords" type="NULL"></field>
+				<field index="cache_timeout" type="integer">0</field>
+				<field index="cache_tags"></field>
+				<field index="newUntil" type="integer">0</field>
+				<field index="description" type="NULL"></field>
+				<field index="no_search" type="integer">0</field>
+				<field index="SYS_LASTCHANGED" type="integer">0</field>
+				<field index="abstract" type="NULL"></field>
+				<field index="module"></field>
+				<field index="extendToSubpages" type="integer">0</field>
+				<field index="author"></field>
+				<field index="author_email"></field>
+				<field index="nav_title"></field>
+				<field index="nav_hide" type="integer">0</field>
+				<field index="content_from_pid" type="integer">0</field>
+				<field index="mount_pid" type="integer">0</field>
+				<field index="mount_pid_ol" type="integer">0</field>
+				<field index="l18n_cfg" type="integer">0</field>
+				<field index="fe_login_mode" type="integer">0</field>
+				<field index="backend_layout"></field>
+				<field index="backend_layout_next_level"></field>
+				<field index="tsconfig_includes"></field>
+				<field index="tx_impexp_origuid" type="integer">0</field>
+				<field index="seo_title"></field>
+				<field index="no_index" type="integer">0</field>
+				<field index="no_follow" type="integer">0</field>
+				<field index="og_title"></field>
+				<field index="og_description" type="NULL"></field>
+				<field index="og_image" type="integer">0</field>
+				<field index="twitter_title"></field>
+				<field index="twitter_description" type="NULL"></field>
+				<field index="twitter_image" type="integer">0</field>
+				<field index="twitter_card">summary</field>
+				<field index="canonical_link"></field>
+				<field index="sitemap_priority">0.5</field>
+				<field index="sitemap_changefreq"></field>
+				<field index="categories" type="integer">0</field>
+				<field index="tx_examples_related_pages"></field>
+				<field index="tx_examples_cats" type="integer">0</field>
+			</fieldlist>
+			<related index="rels" type="array"></related>
+		</tablerow>
+		<tablerow index="sys_template:36" type="array">
+			<fieldlist index="data" type="array">
+				<field index="uid" type="integer">36</field>
+				<field index="pid" type="integer">47</field>
+				<field index="tstamp" type="integer">1628260871</field>
+				<field index="crdate" type="integer">1628260837</field>
+				<field index="cruser_id" type="integer">1</field>
+				<field index="deleted" type="integer">0</field>
+				<field index="hidden" type="integer">0</field>
+				<field index="starttime" type="integer">0</field>
+				<field index="endtime" type="integer">0</field>
+				<field index="sorting" type="integer">256</field>
+				<field index="description" type="NULL"></field>
+				<field index="t3_origuid" type="integer">26</field>
+				<field index="t3ver_oid" type="integer">0</field>
+				<field index="t3ver_wsid" type="integer">0</field>
+				<field index="t3ver_state" type="integer">0</field>
+				<field index="t3ver_stage" type="integer">0</field>
+				<field index="title">MultiLine</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
+				<field index="include_static_file"></field>
+				<field index="constants" type="NULL"></field>
+				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/Introduction/setup.typoscript'</field>
 				<field index="basedOn"></field>
 				<field index="includeStaticAfterBasedOn" type="integer">0</field>
 				<field index="static_file_mode" type="integer">0</field>

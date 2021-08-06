@@ -1,0 +1,4 @@
+myObject = [value 1]
+myObject.myProperty = [value 2]
+myObject.myProperty.firstProperty = [value 3]
+myObject.myProperty.secondProperty = [value 4]
