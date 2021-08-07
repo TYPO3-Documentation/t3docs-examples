@@ -20,16 +20,8 @@ defined('TYPO3') or die();
         [
             'access' => 'user,group',
             'icon' => 'EXT:examples/Resources/Public/Images/BackendModule.svg',
-            'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf',
-            'navigationComponentId' => 'typo3-navigation',
+            'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf'
         ]
-    );
-
-    // Register the navigation component
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addNavigationComponent(
-        'tools_Examples',
-        'typo3-navigation',
-        'examples'
     );
 
     // Add extra fields to User Settings (field is defined for TCA too in Configuration/TCA/Overrides/be_users.php)
