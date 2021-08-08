@@ -72,6 +72,9 @@
 			<trans-unit id="function_clipboard_no_pages" xml:space="preserve">
 				<source>No pages in this clipboard pad.</source>
 			</trans-unit>
+			<trans-unit id="function_clipboard_debug" xml:space="preserve">
+				<source>Show in the debug console</source>
+			</trans-unit>
 			<trans-unit id="function_fileReference" xml:space="preserve">
 				<source>File references</source>
 			</trans-unit>
