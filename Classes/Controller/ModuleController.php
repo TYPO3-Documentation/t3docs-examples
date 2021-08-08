@@ -24,6 +24,7 @@ use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
@@ -184,27 +185,21 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * Displays the content of the clipboard
      *
      */
-    public function clipboardAction(): ResponseInterface
+    public function clipboardAction(
+        string $cmd = 'show'
+    ): ResponseInterface
     {
-        /** @var $clipboard Clipboard */
-        $clipboard = GeneralUtility::makeInstance(Clipboard::class);
-        // Read the clipboard content from the user session
-        $clipboard->initializeClipboard();
-        // Uncomment to produce debug output
-        //		\TYPO3\CMS\Core\Utility\DebugUtility::debug($clipboard->clipData);
+        $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
+        switch ($cmd) {
+            case 'debug':
+                $this->debugClipboard();
+                break;
+        }
 
         // Access files and pages content of current pad
-        $currentPad = [
-            'files' => $clipboard->elFromTable('_FILE'),
-            'pages' => $clipboard->elFromTable('pages'),
-        ];
+        $currentPad = $this->getCurrentClipboard();
 
-        // Switch to normal pad and retrieve files and pages content
-        $clipboard->setCurrentPad('normal');
-        $normalPad = [
-            'files' => $clipboard->elFromTable('_FILE'),
-            'pages' => $clipboard->elFromTable('pages'),
-        ];
+        $normalPad = $this->getClipboard('normal');
 
         // Pass data to the view for display
         $this->view->assignMultiple(
@@ -214,6 +209,57 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             ]
         );
         return $this->htmlResponse();
+    }
+
+
+    /**
+     * Debugs the content of the clipboard
+     *
+     */
+    protected function getClipboard(string $identifier):array
+    {
+        /** @var $clipboard Clipboard */
+        $clipboard = GeneralUtility::makeInstance(Clipboard::class);
+        // Read the clipboard content from the user session
+        $clipboard->initializeClipboard();
+        $clipboard->setCurrentPad($identifier);
+        // Access files and pages content of current pad
+        $clipboardContent = [
+            'files' => $clipboard->elFromTable('_FILE'),
+            'pages' => $clipboard->elFromTable('pages'),
+        ];
+        return $clipboardContent;
+    }
+
+    /**
+     * Debugs the content of the clipboard
+     *
+     */
+    protected function getCurrentClipboard():array
+    {
+        /** @var $clipboard Clipboard */
+        $clipboard = GeneralUtility::makeInstance(Clipboard::class);
+        // Read the clipboard content from the user session
+        $clipboard->initializeClipboard();
+        // Access files and pages content of current pad
+        $clipboardContent = [
+            'files' => $clipboard->elFromTable('_FILE'),
+            'pages' => $clipboard->elFromTable('pages'),
+        ];
+        return $clipboardContent;
+    }
+
+    /**
+     * Debugs the content of the clipboard
+     *
+     */
+    protected function debugClipboard()
+    {
+        /** @var $clipboard Clipboard */
+        $clipboard = GeneralUtility::makeInstance(Clipboard::class);
+        // Read the clipboard content from the user session
+        $clipboard->initializeClipboard();
+        DebugUtility::debug($clipboard->clipData);
     }
 
     /**
