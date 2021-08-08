@@ -48,6 +48,15 @@
 			<trans-unit id="function_tree_intro" xml:space="preserve">
 				<source>This module demonstrates how a page tree can be created and displayed.</source>
 			</trans-unit>
+			<trans-unit id="function_debug" xml:space="preserve">
+				<source>Debug</source>
+			</trans-unit>
+			<trans-unit id="function_debug_intro" xml:space="preserve">
+				<source>This module demonstrates the debug functionality.</source>
+			</trans-unit>
+			<trans-unit id="function_debug_cookies" xml:space="preserve">
+				<source>Debug Cookies</source>
+			</trans-unit>
 			<trans-unit id="function_clipboard" xml:space="preserve">
 				<source>Clipboard</source>
 			</trans-unit>

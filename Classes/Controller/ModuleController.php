@@ -185,6 +185,28 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * Displays the content of the clipboard
      *
      */
+    public function debugAction(
+        string $cmd = 'cookies'
+    ): ResponseInterface
+    {
+        $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
+        switch ($cmd) {
+            case 'cookies':
+                $this->debugCookies();
+                break;
+        }
+
+        return $this->htmlResponse();
+    }
+
+    protected function debugCookies() {
+        DebugUtility::debug($_COOKIE, 'cookie');
+    }
+
+    /**
+     * Displays the content of the clipboard
+     *
+     */
     public function clipboardAction(
         string $cmd = 'show'
     ): ResponseInterface
@@ -505,7 +527,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Add menu items
         /** @var MenuItem $menuItem */
         $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'clipboard', 'links', 'fileReference'];
+        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'fileReference'];
 
         foreach ($items as $item) {
             $isActive = $this->actionMethodName === $item . 'Action';
