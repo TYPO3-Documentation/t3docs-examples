@@ -1,0 +1,21 @@
+tt_content {
+   examples_dataprocdb =< lib.contentElement
+   examples_dataprocdb {
+      templateName = DataProcDb
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+      dataProcessing.10 {
+         if.isTrue.field = pages
+         table = tx_examples_haiku
+         orderBy = title
+         pidInList.field = pages
+         as = myHaikus
+         // recursively process the images in the records with the FilesProcessor
+         dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+               references.fieldName = image
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,11 @@
+tt_content {
+   examples_dataproccustom =< lib.contentElement
+   examples_dataproccustom {
+      templateName = DataProcCustom
+      dataProcessing.10 = T3docs\Examples\DataProcessing\CustomCategoryProcessor
+      dataProcessing.10 {
+         as = categories
+         categoryList.field = tx_examples_main_category
+      }
+   }
+}

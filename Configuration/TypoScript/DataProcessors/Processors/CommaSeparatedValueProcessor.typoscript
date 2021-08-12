@@ -1,0 +1,15 @@
+tt_content {
+   examples_newcontentcsv =< lib.contentElement
+   examples_newcontentcsv {
+      templateName = DataProcCsv
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
+      dataProcessing.10 {
+         if.isTrue.field = bodytext
+         fieldName = bodytext
+         fieldDelimiter.field = tx_examples_separator
+         fieldEnclosure = "
+         maximumColumns.field = imagecols
+         as = myTable
+      }
+   }
+}
