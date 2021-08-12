@@ -16,17 +16,6 @@ config.recordLinks.haiku {
 }
 
 lib.contentElement {
-   templateRootPaths.100 = EXT:examples/Resources/Private/Templates/
-}
-
-tt_content {
-   examples_newcontentelement =< lib.contentElement
-   examples_newcontentelement {
-      templateName = NewContentElement
-   }
-}
-
-lib.contentElement {
     templateRootPaths.200 = EXT:examples/Resources/Private/Templates/ContentElements/
     partialRootPaths.200 = EXT:examples/Resources/Private/Partials/ContentElements/
     layoutRootPaths.200 = EXT:examples/Resources/Private/Layout/

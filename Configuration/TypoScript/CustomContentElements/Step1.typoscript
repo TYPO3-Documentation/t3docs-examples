@@ -1,0 +1,3 @@
+lib.contentElement {
+   templateRootPaths.100 = EXT:examples/Resources/Private/Templates/
+}

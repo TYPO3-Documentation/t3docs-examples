@@ -1,0 +1,6 @@
+tt_content {
+   examples_newcontentelement =< lib.contentElement
+   examples_newcontentelement {
+      templateName = NewContentElement
+   }
+}
