@@ -1,0 +1,4 @@
+# Implement "no print" checkbox
+# USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
+tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
+tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint

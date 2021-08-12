@@ -1,0 +1,10 @@
+tt_content {
+   examples_dataprocsite =< lib.contentElement
+   examples_dataprocsite {
+      templateName = DataProcSite
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+      dataProcessing.10 {
+         as = site
+      }
+   }
+}

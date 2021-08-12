@@ -1,0 +1,20 @@
+tt_content {
+   examples_dataprocmenu =< lib.contentElement
+   examples_dataprocmenu {
+      templateName = DataProcMenu
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      dataProcessing.10 {
+         levels = 2
+         as = headerMenu
+         expandAll = 1
+         includeSpacer = 1
+         titleField = nav_title // title
+         dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+               references.fieldName = media
+            }
+         }
+      }
+   }
+}

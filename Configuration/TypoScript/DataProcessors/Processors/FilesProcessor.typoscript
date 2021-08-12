@@ -1,0 +1,14 @@
+tt_content {
+   examples_dataprocfiles =< lib.contentElement
+   examples_dataprocfiles {
+      templateName = DataProcFiles
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+      dataProcessing.10 {
+         as = images
+         references.fieldName = image
+         references.table = tt_content
+         sorting = title
+         sorting.direction = descending
+      }
+   }
+}

@@ -1,0 +1,15 @@
+tt_content {
+   examples_dataprocsplit =< lib.contentElement
+   examples_dataprocsplit {
+      templateName = DataProcSplit
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+      dataProcessing.10 {
+         as = urlParts
+         delimiter = /
+         fieldName = header_link
+         removeEmptyEntries = 0
+         filterIntegers = 0
+         filterUnique = 0
+      }
+   }
+}

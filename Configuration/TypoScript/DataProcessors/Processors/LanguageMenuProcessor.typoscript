@@ -1,0 +1,11 @@
+tt_content {
+   examples_dataproclang =< lib.contentElement
+   examples_dataproclang {
+      templateName = DataProcLangMenu
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+      dataProcessing.10 {
+         languages = auto
+         as = languageNavigation
+      }
+   }
+}

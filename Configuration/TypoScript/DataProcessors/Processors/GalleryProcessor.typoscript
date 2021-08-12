@@ -1,0 +1,34 @@
+tt_content {
+   examples_dataprocgallery =< lib.contentElement
+   examples_dataprocgallery {
+      templateName = DataProcGallery
+      dataProcessing {
+         # Process files
+         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+         10 {
+            as = images
+            references.fieldName = image
+            references.table = tt_content
+            sorting = title
+            sorting.direction = descending
+         }
+
+         # Calculate gallery info
+         20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
+         20 {
+            filesProcessedDataKey = images
+            mediaOrientation.field = imageorient
+            numberOfColumns.field = imagecols
+            equalMediaHeight.field = imageheight
+            equalMediaWidth.field = imagewidth
+            maxGalleryWidth = 1000
+            maxGalleryWidthInText = 1000
+            columnSpacing = 0
+            borderEnabled.field = imageborder
+            borderWidth = 5
+            borderPadding = 3
+            as = gallery
+         }
+      }
+   }
+}
