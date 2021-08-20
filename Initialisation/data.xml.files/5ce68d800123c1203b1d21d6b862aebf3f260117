@@ -190,70 +190,6 @@
 				</rec>
 			</table>
 			<table index="sys_file" type="array">
-				<rec index="9" type="array">
-					<uid>9</uid>
-					<pid>0</pid>
-					<title>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</title>
-					<relations index="rels" type="array">
-						<element index="sys_file_storage:1" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-						<element index="sys_file_metadata:11" type="array">
-							<id>11</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="10" type="array">
-					<uid>10</uid>
-					<pid>0</pid>
-					<title>a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</title>
-					<relations index="rels" type="array">
-						<element index="sys_file_storage:1" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-						<element index="sys_file_metadata:12" type="array">
-							<id>12</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="11" type="array">
-					<uid>11</uid>
-					<pid>0</pid>
-					<title>da39a3ee5e6b4b0d3255bfef95601890afd80709</title>
-					<relations index="rels" type="array">
-						<element index="sys_file_storage:1" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-						<element index="sys_file_metadata:13" type="array">
-							<id>13</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="8" type="array">
-					<uid>8</uid>
-					<pid>0</pid>
-					<title>data.xml</title>
-					<relations index="rels" type="array">
-						<element index="sys_file_storage:1" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-						<element index="sys_file_metadata:10" type="array">
-							<id>10</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
 				<rec index="1" type="array">
 					<uid>1</uid>
 					<pid>0</pid>
@@ -312,54 +248,6 @@
 				</rec>
 			</table>
 			<table index="sys_file_metadata" type="array">
-				<rec index="10" type="array">
-					<uid>10</uid>
-					<pid>0</pid>
-					<title>data.xml</title>
-					<relations index="rels" type="array">
-						<element index="sys_file:8" type="array">
-							<id>8</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="11" type="array">
-					<uid>11</uid>
-					<pid>0</pid>
-					<title>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</title>
-					<relations index="rels" type="array">
-						<element index="sys_file:9" type="array">
-							<id>9</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="12" type="array">
-					<uid>12</uid>
-					<pid>0</pid>
-					<title>a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</title>
-					<relations index="rels" type="array">
-						<element index="sys_file:10" type="array">
-							<id>10</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="13" type="array">
-					<uid>13</uid>
-					<pid>0</pid>
-					<title>da39a3ee5e6b4b0d3255bfef95601890afd80709</title>
-					<relations index="rels" type="array">
-						<element index="sys_file:11" type="array">
-							<id>11</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
 				<rec index="7" type="array">
 					<uid>7</uid>
 					<pid>0</pid>
@@ -830,25 +718,188 @@
 					<softrefs type="array"></softrefs>
 				</rec>
 			</table>
-			<table index="sys_template" type="array">
-				<rec index="37" type="array">
-					<uid>37</uid>
+			<table index="tt_content" type="array">
+				<rec index="5" type="array">
+					<uid>5</uid>
 					<pid>1</pid>
-					<title>NEW SITE</title>
-					<relations index="rels" type="array"></relations>
+					<title>The TYPO3 Documentation Team</title>
+					<relations index="rels" type="array">
+						<element index="sys_file_reference:2" type="array">
+							<id>2</id>
+							<table>sys_file_reference</table>
+						</element>
+					</relations>
 					<softrefs type="array">
-						<softref_element index="include_static_file:ext_fileref:2" type="array">
-							<field>include_static_file</field>
-							<spKey>ext_fileref</spKey>
-							<matchString>EXT:fluid_styled_content/Configuration/TypoScript/</matchString>
-						</softref_element>
-						<softref_element index="include_static_file:ext_fileref:5" type="array">
-							<field>include_static_file</field>
-							<spKey>ext_fileref</spKey>
-							<matchString>EXT:fluid_styled_content/Configuration/TypoScript/Styling/</matchString>
+						<softref_element index="header_link:typolink:1e38a01f424ede96b79b8ff662ea9576:0" type="array">
+							<field>header_link</field>
+							<spKey>typolink</spKey>
+							<matchString>https://typo3.org/community/teams/documentation</matchString>
+							<subst type="array">
+								<type>external</type>
+								<tokenID>1e38a01f424ede96b79b8ff662ea9576</tokenID>
+								<tokenValue>https://typo3.org/community/teams/documentation</tokenValue>
+							</subst>
 						</softref_element>
 					</softrefs>
 				</rec>
+				<rec index="4" type="array">
+					<uid>4</uid>
+					<pid>6</pid>
+					<title>My title</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="3" type="array">
+					<uid>3</uid>
+					<pid>44</pid>
+					<title>Some Content</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="2" type="array">
+					<uid>2</uid>
+					<pid>45</pid>
+					<title>Some Content</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>47</pid>
+					<title>Advanced FlexForm in plugin</title>
+					<relations index="rels" type="array">
+						<element index="pages:47" type="array">
+							<id>47</id>
+							<table>pages</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+			</table>
+			<table index="fe_groups" type="array">
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>2</pid>
+					<title>Website Users</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+			</table>
+			<table index="fe_users" type="array">
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>2</pid>
+					<title>example_user</title>
+					<relations index="rels" type="array">
+						<element index="fe_groups:1" type="array">
+							<id>1</id>
+							<table>fe_groups</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+			</table>
+			<table index="sys_category" type="array">
+				<rec index="9" type="array">
+					<uid>9</uid>
+					<pid>4</pid>
+					<title>Teckel</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="8" type="array">
+					<uid>8</uid>
+					<pid>4</pid>
+					<title>Shepherd</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:1" type="array">
+							<id>1</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="7" type="array">
+					<uid>7</uid>
+					<pid>4</pid>
+					<title>Toy Poodle</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:4" type="array">
+							<id>4</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="6" type="array">
+					<uid>6</uid>
+					<pid>4</pid>
+					<title>Standard Poodle</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:4" type="array">
+							<id>4</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="5" type="array">
+					<uid>5</uid>
+					<pid>4</pid>
+					<title>Mini Poodle</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:4" type="array">
+							<id>4</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="4" type="array">
+					<uid>4</uid>
+					<pid>4</pid>
+					<title>Poodle</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:1" type="array">
+							<id>1</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="3" type="array">
+					<uid>3</uid>
+					<pid>4</pid>
+					<title>Great Dane</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:1" type="array">
+							<id>1</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="2" type="array">
+					<uid>2</uid>
+					<pid>4</pid>
+					<title>Bichon Frisé</title>
+					<relations index="rels" type="array">
+						<element index="sys_category:1" type="array">
+							<id>1</id>
+							<table>sys_category</table>
+						</element>
+					</relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+				<rec index="1" type="array">
+					<uid>1</uid>
+					<pid>4</pid>
+					<title>Dog breeds</title>
+					<relations index="rels" type="array"></relations>
+					<softrefs type="array"></softrefs>
+				</rec>
+			</table>
+			<table index="sys_template" type="array">
 				<rec index="36" type="array">
 					<uid>36</uid>
 					<pid>5</pid>
@@ -1118,187 +1169,6 @@
 					<softrefs type="array"></softrefs>
 				</rec>
 			</table>
-			<table index="tt_content" type="array">
-				<rec index="5" type="array">
-					<uid>5</uid>
-					<pid>1</pid>
-					<title>The TYPO3 Documentation Team</title>
-					<relations index="rels" type="array">
-						<element index="sys_file_reference:2" type="array">
-							<id>2</id>
-							<table>sys_file_reference</table>
-						</element>
-					</relations>
-					<softrefs type="array">
-						<softref_element index="header_link:typolink:1e38a01f424ede96b79b8ff662ea9576:0" type="array">
-							<field>header_link</field>
-							<spKey>typolink</spKey>
-							<matchString>https://typo3.org/community/teams/documentation</matchString>
-							<subst type="array">
-								<type>external</type>
-								<tokenID>1e38a01f424ede96b79b8ff662ea9576</tokenID>
-								<tokenValue>https://typo3.org/community/teams/documentation</tokenValue>
-							</subst>
-						</softref_element>
-					</softrefs>
-				</rec>
-				<rec index="4" type="array">
-					<uid>4</uid>
-					<pid>6</pid>
-					<title>My title</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="3" type="array">
-					<uid>3</uid>
-					<pid>44</pid>
-					<title>Some Content</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="2" type="array">
-					<uid>2</uid>
-					<pid>45</pid>
-					<title>Some Content</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="1" type="array">
-					<uid>1</uid>
-					<pid>47</pid>
-					<title>Advanced FlexForm in plugin</title>
-					<relations index="rels" type="array">
-						<element index="pages:47" type="array">
-							<id>47</id>
-							<table>pages</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-			</table>
-			<table index="fe_groups" type="array">
-				<rec index="1" type="array">
-					<uid>1</uid>
-					<pid>2</pid>
-					<title>Website Users</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-			</table>
-			<table index="fe_users" type="array">
-				<rec index="1" type="array">
-					<uid>1</uid>
-					<pid>2</pid>
-					<title>example_user</title>
-					<relations index="rels" type="array">
-						<element index="fe_groups:1" type="array">
-							<id>1</id>
-							<table>fe_groups</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-			</table>
-			<table index="sys_category" type="array">
-				<rec index="9" type="array">
-					<uid>9</uid>
-					<pid>4</pid>
-					<title>Teckel</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="8" type="array">
-					<uid>8</uid>
-					<pid>4</pid>
-					<title>Shepherd</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:1" type="array">
-							<id>1</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="7" type="array">
-					<uid>7</uid>
-					<pid>4</pid>
-					<title>Toy Poodle</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:4" type="array">
-							<id>4</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="6" type="array">
-					<uid>6</uid>
-					<pid>4</pid>
-					<title>Standard Poodle</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:4" type="array">
-							<id>4</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="5" type="array">
-					<uid>5</uid>
-					<pid>4</pid>
-					<title>Mini Poodle</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:4" type="array">
-							<id>4</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="4" type="array">
-					<uid>4</uid>
-					<pid>4</pid>
-					<title>Poodle</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:1" type="array">
-							<id>1</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="3" type="array">
-					<uid>3</uid>
-					<pid>4</pid>
-					<title>Great Dane</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:1" type="array">
-							<id>1</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="2" type="array">
-					<uid>2</uid>
-					<pid>4</pid>
-					<title>Bichon Frisé</title>
-					<relations index="rels" type="array">
-						<element index="sys_category:1" type="array">
-							<id>1</id>
-							<table>sys_category</table>
-						</element>
-					</relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-				<rec index="1" type="array">
-					<uid>1</uid>
-					<pid>4</pid>
-					<title>Dog breeds</title>
-					<relations index="rels" type="array"></relations>
-					<softrefs type="array"></softrefs>
-				</rec>
-			</table>
 		</records>
 		<pid_lookup type="array">
 			<page_contents index="0" type="array">
@@ -1306,19 +1176,11 @@
 					<item index="1">1</item>
 				</table>
 				<table index="sys_file" type="array">
-					<item index="9">1</item>
-					<item index="10">1</item>
-					<item index="11">1</item>
-					<item index="8">1</item>
 					<item index="1">1</item>
 					<item index="5">1</item>
 					<item index="2">1</item>
 				</table>
 				<table index="sys_file_metadata" type="array">
-					<item index="10">1</item>
-					<item index="11">1</item>
-					<item index="12">1</item>
-					<item index="13">1</item>
 					<item index="7">1</item>
 					<item index="1">1</item>
 					<item index="2">1</item>
@@ -1343,9 +1205,6 @@
 			<page_contents index="1" type="array">
 				<table index="sys_file_reference" type="array">
 					<item index="2">1</item>
-				</table>
-				<table index="sys_template" type="array">
-					<item index="37">1</item>
 				</table>
 				<table index="tt_content" type="array">
 					<item index="5">1</item>
@@ -1643,22 +1502,6 @@
 			</page_contents>
 		</pid_lookup>
 		<files_fal type="array">
-			<file index="f427be0bffde6f6dd75bd2002cf88f01" type="array">
-				<filename>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</filename>
-				<filemtime>1629375167</filemtime>
-			</file>
-			<file index="32c91fa425a1c773415417d3f7ae0a2b" type="array">
-				<filename>a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</filename>
-				<filemtime>1629375167</filemtime>
-			</file>
-			<file index="abcc0367c9e8df52891b3898c0ed4232" type="array">
-				<filename>da39a3ee5e6b4b0d3255bfef95601890afd80709</filename>
-				<filemtime>1629375167</filemtime>
-			</file>
-			<file index="a9f208d573bff2a0b39858b1bcdfc824" type="array">
-				<filename>data.xml</filename>
-				<filemtime>1629375167</filemtime>
-			</file>
 			<file index="70103bf85729abcf9ec2d9b3c0b6180f" type="array">
 				<filename>Frog_Getsuju.jpg</filename>
 				<filemtime>1629374030</filemtime>
@@ -1704,174 +1547,6 @@
 				<field index="category_perms">0</field>
 			</fieldlist>
 			<related index="rels" type="array"></related>
-		</tablerow>
-		<tablerow index="sys_file:9" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">9</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375167</field>
-				<field index="last_indexed" type="integer">0</field>
-				<field index="missing" type="integer">0</field>
-				<field index="storage" type="integer">1</field>
-				<field index="type">2</field>
-				<field index="metadata" type="integer">0</field>
-				<field index="identifier">/user_upload/_temp_/importexport/data.xml.files/19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</field>
-				<field index="identifier_hash">39e79538d155e46382f1cedfb1f32e0b364fa6d5</field>
-				<field index="folder_hash">a20b30e6345e127e49790026ced895ee898ede1b</field>
-				<field index="extension"></field>
-				<field index="mime_type">image/jpeg</field>
-				<field index="name">19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</field>
-				<field index="sha1">19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</field>
-				<field index="size" type="integer">74744</field>
-				<field index="creation_date" type="integer">1629375167</field>
-				<field index="modification_date" type="integer">1629375167</field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="storage" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-					</relations>
-				</field>
-				<field index="metadata" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>11</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file:10" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">10</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375167</field>
-				<field index="last_indexed" type="integer">0</field>
-				<field index="missing" type="integer">0</field>
-				<field index="storage" type="integer">1</field>
-				<field index="type">2</field>
-				<field index="metadata" type="integer">0</field>
-				<field index="identifier">/user_upload/_temp_/importexport/data.xml.files/a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</field>
-				<field index="identifier_hash">06c18c73e9e308566e134612d12059807f0f0e14</field>
-				<field index="folder_hash">a20b30e6345e127e49790026ced895ee898ede1b</field>
-				<field index="extension"></field>
-				<field index="mime_type">image/jpeg</field>
-				<field index="name">a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</field>
-				<field index="sha1">a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</field>
-				<field index="size" type="integer">96187</field>
-				<field index="creation_date" type="integer">1629375167</field>
-				<field index="modification_date" type="integer">1629375167</field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="storage" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-					</relations>
-				</field>
-				<field index="metadata" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>12</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file:11" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">11</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375167</field>
-				<field index="last_indexed" type="integer">0</field>
-				<field index="missing" type="integer">0</field>
-				<field index="storage" type="integer">1</field>
-				<field index="type">5</field>
-				<field index="metadata" type="integer">0</field>
-				<field index="identifier">/user_upload/_temp_/importexport/data.xml.files/da39a3ee5e6b4b0d3255bfef95601890afd80709</field>
-				<field index="identifier_hash">a18c5fce9a1ed8d34cfd26a633649db8e65ef1ef</field>
-				<field index="folder_hash">a20b30e6345e127e49790026ced895ee898ede1b</field>
-				<field index="extension"></field>
-				<field index="mime_type">application/x-empty</field>
-				<field index="name">da39a3ee5e6b4b0d3255bfef95601890afd80709</field>
-				<field index="sha1">da39a3ee5e6b4b0d3255bfef95601890afd80709</field>
-				<field index="size" type="integer">0</field>
-				<field index="creation_date" type="integer">1629375167</field>
-				<field index="modification_date" type="integer">1629375167</field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="storage" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-					</relations>
-				</field>
-				<field index="metadata" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>13</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file:8" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">8</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375167</field>
-				<field index="last_indexed" type="integer">0</field>
-				<field index="missing" type="integer">0</field>
-				<field index="storage" type="integer">1</field>
-				<field index="type">1</field>
-				<field index="metadata" type="integer">0</field>
-				<field index="identifier">/user_upload/_temp_/importexport/data.xml</field>
-				<field index="identifier_hash">165cd81b05433cbd58fd78992daf226ea111f5bf</field>
-				<field index="folder_hash">0795cf796b4fc959be0ec00b183c0f47609dd9a5</field>
-				<field index="extension">xml</field>
-				<field index="mime_type">text/xml</field>
-				<field index="name">data.xml</field>
-				<field index="sha1">5ce68d800123c1203b1d21d6b862aebf3f260117</field>
-				<field index="size" type="integer">390276</field>
-				<field index="creation_date" type="integer">1629375167</field>
-				<field index="modification_date" type="integer">1629375167</field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="storage" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>1</id>
-							<table>sys_file_storage</table>
-						</element>
-					</relations>
-				</field>
-				<field index="metadata" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>10</id>
-							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-				</field>
-			</related>
 		</tablerow>
 		<tablerow index="sys_file:1" type="array">
 			<fieldlist index="data" type="array">
@@ -2002,250 +1677,6 @@
 						<element index="1" type="array">
 							<id>3</id>
 							<table>sys_file_metadata</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file_metadata:10" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">10</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375166</field>
-				<field index="crdate" type="integer">1629375166</field>
-				<field index="cruser_id" type="integer">1</field>
-				<field index="sys_language_uid" type="integer">0</field>
-				<field index="l10n_parent" type="integer">0</field>
-				<field index="l10n_state" type="NULL"></field>
-				<field index="t3_origuid" type="integer">0</field>
-				<field index="l10n_diffsource"></field>
-				<field index="t3ver_oid" type="integer">0</field>
-				<field index="t3ver_wsid" type="integer">0</field>
-				<field index="t3ver_state" type="integer">0</field>
-				<field index="t3ver_stage" type="integer">0</field>
-				<field index="file" type="integer">8</field>
-				<field index="title" type="NULL"></field>
-				<field index="width" type="integer">0</field>
-				<field index="height" type="integer">0</field>
-				<field index="description" type="NULL"></field>
-				<field index="alternative" type="NULL"></field>
-				<field index="categories" type="integer">0</field>
-				<field index="visible" type="integer">1</field>
-				<field index="status"></field>
-				<field index="keywords" type="NULL"></field>
-				<field index="caption" type="NULL"></field>
-				<field index="creator_tool"></field>
-				<field index="download_name"></field>
-				<field index="creator"></field>
-				<field index="publisher"></field>
-				<field index="source"></field>
-				<field index="copyright" type="NULL"></field>
-				<field index="location_country"></field>
-				<field index="location_region"></field>
-				<field index="location_city"></field>
-				<field index="latitude">0.00000000000000</field>
-				<field index="longitude">0.00000000000000</field>
-				<field index="ranking" type="integer">0</field>
-				<field index="content_creation_date" type="integer">0</field>
-				<field index="content_modification_date" type="integer">0</field>
-				<field index="note" type="NULL"></field>
-				<field index="unit"></field>
-				<field index="duration" type="double">0</field>
-				<field index="color_space"></field>
-				<field index="pages" type="integer">0</field>
-				<field index="language"></field>
-				<field index="fe_groups" type="NULL"></field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="file" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>8</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file_metadata:11" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">11</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375166</field>
-				<field index="crdate" type="integer">1629375166</field>
-				<field index="cruser_id" type="integer">1</field>
-				<field index="sys_language_uid" type="integer">0</field>
-				<field index="l10n_parent" type="integer">0</field>
-				<field index="l10n_state" type="NULL"></field>
-				<field index="t3_origuid" type="integer">0</field>
-				<field index="l10n_diffsource"></field>
-				<field index="t3ver_oid" type="integer">0</field>
-				<field index="t3ver_wsid" type="integer">0</field>
-				<field index="t3ver_state" type="integer">0</field>
-				<field index="t3ver_stage" type="integer">0</field>
-				<field index="file" type="integer">9</field>
-				<field index="title" type="NULL"></field>
-				<field index="width" type="integer">0</field>
-				<field index="height" type="integer">0</field>
-				<field index="description" type="NULL"></field>
-				<field index="alternative" type="NULL"></field>
-				<field index="categories" type="integer">0</field>
-				<field index="visible" type="integer">1</field>
-				<field index="status"></field>
-				<field index="keywords" type="NULL"></field>
-				<field index="caption" type="NULL"></field>
-				<field index="creator_tool"></field>
-				<field index="download_name"></field>
-				<field index="creator"></field>
-				<field index="publisher"></field>
-				<field index="source"></field>
-				<field index="copyright" type="NULL"></field>
-				<field index="location_country"></field>
-				<field index="location_region"></field>
-				<field index="location_city"></field>
-				<field index="latitude">0.00000000000000</field>
-				<field index="longitude">0.00000000000000</field>
-				<field index="ranking" type="integer">0</field>
-				<field index="content_creation_date" type="integer">0</field>
-				<field index="content_modification_date" type="integer">0</field>
-				<field index="note" type="NULL"></field>
-				<field index="unit"></field>
-				<field index="duration" type="double">0</field>
-				<field index="color_space"></field>
-				<field index="pages" type="integer">0</field>
-				<field index="language"></field>
-				<field index="fe_groups" type="NULL"></field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="file" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>9</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file_metadata:12" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">12</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375166</field>
-				<field index="crdate" type="integer">1629375166</field>
-				<field index="cruser_id" type="integer">1</field>
-				<field index="sys_language_uid" type="integer">0</field>
-				<field index="l10n_parent" type="integer">0</field>
-				<field index="l10n_state" type="NULL"></field>
-				<field index="t3_origuid" type="integer">0</field>
-				<field index="l10n_diffsource"></field>
-				<field index="t3ver_oid" type="integer">0</field>
-				<field index="t3ver_wsid" type="integer">0</field>
-				<field index="t3ver_state" type="integer">0</field>
-				<field index="t3ver_stage" type="integer">0</field>
-				<field index="file" type="integer">10</field>
-				<field index="title" type="NULL"></field>
-				<field index="width" type="integer">0</field>
-				<field index="height" type="integer">0</field>
-				<field index="description" type="NULL"></field>
-				<field index="alternative" type="NULL"></field>
-				<field index="categories" type="integer">0</field>
-				<field index="visible" type="integer">1</field>
-				<field index="status"></field>
-				<field index="keywords" type="NULL"></field>
-				<field index="caption" type="NULL"></field>
-				<field index="creator_tool"></field>
-				<field index="download_name"></field>
-				<field index="creator"></field>
-				<field index="publisher"></field>
-				<field index="source"></field>
-				<field index="copyright" type="NULL"></field>
-				<field index="location_country"></field>
-				<field index="location_region"></field>
-				<field index="location_city"></field>
-				<field index="latitude">0.00000000000000</field>
-				<field index="longitude">0.00000000000000</field>
-				<field index="ranking" type="integer">0</field>
-				<field index="content_creation_date" type="integer">0</field>
-				<field index="content_modification_date" type="integer">0</field>
-				<field index="note" type="NULL"></field>
-				<field index="unit"></field>
-				<field index="duration" type="double">0</field>
-				<field index="color_space"></field>
-				<field index="pages" type="integer">0</field>
-				<field index="language"></field>
-				<field index="fe_groups" type="NULL"></field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="file" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>10</id>
-							<table>sys_file</table>
-						</element>
-					</relations>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_file_metadata:13" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">13</field>
-				<field index="pid" type="integer">0</field>
-				<field index="tstamp" type="integer">1629375166</field>
-				<field index="crdate" type="integer">1629375166</field>
-				<field index="cruser_id" type="integer">1</field>
-				<field index="sys_language_uid" type="integer">0</field>
-				<field index="l10n_parent" type="integer">0</field>
-				<field index="l10n_state" type="NULL"></field>
-				<field index="t3_origuid" type="integer">0</field>
-				<field index="l10n_diffsource"></field>
-				<field index="t3ver_oid" type="integer">0</field>
-				<field index="t3ver_wsid" type="integer">0</field>
-				<field index="t3ver_state" type="integer">0</field>
-				<field index="t3ver_stage" type="integer">0</field>
-				<field index="file" type="integer">11</field>
-				<field index="title" type="NULL"></field>
-				<field index="width" type="integer">0</field>
-				<field index="height" type="integer">0</field>
-				<field index="description" type="NULL"></field>
-				<field index="alternative" type="NULL"></field>
-				<field index="categories" type="integer">0</field>
-				<field index="visible" type="integer">1</field>
-				<field index="status"></field>
-				<field index="keywords" type="NULL"></field>
-				<field index="caption" type="NULL"></field>
-				<field index="creator_tool"></field>
-				<field index="download_name"></field>
-				<field index="creator"></field>
-				<field index="publisher"></field>
-				<field index="source"></field>
-				<field index="copyright" type="NULL"></field>
-				<field index="location_country"></field>
-				<field index="location_region"></field>
-				<field index="location_city"></field>
-				<field index="latitude">0.00000000000000</field>
-				<field index="longitude">0.00000000000000</field>
-				<field index="ranking" type="integer">0</field>
-				<field index="content_creation_date" type="integer">0</field>
-				<field index="content_modification_date" type="integer">0</field>
-				<field index="note" type="NULL"></field>
-				<field index="unit"></field>
-				<field index="duration" type="double">0</field>
-				<field index="color_space"></field>
-				<field index="pages" type="integer">0</field>
-				<field index="language"></field>
-				<field index="fe_groups" type="NULL"></field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="file" type="array">
-					<type>db</type>
-					<relations index="itemArray" type="array">
-						<element index="0" type="array">
-							<id>11</id>
-							<table>sys_file</table>
 						</element>
 					</relations>
 				</field>
@@ -2718,7 +2149,7 @@
 				<field index="newUntil" type="integer">0</field>
 				<field index="description"></field>
 				<field index="no_search" type="integer">0</field>
-				<field index="SYS_LASTCHANGED" type="integer">1629374028</field>
+				<field index="SYS_LASTCHANGED" type="integer">0</field>
 				<field index="abstract"></field>
 				<field index="module"></field>
 				<field index="extendToSubpages" type="integer">0</field>
@@ -2809,55 +2240,6 @@
 							</softref_key>
 						</keys>
 						<tokenizedContent>{softref:a52ba87b01076abc071f017d16d5585b}</tokenizedContent>
-					</softrefs>
-				</field>
-			</related>
-		</tablerow>
-		<tablerow index="sys_template:37" type="array">
-			<fieldlist index="data" type="array">
-				<field index="uid" type="integer">37</field>
-				<field index="pid" type="integer">1</field>
-				<field index="tstamp" type="integer">1629375553</field>
-				<field index="crdate" type="integer">1629375419</field>
-				<field index="cruser_id" type="integer">1</field>
-				<field index="deleted" type="integer">0</field>
-				<field index="hidden" type="integer">0</field>
-				<field index="starttime" type="integer">0</field>
-				<field index="endtime" type="integer">0</field>
-				<field index="sorting" type="integer">256</field>
-				<field index="description" type="NULL"></field>
-				<field index="t3_origuid" type="integer">0</field>
-				<field index="t3ver_oid" type="integer">0</field>
-				<field index="t3ver_wsid" type="integer">0</field>
-				<field index="t3ver_state" type="integer">0</field>
-				<field index="t3ver_stage" type="integer">0</field>
-				<field index="title">NEW SITE</field>
-				<field index="root" type="integer">1</field>
-				<field index="clear" type="integer">3</field>
-				<field index="include_static_file">EXT:fluid_styled_content/Configuration/TypoScript/,EXT:fluid_styled_content/Configuration/TypoScript/Styling/</field>
-				<field index="constants" type="NULL"></field>
-				<field index="config"># Default PAGE object:
-page = PAGE
-page.10 &lt; styles.content.get
-</field>
-				<field index="basedOn"></field>
-				<field index="includeStaticAfterBasedOn" type="integer">0</field>
-				<field index="static_file_mode" type="integer">0</field>
-				<field index="tx_impexp_origuid" type="integer">0</field>
-			</fieldlist>
-			<related index="rels" type="array">
-				<field index="include_static_file" type="array">
-					<softrefs type="array">
-						<keys type="array">
-							<softref_key index="ext_fileref" type="array">
-								<softref_element index="2" type="array">
-									<matchString>EXT:fluid_styled_content/Configuration/TypoScript/</matchString>
-								</softref_element>
-								<softref_element index="5" type="array">
-									<matchString>EXT:fluid_styled_content/Configuration/TypoScript/Styling/</matchString>
-								</softref_element>
-							</softref_key>
-						</keys>
 					</softrefs>
 				</field>
 			</related>
@@ -3715,7 +3097,7 @@ page.10 &lt; styles.content.get
 				<field index="newUntil" type="integer">0</field>
 				<field index="description" type="NULL"></field>
 				<field index="no_search" type="integer">0</field>
-				<field index="SYS_LASTCHANGED" type="integer">1629374028</field>
+				<field index="SYS_LASTCHANGED" type="integer">0</field>
 				<field index="abstract" type="NULL"></field>
 				<field index="module"></field>
 				<field index="extendToSubpages" type="integer">0</field>
@@ -3770,8 +3152,8 @@ page.10 &lt; styles.content.get
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">NEW SITE</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file">EXT:fluid_styled_content/Configuration/TypoScript/,EXT:fluid_styled_content/Configuration/TypoScript/Styling/,EXT:examples/Configuration/TypoScript/HmenuSpecial/</field>
 				<field index="constants" type="NULL"></field>
 				<field index="config"># Default PAGE object:
@@ -4163,8 +3545,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Conditions Syntax</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Syntax/setup.typoscript'</field>
@@ -4280,8 +3662,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Wildcards</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Wildcards/setup.typoscript'</field>
@@ -4397,8 +3779,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Variables</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Variables/setup.typoscript'</field>
@@ -4514,8 +3896,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Valid</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Valid/setup.typoscript'</field>
@@ -4631,8 +4013,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Strings</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Strings/setup.typoscript'</field>
@@ -4748,8 +4130,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Simple</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Simple/setup.typoscript'</field>
@@ -4865,8 +4247,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">RegularExpressions</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/RegularExpressions/setup.typoscript'</field>
@@ -4982,8 +4364,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">OrConditions</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/OrConditions/setup.typoscript'</field>
@@ -5099,8 +4481,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Not</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Not/setup.typoscript'</field>
@@ -5216,8 +4598,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">InvalidGlobal</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/InvalidGlobal/setup.typoscript'
@@ -5334,8 +4716,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Invalid</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Invalid/setup.typoscript'</field>
@@ -5451,8 +4833,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Functions</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Functions/setup.typoscript'</field>
@@ -5568,8 +4950,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Equality</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Equality/setup.typoscript'</field>
@@ -5685,8 +5067,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Else</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Else/setup.typoscript'</field>
@@ -5802,8 +5184,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Arrays</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/Arrays/setup.typoscript'</field>
@@ -5919,8 +5301,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ArrayOperators</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/ArrayOperators/setup.typoscript'</field>
@@ -6036,8 +5418,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">AndConditions</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Conditions/AndConditions/setup.typoscript'</field>
@@ -6153,8 +5535,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Syntax</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/General/setup.typoscript'</field>
@@ -6270,8 +5652,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ValueModification2</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ValueModification2/setup.typoscript'</field>
@@ -6387,8 +5769,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ValueModification</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ValueModification/setup.typoscript'</field>
@@ -6504,8 +5886,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectUnsetting</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectUnsetting/setup.typoscript'</field>
@@ -6621,8 +6003,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectReference</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectReference/setup.typoscript'</field>
@@ -6738,8 +6120,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectCopying4</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectCopying4/setup.typoscript'</field>
@@ -6855,8 +6237,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectCopying3</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectCopying3/setup.typoscript'</field>
@@ -6972,8 +6354,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectCopying2</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">config &gt;
@@ -7090,8 +6472,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">ObjectCopying</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/ObjectCopying/setup.typoscript'</field>
@@ -7207,8 +6589,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">MultiLine</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/MultiLine/setup.typoscript'</field>
@@ -7324,8 +6706,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Introduction</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/Introduction/setup.typoscript'</field>
@@ -7441,8 +6823,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">General</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/General/setup.typoscript'</field>
@@ -7558,8 +6940,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Escaping</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/Escaping/setup.typoscript'</field>
@@ -7675,8 +7057,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Conditions</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/Conditions/setup.typoscript'</field>
@@ -7792,8 +7174,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">CommentsSingleLine</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/CommentsSingleLine/setup.typoscript'</field>
@@ -7909,8 +7291,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">CommentsBlock</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/CommentsBlock/setup.typoscript'</field>
@@ -8026,8 +7408,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">CodeBlock2</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/CodeBlock2/setup.typoscript'</field>
@@ -8143,8 +7525,8 @@ page.10 &lt; lib.custommenu
 				<field index="t3ver_state" type="integer">0</field>
 				<field index="t3ver_stage" type="integer">0</field>
 				<field index="title">Syntax</field>
-				<field index="root" type="integer">0</field>
-				<field index="clear" type="integer">0</field>
+				<field index="root" type="integer">1</field>
+				<field index="clear" type="integer">3</field>
 				<field index="include_static_file"></field>
 				<field index="constants" type="NULL"></field>
 				<field index="config">@import 'EXT:examples/Configuration/TypoScript/Syntax/CodeBlock/setup.typoscript'</field>
@@ -8869,26 +8251,6 @@ page.10 &lt; lib.custommenu
 		</tablerow>
 	</records>
 	<files_fal type="array">
-		<file index="f427be0bffde6f6dd75bd2002cf88f01" type="array">
-			<filename>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</filename>
-			<filemtime>1629375167</filemtime>
-			<content_sha1>19f4a8cf51edc2a2029a5713f2b611f31b3e4c41</content_sha1>
-		</file>
-		<file index="32c91fa425a1c773415417d3f7ae0a2b" type="array">
-			<filename>a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</filename>
-			<filemtime>1629375167</filemtime>
-			<content_sha1>a93f3b195dcbf008d785e7cb2d8977d8c4d3b77e</content_sha1>
-		</file>
-		<file index="abcc0367c9e8df52891b3898c0ed4232" type="array">
-			<filename>da39a3ee5e6b4b0d3255bfef95601890afd80709</filename>
-			<filemtime>1629375167</filemtime>
-			<content_sha1>da39a3ee5e6b4b0d3255bfef95601890afd80709</content_sha1>
-		</file>
-		<file index="a9f208d573bff2a0b39858b1bcdfc824" type="array">
-			<filename>data.xml</filename>
-			<filemtime>1629375167</filemtime>
-			<content_sha1>5ce68d800123c1203b1d21d6b862aebf3f260117</content_sha1>
-		</file>
 		<file index="70103bf85729abcf9ec2d9b3c0b6180f" type="array">
 			<filename>Frog_Getsuju.jpg</filename>
 			<filemtime>1629374030</filemtime>
