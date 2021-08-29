@@ -39,6 +39,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 
 /**
  * Controller for the backend module
@@ -468,6 +469,44 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $this->htmlResponse();
     }
 
+    public function getPasswordHash(String $password, String $mode) : String {
+        $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)
+            ->getDefaultHashInstance($mode);
+        return $hashInstance->getHashedPassword($password);
+    }
+
+    public function checkPassword(String $hashedPassword, String $expectedPassword, String $mode) : bool {
+        $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)
+            ->getDefaultHashInstance($mode);
+        return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
+    }
+
+    /**
+     * checks or compares the password
+     */
+    public function passwordAction(String $passwordAction = 'get', String $password = 'joh316', String $hashedPassword = '', String $mode = 'FE'): ResponseInterface
+    {
+        $modes = ['FE' => 'FE', 'BE' => 'BE'];
+        if ($passwordAction == 'Check') {
+            $success = $this->checkPassword($hashedPassword, $password, $mode);
+        } else {
+            $hashedPassword = $this->getPasswordHash($password, $mode);
+            $success = true;
+        }
+        $this->view->assignMultiple(
+        [
+            'modes' => $modes,
+            'mode' => $mode,
+            'hashedPassword' => $hashedPassword,
+            'password' => $password,
+            'success' => $success,
+            'passwordAction' => $passwordAction
+        ]
+        );
+        return $this->htmlResponse();
+    }
+
+
     /**
      * Returns a count of entries in a table defined by a request parameter, in JSON format.
      *
@@ -527,7 +566,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Add menu items
         /** @var MenuItem $menuItem */
         $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'fileReference'];
+        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'password', 'fileReference'];
 
         foreach ($items as $item) {
             $isActive = $this->actionMethodName === $item . 'Action';

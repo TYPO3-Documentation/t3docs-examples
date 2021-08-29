@@ -1,3 +1,7 @@
+# 11.1.2
+
+- [FEATURE] Password hashing examples
+
 # 11.1.1
 
 ## TASK
