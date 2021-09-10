@@ -18,9 +18,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Recordlist\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface;
+use TYPO3Fluid\Fluid\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
 {
@@ -42,14 +42,38 @@ class GitHubLinkHandler implements LinkHandlerInterface
     protected $linkParts = [];
 
     /**
-     * @var \TYPO3\CMS\Fluid\View\StandaloneView
+     * @var AbstractLinkBrowserController
+     */
+    protected $linkBrowser;
+
+    /**
+     * @var IconFactory
+     */
+    protected $iconFactory;
+
+    /**
+     * @var ViewInterface
      */
     protected $view;
+
+    /**
+     * @var PageRenderer
+     */
+    protected $pageRenderer;
 
     /**
     * @var array $configuration
     */
     protected $configuration;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // remove unsupported link attribute
+        unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
+    }
 
     /**
      * Initialize the handler
@@ -62,10 +86,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
     {
         $this->linkBrowser = $linkBrowser;
         $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-        $this->view = GeneralUtility::makeInstance(StandaloneView::class);
-        $this->view->getRequest()->setControllerExtensionName('examples');
-        $this->view->setTemplateRootPaths([GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')]);
-        $this->configuration = $configuration;
+        $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
     }
 
     /**
@@ -77,13 +98,13 @@ class GitHubLinkHandler implements LinkHandlerInterface
      *
      * @return bool
      */
-    public function canHandleLink(array $linkParts)
+    public function canHandleLink(array $linkParts): bool
     {
-        if (isset($linkParts['url']['github'])) {
-            $this->linkParts = $linkParts;
-            return true;
+        if (!isset($linkParts['type']) || $linkParts['type'] !== 'github') {
+            return false;
         }
-        return false;
+        $this->linkParts = $linkParts;
+        return true;
     }
 
     /**
@@ -93,7 +114,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function formatCurrentUrl(): string
     {
-        return $this->linkParts['url']['github'];
+        return $this->linkParts['url']['url'];
     }
 
 
@@ -106,13 +127,19 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function render(ServerRequestInterface $request): string
     {
-        GeneralUtility::makeInstance(PageRenderer::class)
-            ->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
+        $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
+        $templateRootPaths = $this->view->getTemplateRootPaths();
+        $this->view->setTemplateRootPaths([
+            ...$this->view->getTemplateRootPaths(),
+            GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')
+        ]);
 
         $this->view->assign('project', $this->configuration['project']);
         $this->view->assign('action', $this->configuration['action']);
-        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['github'] : '');
-        return $this->view->render('GitHub');
+        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
+
+        $this->view->setTemplate('GitHub');
+        return '';
     }
 
     /**
@@ -148,5 +175,10 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function isUpdateSupported()
     {
         return FALSE;
+    }
+
+    public function setView(\TYPO3Fluid\Fluid\View\ViewInterface $view): void
+    {
+        $this->view = $view;
     }
 }
