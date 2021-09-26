@@ -469,13 +469,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $this->htmlResponse();
     }
 
-    public function getPasswordHash(String $password, String $mode) : String {
+    public function getPasswordHash(string $password, string $mode) : string {
         $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)
             ->getDefaultHashInstance($mode);
         return $hashInstance->getHashedPassword($password);
     }
 
-    public function checkPassword(String $hashedPassword, String $expectedPassword, String $mode) : bool {
+    public function checkPassword(string $hashedPassword, string $expectedPassword, string $mode) : bool {
         $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)
             ->getDefaultHashInstance($mode);
         return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
@@ -484,7 +484,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * checks or compares the password
      */
-    public function passwordAction(String $passwordAction = 'get', String $password = 'joh316', String $hashedPassword = '', String $mode = 'FE'): ResponseInterface
+    public function passwordAction(string $passwordAction = 'get', string $password = 'joh316', string $hashedPassword = '', string $mode = 'FE'): ResponseInterface
     {
         $modes = ['FE' => 'FE', 'BE' => 'BE'];
         if ($passwordAction == 'Check') {
