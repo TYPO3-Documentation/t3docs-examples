@@ -29,7 +29,7 @@ class PlusMinusWizardController
 {
     protected PageRenderer $pageRenderer;
 
-    public function injectHtmlParser(PageRenderer $pageRenderer)
+    public function injectPageRenderer(PageRenderer $pageRenderer)
     {
         $this->pageRenderer = $pageRenderer;
     }
