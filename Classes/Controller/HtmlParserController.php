@@ -16,7 +16,6 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Html\HtmlParser;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -29,6 +28,12 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class HtmlParserController extends ActionController
 {
+    protected HtmlParser $htmlParser;
+
+    public function injectHtmlParser(HtmlParser $htmlParser)
+    {
+        $this->htmlParser = $htmlParser;
+    }
 
     /**
      * Parses some HTML using TYPO3's HTML parser and sends the result to debug output.
@@ -59,17 +64,15 @@ class HtmlParserController extends ActionController
 		';
 
         // Splitting HTML into blocks defined by <div> and <table> block tags
-        /** @var HtmlParser $parseObj */
-        $parseObj = GeneralUtility::makeInstance(HtmlParser::class);
         $this->view->assign(
             'result1',
-            $parseObj->splitIntoBlock('div,table', $testHTML)
+            $this->htmlParser->splitIntoBlock('div,table', $testHTML)
         );
 
         // Splitting HTML into blocks defined by <img> and <br> single tags
         $this->view->assign(
             'result2',
-            $parseObj->splitTags('img,br', $testHTML)
+            $this->htmlParser->splitTags('img,br', $testHTML)
         );
 
         // Cleaning HTML
@@ -92,7 +95,7 @@ class HtmlParserController extends ActionController
         ];
         $this->view->assign(
             'result3',
-            $result = $parseObj->HTMLcleaner(
+            $this->htmlParser->HTMLcleaner(
                 $testHTML,
                 $tagCfg,
                 false,

@@ -26,13 +26,19 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class FalExampleController extends ActionController
 {
+    protected ResourceFactory $resourceFactory;
+
+    public function injectResourceFactory(ResourceFactory $resourceFactory)
+    {
+        $this->resourceFactory = $resourceFactory;
+    }
+
     /**
      * Displays a list of links to the other actions.
      *
      */
     public function indexAction(): ResponseInterface
     {
-
         return $this->htmlResponse();
     }
 
@@ -42,9 +48,7 @@ class FalExampleController extends ActionController
      */
     public function listFilesAction(): ResponseInterface
     {
-        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
-        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-        $defaultStorage = $resourceFactory->getDefaultStorage();
+        $defaultStorage = $this->resourceFactory->getDefaultStorage();
         if ($defaultStorage) {
             $folder = $defaultStorage->getFolder('/user_upload/images/galerie/');
             $files = $defaultStorage->getFilesInFolder($folder);
@@ -63,9 +67,7 @@ class FalExampleController extends ActionController
      */
     public function collectionAction(): ResponseInterface
     {
-        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
-        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-        $collection = $resourceFactory->getCollectionObject(1);
+        $collection = $this->resourceFactory->getCollectionObject(1);
         if ($collection) {
             $collection->loadContents();
             $this->view->assignMultiple(

@@ -27,6 +27,12 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class PlusMinusWizardController
 {
+    protected PageRenderer $pageRenderer;
+
+    public function injectPageRenderer(PageRenderer $pageRenderer)
+    {
+        $this->pageRenderer = $pageRenderer;
+    }
     /**
      * Renders the wizard itself.
      *
@@ -36,10 +42,8 @@ class PlusMinusWizardController
      */
     public function render($fieldParameters, InputTextElement $textField)
     {
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         // Load the related JavaScript module
-        $pageRenderer->loadRequireJsModule(
+        $this->pageRenderer->loadRequireJsModule(
             'TYPO3/CMS/Examples/PlusMinusWizard'
         );
         // Render the two buttons
