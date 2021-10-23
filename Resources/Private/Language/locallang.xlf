@@ -117,6 +117,14 @@
 			<trans-unit id="function_links_new_haiku_with_title" xml:space="preserve">
 				<source>Create a new haiku with a predefined title</source>
 			</trans-unit>
+
+			<trans-unit id="function_password" xml:space="preserve">
+				<source>Password hashes</source>
+			</trans-unit>
+			<trans-unit id="function_password_intro" xml:space="preserve">
+				<source>This module demonstrates how to create password
+					hashes and how to test them</source>
+			</trans-unit>
 			<trans-unit id="permissions_header" xml:space="preserve">
 				<source>Custom permissions</source>
 			</trans-unit>

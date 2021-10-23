@@ -15,7 +15,7 @@ defined('TYPO3') or die();
         '', // Position
         [
             // An array holding the controller-action-combinations that are accessible
-            \T3docs\Examples\Controller\ModuleController::class => 'flash,log,tree,debug,clipboard,links,fileReference,fileReferenceCreate',
+            \T3docs\Examples\Controller\ModuleController::class => 'flash,log,tree,debug,clipboard,password,links,fileReference,fileReferenceCreate',
         ],
         [
             'access' => 'user,group',

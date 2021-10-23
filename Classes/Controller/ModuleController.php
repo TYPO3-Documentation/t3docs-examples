@@ -39,6 +39,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 
 /**
  * Controller for the backend module
@@ -54,6 +55,25 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * @var BackendTemplateView
      */
     protected $view;
+
+    protected IconFactory $iconFactory;
+    protected ResourceFactory $resourceFactory;
+    protected PasswordHashFactory $passwordHashFactory;
+
+    public function injectIconFactory(IconFactory $iconFactory): void
+    {
+        $this->iconFactory = $iconFactory;
+    }
+
+    public function injectResourceFactory(ResourceFactory $resourceFactory): void
+    {
+        $this->resourceFactory = $resourceFactory;
+    }
+
+    public function injectPasswordHashFactory(PasswordHashFactory $passwordHashFactory): void
+    {
+        $this->passwordHashFactory = $passwordHashFactory;
+    }
 
     /**
      * Renders the list of all possible flash messages
@@ -150,11 +170,9 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $tree = GeneralUtility::makeInstance(PageTreeView::class);
         $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
 
-        // Create the icon for the current page and add it to the tree
-        /** @var IconFactory $iconFactory */
-        $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
+
         if ($pageRecord) {
-            $html = $iconFactory->getIconForRecord(
+            $html = $this->iconFactory->getIconForRecord(
                 'pages',
                 $pageRecord,
                 Icon::SIZE_SMALL
@@ -409,9 +427,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             // NOTE: there would normally a nice error Flash Message added here
             $this->redirect('fileReference');
         }
-        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
-        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-        $fileObject = $resourceFactory->getFileObject((int)$file);
+        $fileObject = $this->resourceFactory->getFileObject((int)$file);
         $contentElement = BackendUtility::getRecord(
             'tt_content',
             (int)$element
@@ -467,6 +483,42 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         );
         return $this->htmlResponse();
     }
+
+    public function getPasswordHash(string $password, string $mode) : string {
+        $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
+        return $hashInstance->getHashedPassword($password);
+    }
+
+    public function checkPassword(string $hashedPassword, string $expectedPassword, string $mode) : bool {
+        $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
+        return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
+    }
+
+    /**
+     * checks or compares the password
+     */
+    public function passwordAction(string $passwordAction = 'get', string $password = 'joh316', string $hashedPassword = '', string $mode = 'FE'): ResponseInterface
+    {
+        $modes = ['FE' => 'FE', 'BE' => 'BE'];
+        if ($passwordAction == 'Check') {
+            $success = $this->checkPassword($hashedPassword, $password, $mode);
+        } else {
+            $hashedPassword = $this->getPasswordHash($password, $mode);
+            $success = true;
+        }
+        $this->view->assignMultiple(
+        [
+            'modes' => $modes,
+            'mode' => $mode,
+            'hashedPassword' => $hashedPassword,
+            'password' => $password,
+            'success' => $success,
+            'passwordAction' => $passwordAction
+        ]
+        );
+        return $this->htmlResponse();
+    }
+
 
     /**
      * Returns a count of entries in a table defined by a request parameter, in JSON format.
@@ -527,7 +579,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Add menu items
         /** @var MenuItem $menuItem */
         $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'fileReference'];
+        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'password', 'fileReference'];
 
         foreach ($items as $item) {
             $isActive = $this->actionMethodName === $item . 'Action';
