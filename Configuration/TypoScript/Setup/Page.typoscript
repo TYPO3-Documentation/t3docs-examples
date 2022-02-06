@@ -1,0 +1,28 @@
+# Default PAGE object:
+page = PAGE
+page {
+   10 = FLUIDTEMPLATE
+   10 {
+      file = EXT:examples/Resources/Private/Templates/Page/Main.html
+      layoutRootPaths.10 = EXT:examples/Resources/Private/Layouts/Page
+      partialRootPaths.10 = EXT:examples/Resources/Private/Partials/Page
+      templateRootPaths.10 = EXT:examples/Resources/Private/Templates/Page
+      dataProcessing {
+         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+         20 {
+            table = tt_content
+            orderBy = sorting
+            where = colPos = 0
+            as = mainContent
+         }
+      }
+   }
+}
+
+page {
+   includeCSSLibs.bootstrap = https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css
+   includeCSSLibs.bootstrap.external = 1
+   includeCSS {
+      file1 = EXT:examples/Resources/Public/Css/Custom.css
+   }
+}

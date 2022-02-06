@@ -261,7 +261,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
     'CType',
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
-        'content-menu-pages',
+        'examples_dataprocmenu',
         'content-special-uploads',
     ],
     );
