@@ -32,13 +32,13 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
      *
      * @return    void
      */
-    protected function renderNewRecordControls(ServerRequestInterface $request): void
+    protected function renderNewRecordControls(): void
     {
-        parent::renderNewRecordControls($request);
+        parent::renderNewRecordControls();
         $label = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help');
         $text = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice');
         $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label) . '</h2>' . $text . '</div>';
 
-        $this->code .= $str;
+        $this->content .= $str;
     }
 }
