@@ -1,0 +1,16 @@
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<main role="main">
+   <div class="container">
+      <f:for each="{mainContent}" as="contentElement">
+         <f:cObject
+            typoscriptObjectPath="tt_content.{contentElement.data.CType}"
+            data="{contentElement.data}"
+            table="tt_content"
+         />
+      </f:for>
+   </div>
+</main>
+
+</html>

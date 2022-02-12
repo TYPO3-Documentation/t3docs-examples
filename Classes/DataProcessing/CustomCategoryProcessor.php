@@ -46,19 +46,18 @@
             }
             // categories by comma separated list
             $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration ?? []);
+            $categories = [];
             if ($categoryIdList) {
                 $categoryIdList = GeneralUtility::intExplode(',', (string)$categoryIdList, true);
+                /** @var CategoryRepository $categoryRepository */
+                $categoryRepository = GeneralUtility::makeInstance(CategoryRepository::class);
+                foreach ($categoryIdList as $categoryId) {
+                    $categories[] = $categoryRepository->findByUid($categoryId);
+                }
+                // set the categories into a variable, default "categories"
+                $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'categories');
+                $processedData[$targetVariableName] = $categories;
             }
-
-            /** @var CategoryRepository $categoryRepository */
-            $categoryRepository = GeneralUtility::makeInstance(CategoryRepository::class);
-            $categories = [];
-            foreach ($categoryIdList as $categoryId) {
-                $categories[] = $categoryRepository->findByUid($categoryId);
-            }
-            // set the categories into a variable, default "categories"
-            $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'categories');
-            $processedData[$targetVariableName] = $categories;
             return $processedData;
         }
     }

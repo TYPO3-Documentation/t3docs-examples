@@ -1,4 +1,6 @@
 
+@import 'EXT:examples/Configuration/TypoScript/Setup/*.typoscript'
+
 @import 'EXT:examples/Configuration/TypoScript/TSref/*.typoscript'
 
 @import 'EXT:examples/Configuration/TypoScript/CustomContentElements/Step1.typoscript'
