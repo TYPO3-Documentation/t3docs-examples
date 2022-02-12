@@ -18,7 +18,7 @@ tt_content {
          20 {
             filesProcessedDataKey = images
             mediaOrientation.field = imageorient
-            numberOfColumns.field = imagecols
+            numberOfColumns = 4
             equalMediaHeight.field = imageheight
             equalMediaWidth.field = imagewidth
             maxGalleryWidth = 1000
