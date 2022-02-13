@@ -1,19 +1,21 @@
 <?php
 
+use T3docs\Examples\Controller\ModuleController;
+
+/**
+ * Definitions for modules provided by EXT:linkvalidator
+ */
 return [
-    'tools_ExamplesExample' => [
-        'parent' => 'tools',
+    'web_linkvalidator' => [
+        'parent' => 'web',
         'position' => ['after' => 'web_info'],
-        'access' => 'admin',
+        'access' => 'user',
         'workspaces' => 'live',
-        'iconIdentifier' => 'module-example',
-        'path' => '/module/tools/Example',
+        'path' => '/module/page/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang_mod.xlf',
-        'extensionName' => 'Extkey',
-        'controllerActions' => [
-            MyExtbaseExampleModuleController::class => [
-                'list',
-                'detail'
+        'routes' => [
+            '_default' => [
+                'target' => ModuleController::class,
             ],
         ],
     ],
