@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:examples/Resources/Private/Language/Module/locallang.xlf" date="2021-02-13T10:49:35Z" product-name="examples">
+		<header/>
+		<body>
+			<trans-unit id="module.menu.log" resname="module.menu.log">
+				<source>Make log entries</source>
+			</trans-unit>
+			<trans-unit id="module.menu.debug" resname="module.menu.debug">
+				<source>Debug</source>
+			</trans-unit>
+			<trans-unit id="module.menu.password" resname="module.menu.password">
+				<source>Check Passwords</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

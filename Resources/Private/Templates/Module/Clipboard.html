@@ -1,81 +1,85 @@
 <html data-namespace-typo3-fluid="true"
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-<f:flashMessages/>
+<f:layout name="Module" />
 
-<f:form method="post" action="clipboard">
-<h1><f:translate key="function_clipboard"/></h1>
+<f:section name="Content">
+   <f:flashMessages/>
 
-<p><f:translate key="function_clipboard_intro"/></p>
+   <f:form method="post" action="clipboard">
+   <h1><f:translate key="function_clipboard"/></h1>
 
-<h3> <f:translate key="function_clipboard_current_pad"/></h3>
-<h4><f:translate key="function_clipboard_files"/></h4>
-<f:if condition="{current.files}">
-   <f:then>
-      <ul>
-         <f:for as="file" each="{current.files}">
-            <li>{file}</li>
-         </f:for>
-      </ul>
-   </f:then>
-   <f:else>
-      <p>
-         <f:translate key="function_clipboard_no_files"/>
-      </p>
-   </f:else>
-</f:if>
-<h4><f:translate key="function_clipboard_pages"/></h4>
-<f:if condition="{current.pages}">
-   <f:then>
-      <ul>
-         <f:for as="value" each="{current.pages}" key="page">
-            <li>{page}</li>
-         </f:for>
-      </ul>
-   </f:then>
-   <f:else>
-      <p>
-         <f:translate key="function_clipboard_no_pages"/>
-      </p>
-   </f:else>
-</f:if>
+   <p><f:translate key="function_clipboard_intro"/></p>
 
-<h3><f:translate key="function_clipboard_normal_pad"/></h3>
-<h4><f:translate key="function_clipboard_files"/></h4>
-<f:if condition="{normal.files}">
-   <f:then>
-      <ul>
-         <f:for as="file" each="{normal.files}">
-            <li>{file}</li>
-         </f:for>
-      </ul>
-   </f:then>
-   <f:else>
-      <p>
-         <f:translate key="function_clipboard_no_files"/>
-      </p>
-   </f:else>
-</f:if>
-<h4>
-   <f:translate key="function_clipboard_pages"/>
-</h4>
-<f:if condition="{normal.pages}">
-   <f:then>
-      <ul>
-         <f:for as="value" each="{normal.pages}" key="page">
-            <li>{page}</li>
-         </f:for>
-      </ul>
-   </f:then>
-   <f:else>
-      <p>
-         <f:translate key="function_clipboard_no_pages"/>
-      </p>
-   </f:else>
-</f:if>
+   <h3> <f:translate key="function_clipboard_current_pad"/></h3>
+   <h4><f:translate key="function_clipboard_files"/></h4>
+   <f:if condition="{current.files}">
+      <f:then>
+         <ul>
+            <f:for as="file" each="{current.files}">
+               <li>{file}</li>
+            </f:for>
+         </ul>
+      </f:then>
+      <f:else>
+         <p>
+            <f:translate key="function_clipboard_no_files"/>
+         </p>
+      </f:else>
+   </f:if>
+   <h4><f:translate key="function_clipboard_pages"/></h4>
+   <f:if condition="{current.pages}">
+      <f:then>
+         <ul>
+            <f:for as="value" each="{current.pages}" key="page">
+               <li>{page}</li>
+            </f:for>
+         </ul>
+      </f:then>
+      <f:else>
+         <p>
+            <f:translate key="function_clipboard_no_pages"/>
+         </p>
+      </f:else>
+   </f:if>
 
-   <f:form.button name="cmd" value="debug" type="submit" class="btn btn-primary">
-      <f:translate key="function_clipboard_debug"/>
-   </f:form.button>
-</f:form>
+   <h3><f:translate key="function_clipboard_normal_pad"/></h3>
+   <h4><f:translate key="function_clipboard_files"/></h4>
+   <f:if condition="{normal.files}">
+      <f:then>
+         <ul>
+            <f:for as="file" each="{normal.files}">
+               <li>{file}</li>
+            </f:for>
+         </ul>
+      </f:then>
+      <f:else>
+         <p>
+            <f:translate key="function_clipboard_no_files"/>
+         </p>
+      </f:else>
+   </f:if>
+   <h4>
+      <f:translate key="function_clipboard_pages"/>
+   </h4>
+   <f:if condition="{normal.pages}">
+      <f:then>
+         <ul>
+            <f:for as="value" each="{normal.pages}" key="page">
+               <li>{page}</li>
+            </f:for>
+         </ul>
+      </f:then>
+      <f:else>
+         <p>
+            <f:translate key="function_clipboard_no_pages"/>
+         </p>
+      </f:else>
+   </f:if>
+
+      <f:form.button name="cmd" value="debug" type="submit" class="btn btn-primary">
+         <f:translate key="function_clipboard_debug"/>
+      </f:form.button>
+   </f:form>
+</f:section>
 </html>

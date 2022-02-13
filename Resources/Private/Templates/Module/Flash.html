@@ -1,21 +1,30 @@
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html
+   xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+   data-namespace-typo3-fluid="true"
+>
 
-<f:flashMessages/>
 
-<h1>
-	<f:translate id="function_flash"/>
-</h1>
+<f:layout name="Module" />
 
-<p>
-	<f:translate key="function_flash_intro"/>
-</p>
-<p>
-	<f:translate key="function_flash_javascript"/>
-</p>
-<p>
-	<f:form.submit value="{f:translate(key:'function_flash_pages')}" name="pages" class="action-button btn btn-default"/>
-	<f:form.submit value="{f:translate(key:'function_flash_content_elements')}" name="tt_content"
-								 class="action-button btn btn-default"/>
-</p>
+<f:section name="Content">
+
+   <f:flashMessages/>
+
+   <h1>
+      <f:translate id="function_flash"/>
+   </h1>
+
+   <p>
+      <f:translate key="function_flash_intro"/>
+   </p>
+   <p>
+      <f:translate key="function_flash_javascript"/>
+   </p>
+   <p>
+      <f:form.submit value="{f:translate(key:'function_flash_pages')}" name="pages" class="action-button btn btn-default"/>
+      <f:form.submit value="{f:translate(key:'function_flash_content_elements')}" name="tt_content"
+                            class="action-button btn btn-default"/>
+   </p>
+</f:section>
 
 </html>

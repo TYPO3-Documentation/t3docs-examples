@@ -1,0 +1,22 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+   <f:flashMessages/>
+
+   <h1>
+      <f:translate key="function_log"/>
+   </h1>
+
+   <p>
+      <f:translate key="function_log_intro"/>
+   </p>
+   <f:form action="log" name="loggingForm" method="post">
+      <p>
+         <f:form.submit value="{f:translate(key:'function_log_create')}" name="log-entries"
+                               class="log-button btn btn-default"/>
+      </p>
+   </f:form>
+</f:section>
+</html>

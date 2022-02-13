@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:examples/Resources/Private/Language/Module/locallang_csh.xlf" date="2021-02-13T10:49:36Z" product-name="examples">
+		<header/>
+		<body>
+			<trans-unit id="checkboxes.description" resname="checkboxes.description">
+				<source>Some example for context sensitive help.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
