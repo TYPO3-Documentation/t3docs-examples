@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:examples/Resources/Private/Language/Module/locallang.xlf" date="2021-02-13T10:49:35Z" product-name="examples">
+		<header/>
+		<body>
+			<trans-unit id="examples" resname="examples">
+				<source>Examples</source>
+			</trans-unit>
+			<trans-unit id="module.menu.flash" resname="module.menu.flash">
+				<source>Flash queue</source>
+			</trans-unit>
+			<trans-unit id="module.menu.log" resname="module.menu.log">
+				<source>Make log entries</source>
+			</trans-unit>
+			<trans-unit id="module.menu.tree" resname="module.menu.tree">
+				<source>Display a tree</source>
+			</trans-unit>
+			<trans-unit id="module.menu.clipboard" resname="module.menu.clipboard">
+				<source>Clipboard</source>
+			</trans-unit>
+			<trans-unit id="module.menu.password" resname="module.menu.password">
+				<source>Check Passwords</source>
+			</trans-unit>
+			<trans-unit id="module.menu.links" resname="module.menu.links">
+				<source>Links</source>
+			</trans-unit>
+			<trans-unit id="module.menu.fileReference" resname="module.menu.fileReference">
+				<source>File References</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
