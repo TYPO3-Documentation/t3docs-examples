@@ -570,7 +570,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.fileReference'),
             ],
         ];
-        $view = $this->moduleTemplateFactory->create($request, 't3docs/examples');
+        $view = $this->moduleTemplateFactory->create($request);
 
         $menu = $view->getDocHeaderComponent()->getMenuRegistry()->makeMenu();
         $menu->setIdentifier('ExampleModuleMenu');

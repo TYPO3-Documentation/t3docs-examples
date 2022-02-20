@@ -14,7 +14,7 @@ class AdminModuleController extends ActionController {
 
     public function indexAction(): ResponseInterface
     {
-        $moduleTemplate = $this->moduleTemplateFactory->create($this->request, 't3docs/examples');
+        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
         $moduleTemplate->assign('aVariable', 'aValue');
         return $moduleTemplate->renderResponse();
     }
