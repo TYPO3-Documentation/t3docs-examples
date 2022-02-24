@@ -147,7 +147,4 @@ TCEMAIN.linkHandler {
 # not sure about this one because it doesn't get involved somehow
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']['github'] = \T3docs\Examples\LinkHandling\GithubLinkHandler::class;
 # this one is crucial
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Link']['resolveByStringRepresentation'] =
-[
-    'T3docs\Examples\LinkHandling\GithubLinkHandler->resolveHandlerData',
-];
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Link']['resolveByStringRepresentation'][] = 'T3docs\Examples\LinkHandling\GithubLinkHandler->resolveHandlerData';
