@@ -23,7 +23,6 @@ use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
-use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -36,10 +35,15 @@ use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
+use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Core\Localization\LanguageService;
+use TYPO3\CMS\Core\Type\Bitmask\Permission;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 /**
  * Controller for the backend module
@@ -51,28 +55,17 @@ use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 class ModuleController extends ActionController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
-    /**
-     * @var BackendTemplateView
-     */
-    protected $view;
 
-    protected IconFactory $iconFactory;
-    protected ResourceFactory $resourceFactory;
-    protected PasswordHashFactory $passwordHashFactory;
-
-    public function injectIconFactory(IconFactory $iconFactory): void
-    {
-        $this->iconFactory = $iconFactory;
-    }
-
-    public function injectResourceFactory(ResourceFactory $resourceFactory): void
-    {
-        $this->resourceFactory = $resourceFactory;
-    }
-
-    public function injectPasswordHashFactory(PasswordHashFactory $passwordHashFactory): void
-    {
-        $this->passwordHashFactory = $passwordHashFactory;
+    public function __construct(
+        protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+        protected readonly IconFactory $iconFactory,
+        protected readonly ExtensionConfiguration $extensionConfiguration,
+        protected readonly PasswordHashFactory $passwordHashFactory,
+        protected readonly ResourceFactory $resourceFactory,
+        protected readonly FileRepository $fileRepository,
+        protected readonly ConnectionPool $connectionPool,
+        protected readonly DataHandler $dataHandler,
+    ) {
     }
 
     /**
@@ -117,7 +110,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             false
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
-        return $this->htmlResponse();
+        $view = $this->initializeModuleTemplate($this->request);
+        return $view->renderResponse();
     }
 
     /**
@@ -145,7 +139,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             '',
             FlashMessage::INFO
         );
-        return $this->htmlResponse();
+        $view = $this->initializeModuleTemplate($this->request);
+        return $view->renderResponse();
     }
 
     /**
@@ -191,12 +186,14 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             ''
         );
 
+        $view = $this->initializeModuleTemplate($this->request);
+
         // Pass the tree to the view
-        $this->view->assign(
+        $view->assign(
             'tree',
             $tree->tree
         );
-        return $this->htmlResponse();
+        return $view->renderResponse();
     }
 
     /**
@@ -214,7 +211,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 break;
         }
 
-        return $this->htmlResponse();
+        $view = $this->initializeModuleTemplate($this->request);
+        return $view->renderResponse();
     }
 
     protected function debugCookies() {
@@ -248,7 +246,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'normal' => $normalPad,
             ]
         );
-        return $this->htmlResponse();
+        $view = $this->initializeModuleTemplate($this->request);
+        return $view->renderResponse();
     }
 
 
@@ -349,14 +348,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'columnsOnly' => 'title,season,color'
             ];
         $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
-        $this->view->assignMultiple(
+
+        $view = $this->initializeModuleTemplate($this->request);
+        $view->assignMultiple(
             [
                 'editPage1Link' => $editPage1Link,
                 'editPagesDoktypeLink' => $editPagesDoktypeLink,
                 'createHaikuLink' => $createHaikuLink,
             ]
         );
-        return $this->htmlResponse();
+        return $view->renderResponse();
     }
 
     /**
@@ -366,13 +367,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function fileReferenceAction($element = 0): ResponseInterface
     {
-        /** @var FileRepository $fileRepository */
-        $fileRepository = $this->objectManager->get(FileRepository::class);
         // Get all non-deleted content elements (this should normally be put away in a nice, clean
         // repository class; don't do this at home).
         /** @var Connection $connection */
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable('tt_content');
+        $connection = $this->connectionPool->getConnectionForTable('tt_content');
         try {
             $contentElements = $connection->select(
                 ['uid', 'header'],
@@ -391,7 +389,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 (int)$element
             );
             try {
-                $fileObjects = $fileRepository->findByRelation(
+                $fileObjects = $this->fileRepository->findByRelation(
                     'tt_content',
                     'image',
                     $element
@@ -403,15 +401,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $contentElement = null;
             $fileObjects = [];
         }
-        $this->view->assignMultiple(
+        $view = $this->initializeModuleTemplate($this->request);
+        $view->assignMultiple(
             [
-                'files' => $fileRepository->findAll(),
+                'files' => $this->fileRepository->findAll(),
                 'elements' => $contentElements,
                 'content' => $contentElement,
                 'references' => $fileObjects,
             ]
         );
-        return $this->htmlResponse();
+        return $view->renderResponse();
     }
 
     /**
@@ -446,13 +445,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $data['tt_content'][$contentElement['uid']] = [
             'image' => $newId,
         ];
-        // Get an instance of the DataHandler and process the data
-        /** @var DataHandler $dataHandler */
-        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-        $dataHandler->start($data, []);
-        $dataHandler->process_datamap();
+        //  process the data
+        $this->dataHandler->start($data, []);
+        $this->dataHandler->process_datamap();
         // Error or success reporting
-        if (count($dataHandler->errorLog) === 0) {
+        if (count($this->dataHandler->errorLog) === 0) {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'create_relation_success',
@@ -461,7 +458,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 ''
             );
         } else {
-            foreach ($dataHandler->errorLog as $log) {
+            foreach ($this->dataHandler->errorLog as $log) {
                 $this->addFlashMessage(
                     $log,
                     LocalizationUtility::translate(
@@ -473,15 +470,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             }
         }
 
-        $this->redirect(
-            'fileReference',
-            null,
-            null,
-            [
-                'element' => $contentElement['uid'],
-            ]
-        );
-        return $this->htmlResponse();
+        return
+            $this->redirect(
+                'fileReference',
+                null,
+                null,
+                [
+                    'element' => $contentElement['uid'],
+                ]
+            );
     }
 
     public function getPasswordHash(string $password, string $mode) : string {
@@ -506,17 +503,18 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $hashedPassword = $this->getPasswordHash($password, $mode);
             $success = true;
         }
-        $this->view->assignMultiple(
-        [
-            'modes' => $modes,
-            'mode' => $mode,
-            'hashedPassword' => $hashedPassword,
-            'password' => $password,
-            'success' => $success,
-            'passwordAction' => $passwordAction
-        ]
+        $view = $this->initializeModuleTemplate($this->request);
+        $view->assignMultiple(
+            [
+                'modes' => $modes,
+                'mode' => $mode,
+                'hashedPassword' => $hashedPassword,
+                'password' => $password,
+                'success' => $success,
+                'passwordAction' => $passwordAction
+            ]
         );
-        return $this->htmlResponse();
+        return $view->renderResponse();
     }
 
 
@@ -541,63 +539,89 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     }
 
     /**
-     * Initializes the template to use for all actions.
-     *
-     * @return void
+     * Generates the action menu
      */
-    protected function initializeAction()
+    protected function initializeModuleTemplate(ServerRequestInterface $request): ModuleTemplate
     {
-        $this->defaultViewObjectName = BackendTemplateView::class;
+        $menuItems = [
+            'flash' => [
+                'controller' => 'Module',
+                'action' => 'flash',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.flash'),
+            ],
+            'tree' => [
+                'controller' => 'Module',
+                'action' => 'tree',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.tree'),
+            ],
+            'clipboard' => [
+                'controller' => 'Module',
+                'action' => 'clipboard',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.clipboard'),
+            ],
+            'links' => [
+                'controller' => 'Module',
+                'action' => 'links',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.links'),
+            ],
+            'fileReference' => [
+                'controller' => 'Module',
+                'action' => 'fileReference',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.fileReference'),
+            ],
+        ];
+        $view = $this->moduleTemplateFactory->create($request);
+
+        $menu = $view->getDocHeaderComponent()->getMenuRegistry()->makeMenu();
+        $menu->setIdentifier('ExampleModuleMenu');
+
+        $context = '';
+        foreach ($menuItems as $menuItemConfig) {
+            $isActive = $this->request->getControllerActionName() === $menuItemConfig['action'];
+            $menuItem = $menu->makeMenuItem()
+                ->setTitle($menuItemConfig['label'])
+                ->setHref($this->uriBuilder->reset()->uriFor($menuItemConfig['action'], [], $menuItemConfig['controller']))
+                ->setActive($isActive);
+            $menu->addMenuItem($menuItem);
+            if ($isActive) {
+                $context = $menuItemConfig['label'];
+            }
+        }
+
+        $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
+
+        $view->setTitle(
+            $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+            $context
+        );
+
+        $permissionClause = $this->getBackendUserAuthentication()->getPagePermsClause(Permission::PAGE_SHOW);
+        $pageRecord = BackendUtility::readPageAccess($this->pageUid, $permissionClause);
+        if ($pageRecord) {
+            $view->getDocHeaderComponent()->setMetaInformation($pageRecord);
+        }
+        $view->setFlashMessageQueue($this->getFlashMessageQueue());
+
+        return $view;
     }
 
     /**
-     * Initializes the view before invoking an action method.
-     *
-     * @param ViewInterface $view The view to be initialized
-     * @return void
-     * @api
+     * Function will be called before every other action
      */
-    protected function initializeView(ViewInterface $view)
+    protected function initializeAction()
     {
-        if ($view instanceof BackendTemplateView) {
-            parent::initializeView($view);
-        }
-        $pageRenderer = $view->getModuleTemplate()->getPageRenderer();
-        $pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/Application');
-        // Make localized labels available in JavaScript context
-        $pageRenderer->addInlineLanguageLabelFile('EXT:examples/Resources/Private/Language/locallang.xlf');
+        $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
+        $this->exampleConfig = $this->extensionConfiguration->get('examples') ?? [];
+        parent::initializeAction();
+    }
 
-        // Add action menu
-        /** @var Menu $menu */
-        $menu = GeneralUtility::makeInstance(Menu::class);
-        $menu->setIdentifier('_examplesMenu');
+    protected function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
+    }
 
-        /** @var UriBuilder $uriBuilder */
-        $uriBuilder = $this->objectManager->get(UriBuilder::class);
-        $uriBuilder->setRequest($this->request);
-
-        // Add menu items
-        /** @var MenuItem $menuItem */
-        $menuItem = GeneralUtility::makeInstance(MenuItem::class);
-        $items = ['flash', 'log', 'tree', 'debug', 'clipboard', 'links', 'password', 'fileReference'];
-
-        foreach ($items as $item) {
-            $isActive = $this->actionMethodName === $item . 'Action';
-            $menuItem->setTitle(
-                LocalizationUtility::translate(
-                    'function_' . $item,
-                    'examples'
-                )
-            );
-            $uri = $uriBuilder->reset()->uriFor(
-                $item,
-                [],
-                'Module'
-            );
-            $menuItem->setActive($isActive)->setHref($uri);
-            $menu->addMenuItem($menuItem);
-        }
-
-        $this->view->getModuleTemplate()->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
+    protected function getBackendUserAuthentication(): BackendUserAuthentication
+    {
+        return $GLOBALS['BE_USER'];
     }
 }

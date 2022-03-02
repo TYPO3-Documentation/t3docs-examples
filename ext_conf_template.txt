@@ -1,0 +1,5 @@
+# cat=basic; type=string; label=Some string
+somestring = /usr/bin/
+
+# cat=basic; type=int; label=LLL:EXT:Some int
+someint = 20
