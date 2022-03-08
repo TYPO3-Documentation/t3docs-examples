@@ -1,0 +1,4 @@
+mod.linkvalidator {
+   # specify link types to be crawled
+   linktypes = db,file,external,example
+}

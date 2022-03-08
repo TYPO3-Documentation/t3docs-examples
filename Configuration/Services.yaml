@@ -7,3 +7,7 @@ services:
    T3docs\Examples\:
       resource: '../Classes/*'
       exclude: '../Classes/Domain/Model/*'
+
+   T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
+      tags:
+         -  name: linkvalidator.linktype
