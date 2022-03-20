@@ -11,3 +11,6 @@ services:
    T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
       tags:
          -  name: linkvalidator.linktype
+
+   T3docs\Examples\Controller\AdminModuleController:
+      tags: ['backend.controller']

@@ -24,15 +24,15 @@ return [
     'admin_examples' => [
         'parent' => 'system',
         'position' => ['top'],
-        'access' => 'user',
+        'access' => 'admin',
         'workspaces' => 'live',
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
         'extensionName' => 'Examples',
-        'controllerActions' => [
-            AdminModuleController::class => [
-                'index',
-            ],
-        ],
+        'routes' => [
+           '_default' => [
+               'target' => AdminModuleController::class . '::handleRequest',
+           ],
+       ],
     ],
 ];
