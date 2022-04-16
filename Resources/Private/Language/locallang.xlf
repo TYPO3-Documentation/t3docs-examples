@@ -213,6 +213,12 @@
 			<trans-unit id="examples_dataprocsite_description" xml:space="preserve">
 				<source>Show site info</source>
 			</trans-unit>
+			<trans-unit id="examples_dataprocsitelanguage_title" xml:space="preserve">
+				<source>SiteLanguageProcessor example</source>
+			</trans-unit>
+			<trans-unit id="examples_dataprocsitelanguage_description" xml:space="preserve">
+				<source>Show language info</source>
+			</trans-unit>
 			<trans-unit id="examples_dataprocsplit_title" xml:space="preserve">
 				<source>SplitProcessor example</source>
 			</trans-unit>

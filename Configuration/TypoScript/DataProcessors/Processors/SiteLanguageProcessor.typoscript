@@ -1,0 +1,10 @@
+tt_content {
+   examples_dataprocsitelanguage =< lib.contentElement
+   examples_dataprocsitelanguage {
+      templateName = DataProcSiteLanguage
+      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteLanguageProcessor
+      dataProcessing.10 {
+         as = language
+      }
+   }
+}
