@@ -61,6 +61,15 @@ mod.wizards.newContentElement.wizardItems {
          }
       }
 
+      examples_dataprocsitelanguage {
+         iconIdentifier = content-message
+         title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title
+         description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_description
+         tt_content_defValues {
+            CType = examples_dataprocsitelanguage
+         }
+      }
+
       examples_dataprocsplit {
          iconIdentifier = content-timeline
          title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title
@@ -98,5 +107,5 @@ mod.wizards.newContentElement.wizardItems {
       }
    }
 
-   dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsplit, examples_dataprocfiles,examples_dataprocgallery,examples_dataproccustom
+   dataProcessingExamples.show = examples_newcontentcsv,examples_dataprocdb,examples_dataproclang, examples_dataprocmenu, examples_dataprocsite, examples_dataprocsitelanguage, examples_dataprocsplit, examples_dataprocfiles,examples_dataprocgallery,examples_dataproccustom
 }

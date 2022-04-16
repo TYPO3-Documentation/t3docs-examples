@@ -302,9 +302,28 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
         'examples_dataprocsite',
         'apps-pagetree-folder-root',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+    '.$standardTabs,
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title',
+        'examples_dataprocsitelanguage',
+        'content-message',
+    ],
+);
+
+$GLOBALS['TCA']['tt_content']['types']['examples_dataprocsitelanguage'] = [
     'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
