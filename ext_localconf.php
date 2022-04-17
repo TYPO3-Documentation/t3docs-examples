@@ -86,7 +86,7 @@ defined('TYPO3') or die();
         "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
     );
 
-    // Register the HTML parser plugin
+    // Configure the HTML parser plugin
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'Examples',
         'HtmlParser',

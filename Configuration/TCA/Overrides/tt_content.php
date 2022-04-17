@@ -1,8 +1,10 @@
 <?php
 defined('TYPO3') or die();
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 // Declare static TS file
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+ExtensionManagementUtility::addStaticFile(
     'examples',
     'Configuration/TypoScript/',
     'Examples TypoScript'
@@ -59,12 +61,12 @@ $temporaryColumn = [
     ],
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+ExtensionManagementUtility::addTCAcolumns(
     'tt_content',
     $temporaryColumn
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'access',
     'tx_examples_noprint',
@@ -75,15 +77,7 @@ $temporaryColumn = [
 // USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
 
 // Add the plugins to the list of plugins
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-    [
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-        'examples_pi1',
-    ],
-    'list_type',
-    'examples'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+ExtensionManagementUtility::addPlugin(
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi2',
         'examples_pi2',
@@ -91,7 +85,7 @@ $temporaryColumn = [
     'list_type',
     'examples'
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+ExtensionManagementUtility::addPlugin(
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi3',
         'examples_pi3',
@@ -99,7 +93,7 @@ $temporaryColumn = [
     'list_type',
     'examples'
 );
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+ExtensionManagementUtility::addPlugin(
     [
         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi4',
         'examples_pi4',
@@ -113,12 +107,6 @@ $temporaryColumn = [
     'Examples',
     'Error',
     'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror'
-);
-// Register the HTML Parser plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Examples',
-    'HtmlParser',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title'
 );
 // Register the FAL example plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
@@ -134,23 +122,18 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi3'] = 'layout,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi4'] = 'layout,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_error'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_htmlparser'] = 'layout,select_key,pages';
 
-// Activate the display of the plug-in flexform field and set FlexForm definition
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi1'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi1', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
-);
+
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi2'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi2', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi3'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi3', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi4'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi4', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
 );
 
@@ -171,7 +154,7 @@ $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_t
 
 
 // Adds the content element to the "Type" dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -201,7 +184,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_newcontentcsv'] = [
 ];
 
 // Adds the content element to the "Type" dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -235,7 +218,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_newcontentelement'] = [
 ];
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -256,7 +239,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
 ];
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -275,7 +258,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
     '.$standardTabs,
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -294,7 +277,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
 ];
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -313,7 +296,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
     '.$standardTabs,
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -332,7 +315,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsitelanguage'] = [
     '.$standardTabs,
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -351,7 +334,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsplit'] = [
 ];
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -371,7 +354,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocfiles'] = [
     '.$standardTabs,
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -392,7 +375,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
     '.$standardTabs,
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
