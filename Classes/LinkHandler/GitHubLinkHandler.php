@@ -176,7 +176,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
         return FALSE;
     }
 
-    public function setView(\TYPO3Fluid\Fluid\View\ViewInterface $view): void
+    public function setView(ViewInterface $view): void
     {
         $this->view = $view;
     }
