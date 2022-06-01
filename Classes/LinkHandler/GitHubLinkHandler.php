@@ -128,7 +128,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function render(ServerRequestInterface $request): string
     {
         $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
-        $templateRootPaths = $this->view->getTemplateRootPaths();
         $this->view->setTemplateRootPaths([
             ...$this->view->getTemplateRootPaths(),
             GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')
