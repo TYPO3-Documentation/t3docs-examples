@@ -13,25 +13,21 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class AdminModuleController
 {
 
-    protected LanguageService $languageService;
-
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
         protected readonly IconFactory $iconFactory,
         // ...
-    ) {
-        $this->languageService = $GLOBALS['LANG'];
-    }
+    ) {}
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
     {
-        $this->languageService->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
+        $GLOBALS['LANG']->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
 
         $allowedOptions = [
             'function' => [
-                'debug' => $this->languageService->getLL('debug'),
-                'password' => $this->languageService->getLL('password'),
-                'index' => $this->languageService->getLL('index'),
+                'debug' => $GLOBALS['LANG']->getLL('debug'),
+                'password' => $GLOBALS['LANG']->getLL('password'),
+                'index' => $GLOBALS['LANG']->getLL('index'),
             ],
         ];
 
@@ -43,16 +39,16 @@ class AdminModuleController
         $moduleTemplate = $this->moduleTemplateFactory->create($request, 't3docs/examples');
         $this->setUpDocHeader($request, $moduleTemplate);
 
-        $title = $this->languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
+        $title = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
         switch ($moduleData->get('function')) {
             case 'debug':
-                $moduleTemplate->setTitle($title, $this->languageService->getLL('module.menu.debug'));
+                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.debug'));
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
-                $moduleTemplate->setTitle($title, $this->languageService->getLL('module.menu.password'));
+                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.password'));
                 return $this->passwordAction($request, $moduleTemplate);
             default:
-                $moduleTemplate->setTitle($title, $this->languageService->getLL('module.menu.log'));
+                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.log'));
                 return $this->indexAction($request, $moduleTemplate);
         }
     }
