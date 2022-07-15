@@ -117,6 +117,9 @@
 			<trans-unit id="function_links_new_haiku_with_title" xml:space="preserve">
 				<source>Create a new haiku with a predefined title</source>
 			</trans-unit>
+			<trans-unit id="function_links_returnUrl" xml:space="preserve">
+            	<source>with returnUrl to jump back to the module</source>
+            </trans-unit>
 
 			<trans-unit id="function_password" xml:space="preserve">
 				<source>Password hashes</source>
