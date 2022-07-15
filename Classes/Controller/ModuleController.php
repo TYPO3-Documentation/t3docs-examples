@@ -310,6 +310,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
         $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
+        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute('web_examples', ['id' => $pageUid, 'action' => 'links']);
 
         $uriParameters =
             [
@@ -325,7 +327,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                                 1 => 'edit'
                             ]
                     ],
-                'columnsOnly' => 'title,doktype'
+                'columnsOnly' => 'title,doktype',
+                'returnUrl' => $returnUrl
             ];
         $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
         $uriParameters =
