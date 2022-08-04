@@ -23,6 +23,7 @@ use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -78,22 +79,22 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $this->addFlashMessage(
             'This is a notice message',
             'Notification',
-            FlashMessage::NOTICE
+            ContextualFeedbackSeverity::NOTICE
         );
         $this->addFlashMessage(
             'This is an information message',
             'Information',
-            FlashMessage::INFO
+            ContextualFeedbackSeverity::INFO
         );
         $this->addFlashMessage(
             'This is a success message',
             'Hooray!',
-            FlashMessage::OK
+            ContextualFeedbackSeverity::OK
         );
         $this->addFlashMessage(
             'This is a warning message',
             'Watch out',
-            FlashMessage::WARNING
+            ContextualFeedbackSeverity::WARNING
         );
         $this->addFlashMessage(
             '
@@ -101,12 +102,12 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 				<p><strong>It shows that flash messages may not contain HTML (anymore, since TYPO3 7 LTS).</strong></p>
 			',
             'Whoops!',
-            FlashMessage::ERROR
+            ContextualFeedbackSeverity::ERROR
         );
         $this->addFlashMessage(
             'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
             'Success',
-            FlashMessage::OK,
+            ContextualFeedbackSeverity::OK,
             false
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
@@ -137,7 +138,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $this->addFlashMessage(
             '3 log entries created',
             '',
-            FlashMessage::INFO
+            ContextualFeedbackSeverity::INFO
         );
         $view = $this->initializeModuleTemplate($this->request);
         return $view->renderResponse();
@@ -468,7 +469,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                         'create_relation_error',
                         'examples'
                     ),
-                    FlashMessage::ERROR
+                    ContextualFeedbackSeverity::ERROR
                 );
             }
         }
