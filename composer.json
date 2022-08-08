@@ -20,9 +20,6 @@
         "typo3/cms-core": "^12.0.0|dev-main",
 		"typo3/cms-fluid-styled-content": "^12.0.0|dev-main"
     },
-    "replace": {
-        "typo3-ter/examples": "self.version"
-    },
     "extra": {
         "typo3/cms": {
             "extension-key": "examples"
