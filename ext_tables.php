@@ -45,12 +45,6 @@ defined('TYPO3') or die();
     // Allow the haiku table anywhere in the page tree
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_haiku');
 
-    // Add context sensitive help (csh) for the haiku table
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-        'tx_examples_haiku',
-        'EXT:examples/Resources/Private/Language/locallang_csh_txexampleshaiku.xlf'
-    );
-
     // Define a new doktype
     $customPageDoktype = 116;
     $customIconClass = 'tx_examples-archive-page';
