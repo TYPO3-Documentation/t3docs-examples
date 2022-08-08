@@ -16,10 +16,10 @@
      * The TYPO3 project - inspiring people to share!
      */
 
+    use T3docs\Examples\Domain\Repository\CategoryRepository;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
     use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-    use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
 
     /**
      * Class for data processing comma separated categories
