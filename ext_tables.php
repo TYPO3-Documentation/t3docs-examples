@@ -37,41 +37,6 @@ defined('TYPO3') or die();
         'after:email'
     );
 
-    // Register sprite icons (for news tables, click-menu items, etc.)
-    /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-    $iconRegistry->registerIcon(
-        'tx_examples-dummy',
-        \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
-        [
-            'name' => 'flask',
-        ]
-    );
-    $iconRegistry->registerIcon(
-        'tx_examples-haiku',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:examples/Resources/Public/Images/Haiku.svg',
-        ]
-    );
-    // Add sprite icon for new content element wizard
-    $iconRegistry->registerIcon(
-        'tx_examples-error-plugin',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:examples/Resources/Public/Images/ErrorWizard.svg',
-        ]
-    );
-    // Add sprite icon for the context menu item
-    $iconRegistry->registerIcon(
-        'tx_examples-page-tree',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:examples/Resources/Public/Images/PageTree.svg',
-        ]
-    );
-
-
     // Settings for new tables, which do not belong to Configuration/TCA
 
     // Allow dummy table anywhere in the page tree
@@ -89,14 +54,6 @@ defined('TYPO3') or die();
     // Define a new doktype
     $customPageDoktype = 116;
     $customIconClass = 'tx_examples-archive-page';
-    // Add sprite icon for the context menu item
-    $iconRegistry->registerIcon(
-        $customIconClass,
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:examples/Resources/Public/Images/ArchivePage.svg',
-        ]
-    );
     // Add the new doktype to the list of page types
     $GLOBALS['PAGES_TYPES'][$customPageDoktype] = [
         'type' => 'sys',
