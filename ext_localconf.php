@@ -81,10 +81,6 @@ defined('TYPO3') or die();
             \T3docs\Examples\Controller\ErrorController::class => 'index',
         ]
     );
-    // Add TSconfig for new content element wizard
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
-    );
 
     // Configure the HTML parser plugin
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -115,34 +111,6 @@ defined('TYPO3') or die();
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
         'EXT:examples/Resources/Private/Language/de.custom.xlf';
-
-$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = \T3docs\Examples\ContextMenu\HelloWorldItemProvider::class;
-
-
-// Register default link handlers
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
-TCEMAIN.linkHandler {
-  haiku {
-    handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
-    label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
-    configuration {
-        table = tx_examples_haiku
-    }
-    displayAfter = url
-    scanBefore = page
-  }
-  github {
-    handler = T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
-    label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
-    displayAfter = haiku
-    scanBefore = url
-    configuration {
-        project = TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
-        action = issues
-    }
-  }
-}
-');
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = \T3docs\Examples\ContextMenu\HelloWorldItemProvider::class;
 })();

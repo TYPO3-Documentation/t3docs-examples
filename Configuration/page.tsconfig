@@ -1,2 +1,6 @@
-
-@import 'EXT:examples/Configuration/TSconfig/Page/Extension/Linkvalidator.typoscript'
+@import 'EXT:examples/Configuration/TsConfig/Page/ContentElementWizard.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/CustomContentElements.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/Extension/Linkhandler.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/Extension/Linkvalidator.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/Mod/csvExport.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/Mod/noExportRecordsLinks.tsconfig'
