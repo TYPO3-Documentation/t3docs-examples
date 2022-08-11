@@ -26,6 +26,7 @@ return [
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.hidden.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -41,6 +42,7 @@ return [
         'title' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.title',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.title.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -50,6 +52,7 @@ return [
         'poem' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.poem',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.poem.description',
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -91,6 +94,7 @@ return [
         'season' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.description',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
@@ -125,6 +129,7 @@ return [
         'weirdness' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness.description',
             'config' => [
                 'type' => 'input',
                 'size' => 10,
@@ -143,6 +148,7 @@ return [
         'color' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color',
+            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color.description',
             'config' => [
                 'type' => 'input',
                 'size' => 10,
