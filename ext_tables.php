@@ -36,11 +36,8 @@ defined('TYPO3') or die();
         'allowedTables' => '*',
     ];
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
-    );
     // Add custom doktype to the page tree toolbar
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-        "@import 'EXT:examples/Configuration/TSconfig/User/*.typoscript'"
+        "@import 'EXT:examples/Configuration/TsConfig/User/*.tsconfig'"
     );
 })();
