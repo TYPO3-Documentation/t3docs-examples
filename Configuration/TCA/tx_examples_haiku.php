@@ -6,14 +6,12 @@ return [
         'label_userFunc' => \T3docs\Examples\Userfuncs\Tca::class . '->haikuTitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY title',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
         'searchFields' => 'title,poem',
-        'dividers2tabs' => true,
         'typeicon_classes' => [
             'default' => 'tx_examples-haiku',
         ],
@@ -46,7 +44,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim',
+                'required' => true,
+                'eval' => 'trim',
             ],
         ],
         'poem' => [
@@ -131,9 +130,8 @@ return [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness',
             'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness.description',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 10,
-                'eval' => 'int',
                 'wizards' => [
                     'specialWizard' => [
                         'type' => 'userFunc',
@@ -150,19 +148,16 @@ return [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color',
             'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color.description',
             'config' => [
-                'type' => 'input',
+                'type' => 'color',
                 'size' => 10,
-                'eval' => 'trim',
-                'renderType' => 'colorpicker',
             ],
         ],
         'angle' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.angle',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 5,
-                'eval' => 'trim,int',
                 'range' => [
                     'lower' => -90,
                     'upper' => 90,
@@ -193,7 +188,6 @@ return [
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_records',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'pages, tt_content',
                 'size' => 5,
                 'minitems' => 0,
