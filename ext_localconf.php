@@ -111,6 +111,4 @@ defined('TYPO3') or die();
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
         'EXT:examples/Resources/Private/Language/de.custom.xlf';
-
-    $GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders'][1488274371] = \T3docs\Examples\ContextMenu\HelloWorldItemProvider::class;
 })();

@@ -29,7 +29,7 @@ class HelloWorldItemProvider extends AbstractProvider
         'hello' => [
             'type' => 'item',
             'label' => 'Hello World', // you can use "LLL:" syntax here
-            'iconIdentifier' => 'actions-document-info',
+            'iconIdentifier' => 'actions-lightbulb-on',
             'callbackAction' => 'helloWorld' //name of the function in the JS file
         ]
     ];
