@@ -5,25 +5,6 @@ defined('TYPO3') or die();
 // encapsulate all locally defined variables
 (function () {
 
-    // Add examples BE module
-    // This module is used to demonstrate some features and take screenshots
-    // Register the backend module
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Examples',
-        'tools', // Make module a submodule of 'Admin Tools'
-        'examples', // Submodule key
-        '', // Position
-        [
-            // An array holding the controller-action-combinations that are accessible
-            \T3docs\Examples\Controller\ModuleController::class => 'flash,log,tree,debug,clipboard,password,links,fileReference,fileReferenceCreate',
-        ],
-        [
-            'access' => 'user,group',
-            'icon' => 'EXT:examples/Resources/Public/Images/BackendModule.svg',
-            'labels' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf'
-        ]
-    );
-
     // Add extra fields to User Settings (field is defined for TCA too in Configuration/TCA/Overrides/be_users.php)
     // IMPORTANT: We need to define a dependency on sysext:setup to ensure that the loading order is correct and
     // the configuration is properly applied.
