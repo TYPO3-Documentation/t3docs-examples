@@ -13,7 +13,6 @@ mod.wizards.newContentElement.wizardItems.plugins {
 }
 
 mod.wizards.newContentElement.wizardItems {
-
    dataProcessingExamples.header = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:dataProcessingExamples
    dataProcessingExamples.elements {
       examples_newcontentcsv {
