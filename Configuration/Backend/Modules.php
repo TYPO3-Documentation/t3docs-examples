@@ -15,7 +15,7 @@ return [
         'path' => '/module/page/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf',
         'extensionName' => 'Examples',
-        'iconIdentifier' => 'module-generic',
+        'iconIdentifier' => 'tx_examples-backend-module',
         'controllerActions' => [
             ModuleController::class => [
                 'flash','tree','clipboard','links','fileReference','fileReferenceCreate',
@@ -30,7 +30,7 @@ return [
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
         'extensionName' => 'Examples',
-        'iconIdentifier' => 'module-generic',
+        'iconIdentifier' => 'tx_examples-backend-module',
         'routes' => [
            '_default' => [
                'target' => AdminModuleController::class . '::handleRequest',

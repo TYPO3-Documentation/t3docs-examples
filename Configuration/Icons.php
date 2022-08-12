@@ -23,4 +23,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:examples/Resources/Public/Images/ArchivePage.svg',
     ],
+    'tx_examples-backend-module' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:examples/Resources/Public/Images/BackendModule.svg',
+    ],
 ];
