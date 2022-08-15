@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /**
@@ -21,8 +22,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  * Frontend plugin for demonstrating collections
  *
  * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class ErrorController extends ActionController
 {

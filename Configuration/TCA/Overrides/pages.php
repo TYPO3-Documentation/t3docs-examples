@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3') or die();
 
 // Add a "related pages" field to demonstrate select-type fields with tree rendering

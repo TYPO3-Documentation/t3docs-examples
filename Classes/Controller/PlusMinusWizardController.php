@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /*
@@ -16,14 +17,11 @@ namespace T3docs\Examples\Controller;
 
 use TYPO3\CMS\Backend\Form\Element\InputTextElement;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Wizard for display +/- controls next to an input field.
  *
  * @author Francois Suter <francois.suter@typo3.org>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class PlusMinusWizardController
 {
@@ -33,6 +31,7 @@ class PlusMinusWizardController
     {
         $this->pageRenderer = $pageRenderer;
     }
+
     /**
      * Renders the wizard itself.
      *
@@ -48,11 +47,11 @@ class PlusMinusWizardController
         );
         // Render the two buttons
         $wizard = '<button class="btn btn-default tx_examples_weirdness" data-item="' .
-                  $fieldParameters['itemName'] .
-                  '" data-action="minus"><span class="t3-icon fa fa-minus"></span></button>';
+            $fieldParameters['itemName'] .
+            '" data-action="minus"><span class="t3-icon fa fa-minus"></span></button>';
         $wizard .= '<button class="btn btn-default tx_examples_weirdness" data-item="' .
-                   $fieldParameters['itemName'] .
-                   '" data-action="plus"><span class="t3-icon fa fa-plus"></span></button>';
+            $fieldParameters['itemName'] .
+            '" data-action="plus"><span class="t3-icon fa fa-plus"></span></button>';
         return $wizard;
     }
 }

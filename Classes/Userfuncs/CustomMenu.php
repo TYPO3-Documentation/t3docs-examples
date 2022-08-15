@@ -6,8 +6,7 @@ namespace T3docs\Examples\Userfuncs;
 
 class CustomMenu
 {
-
-    public function makeMenuArray(string $content, array $conf) : array
+    public function makeMenuArray(string $content, array $conf): array
     {
         return [
             [
@@ -32,8 +31,8 @@ class CustomMenu
                                 'title' => 'New York Office',
                                 '_OVERRIDE_HREF' => 'https://example.com',
                                 '_OVERRIDE_TARGET' => '_blank',
-                            ]
-                        ]
+                            ],
+                        ],
                     ],
                     [
                         'title' => 'Form',
@@ -48,7 +47,7 @@ class CustomMenu
             [
                 'title' => 'Products',
                 '_OVERRIDE_HREF' => 'index.php?id=14',
-            ]
+            ],
         ];
     }
 }

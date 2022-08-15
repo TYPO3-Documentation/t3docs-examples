@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\ContextMenu;
 
 /**
@@ -30,8 +31,8 @@ class HelloWorldItemProvider extends AbstractProvider
             'type' => 'item',
             'label' => 'Hello World', // you can use "LLL:" syntax here
             'iconIdentifier' => 'actions-lightbulb-on',
-            'callbackAction' => 'helloWorld' //name of the function in the JS file
-        ]
+            'callbackAction' => 'helloWorld', //name of the function in the JS file
+        ],
     ];
 
     /**
@@ -140,7 +141,7 @@ class HelloWorldItemProvider extends AbstractProvider
      */
     protected function canSayHello(): bool
     {
-         //usually here you can find more sophisticated condition. See e.g. PageProvider::canBeEdited()
-         return true;
+        //usually here you can find more sophisticated condition. See e.g. PageProvider::canBeEdited()
+        return true;
     }
 }

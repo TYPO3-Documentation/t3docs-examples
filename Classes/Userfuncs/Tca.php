@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Userfuncs;
 
 /**
@@ -21,8 +22,6 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
  * Class that implements many examples related to TCA or TCEform manipulations
  *
  * @author Francois Suter <francois.suter@typo3.org>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class Tca
 {
@@ -53,7 +52,6 @@ class Tca
      *
      * @param array $parameters Parameters used to identify the current record
      * @param object $parentObject Calling object (null in this case)
-     * @return void
      */
     public function haikuTitle(&$parameters, $parentObject)
     {

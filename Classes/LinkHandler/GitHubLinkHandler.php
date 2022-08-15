@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\LinkHandler;
 
 /**
@@ -62,8 +63,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
     protected $pageRenderer;
 
     /**
-    * @var array $configuration
-    */
+     * @var array $configuration
+     */
     protected $configuration;
 
     /**
@@ -117,7 +118,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
         return $this->linkParts['url']['url'];
     }
 
-
     /**
      * Render the link handler
      *
@@ -130,7 +130,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
         $this->view->setTemplateRootPaths([
             ...$this->view->getTemplateRootPaths(),
-            GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')
+            GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser'),
         ]);
 
         $this->view->assign('project', $this->configuration['project']);
@@ -173,7 +173,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function isUpdateSupported()
     {
-        return FALSE;
+        return false;
     }
 
     public function setView(ViewInterface $view): void

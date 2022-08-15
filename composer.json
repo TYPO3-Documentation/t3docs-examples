@@ -19,6 +19,8 @@
     "require": {
 		"typo3/cms-backend": "^12.0 || dev-main",
         "typo3/cms-core": "^12.0 || dev-main",
+		"typo3/cms-extbase": "^12.0 || dev-main",
+		"typo3/cms-fluid": "^12.0 || dev-main",
 		"typo3/cms-fluid-styled-content": "^12.0 || dev-main",
 		"typo3/cms-linkvalidator": "^12.0 || dev-main"
     },
@@ -38,6 +40,8 @@
             "rm .editorconfig"
         ]
     },
+	"minimum-stability": "dev",
+	"prefer-stable": true,
     "config": {
         "allow-plugins": {
             "typo3/class-alias-loader": true,
@@ -45,5 +49,8 @@
         },
 		"bin-dir": ".Build/bin",
 		"vendor-dir": ".Build/vendor"
-	}
+	},
+    "require-dev": {
+        "typo3/coding-standards": "^0.5.5"
+    }
 }

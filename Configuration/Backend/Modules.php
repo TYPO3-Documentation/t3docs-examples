@@ -1,7 +1,7 @@
 <?php
 
-use T3docs\Examples\Controller\ModuleController;
 use T3docs\Examples\Controller\AdminModuleController;
+use T3docs\Examples\Controller\ModuleController;
 
 /**
  * Definitions for modules provided by EXT:examples
@@ -18,7 +18,7 @@ return [
         'iconIdentifier' => 'tx_examples-backend-module',
         'controllerActions' => [
             ModuleController::class => [
-                'flash','tree','clipboard','links','fileReference','fileReferenceCreate',
+                'flash', 'tree', 'clipboard', 'links', 'fileReference', 'fileReferenceCreate',
             ],
         ],
     ],

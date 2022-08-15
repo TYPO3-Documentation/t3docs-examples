@@ -1,4 +1,5 @@
 <?php
+
 // Prevent Script from being called directly
 defined('TYPO3') or die();
 
@@ -35,7 +36,6 @@ defined('TYPO3') or die();
         'class' => \T3docs\Examples\Form\Element\SpecialFieldElement::class,
     ];
 
-
     // Add example configuration for the logging API
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
         // configuration for ERROR level log entries
@@ -44,8 +44,8 @@ defined('TYPO3') or die();
             \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
                 // configuration for the writer
                 'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log',
-            ]
-        ]
+            ],
+        ],
     ];
 
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [

@@ -1,0 +1,31 @@
+name: tests
+
+on:
+   push:
+   pull_request:
+
+jobs:
+   testsuite:
+      name: All tests
+      runs-on: ubuntu-22.04
+      strategy:
+         matrix:
+            php:
+               - '8.1'
+               - '8.2'
+      steps:
+         - name: Checkout
+           uses: actions/checkout@v3
+
+         - name: Install testing system
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
+
+         - name: Composer validate
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
+
+         - name: Lint PHP
+           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+
+         - name: CGL
+           if: ${{ matrix.php == '8.1' }}
+           run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl
