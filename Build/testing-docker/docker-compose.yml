@@ -75,7 +75,7 @@ services:
              set -x
            fi
            php -v | grep '^PHP';
-           composer normalize;
+           composer normalize ${COMPOSER_NORMALIZE_DRY_RUN};
          "
 
    lint:
