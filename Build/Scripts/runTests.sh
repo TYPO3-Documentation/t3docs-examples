@@ -42,6 +42,7 @@ Options:
     -s <...>
         Specifies which test suite to run
             - cgl: cgl test and fix all php files
+            - composerNormalize: "composer normalize"
             - composerUpdate: "composer update", handy if host has no PHP
             - composerValidate: "composer validate"
             - lint: PHP linting
@@ -157,6 +158,12 @@ case ${TEST_SUITE} in
         fi
         setUpDockerComposeDotEnv
         docker-compose run cgl
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
+    composerNormalize)
+        setUpDockerComposeDotEnv
+        docker-compose run composer_normalize
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
