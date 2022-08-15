@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
@@ -8,16 +9,15 @@ use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
-use TYPO3\CMS\Core\Localization\LanguageService;
 
 class AdminModuleController
 {
-
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
         protected readonly IconFactory $iconFactory,
         // ...
-    ) {}
+    ) {
+    }
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
     {
@@ -69,26 +69,23 @@ class AdminModuleController
     public function indexAction(
         ServerRequestInterface $request,
         ModuleTemplate $view
-    ) : ResponseInterface
-    {
+    ): ResponseInterface {
         $view->assign('aVariable', 'aValue');
         return $view->renderResponse('AdminModule/Index');
     }
 
-
     protected function debugAction(
         ServerRequestInterface $request,
         ModuleTemplate $view
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $cmd = $request->getParsedBody()['tx_examples_admin_examples']['cmd'] ?? 'cookies';
         switch ($cmd) {
             case 'cookies':
                 $this->debugCookies();
                 break;
             default:
-                // do something else
-        }
+            // do something else
+            }
 
         $view->assignMultiple(
             [
@@ -99,12 +96,10 @@ class AdminModuleController
         return $view->renderResponse('AdminModule/Debug');
     }
 
-
     protected function passwordAction(
         ServerRequestInterface $request,
         ModuleTemplate $view
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         // TODO: Do something
         return $view->renderResponse('AdminModule/Password');
     }

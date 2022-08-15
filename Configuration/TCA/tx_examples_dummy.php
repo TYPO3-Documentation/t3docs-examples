@@ -1,4 +1,5 @@
 <?php
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy',
@@ -26,10 +27,10 @@ return [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
         'record_type' => [
             'exclude' => 0,

@@ -1,7 +1,6 @@
 <?php
-namespace T3docs\Examples\Xclass;
 
-use Psr\Http\Message\ServerRequestInterface;
+namespace T3docs\Examples\Xclass;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -20,8 +19,6 @@ use Psr\Http\Message\ServerRequestInterface;
  * This class XCLASSes NewRecordController to modify the layout of the New Record Wizard
  *
  * @author Francois Suter <francois@typo3.org>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
 {
@@ -29,15 +26,13 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
      * Adds a section at the bottom of the New Record Wizard
      *
      * USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
-     *
-     * @return    void
      */
     protected function renderNewRecordControls(): void
     {
         parent::renderNewRecordControls();
         $label = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help');
         $text = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice');
-        $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label) . '</h2>' . $text . '</div>';
+        $str = '<div><h2 class="uppercase" >' . htmlspecialchars($label) . '</h2>' . $text . '</div>';
 
         $this->content .= $str;
     }

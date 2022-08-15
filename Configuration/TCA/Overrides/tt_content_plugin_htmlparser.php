@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -9,8 +10,11 @@ $pluginName = 'HtmlParser';
 $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title';
 
 // Register the HTML Parser plugin
-$pluginSignature = ExtensionUtility::registerPlugin($extensionKey, $pluginName,
-    $pluginTitle);
+$pluginSignature = ExtensionUtility::registerPlugin(
+    $extensionKey,
+    $pluginName,
+    $pluginTitle
+);
 
 // $pluginSignature == "examples_htmlparser"
 
@@ -21,5 +25,6 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignat
 
 // Configure FlexForm
 ExtensionManagementUtility::addPiFlexFormValue(
-    $pluginSignature, 'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml'
+    $pluginSignature,
+    'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml'
 );

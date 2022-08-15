@@ -1,4 +1,5 @@
 <?php
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
@@ -32,10 +33,10 @@ return [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
         'title' => [
             'exclude' => 0,
@@ -68,7 +69,7 @@ return [
                 'image',
                 [
                     'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
                     ],
                     // custom configuration for displaying fields in the overlay/reference table
                     // to use the image overlay palette instead of the basic overlay palette
@@ -77,12 +78,12 @@ return [
                             '0' => [
                                 'showitem' => '
                             --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
+                            --palette--;;filePalette',
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
                                 'showitem' => '
                             --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
+                            --palette--;;filePalette',
                             ],
                         ],
                     ],

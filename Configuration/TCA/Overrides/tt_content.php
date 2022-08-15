@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -22,8 +23,8 @@ $temporaryColumn = [
             'items' => [
                 [
                     0 => '',
-                    1 => ''
-                ]
+                    1 => '',
+                ],
             ],
         ],
     ],
@@ -41,7 +42,7 @@ $temporaryColumn = [
                 ['Pipe separated (TYPO3 tables)', '|'],
                 ['Tab separated', "\t"],
             ],
-            'default' => ','
+            'default' => ',',
         ],
     ],
     'tx_examples_main_category' => [
@@ -56,7 +57,7 @@ $temporaryColumn = [
             'foreign_table' => 'sys_category',
             'foreign_table_where' => 'AND {#sys_category}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#sys_category}.{#hidden} = 0 ' .
                    'AND {#sys_category}.{#deleted} = 0 AND {#sys_category}.{#sys_language_uid} IN (0,-1) ORDER BY sys_category.uid',
-            'default' => '0'
+            'default' => '0',
         ],
     ],
 ];
@@ -123,20 +124,21 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi4'] = 'layout,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_error'] = 'layout,select_key,pages';
 
-
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi2'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi2', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
+    'examples_pi2',
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi3'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi3', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
+    'examples_pi3',
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi4'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi4', 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
+    'examples_pi4',
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
 );
-
 
 $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;;frames,
@@ -152,7 +154,6 @@ $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_t
             rowDescription,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,';
 
-
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
@@ -162,8 +163,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_newcontentcsv',
         'mimetypes-x-content-table',
     ],
-    );
-
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_newcontentcsv'] = [
     'showitem' => '
@@ -173,7 +173,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_newcontentcsv'] = [
             imagecols,
             tx_examples_separator,
             bodytext;LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_bodytext,
-    '.$standardTabs,
+    ' . $standardTabs,
     'columnsOverrides' => [
         'bodytext' => [
             'config' => [
@@ -217,7 +217,6 @@ $GLOBALS['TCA']['tt_content']['types']['examples_newcontentelement'] = [
     ],
 ];
 
-
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -235,9 +234,8 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
             --palette--;;headers,
             pages,
             recursive,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
-
 
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
@@ -247,7 +245,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataprocmenu',
         'content-special-uploads',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
     'showitem' => '
@@ -255,7 +253,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
             --palette--;;general,
             --palette--;;headers,
             pages,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(
@@ -266,16 +264,15 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataproclang',
         'install-manage-language',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
     'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
             --palette--;;headers,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
-
 
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
@@ -293,7 +290,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
             --palette--;;general,
             --palette--;;headers,
             pages,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(
@@ -312,7 +309,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsitelanguage'] = [
             --palette--;;general,
             --palette--;;headers,
             pages,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(
@@ -323,16 +320,15 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataprocsplit',
         'content-timeline',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsplit'] = [
     'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
             --palette--;;headers,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
-
 
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
@@ -342,7 +338,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataprocfiles',
         'content-image',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocfiles'] = [
     'showitem' => '
@@ -351,7 +347,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocfiles'] = [
             --palette--;;headers,
             image,
             --palette--;;mediaAdjustments,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(
@@ -362,7 +358,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataprocgallery',
         'content-dashboard',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
     'showitem' => '
@@ -372,7 +368,7 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
             image,
             --palette--;;mediaAdjustments,
             --palette--;;gallerySettings,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(
@@ -383,7 +379,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'examples_dataproccustom',
         'content-dashboard',
     ],
-    );
+);
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataproccustom'] = [
     'showitem' => '
@@ -391,5 +387,5 @@ $GLOBALS['TCA']['tt_content']['types']['examples_dataproccustom'] = [
             --palette--;;general,
             --palette--;;headers,
             tx_examples_main_category,
-    '.$standardTabs,
+    ' . $standardTabs,
 ];

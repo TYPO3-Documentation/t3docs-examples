@@ -1,5 +1,6 @@
 <?php
-namespace  T3docs\Examples\LinkValidator\LinkType;
+
+namespace T3docs\Examples\LinkValidator\LinkType;
 
 /**
  * This file is part of the TYPO3 CMS project.

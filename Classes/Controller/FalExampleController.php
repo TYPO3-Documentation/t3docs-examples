@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /*
@@ -15,14 +16,11 @@ namespace T3docs\Examples\Controller;
  */
 
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class FalExampleController
- *
- * @package T3docs\Examples\Controller
  */
 class FalExampleController extends ActionController
 {
@@ -35,7 +33,6 @@ class FalExampleController extends ActionController
 
     /**
      * Displays a list of links to the other actions.
-     *
      */
     public function indexAction(): ResponseInterface
     {
@@ -44,7 +41,6 @@ class FalExampleController extends ActionController
 
     /**
      * Displays a list of files for a chosen storage and folder.
-     *
      */
     public function listFilesAction(): ResponseInterface
     {

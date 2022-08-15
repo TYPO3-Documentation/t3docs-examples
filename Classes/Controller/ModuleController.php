@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /**
@@ -20,38 +21,33 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
-use TYPO3\CMS\Backend\Template\Components\Menu\MenuItem;
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
+use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
-use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
-use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Log\LogLevel;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Type\Bitmask\Permission;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
-use TYPO3\CMS\Backend\Template\ModuleTemplate;
-use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
-use TYPO3\CMS\Core\Localization\LanguageService;
-use TYPO3\CMS\Core\Type\Bitmask\Permission;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 /**
  * Controller for the backend module
  *
  * @author Francois Suter (Cobweb) <francois.suter@typo3.org>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class ModuleController extends ActionController implements LoggerAwareInterface
 {
@@ -71,7 +67,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Renders the list of all possible flash messages
-     *
      */
     public function flashAction(): ResponseInterface
     {
@@ -118,7 +113,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * Creates some entries using the logging API
      * $this->logger gets set by usage of the LoggerAwareTrait
-     *
      */
     public function logAction(): ResponseInterface
     {
@@ -146,7 +140,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Displays a page tree
-     *
      */
     public function treeAction(): ResponseInterface
     {
@@ -165,7 +158,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         /** @var $tree PageTreeView */
         $tree = GeneralUtility::makeInstance(PageTreeView::class);
         $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
-
 
         if ($pageRecord) {
             $html = $this->iconFactory->getIconForRecord(
@@ -199,12 +191,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Displays the content of the clipboard
-     *
      */
     public function debugAction(
         string $cmd = 'cookies'
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
         switch ($cmd) {
             case 'cookies':
@@ -216,18 +206,17 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $view->renderResponse();
     }
 
-    protected function debugCookies() {
+    protected function debugCookies()
+    {
         DebugUtility::debug($_COOKIE, 'cookie');
     }
 
     /**
      * Displays the content of the clipboard
-     *
      */
     public function clipboardAction(
         string $cmd = 'show'
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
         switch ($cmd) {
             case 'debug':
@@ -251,12 +240,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $view->renderResponse();
     }
 
-
     /**
      * Debugs the content of the clipboard
-     *
      */
-    protected function getClipboard(string $identifier):array
+    protected function getClipboard(string $identifier): array
     {
         /** @var $clipboard Clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
@@ -273,9 +260,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Debugs the content of the clipboard
-     *
      */
-    protected function getCurrentClipboard():array
+    protected function getCurrentClipboard(): array
     {
         /** @var $clipboard Clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
@@ -291,7 +277,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Debugs the content of the clipboard
-     *
      */
     protected function debugClipboard()
     {
@@ -304,7 +289,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Displays links to edit records.
-     *
      */
     public function linksAction(): ResponseInterface
     {
@@ -321,15 +305,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                         'pages' =>
                             [
                                 1 => 'edit',
-                                2 => 'edit'
+                                2 => 'edit',
                             ],
                         'tx_examples_haiku' =>
                             [
-                                1 => 'edit'
-                            ]
+                                1 => 'edit',
+                            ],
                     ],
                 'columnsOnly' => 'title,doktype',
-                'returnUrl' => $returnUrl
+                'returnUrl' => $returnUrl,
             ];
         $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
         $uriParameters =
@@ -338,18 +322,18 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     [
                         'tx_examples_haiku' =>
                             [
-                                1 => 'new'
-                            ]
+                                1 => 'new',
+                            ],
                     ],
                 'defVals' =>
                     [
                         'tx_examples_haiku' =>
                             [
                                 'title' => 'New Haiku?',
-                                'season' => 'Spring'
-                            ]
+                                'season' => 'Spring',
+                            ],
                     ],
-                'columnsOnly' => 'title,season,color'
+                'columnsOnly' => 'title,season,color',
             ];
         $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
 
@@ -379,7 +363,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $contentElements = $connection->select(
                 ['uid', 'header'],
                 'tt_content',
-                [] ,
+                [],
                 [],
                 ['header' => 'ASC']
             );
@@ -485,12 +469,14 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             );
     }
 
-    public function getPasswordHash(string $password, string $mode) : string {
+    public function getPasswordHash(string $password, string $mode): string
+    {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
         return $hashInstance->getHashedPassword($password);
     }
 
-    public function checkPassword(string $hashedPassword, string $expectedPassword, string $mode) : bool {
+    public function checkPassword(string $hashedPassword, string $expectedPassword, string $mode): bool
+    {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
         return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
     }
@@ -515,12 +501,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'hashedPassword' => $hashedPassword,
                 'password' => $password,
                 'success' => $success,
-                'passwordAction' => $passwordAction
+                'passwordAction' => $passwordAction,
             ]
         );
         return $view->renderResponse();
     }
-
 
     /**
      * Returns a count of entries in a table defined by a request parameter, in JSON format.

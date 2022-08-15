@@ -1,4 +1,5 @@
 <?php
+
 namespace T3docs\Examples\Controller;
 
 /**
@@ -16,15 +17,12 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Html\HtmlParser;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Frontend plugin for demonstrating the HTML parser.
  *
  * @author Francois Suter (Cobweb) <francois.suter@typo3.org>
- * @package TYPO3
- * @subpackage tx_examples
  */
 class HtmlParserController extends ActionController
 {
@@ -37,7 +35,6 @@ class HtmlParserController extends ActionController
 
     /**
      * Parses some HTML using TYPO3's HTML parser and sends the result to debug output.
-     *
      */
     public function indexAction(): ResponseInterface
     {
