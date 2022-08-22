@@ -84,8 +84,8 @@ class AdminModuleController
                 $this->debugCookies();
                 break;
             default:
-            // do something else
-            }
+                // do something else
+        }
 
         $view->assignMultiple(
             [

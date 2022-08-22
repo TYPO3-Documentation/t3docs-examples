@@ -5,7 +5,6 @@ defined('TYPO3') or die();
 
 // encapsulate all locally defined variables
 (function () {
-
     // Add extra fields to User Settings (field is defined for TCA too in Configuration/TCA/Overrides/be_users.php)
     // IMPORTANT: We need to define a dependency on sysext:setup to ensure that the loading order is correct and
     // the configuration is properly applied.

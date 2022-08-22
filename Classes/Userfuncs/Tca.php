@@ -25,7 +25,6 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
  */
 class Tca
 {
-
     /**
      * Renders a custom, user-defined field.
      *

@@ -5,7 +5,6 @@ defined('TYPO3') or die();
 
 // encapsulate all locally defined variables
 (function () {
-
     // Load XCLASSing of db_new
     // USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\TYPO3\CMS\Backend\Controller\NewRecordController::class] = [
