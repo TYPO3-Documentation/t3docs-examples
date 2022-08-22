@@ -25,7 +25,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ErrorController extends ActionController
 {
-
     /**
      * Throws an exception (to demonstrate Core error handling).
      *

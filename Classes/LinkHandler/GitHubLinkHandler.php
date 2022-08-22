@@ -25,7 +25,6 @@ use TYPO3Fluid\Fluid\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
 {
-
     /**
      * Available additional link attributes
      *
