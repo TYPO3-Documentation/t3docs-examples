@@ -7,9 +7,11 @@ defined('TYPO3') or die();
 (function () {
     // Load XCLASSing of db_new
     // USAGE: Core APIs > TYPO3 API overview > PHP Class Extension > Which classes? > Example - Adding a small feature in the interface
+    /* Disabled, @see #60
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\TYPO3\CMS\Backend\Controller\NewRecordController::class] = [
         'className' => \T3docs\Examples\Xclass\NewRecordController::class,
     ];
+    */
 
     // Define custom permission options
     // USAGE: Core APIs > TYPO3 API overview > Various examples > Custom permission
