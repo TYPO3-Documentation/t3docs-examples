@@ -104,14 +104,13 @@ final class BeforeRecordIsAnalyzedEventListener
     }
 
     private function matchUrl(
-        string $tokenValue,
+        string $foundUrl,
         string $forbiddenDomain,
         string $table,
         string $field,
         array $newsItem,
         array $results
     ): array {
-        $foundUrl = (string)$tokenValue;
         if (str_contains($foundUrl, $forbiddenDomain)) {
             $this->addItemToBrokenLinkRepository(
                 $table,
