@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VT3docs\Examples\EventListener\Linkvalidator;
+namespace T3docs\Examples\EventListener\Linkvalidator;
 
 use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory;
 use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
