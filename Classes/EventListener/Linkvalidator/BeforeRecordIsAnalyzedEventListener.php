@@ -10,7 +10,7 @@ use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
 final class BeforeRecordIsAnalyzedEventListener
 {
-    protected BrokenLinkRepository $brokenLinkRepository;
+    private BrokenLinkRepository $brokenLinkRepository;
     protected SoftReferenceParserFactory $softReferenceParserFactory;
     public function __construct(
         BrokenLinkRepository $brokenLinkRepository,
