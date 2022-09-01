@@ -46,8 +46,10 @@ final class CheckExternalLinksToLocalPagesEventListener
         $conf = $GLOBALS['TCA'][self::TABLE_NAME]['columns'][self::FIELD_NAME]['config'];
         foreach ($this->findAllParsers($conf) as $softReferenceParser) {
             $parserResult = $softReferenceParser->parse(
+                self::TABLE_NAME,
+                self::FIELD_NAME,
                 $record['uid'],
-                $record[self::FIELD_NAME]
+                (string)$record[self::FIELD_NAME]
             );
             if (!$parserResult->hasMatched()) {
                 continue;
