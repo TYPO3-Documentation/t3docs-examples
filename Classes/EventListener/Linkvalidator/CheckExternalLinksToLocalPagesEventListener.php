@@ -12,7 +12,7 @@ final class CheckExternalLinksToLocalPagesEventListener
 {
     private const LOCAL_DOMAIN = 'example.org';
     private const TABLE_NAME = 'tt_content';
-    const FIELD_NAME = 'bodytext';
+    private const FIELD_NAME = 'bodytext';
 
     private BrokenLinkRepository $brokenLinkRepository;
     private SoftReferenceParserFactory $softReferenceParserFactory;
