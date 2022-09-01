@@ -6,7 +6,7 @@ namespace T3docs\Examples\Http;
 
 use TYPO3\CMS\Core\Http\RequestFactory;
 
-final class CatFactRequester
+final class MeowInformationRequester
 {
     private const API_URL = 'https://catfact.ninja/fact';
 

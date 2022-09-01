@@ -15,8 +15,8 @@ services:
    T3docs\Examples\Controller\AdminModuleController:
       tags: ['backend.controller']
 
-   T3docs\Examples\Command\CatFactCommand:
+   T3docs\Examples\Command\MeowInformationCommand:
       tags:
          - name: 'console.command'
-           command: 'examples:catfact'
-           description: 'Cat Fact'
+           command: 'examples:meow'
+           description: 'Meow Information'
