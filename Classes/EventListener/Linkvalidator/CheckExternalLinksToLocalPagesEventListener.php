@@ -32,22 +32,22 @@ final class CheckExternalLinksToLocalPagesEventListener
             return;
         }
         $results = $event->getResults();
-        $newsItem = $event->getRecord();
-        $field = (string)$newsItem[self::FIELD_NAME];
+        $record = $event->getRecord();
+        $field = (string)$record[self::FIELD_NAME];
         if (!str_contains($field, self::LOCAL_DOMAIN)) {
             return;
         }
-        $results = $this->parseField($newsItem, $results);
+        $results = $this->parseField($record, $results);
         $event->setResults($results);
     }
 
-    private function parseField(array $newsItem, array $results): array
+    private function parseField(array $record, array $results): array
     {
         $conf = $GLOBALS['TCA'][self::TABLE_NAME]['columns'][self::FIELD_NAME]['config'];
         foreach ($this->findAllParsers($conf) as $softReferenceParser) {
             $parserResult = $softReferenceParser->parse(
-                $newsItem['uid'],
-                $newsItem[self::FIELD_NAME]
+                $record['uid'],
+                $record[self::FIELD_NAME]
             );
             if (!$parserResult->hasMatched()) {
                 continue;
@@ -58,7 +58,7 @@ final class CheckExternalLinksToLocalPagesEventListener
                 }
                 $this->matchUrl(
                     (string)$matchedElement['subst']['tokenValue'],
-                    $newsItem,
+                    $record,
                     $results
                 );
             }
@@ -74,20 +74,20 @@ final class CheckExternalLinksToLocalPagesEventListener
         );
     }
 
-    private function matchUrl(string $foundUrl, array $newsItem, array &$results): void
+    private function matchUrl(string $foundUrl, array $record, array &$results): void
     {
         if (str_contains($foundUrl, self::LOCAL_DOMAIN)) {
-            $this->addItemToBrokenLinkRepository($newsItem, $foundUrl);
-            $results[] = $newsItem;
+            $this->addItemToBrokenLinkRepository($record, $foundUrl);
+            $results[] = $record;
         }
     }
 
-    private function addItemToBrokenLinkRepository(array $newsItem, string $foundUrl): void
+    private function addItemToBrokenLinkRepository(array $record, string $foundUrl): void
     {
         $link = [
-            'record_uid' => $newsItem['uid'],
-            'record_pid' => $newsItem['pid'],
-            'language' => $newsItem['sys_language_uid'],
+            'record_uid' => $record['uid'],
+            'record_pid' => $record['pid'],
+            'language' => $record['sys_language_uid'],
             'field' => self::FIELD_NAME,
             'table_name' => self::TABLE_NAME,
             'url' => $foundUrl,
