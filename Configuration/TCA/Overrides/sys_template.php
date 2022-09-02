@@ -2,7 +2,7 @@
 
 defined('TYPO3') or die();
 
-// Declare static TS files
+// Declare static TypoScript files
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'examples',
     'Configuration/TypoScript/',
