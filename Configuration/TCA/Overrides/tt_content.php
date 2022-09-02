@@ -4,13 +4,6 @@ defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-// Declare static TS file
-ExtensionManagementUtility::addStaticFile(
-    'examples',
-    'Configuration/TypoScript/',
-    'Examples TypoScript'
-);
-
 // Add a "no print" checkbox
 // USAGE: TCA Reference >  $TCA array reference > Extending the $TCA array
 $temporaryColumn = [
