@@ -1,0 +1,22 @@
+services:
+   _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+   T3docs\Examples\:
+      resource: '../Classes/*'
+      exclude: '../Classes/Domain/Model/*'
+
+   T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
+      tags:
+         -  name: linkvalidator.linktype
+
+   T3docs\Examples\Controller\AdminModuleController:
+      tags: ['backend.controller']
+
+   T3docs\Examples\EventListener\LinkValidator\CheckExternalLinksToLocalPagesEventListener:
+      tags:
+         - name: event.listener
+           identifier: 'txExampleCheckExternalLinksToLocalPages'
+
