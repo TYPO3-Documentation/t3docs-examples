@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Example for BeforeRecordIsAnalyzedEvent listener (#111)
 - Password hashing examples (#56)
 - Create example pages for data processors (#65)
 - Use new backend module registration API (#69)
