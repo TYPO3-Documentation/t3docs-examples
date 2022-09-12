@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Example for event listener for flex form parsing (#116)
 - Example for BeforeRecordIsAnalyzedEvent listener (#111)
 - Password hashing examples (#56)
 - Create example pages for data processors (#65)
