@@ -11,7 +11,7 @@ final class MeowInformationRequester
     private const API_URL = 'https://catfact.ninja/fact';
 
     // We need the RequestFactory for creating and sending a request,
-    // so we inject it into the class via constructor injection.
+    // so we inject it into the class using constructor injection.
     public function __construct(
         private readonly RequestFactory $requestFactory,
     ) {
