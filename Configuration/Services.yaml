@@ -1,42 +1,49 @@
 services:
-   _defaults:
-      autowire: true
-      autoconfigure: true
-      public: false
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
 
-   T3docs\Examples\:
-      resource: '../Classes/*'
-      exclude: '../Classes/Domain/Model/*'
+  T3docs\Examples\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
 
-   T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
-      tags:
-         -  name: linkvalidator.linktype
+  T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
+    tags:
+      - name: linkvalidator.linktype
 
-   T3docs\Examples\Controller\AdminModuleController:
-      tags: ['backend.controller']
+  T3docs\Examples\Controller\AdminModuleController:
+    tags: [ 'backend.controller' ]
 
-   T3docs\Examples\EventListener\LinkValidator\CheckExternalLinksToLocalPagesEventListener:
-      tags:
-         - name: event.listener
-           identifier: 'txExampleCheckExternalLinksToLocalPages'
+  T3docs\Examples\EventListener\LinkValidator\CheckExternalLinksToLocalPagesEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'txExampleCheckExternalLinksToLocalPages'
 
-   T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener:
-      tags:
-         - name: event.listener
-           identifier: 'form-framework/set-data-structure'
-           method: 'setDataStructure'
-         - name: event.listener
-           identifier: 'form-framework/modify-data-structure'
-           method: 'modifyDataStructure'
-         - name: event.listener
-           identifier: 'form-framework/set-data-structure-identifier'
-           method: 'setDataStructureIdentifier'
-         - name: event.listener
-           identifier: 'form-framework/modify-data-structure-identifier'
-           method: 'modifyDataStructureIdentifier'
+  T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'form-framework/set-data-structure'
+        method: 'setDataStructure'
+      - name: event.listener
+        identifier: 'form-framework/modify-data-structure'
+        method: 'modifyDataStructure'
+      - name: event.listener
+        identifier: 'form-framework/set-data-structure-identifier'
+        method: 'setDataStructureIdentifier'
+      - name: event.listener
+        identifier: 'form-framework/modify-data-structure-identifier'
+        method: 'modifyDataStructureIdentifier'
 
-   T3docs\Examples\Command\MeowInformationCommand:
-      tags:
-         - name: 'console.command'
-           command: 'examples:meow'
-           description: 'Meow Information'
+  T3docs\Examples\Command\DoSomethingCommand:
+    tags:
+      - name: console.command
+        command: 'examples:dosomething'
+        description: 'A command that does nothing and always succeeds.'
+        schedulable: true
+
+  T3docs\Examples\Command\MeowInformationCommand:
+    tags:
+      - name: 'console.command'
+        command: 'examples:meow'
+        description: 'Meow Information'
