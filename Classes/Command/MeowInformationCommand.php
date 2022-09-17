@@ -20,7 +20,7 @@ final class MeowInformationCommand extends Command
 
     protected function configure()
     {
-        $this->setHelp('Prints out a random information about cats retrieved from an API call');
+        $this->setHelp('Prints random information about cats retrieved from an API call');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
