@@ -12,7 +12,7 @@ class DoSomethingCommand extends Command
 {
     protected function configure(): void
     {
-        $this->setDescription('A Command that does nothing and always fails');
+        $this->setHelp('This command does nothing. It always succeeds.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
