@@ -26,7 +26,7 @@ final class MeowInformationRequester
             'allow_redirects' => false,
         ];
 
-        // Get a PSR-7 compliant response object
+        // Get a PSR-7-compliant response object
         $response = $this->requestFactory->request(
             self::API_URL,
             'GET',
