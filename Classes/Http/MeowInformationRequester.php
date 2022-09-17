@@ -41,7 +41,7 @@ final class MeowInformationRequester
 
         if ($response->getHeaderLine('Content-Type') !== 'application/json') {
             throw new \RuntimeException(
-                'No JSON returned'
+                'The request did not return JSON data'
             );
         }
 
