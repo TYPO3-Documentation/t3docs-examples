@@ -1,7 +1,8 @@
-_defaults:
-  autowire: true
-  autoconfigure: true
-  public: false
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
 
   T3docs\Examples\:
     resource: '../Classes/*'
@@ -38,6 +39,6 @@ _defaults:
   T3docs\Examples\Command\DoSomethingCommand:
     tags:
       - name: console.command
-        command: 'examples:do-something'
-        description: 'A Command that does nothing and always succeeds.'
+        command: 'examples:dosomething'
+        description: 'A command that does nothing and always succeeds.'
         schedulable: true
