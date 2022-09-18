@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use T3docs\Examples\Exception\InvalidWizardException;
 
-class CreateWizardCommand extends Command
+final class CreateWizardCommand extends Command
 {
     protected function configure(): void
     {
@@ -48,21 +48,19 @@ class CreateWizardCommand extends Command
 
     private function doMagic(
         SymfonyStyle $io,
-        mixed &$wizardName,
+        mixed $wizardName,
         bool $bruteForce
     ) {
         $io->comment('Trying to create wizard ' . $wizardName . '...');
-        if (!$bruteForce) {
-            if ($wizardName === 'Oz') {
-                $io->error('The Wizard of Oz is not allowed. Use --brute-force to allow it.');
-                throw new InvalidWizardException();
-            }
-        }
         if ($wizardName === null) {
             $wizardName = (string)$io->ask(
                 'Enter the wizard\'s name (e.g. "Gandalf the Grey")',
                 'Lord Voldermort'
             );
+        }
+        if (!$bruteForce && $wizardName === 'Oz') {
+            $io->error('The Wizard of Oz is not allowed. Use --brute-force to allow it.');
+            throw new InvalidWizardException();
         }
         $io->success('The wizard ' . $wizardName . ' was created');
     }
