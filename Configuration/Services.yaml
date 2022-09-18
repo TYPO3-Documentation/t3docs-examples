@@ -35,10 +35,15 @@ services:
         identifier: 'form-framework/modify-data-structure-identifier'
         method: 'modifyDataStructureIdentifier'
 
-
   T3docs\Examples\Command\DoSomethingCommand:
     tags:
       - name: console.command
         command: 'examples:dosomething'
         description: 'A command that does nothing and always succeeds.'
         schedulable: true
+
+  T3docs\Examples\Command\MeowInformationCommand:
+    tags:
+      - name: 'console.command'
+        command: 'examples:meow'
+        description: 'Meow Information'
