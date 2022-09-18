@@ -1,9 +1,9 @@
 ﻿.. include:: /Includes.rst.txt
 .. _maintainers:
 
-=============================
-For documentation maintainers
-=============================
+===============
+For maintainers
+===============
 
 Most of the customizations provided by the code samples contained in
 this example are activated by default. So don't be surprised if you

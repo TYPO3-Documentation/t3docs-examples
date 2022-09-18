@@ -50,10 +50,40 @@
         }
     },
     "scripts": {
+        "check": [
+            "@check:composer",
+            "@check:php"
+        ],
+        "check:composer": [
+            "@check:composer:config"
+        ],
+        "check:composer:config": "Build/Scripts/runTests.sh -n -s composerNormalize",
+        "check:php": [
+            "@check:php:lint",
+            "@check:php:cs"
+        ],
+        "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
+        "check:php:lint": "Build/Scripts/runTests.sh -s lint",
+        "fix": [
+            "@fix:composer",
+            "@fix:php"
+        ],
+        "fix:composer": [
+            "@fix:composer:config"
+        ],
+        "fix:composer:config": "Build/Scripts/runTests.sh -s composerNormalize",
+        "fix:php": [
+            "@fix:php:cs"
+        ],
+        "fix:php:cs": "Build/Scripts/runTests.sh -s cgl",
         "prepare-release": [
+            "rm -rf .Build",
             "rm -rf .github",
+            "rm .gitattributes",
             "rm .gitignore",
-            "rm .editorconfig"
+            "rm .editorconfig",
+            "rm .php-cs-fixer.dist.php",
+            "rm -rf Build"
         ]
     }
 }
