@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Create extended console command example (#121)
 - Example for sending an HTTP request with Guzzle (#113)
 - Create a basic console command example (#119)
 - Example for event listener for flex form parsing (#116)
