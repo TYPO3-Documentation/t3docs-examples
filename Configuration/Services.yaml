@@ -48,3 +48,9 @@ services:
         description: 'A command that creates a wizard. It is hidden in the command list. You cannot use it in the scheduler.'
         hidden: true
         schedulable: false
+
+  T3docs\Examples\Command\MeowInformationCommand:
+    tags:
+      - name: 'console.command'
+        command: 'examples:meow'
+        description: 'Meow Information'
