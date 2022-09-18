@@ -10,3 +10,5 @@
 @import 'EXT:examples/Configuration/TypoScript/DataProcessors/Processors/*.typoscript'
 
 @import 'EXT:examples/Configuration/TypoScript/RecordLinks/*.typoscript'
+
+@import 'EXT:examples/Configuration/TypoScript/PluginHaiku/setup.typoscript'

@@ -1,0 +1,14 @@
+plugin.tx_examples_haiku = USER
+plugin.tx_examples_haiku {
+    userFunc = T3docs\Examples\Controller\HaikuController->main
+    settings {
+        singlePid = {$plugin.tx_examples_haiku.singlePid}
+        listPid = {$plugin.tx_examples_haiku.listPid}
+    }
+    view {
+        templateRootPath = {$plugin.tx_examples_haiku.view.templateRootPath}
+        partialRootPath = {$plugin.tx_examples_haiku.view.partialRootPath}
+        layoutRootPath = {$plugin.tx_examples_haiku.view.layoutRootPath}
+    }
+}
+tt_content.list.20.examples_haiku =< plugin.tx_examples_haiku

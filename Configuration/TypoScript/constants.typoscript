@@ -1,2 +1,4 @@
 # cat=examples//a; type=int+; label=Some value: A longer description for this constant
 myValue =
+
+@import 'EXT:examples/Configuration/TypoScript/PluginHaiku/constants.typoscript'

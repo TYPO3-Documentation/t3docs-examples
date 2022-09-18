@@ -54,3 +54,6 @@ services:
       - name: 'console.command'
         command: 'examples:meow'
         description: 'Meow Information'
+
+  T3docs\Examples\Controller\HaikuController:
+    public: true
