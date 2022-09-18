@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use T3docs\Examples\Exception\InvalidWizardException;
 
 class CreateWizardCommand extends Command
 {
@@ -38,8 +39,11 @@ class CreateWizardCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $wizardName = $input->getArgument('wizardName');
         $bruteForce = (bool)$input->getOption('brute-force');
-        $this->doMagic($io, $wizardName, $bruteForce);
-        $io->success('The wizard ' . $wizardName . ' was created');
+        try {
+            $this->doMagic($io, $wizardName, $bruteForce);
+        } catch (InvalidWizardException $exception) {
+            return Command::FAILURE;
+        }
         return Command::SUCCESS;
     }
 
@@ -52,7 +56,7 @@ class CreateWizardCommand extends Command
         if (!$bruteForce) {
             if ($wizardName === 'Oz') {
                 $io->error('The Wizard of Oz is not allowed. Use --brute-force to allow it.');
-                return Command::FAILURE;
+                throw new InvalidWizardException();
             }
         }
         if ($wizardName === null) {
@@ -61,5 +65,6 @@ class CreateWizardCommand extends Command
                 'Lord Voldermort'
             );
         }
+        $io->success('The wizard ' . $wizardName . ' was created');
     }
 }
