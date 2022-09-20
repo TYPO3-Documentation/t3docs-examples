@@ -11,8 +11,8 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 /**
  * Class FalExampleController
  */
-class HaikuController {
-
+class HaikuController
+{
     /**
      * The back-reference to the mother cObj object set at call time
      */
@@ -34,7 +34,7 @@ class HaikuController {
         $this->cObj = $cObj;
     }
 
-    public function main(string $content, array $conf) : string
+    public function main(string $content, array $conf): string
     {
         $this->conf = $conf;
         $this->loadFlexFormSettings();
@@ -43,7 +43,7 @@ class HaikuController {
         $action = $_REQUEST['tx_examples_haiku']['action'] ?? 'list';
         switch ($action) {
             case 'show':
-                return $this->showAction((int) $_REQUEST['tx_examples_haiku']['haiku'] ?? 0);
+                return $this->showAction((int)$_REQUEST['tx_examples_haiku']['haiku'] ?? 0);
             case 'findByTitle':
                 return $this->findByTitleAction($_REQUEST['tx_examples_haiku']['haiku_title'] ?? '');
             case 'list':
@@ -51,7 +51,6 @@ class HaikuController {
             default:
                 return $this->errorAction();
         }
-
     }
 
     private function initView(): void
@@ -73,7 +72,7 @@ class HaikuController {
         ]);
     }
 
-    private function showAction(int $haiku) : string
+    private function showAction(int $haiku): string
     {
         $this->view->assignMultiple([
             'haiku' => $this->haikuRepository->findByUid($haiku),
@@ -82,7 +81,7 @@ class HaikuController {
         return $this->view->render();
     }
 
-    private function listAction() : string
+    private function listAction(): string
     {
         $this->view->assignMultiple([
             'haikus' => $this->haikuRepository->findAll(),
@@ -91,12 +90,12 @@ class HaikuController {
         return $this->view->render();
     }
 
-    private function errorAction() :string
+    private function errorAction(): string
     {
         return $this->listAction();
     }
 
-    private function findByTitleAction(string $haikuTitle) : string
+    private function findByTitleAction(string $haikuTitle): string
     {
         $this->view->assignMultiple([
             'haiku' => $this->haikuRepository->findByTitle($haikuTitle),

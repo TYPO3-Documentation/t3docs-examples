@@ -8,7 +8,6 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class HaikuRepository
 {
-
     public function __construct(
         protected readonly ConnectionPool $connectionPool,
     ) {
@@ -26,8 +25,8 @@ class HaikuRepository
         $queryBuilder = $this->connectionPool->getConnectionForTable('pages')->createQueryBuilder();
         // $uid is an integer so we don't have to worry about SQL injections
         $where = $queryBuilder->expr()->eq('uid', $uid);
-        $result = $queryBuilder->select('*')->from('tx_examples_haiku')->where($where
-
+        $result = $queryBuilder->select('*')->from('tx_examples_haiku')->where(
+            $where
         )->executeQuery();
         return $result->fetchAssociative() ?? [];
     }
@@ -37,8 +36,10 @@ class HaikuRepository
         $queryBuilder = $this->connectionPool->getConnectionForTable('pages')->createQueryBuilder();
         // Never use a string as parameter without running it
         // through createNamedParameter. This could cause SQL injections
-        $where = $queryBuilder->expr()->eq('title',
-            $queryBuilder->createNamedParameter($title));
+        $where = $queryBuilder->expr()->eq(
+            'title',
+            $queryBuilder->createNamedParameter($title)
+        );
         $result = $queryBuilder->select('*')->from('tx_examples_haiku')->where(
             $where
         )->executeQuery();
