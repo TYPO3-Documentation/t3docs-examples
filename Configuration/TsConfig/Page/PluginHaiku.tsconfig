@@ -1,13 +1,17 @@
-mod.wizards.newContentElement.wizardItems.plugins {
-    elements {
-        examples {
-            iconIdentifier = tx_examples-error-plugin
-            title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_title
-            description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description
-            tt_content_defValues {
-                CType = list
-                list_type = examples_error
+mod.wizards.newContentElement.wizardItems {
+    plugins {
+        elements {
+            examples_haiku {
+                iconIdentifier = content-menu-pages
+                title = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:title
+                description = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:description
+                tt_content_defValues {
+                    CType = list
+                    list_type = examples_haiku
+                }
             }
         }
+        show := addToList(examples_haiku)
     }
 }
+

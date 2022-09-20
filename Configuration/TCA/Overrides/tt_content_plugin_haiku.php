@@ -6,8 +6,8 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 ExtensionManagementUtility::addPlugin(
     [
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:plugin.tx_examples_haiku.title',
-        'examples_haiku'
+        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:title',
+        'examples_haiku',
     ],
     'list_type',
     'examples'

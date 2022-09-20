@@ -3,6 +3,7 @@
 namespace T3docs\Examples\Controller;
 
 use T3docs\Examples\Domain\Repository\HaikuRepository;
+use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -36,6 +37,7 @@ class HaikuController {
     public function main(string $content, array $conf) : string
     {
         $this->conf = $conf;
+        $this->loadFlexFormSettings();
         $this->initView();
 
         $action = $_REQUEST['tx_examples_haiku']['action'] ?? 'list';
@@ -52,7 +54,7 @@ class HaikuController {
 
     }
 
-    private function initView()
+    private function initView(): void
     {
         $this->view = GeneralUtility::makeInstance(StandaloneView::class);
         $this->view->setLayoutRootPaths([
@@ -101,5 +103,22 @@ class HaikuController {
         ]);
         $this->view->setTemplate('Haiku/Show');
         return $this->view->render();
+    }
+
+    private function loadFlexFormSettings(): void
+    {
+        if (!is_string($this->cObj->data['pi_flexform'])) {
+            return;
+        }
+        $flexFormData = GeneralUtility::makeInstance(FlexFormService::class)
+            ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
+        $this->cObj->data['pi_flexform'] = $flexFormData;
+        if (is_array($flexFormData['settings'])) {
+            foreach ($flexFormData['settings'] as $key => $flexFormValue) {
+                if ($flexFormValue) {
+                    $this->conf['settings'][$key] = (string)$flexFormValue;
+                }
+            }
+        }
     }
 }

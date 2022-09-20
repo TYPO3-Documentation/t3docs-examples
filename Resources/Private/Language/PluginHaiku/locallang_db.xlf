@@ -4,7 +4,16 @@
 		<header/>
 		<body>
 			<trans-unit id="title" xml:space="preserve">
-				<source>Option 1</source>
+				<source>Haiku poem display</source>
+			</trans-unit>
+			<trans-unit id="description" xml:space="preserve">
+				<source>Displays a list of haiku poems.</source>
+			</trans-unit>
+			<trans-unit id="singlePageUid" xml:space="preserve">
+				<source>Page to display detail view</source>
+			</trans-unit>
+			<trans-unit id="listPageUid" xml:space="preserve">
+				<source>Page for "Back to list" link</source>
 			</trans-unit>
 		</body>
 	</file>

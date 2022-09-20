@@ -3,8 +3,8 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
 		<header/>
 		<body>
-			<trans-unit id="mlang_tabs_tab" xml:space="preserve">
-				<source>Examples</source>
+			<trans-unit id="button.backToList" xml:space="preserve">
+				<source>Back to list</source>
 			</trans-unit>
 		</body>
 	</file>
