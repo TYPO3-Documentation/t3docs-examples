@@ -113,7 +113,7 @@ class HaikuController
         $flexFormData = $this->flexFormService
             ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
         $this->cObj->data['pi_flexform'] = $flexFormData;
-        if (!isset($this->conf['settings']) or !is_array($this->conf['settings'])) {
+        if (!is_array($this->conf['settings'] ?? false)) {
             $this->conf['settings'] = [];
         }
         if (isset($flexFormData['settings']) && is_array($flexFormData['settings'])) {
