@@ -112,7 +112,10 @@ class HaikuController
         $flexFormData = GeneralUtility::makeInstance(FlexFormService::class)
             ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
         $this->cObj->data['pi_flexform'] = $flexFormData;
-        if (is_array($flexFormData['settings'])) {
+        if (!isset($this->conf['settings']) or !is_array($this->conf['settings'])) {
+            $this->conf['settings'] = [];
+        }
+        if (isset($flexFormData['settings']) && is_array($flexFormData['settings'])) {
             foreach ($flexFormData['settings'] as $key => $flexFormValue) {
                 if ($flexFormValue) {
                     $this->conf['settings'][$key] = (string)$flexFormValue;
