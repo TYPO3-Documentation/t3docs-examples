@@ -22,6 +22,7 @@ class HaikuController
 
     public function __construct(
         protected readonly HaikuRepository $haikuRepository,
+        protected readonly FlexFormService $flexFormService,
     ) {
     }
 
@@ -109,7 +110,7 @@ class HaikuController
         if (!is_string($this->cObj->data['pi_flexform'])) {
             return;
         }
-        $flexFormData = GeneralUtility::makeInstance(FlexFormService::class)
+        $flexFormData = $this->flexFormService
             ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
         $this->cObj->data['pi_flexform'] = $flexFormData;
         if (!isset($this->conf['settings']) or !is_array($this->conf['settings'])) {
