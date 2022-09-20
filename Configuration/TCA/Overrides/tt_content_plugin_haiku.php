@@ -2,9 +2,7 @@
 
 defined('TYPO3') or die();
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-ExtensionManagementUtility::addPlugin(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
     [
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:title',
         'examples_haiku',
@@ -17,7 +15,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_haiku']='pi_flexform';
 
-ExtensionManagementUtility::addPiFlexFormValue(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     'examples_haiku',
     'FILE:EXT:examples/Configuration/Flexforms/PluginHaiku.xml'
 );
