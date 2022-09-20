@@ -3,7 +3,6 @@
 <f:layout name="Default"/>
 
 <f:section name="main">
-   <f:debug>{_all}</f:debug>
    <ul>
       <f:for each="{haikus}" as="haiku">
          <li><f:link.page pageUid="{settings.singlePid}" additionalParams="{tx_examples_haiku: {action: 'show', haiku: haiku.uid}}">{haiku.title}</f:link.page></li>
