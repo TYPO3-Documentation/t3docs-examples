@@ -8,7 +8,6 @@ use T3docs\Examples\Service\FlexFormSettingsService;
 use T3docs\Examples\Service\StandaloneViewService;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Core\Http\Response;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
@@ -54,7 +53,8 @@ class DetailController
                     404,
                     [],
                     'Action ' . $action . ' not found.'
-                )),
+                )
+            ),
         };
     }
 
