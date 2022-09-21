@@ -55,5 +55,8 @@ services:
         command: 'examples:meow'
         description: 'Meow Information'
 
-  T3docs\Examples\Controller\HaikuController:
+  T3docs\Examples\Controller\Haiku\DetailController:
+    public: true
+
+  T3docs\Examples\Controller\Haiku\ListController:
     public: true

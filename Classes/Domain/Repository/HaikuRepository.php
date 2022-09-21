@@ -15,14 +15,14 @@ class HaikuRepository
 
     public function findAll(): array
     {
-        $queryBuilder = $this->connectionPool->getConnectionForTable('pages')->createQueryBuilder();
+        $queryBuilder = $this->connectionPool->getConnectionForTable('tx_examples_haiku')->createQueryBuilder();
         $result = $queryBuilder->select('*')->from('tx_examples_haiku')->executeQuery();
         return $result->fetchAllAssociative();
     }
 
     public function findByUid(int $uid): array
     {
-        $queryBuilder = $this->connectionPool->getConnectionForTable('pages')->createQueryBuilder();
+        $queryBuilder = $this->connectionPool->getConnectionForTable('tx_examples_haiku')->createQueryBuilder();
         // $uid is an integer so we don't have to worry about SQL injections
         $where = $queryBuilder->expr()->eq('uid', $uid);
         $result = $queryBuilder->select('*')->from('tx_examples_haiku')->where(
@@ -33,7 +33,7 @@ class HaikuRepository
 
     public function findByTitle(string $title): array
     {
-        $queryBuilder = $this->connectionPool->getConnectionForTable('pages')->createQueryBuilder();
+        $queryBuilder = $this->connectionPool->getConnectionForTable('tx_examples_haiku')->createQueryBuilder();
         // Never use a string as parameter without running it
         // through createNamedParameter. This could cause SQL injections
         $where = $queryBuilder->expr()->eq(
