@@ -45,8 +45,8 @@ class DetailController
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
         $action = $parameter['action'] ?? '';
         return match ($action) {
-            'show' => $this->showAction((int)$parameter['haiku'] ?? 0),
-            'findByTitle' => $this->findByTitleAction((string)$parameter['haiku_title'] ?? ''),
+            'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
+            'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
             default => throw new PropagateResponseException(
                 new Response(
                     null,
