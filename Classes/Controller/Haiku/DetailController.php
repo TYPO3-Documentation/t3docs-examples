@@ -43,7 +43,7 @@ class DetailController
         $this->view = $this->viewService->createView($this->conf, 'Haiku/List');
 
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
-        $action = $parameter['action'] ?? 'list';
+        $action = $parameter['action'] ?? '';
         return match ($action) {
             'show' => $this->showAction((int)$parameter['haiku'] ?? 0),
             'findByTitle' => $this->findByTitleAction((string)$parameter['haiku_title'] ?? ''),
