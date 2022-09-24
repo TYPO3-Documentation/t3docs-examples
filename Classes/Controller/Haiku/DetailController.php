@@ -40,7 +40,7 @@ class DetailController
     {
         $this->conf = $conf;
         $this->loadFlexFormSettings();
-        $this->view = $this->viewService->createView($this->conf, 'Haiku/List');
+        $this->view = $this->viewService->createView($this->conf, 'Haiku/Detail');
 
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
         $action = $parameter['action'] ?? '';
@@ -58,12 +58,11 @@ class DetailController
         };
     }
 
-    private function showAction(int $haiku): string
+    private function showAction(int $haikuId): string
     {
         $this->view->assignMultiple([
-            'haiku' => $this->haikuRepository->findByUid($haiku),
+            'haiku' => $this->haikuRepository->findByUid($haikuId),
         ]);
-        $this->view->setTemplate('Haiku/Show');
         return $this->view->render();
     }
 
@@ -72,7 +71,6 @@ class DetailController
         $this->view->assignMultiple([
             'haiku' => $this->haikuRepository->findByTitle($haikuTitle),
         ]);
-        $this->view->setTemplate('Haiku/Show');
         return $this->view->render();
     }
 
