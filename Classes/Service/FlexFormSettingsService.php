@@ -22,7 +22,7 @@ class FlexFormSettingsService
         if (!is_array($flexForm['settings'] ?? false)) {
             $flexForm['settings'] = [];
         }
-        foreach ($flexForm['settings'] ?? [] as $key => $flexFormValue) {
+        foreach ($flexForm['settings'] as $key => $flexFormValue) {
             if ($flexFormValue) {
                 $settings[$key] = $flexFormValue;
             }

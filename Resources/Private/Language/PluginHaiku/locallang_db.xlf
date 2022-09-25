@@ -3,11 +3,17 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
 		<header/>
 		<body>
-			<trans-unit id="title" xml:space="preserve">
-				<source>Haiku poem display</source>
+			<trans-unit id="list.title" xml:space="preserve">
+				<source>Haiku poem list</source>
 			</trans-unit>
-			<trans-unit id="description" xml:space="preserve">
+			<trans-unit id="list.description" xml:space="preserve">
 				<source>Displays a list of haiku poems.</source>
+			</trans-unit>
+			<trans-unit id="detail.title" xml:space="preserve">
+				<source>Haiku poem detail</source>
+			</trans-unit>
+			<trans-unit id="detail.description" xml:space="preserve">
+				<source>Displays a haiku poem in detail.</source>
 			</trans-unit>
 			<trans-unit id="singlePageUid" xml:space="preserve">
 				<source>Page to display detail view</source>

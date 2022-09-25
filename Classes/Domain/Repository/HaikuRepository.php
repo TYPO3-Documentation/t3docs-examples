@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Domain\Repository;
 
+use T3docs\Examples\Exception\NoSuchHaikuException;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\StringUtility;
 
 class HaikuRepository
 {
@@ -32,8 +34,11 @@ class HaikuRepository
         $where = $queryBuilder->expr()->eq('uid', $uid);
         $result = $queryBuilder->select('*')->from(self::TABLENAME)->where(
             $where
-        )->executeQuery();
-        return $result->fetchAssociative() ?? [];
+        )->executeQuery()->fetchAssociative();
+        if (!$result) {
+            throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.' );
+        }
+        return $result;
     }
 
     public function findByTitle(string $title): array
@@ -47,7 +52,10 @@ class HaikuRepository
         );
         $result = $queryBuilder->select('*')->from(self::TABLENAME)->where(
             $where
-        )->executeQuery();
-        return $result->fetchAssociative() ?? [];
+        )->executeQuery()->fetchAssociative();
+        if (!$result) {
+            throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.' );
+        }
+        return $result;
     }
 }

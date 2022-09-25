@@ -4,8 +4,9 @@ defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
     [
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:title',
+        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title',
         'examples_haiku_detail',
+        'tx_examples-haiku'
     ],
     'list_type',
     'examples'
@@ -17,5 +18,5 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_hai
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     'examples_haiku_detail',
-    'FILE:EXT:examples/Configuration/Flexforms/PluginHaiku.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuDetail.xml'
 );

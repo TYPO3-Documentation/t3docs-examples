@@ -18,29 +18,6 @@
                                 LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:singlePageUid
                             </label>
                             <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">
-                                            LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.choosePage
-                                        </numIndex>
-                                        <numIndex index="1">0</numIndex>
-                                    </numIndex>
-                                </items>
-                                <foreign_table>pages</foreign_table>
-                                <foreign_table_where>pages.doktype = 1 ORDER BY title</foreign_table_where>
-                                <minitems>0</minitems>
-                                <maxitems>1</maxitems>
-                            </config>
-                        </TCEforms>
-                    </settings.singlePid>
-                    <settings.listPid>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:listPageUid
-                            </label>
-                            <config>
                                 <type>group</type>
                                 <allowed>pages</allowed>
                                 <maxitems>1</maxitems>
@@ -54,7 +31,7 @@
                                 </suggestOptions>
                             </config>
                         </TCEforms>
-                    </settings.listPid>
+                    </settings.singlePid>
                 </el>
             </ROOT>
         </sDEF>

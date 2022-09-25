@@ -2,7 +2,7 @@ mod.wizards.newContentElement.wizardItems {
     plugins {
         elements {
             examples_haiku_list {
-                iconIdentifier = content-menu-pages
+                iconIdentifier = tx_examples-haiku
                 title = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title
                 description = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description
                 tt_content_defValues {
@@ -11,7 +11,7 @@ mod.wizards.newContentElement.wizardItems {
                 }
             }
             examples_haiku_detail {
-                iconIdentifier = content-menu-pages
+                iconIdentifier = tx_examples-haiku
                 title = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title
                 description = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.description
                 tt_content_defValues {

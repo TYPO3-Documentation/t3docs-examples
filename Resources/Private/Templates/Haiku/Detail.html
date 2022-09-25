@@ -13,12 +13,14 @@
          <f:format.html>{haiku.poem}</f:format.html>
       </f:then>
    </f:if>
+   <f:if condition="{settings.listPid}">
    <p>
       <f:link.page pageUid="{settings.listPid}" class="btn btn-default">
          <f:translate
             key="LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:button.backToList"/>
       </f:link.page>
    </p>
+   </f:if>
 </f:section>
 
 </html>
