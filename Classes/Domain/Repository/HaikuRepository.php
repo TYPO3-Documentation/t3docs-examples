@@ -7,7 +7,6 @@ namespace T3docs\Examples\Domain\Repository;
 use T3docs\Examples\Exception\NoSuchHaikuException;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\StringUtility;
 
 class HaikuRepository
 {
@@ -36,7 +35,7 @@ class HaikuRepository
             $where
         )->executeQuery()->fetchAssociative();
         if (!$result) {
-            throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.' );
+            throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.');
         }
         return $result;
     }
@@ -54,7 +53,7 @@ class HaikuRepository
             $where
         )->executeQuery()->fetchAssociative();
         if (!$result) {
-            throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.' );
+            throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.');
         }
         return $result;
     }

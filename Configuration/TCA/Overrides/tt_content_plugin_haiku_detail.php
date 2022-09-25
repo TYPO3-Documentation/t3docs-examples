@@ -6,7 +6,7 @@ defined('TYPO3') or die();
     [
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title',
         'examples_haiku_detail',
-        'tx_examples-haiku'
+        'tx_examples-haiku',
     ],
     'list_type',
     'examples'
