@@ -41,7 +41,7 @@ final class FlexFormParsingModifyEventListener
     public function modifyDataStructureIdentifier(AfterFlexFormDataStructureIdentifierInitializedEvent $event): void
     {
         $identifier = $event->getIdentifier();
-        if (($identifier['type'] ?? '') !== 'my_custom_type') {
+        if (($identifier['type'] ?? '') === 'mycustomtype') {
             $identifier['type'] = 'my_custom_type';
         }
         $event->setIdentifier($identifier);
