@@ -4,7 +4,6 @@ namespace T3docs\Examples\Controller\Haiku;
 
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
-use T3docs\Examples\Exception\NoSuchHaikuException;
 use T3docs\Examples\Service\FlexFormSettingsService;
 use T3docs\Examples\Service\StandaloneViewService;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
@@ -63,7 +62,8 @@ class DetailController
     /**
      * @throws PropagateResponseException
      */
-    private function notFoundAction(string $reason) {
+    private function notFoundAction(string $reason)
+    {
         throw new PropagateResponseException(
             new Response(
                 null,
