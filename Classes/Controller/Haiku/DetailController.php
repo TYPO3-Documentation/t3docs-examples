@@ -4,6 +4,7 @@ namespace T3docs\Examples\Controller\Haiku;
 
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
+use T3docs\Examples\Exception\NoSuchHaikuException;
 use T3docs\Examples\Service\FlexFormSettingsService;
 use T3docs\Examples\Service\StandaloneViewService;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
@@ -36,6 +37,9 @@ class DetailController
         $this->cObj = $cObj;
     }
 
+    /**
+     * @throws PropagateResponseException
+     */
     public function main(string $content, array $conf, ServerRequestInterface $request): string
     {
         $this->conf = $conf;
@@ -44,18 +48,30 @@ class DetailController
 
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
         $action = $parameter['action'] ?? '';
-        return match ($action) {
-            'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
-            'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
-            default => throw new PropagateResponseException(
-                new Response(
-                    null,
-                    404,
-                    [],
-                    'Action ' . $action . ' not found.'
-                )
-            ),
-        };
+        try {
+            $result = match ($action) {
+                'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
+                'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
+                default => $this->notFoundAction('Action ' . $action . ' not found.'),
+            };
+        } catch (\Exception $e) {
+            $this->notFoundAction($e->getMessage());
+        }
+        return $result;
+    }
+
+    /**
+     * @throws PropagateResponseException
+     */
+    private function notFoundAction(string $reason) {
+        throw new PropagateResponseException(
+            new Response(
+                null,
+                404,
+                [],
+                $reason
+            )
+        );
     }
 
     private function showAction(int $haikuId): string

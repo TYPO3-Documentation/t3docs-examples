@@ -26,6 +26,9 @@ class HaikuRepository
         return $result->fetchAllAssociative();
     }
 
+    /**
+     * @throws NoSuchHaikuException
+     */
     public function findByUid(int $uid): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
@@ -35,11 +38,14 @@ class HaikuRepository
             $where
         )->executeQuery()->fetchAssociative();
         if (!$result) {
-            throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.');
+            throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.', 1664390495);
         }
         return $result;
     }
 
+    /**
+     * @throws NoSuchHaikuException
+     */
     public function findByTitle(string $title): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
@@ -53,7 +59,7 @@ class HaikuRepository
             $where
         )->executeQuery()->fetchAssociative();
         if (!$result) {
-            throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.');
+            throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.', 1664390496);
         }
         return $result;
     }
