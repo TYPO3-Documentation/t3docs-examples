@@ -27,7 +27,7 @@ class ListController
     {
         $this->conf = $conf;
         $this->loadFlexFormSettings();
-        $view = $this->viewService->createView($this->conf, 'Haiku/List');
+        $view = $this->viewService->createView($request, $this->conf, 'Haiku/List');
         $view->assignMultiple([
             'haikus' => $this->haikuRepository->findAll(),
         ]);
