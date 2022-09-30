@@ -1,0 +1,25 @@
+mod.wizards.newContentElement.wizardItems {
+    plugins {
+        elements {
+            examples_haiku_list {
+                iconIdentifier = tx_examples-haiku
+                title = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title
+                description = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description
+                tt_content_defValues {
+                    CType = list
+                    list_type = examples_haiku_list
+                }
+            }
+            examples_haiku_detail {
+                iconIdentifier = tx_examples-haiku
+                title = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title
+                description = LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.description
+                tt_content_defValues {
+                    CType = list
+                    list_type = examples_haiku_detail
+                }
+            }
+        }
+        show := addToList(examples_haiku_list,examples_haiku_detail)
+    }
+}

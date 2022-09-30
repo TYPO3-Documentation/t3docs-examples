@@ -1,0 +1,12 @@
+
+plugin.tx_examples_haiku {
+    view {
+        templateRootPath = EXT:examples/Resources/Private/Layouts
+        partialRootPath = EXT:examples/Resources/Private/Partials
+        layoutRootPath = EXT:examples/Resources/Private/Templates
+    }
+    settings {
+        singlePid = 0
+        listPid = 0
+    }
+}

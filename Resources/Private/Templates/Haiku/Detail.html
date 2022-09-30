@@ -1,0 +1,26 @@
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:layout name="Default"/>
+
+<f:section name="main">
+   <f:if condition="{haiku}">
+      <f:else>
+         No Haiku found, sorry!
+      </f:else>
+      <f:then>
+         <h2>{haiku.title}</h2>
+         <f:format.html>{haiku.poem}</f:format.html>
+      </f:then>
+   </f:if>
+   <f:if condition="{settings.listPid}">
+   <p>
+      <f:link.page pageUid="{settings.listPid}" class="btn btn-default">
+         <f:translate
+            key="LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:button.backToList"/>
+      </f:link.page>
+   </p>
+   </f:if>
+</f:section>
+
+</html>
