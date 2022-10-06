@@ -12,6 +12,10 @@ return [
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
+        'security' => [
+            // Allow the dummy table anywhere in the page tree
+            'ignorePageTypeRestriction' => true,
+        ],
         'typeicon_classes' => [
             'default' => 'tx_examples-dummy',
         ],
