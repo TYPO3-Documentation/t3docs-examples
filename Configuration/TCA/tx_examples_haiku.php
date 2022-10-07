@@ -13,6 +13,10 @@ return [
             'disabled' => 'hidden',
         ],
         'searchFields' => 'title,poem',
+        'security' => [
+            // Allow the haiku table anywhere in the page tree
+            'ignorePageTypeRestriction' => true,
+        ],
         'typeicon_classes' => [
             'default' => 'tx_examples-haiku',
         ],

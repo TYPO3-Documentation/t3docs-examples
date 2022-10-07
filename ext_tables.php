@@ -20,12 +20,6 @@ defined('TYPO3') or die();
 
     // Settings for new tables, which do not belong to Configuration/TCA
 
-    // Allow dummy table anywhere in the page tree
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_dummy');
-
-    // Allow the haiku table anywhere in the page tree
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_examples_haiku');
-
     // Define a new doktype
     $customPageDoktype = 116;
     $customIconClass = 'tx_examples-archive-page';
