@@ -55,7 +55,7 @@ class Tca
     public function haikuTitle(&$parameters, $parentObject)
     {
         $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid'] ?? 0);
-        if ($record == null) {
+        if ($record === null) {
             return;
         }
         $newTitle = $record['title'] ?? '';
