@@ -16,13 +16,12 @@ namespace T3docs\Examples\LinkHandler;
  */
 
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
+use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
-use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-use TYPO3\CMS\Core\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
 {
@@ -66,8 +65,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function __construct(
         protected readonly BackendViewFactory $backendViewFactory,
-    )
-    {
+    ) {
         // remove unsupported link attribute
         unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
     }

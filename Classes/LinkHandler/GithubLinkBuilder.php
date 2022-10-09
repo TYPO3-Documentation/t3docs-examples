@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\LinkHandler;
 
-use TYPO3\CMS\Core\LinkHandling\LinkService;
 use TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder;
 use TYPO3\CMS\Frontend\Typolink\LinkResult;
 use TYPO3\CMS\Frontend\Typolink\LinkResultInterface;
@@ -43,7 +42,7 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
         if (str_starts_with($issueId, '#')) {
             $issueId = substr($issueId, 1);
         }
-        $issueId = (int) $issueId;
+        $issueId = (int)$issueId;
         if ($issueId < 1) {
             throw new UnableToLinkException(
                 '"' . $linkDetails['value'] . '" is not a valid Github issue number.',
