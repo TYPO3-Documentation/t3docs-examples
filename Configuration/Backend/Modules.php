@@ -18,7 +18,7 @@ return [
         'iconIdentifier' => 'tx_examples-backend-module',
         'controllerActions' => [
             ModuleController::class => [
-                'flash', 'tree', 'clipboard', 'links', 'fileReference', 'fileReferenceCreate',
+                'flash', 'tree', 'clipboard', 'links', 'fileReference', 'fileReferenceCreate', 'count',
             ],
         ],
     ],
