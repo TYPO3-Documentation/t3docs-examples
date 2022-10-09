@@ -87,6 +87,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->linkBrowser = $linkBrowser;
         $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
         $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+        $this->configuration = $configuration;
     }
 
     /**
@@ -127,10 +128,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function render(ServerRequestInterface $request): string
     {
         $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
-        $this->view->setTemplateRootPaths([
-            ...$this->view->getTemplateRootPaths(),
-            GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser'),
-        ]);
+        $this->view->getRequest()->setControllerExtensionName('examples');
+        $this->view->setTemplateRootPaths(['EXT:examples/Resources/Private/Templates/LinkBrowser']);
 
         $this->view->assign('project', $this->configuration['project']);
         $this->view->assign('action', $this->configuration['action']);
