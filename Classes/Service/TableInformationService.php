@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Service;
 
-
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class TableInformationService

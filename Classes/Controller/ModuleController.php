@@ -19,7 +19,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
-use T3docs\Examples\Service\FlashMessageDemonstrationService;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
@@ -37,8 +36,6 @@ use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Log\LogLevel;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Type\Bitmask\Permission;
@@ -299,11 +296,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     {
         $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
-        $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit',
-            $uriParameters);
+        $editPage1Link = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
         $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute('web_examples',
-            ['id' => $pageUid, 'action' => 'links']);
+        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute(
+            'web_examples',
+            ['id' => $pageUid, 'action' => 'links']
+        );
 
         $uriParameters =
             [
@@ -322,8 +323,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'columnsOnly' => 'title,doktype',
                 'returnUrl' => $returnUrl,
             ];
-        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit',
-            $uriParameters);
+        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
         $uriParameters =
             [
                 'edit' =>
@@ -343,8 +346,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     ],
                 'columnsOnly' => 'title,season,color',
             ];
-        $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit',
-            $uriParameters);
+        $createHaikuLink = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
 
         $view = $this->initializeModuleTemplate($this->request);
         $view->assignMultiple(
@@ -543,7 +548,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * Generates the action menu
      */
-    protected function initializeModuleTemplate(ServerRequestInterface $request
+    protected function initializeModuleTemplate(
+        ServerRequestInterface $request
     ): ModuleTemplate {
         $menuItems = [
             'flash' => [
@@ -582,8 +588,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $isActive = $this->request->getControllerActionName() === $menuItemConfig['action'];
             $menuItem = $menu->makeMenuItem()
                 ->setTitle($menuItemConfig['label'])
-                ->setHref($this->uriBuilder->reset()->uriFor($menuItemConfig['action'],
-                    [], $menuItemConfig['controller']))
+                ->setHref($this->uriBuilder->reset()->uriFor(
+                    $menuItemConfig['action'],
+                    [],
+                    $menuItemConfig['controller']
+                ))
                 ->setActive($isActive);
             $menu->addMenuItem($menuItem);
             if ($isActive) {
@@ -599,8 +608,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         );
 
         $permissionClause = $this->getBackendUserAuthentication()->getPagePermsClause(Permission::PAGE_SHOW);
-        $pageRecord = BackendUtility::readPageAccess($this->pageUid,
-            $permissionClause);
+        $pageRecord = BackendUtility::readPageAccess(
+            $this->pageUid,
+            $permissionClause
+        );
         if ($pageRecord) {
             $view->getDocHeaderComponent()->setMetaInformation($pageRecord);
         }
