@@ -27,6 +27,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use ContextualFeedbackSeverity for flash message severity (#87)
 
 ### Fixed
+- Fix the Github Linkhandler for TYPO3 v11 (#133)
 - Fix new record controller xClass example (#64)
 - defined('TYPO3') or die(); (#66)
 
