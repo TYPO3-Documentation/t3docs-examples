@@ -55,6 +55,9 @@ class Tca
     public function haikuTitle(&$parameters, $parentObject)
     {
         $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid'] ?? 0);
+        if ($record === null) {
+            return;
+        }
         $newTitle = $record['title'] ?? '';
         $newTitle .= ' (' . substr(strip_tags($record['poem'] ?? ''), 0, 10) . '...)';
         $parameters['title'] = $newTitle;
