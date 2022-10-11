@@ -4,7 +4,7 @@
  * JavaScript to handle the click action of the "Hello World" context menu item
  */
 
-export class ContextMenuActions {
+class ContextMenuActions {
 
 	helloWorld(table, uid) {
 		if (table === 'pages') {
@@ -15,3 +15,5 @@ export class ContextMenuActions {
 		}
 	};
 }
+
+export default new ContextMenuActions();
