@@ -35,6 +35,8 @@ defined('TYPO3') or die();
         'class' => \T3docs\Examples\Form\Element\SpecialFieldElement::class,
     ];
 
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['github'] =
+        \T3docs\Examples\LinkHandler\GitHubLinkBuilder::class;
 
     // Add example configuration for the logging API
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
