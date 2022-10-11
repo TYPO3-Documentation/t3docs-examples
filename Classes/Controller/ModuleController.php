@@ -19,6 +19,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
+use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
@@ -62,6 +63,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         protected readonly FileRepository $fileRepository,
         protected readonly ConnectionPool $connectionPool,
         protected readonly DataHandler $dataHandler,
+        protected readonly TableInformationService $tableInformationService,
     ) {
     }
 
@@ -294,9 +296,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     {
         $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
-        $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $editPage1Link = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
         $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute('web_examples', ['id' => $pageUid, 'action' => 'links']);
+        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute(
+            'web_examples',
+            ['id' => $pageUid, 'action' => 'links']
+        );
 
         $uriParameters =
             [
@@ -315,7 +323,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'columnsOnly' => 'title,doktype',
                 'returnUrl' => $returnUrl,
             ];
-        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
         $uriParameters =
             [
                 'edit' =>
@@ -335,7 +346,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     ],
                 'columnsOnly' => 'title,season,color',
             ];
-        $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
+        $createHaikuLink = $backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
 
         $view = $this->initializeModuleTemplate($this->request);
         $view->assignMultiple(
@@ -407,8 +421,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * @param int $file Uid of the file
      * @param int $element Uid of the content element
      */
-    public function fileReferenceCreateAction($file, $element): ResponseInterface
-    {
+    public function fileReferenceCreateAction(
+        $file,
+        $element
+    ): ResponseInterface {
         // Early return if either item is missing
         if ((int)$file === 0 || (int)$element === 0) {
             // NOTE: there would normally a nice error Flash Message added here
@@ -475,8 +491,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $hashInstance->getHashedPassword($password);
     }
 
-    public function checkPassword(string $hashedPassword, string $expectedPassword, string $mode): bool
-    {
+    public function checkPassword(
+        string $hashedPassword,
+        string $expectedPassword,
+        string $mode
+    ): bool {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
         return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
     }
@@ -484,8 +503,12 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * checks or compares the password
      */
-    public function passwordAction(string $passwordAction = 'get', string $password = 'joh316', string $hashedPassword = '', string $mode = 'FE'): ResponseInterface
-    {
+    public function passwordAction(
+        string $passwordAction = 'get',
+        string $password = 'joh316',
+        string $hashedPassword = '',
+        string $mode = 'FE'
+    ): ResponseInterface {
         $modes = ['FE' => 'FE', 'BE' => 'BE'];
         if ($passwordAction == 'Check') {
             $success = $this->checkPassword($hashedPassword, $password, $mode);
@@ -508,30 +531,26 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     }
 
     /**
-     * Returns a count of entries in a table defined by a request parameter, in JSON format.
-     *
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
+     * Adds a count of entries to the flash message
      */
-    public function countAction(ServerRequestInterface $request): ResponseInterface
+    public function countAction(string $tablename = 'pages'): ResponseInterface
     {
-        $requestParameters = $request->getQueryParams();
-        // TYPO3\CMS\Core\Database\Connection::count($item, $tableName) uses QueryBuilder internally
-        // therefore it is safe to pass $tablename directly from the parameters to it.
-        $tablename = $requestParameters['table'];
-        /** @var Connection $connection */
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable($tablename);
-        $count = $connection->count('uid', $tablename, []);
-        $array = ['count' => $count];
-        return new \TYPO3\CMS\Core\Http\JsonResponse($array);
+        $count = $this->tableInformationService->countRecords($tablename);
+
+        $this->addFlashMessage(
+            $count . ' records found in table ' . $tablename,
+            'Information',
+            ContextualFeedbackSeverity::INFO
+        );
+        return $this->redirect('flash');
     }
 
     /**
      * Generates the action menu
      */
-    protected function initializeModuleTemplate(ServerRequestInterface $request): ModuleTemplate
-    {
+    protected function initializeModuleTemplate(
+        ServerRequestInterface $request
+    ): ModuleTemplate {
         $menuItems = [
             'flash' => [
                 'controller' => 'Module',
@@ -569,7 +588,11 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $isActive = $this->request->getControllerActionName() === $menuItemConfig['action'];
             $menuItem = $menu->makeMenuItem()
                 ->setTitle($menuItemConfig['label'])
-                ->setHref($this->uriBuilder->reset()->uriFor($menuItemConfig['action'], [], $menuItemConfig['controller']))
+                ->setHref($this->uriBuilder->reset()->uriFor(
+                    $menuItemConfig['action'],
+                    [],
+                    $menuItemConfig['controller']
+                ))
                 ->setActive($isActive);
             $menu->addMenuItem($menuItem);
             if ($isActive) {
@@ -585,7 +608,10 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         );
 
         $permissionClause = $this->getBackendUserAuthentication()->getPagePermsClause(Permission::PAGE_SHOW);
-        $pageRecord = BackendUtility::readPageAccess($this->pageUid, $permissionClause);
+        $pageRecord = BackendUtility::readPageAccess(
+            $this->pageUid,
+            $permissionClause
+        );
         if ($pageRecord) {
             $view->getDocHeaderComponent()->setMetaInformation($pageRecord);
         }

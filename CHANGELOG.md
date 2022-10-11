@@ -27,6 +27,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use ContextualFeedbackSeverity for flash message severity (#87)
 
 ### Fixed
+- Fix the count-buttons in FlashMessage example (#135)
 - Fix TCA userfunc PHP warnings when no record is created yet (#134)
 - Fix new record controller xClass example (#64)
 - defined('TYPO3') or die(); (#66)
