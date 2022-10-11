@@ -40,9 +40,7 @@ final class GitHubLinkBuilder extends AbstractTypolinkBuilder
         array $conf
     ): LinkResultInterface {
         $issueId = trim($linkDetails['value']);
-        if (str_starts_with($issueId, '#')) {
-            $issueId = substr($issueId, 1);
-        }
+        $issueId = ltrim($issueId, '#');
         $issueId = (int) $issueId;
         if ($issueId < 1) {
             throw new UnableToLinkException(
