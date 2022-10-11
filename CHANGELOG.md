@@ -31,7 +31,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - defined('TYPO3') or die(); (#66)
 
 ### Removed
-- PlusMinus Widget Example (#137)
+- PlusMinus widget example (#137)
 - Context-sensitive help (#92)
 - typo3-ter/examples replace section in composer.json (#88)
 
