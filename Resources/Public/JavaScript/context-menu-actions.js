@@ -10,7 +10,6 @@ class ContextMenuActions {
 		if (table === 'pages') {
 			//If needed, you can access other 'data' attributes here from $(this).data('someKey')
 			//see item provider getAdditionalAttributes method to see how to pass custom data attributes
-			alert('hello');
 			top.TYPO3.Notification.error('Hello World', 'Hi there!', 5);
 		}
 	};
