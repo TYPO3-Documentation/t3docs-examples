@@ -25,9 +25,10 @@ use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
 /**
  * Builds a TypoLink to a GitHub issue
  */
-class GitHubLinkBuilder extends AbstractTypolinkBuilder
+final class GitHubLinkBuilder extends AbstractTypolinkBuilder
 {
-    const TYPE_GITHUB = 'github';
+    private const TYPE_GITHUB = 'github';
+    private const URL_TEMPLATE = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/';
 
     /**
      * @inheritdoc
@@ -45,14 +46,14 @@ class GitHubLinkBuilder extends AbstractTypolinkBuilder
         $issueId = (int) $issueId;
         if ($issueId < 1) {
             throw new UnableToLinkException(
-                '"' . $linkDetails['value'] . '" is not a valid Github issue number.',
+                '"' . $linkDetails['value'] . '" is not a valid GitHub issue number.',
                 // Use the Unix timestamp of the time of creation of this message
                 1665304602,
                 null,
                 $linkText
             );
         }
-        $url = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/' . $issueId;
+        $url = self::URL_TEMPLATE . $issueId;
 
         return (new LinkResult(self::TYPE_GITHUB, $url))
             ->withTarget($target)
