@@ -18,7 +18,8 @@
     },
     "require": {
         "typo3/cms-core": "^11.5.0",
-		"typo3/cms-fluid-styled-content": "^11.5.0"
+		"typo3/cms-fluid-styled-content": "^11.5.0",
+		"typo3/cms-linkvalidator": "^11.5.0"
     },
     "replace": {
         "typo3-ter/examples": "self.version"
@@ -37,5 +38,11 @@
             "rm .gitignore",
             "rm .editorconfig"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
     }
 }
