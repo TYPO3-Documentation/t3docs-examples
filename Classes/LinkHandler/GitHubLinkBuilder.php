@@ -17,16 +17,15 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\LinkHandler;
 
-use TYPO3\CMS\Core\LinkHandling\LinkService;
 use TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder;
 use TYPO3\CMS\Frontend\Typolink\LinkResult;
 use TYPO3\CMS\Frontend\Typolink\LinkResultInterface;
 use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
 
 /**
- * Builds a TypoLink to a Github issue
+ * Builds a TypoLink to a GitHub issue
  */
-class GithubLinkBuilder extends AbstractTypolinkBuilder
+class GitHubLinkBuilder extends AbstractTypolinkBuilder
 {
     const TYPE_GITHUB = 'github';
 
