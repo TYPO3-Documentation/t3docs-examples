@@ -137,15 +137,6 @@ return [
             'config' => [
                 'type' => 'number',
                 'size' => 10,
-                'wizards' => [
-                    'specialWizard' => [
-                        'type' => 'userFunc',
-                        'userFunc' => \T3docs\Examples\Controller\PlusMinusWizardController::class . '->render',
-                        'params' => [
-                            'color' => 'green',
-                        ],
-                    ],
-                ],
             ],
         ],
         'color' => [
