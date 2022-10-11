@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 - [FEATURE] Password hashing examples
 
-## BUGFIX
+## Fixed
 
 - [BUGFIX] Fix the Linkhandler example
 
