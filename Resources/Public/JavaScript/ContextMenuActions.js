@@ -1,14 +1,14 @@
 /**
- * Module: TYPO3/CMS/Example/ContextMenuActions
+ * Module: TYPO3/CMS/Examples/ContextMenuActions
  *
  * JavaScript to handle the click action of the "Hello World" context menu item
- * @exports TYPO3/CMS/Example/ContextMenuActions
+ * @exports TYPO3/CMS/Examples/ContextMenuActions
  */
 define(function () {
     'use strict';
 
     /**
-     * @exports TYPO3/CMS/Example/ContextMenuActions
+     * @exports TYPO3/CMS/Examples/ContextMenuActions
      */
     var ContextMenuActions = {};
 
