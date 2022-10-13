@@ -29,9 +29,6 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
 {
     const TYPE_GITHUB = 'github';
 
-    /**
-     * @inheritdoc
-     */
     public function build(
         array &$linkDetails,
         string $linkText,
