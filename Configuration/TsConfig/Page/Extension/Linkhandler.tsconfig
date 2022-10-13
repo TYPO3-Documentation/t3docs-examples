@@ -9,7 +9,7 @@ TCEMAIN.linkHandler {
       scanBefore = page
    }
    github {
-      handler = T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
+      handler = T3docs\Examples\LinkHandler\GitHubLinkHandler
       label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
       displayAfter = haiku
       scanBefore = url
