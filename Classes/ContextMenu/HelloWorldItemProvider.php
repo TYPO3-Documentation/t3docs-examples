@@ -75,8 +75,7 @@ class HelloWorldItemProvider extends AbstractProvider
     protected function getAdditionalAttributes(string $itemName): array
     {
         return [
-            // BEWARE!!! RequireJS MODULES MUST ALWAYS START WITH "TYPO3/CMS/" (and no "Vendor" segment here)
-            'data-callback-module' => 'TYPO3/CMS/Examples/ContextMenuActions',
+            'data-callback-module' => '@t3docs/examples/context-menu-actions',
             // Here you can also add any other useful "data-" attribute you'd like to use in your JavaScript (e.g. localized messages)
         ];
     }

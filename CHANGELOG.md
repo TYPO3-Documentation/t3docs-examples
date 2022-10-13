@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Custom Linkvalidator type
 
 ### Changed
+- Use ES6 modules instead of AMD modules for context menu item (#138)
 - Register icons via Configuration/Icons.php (#90)
 - Use custom CategoryRepository (#91)
 - Use ContextualFeedbackSeverity for flash message severity (#87)
