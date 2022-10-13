@@ -16,11 +16,12 @@ namespace T3docs\Examples\LinkHandler;
  */
 
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Recordlist\Controller\AbstractLinkBrowserController;
-use TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface;
+use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
+use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3Fluid\Fluid\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
@@ -69,8 +70,9 @@ class GitHubLinkHandler implements LinkHandlerInterface
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct(
+        protected readonly BackendViewFactory $backendViewFactory,
+    ) {
         // remove unsupported link attribute
         unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
     }
@@ -127,16 +129,13 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function render(ServerRequestInterface $request): string
     {
-        $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
-        $this->view->getRequest()->setControllerExtensionName('examples');
-        $this->view->setTemplateRootPaths(['EXT:examples/Resources/Private/Templates/LinkBrowser']);
+        $this->pageRenderer->loadJavaScriptModule('@t3docs/examples/github_link_handler.js');
+        $view = $this->backendViewFactory->create($request, ['typo3/cms-backend', 'examples']);
+        $view->assign('project', $this->configuration['project']);
+        $view->assign('action', $this->configuration['action']);
+        $view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
 
-        $this->view->assign('project', $this->configuration['project']);
-        $this->view->assign('action', $this->configuration['action']);
-        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
-
-        $this->view->setTemplate('GitHub');
-        return '';
+        return $view->render('LinkBrowser/GitHub');
     }
 
     /**
@@ -172,10 +171,5 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function isUpdateSupported()
     {
         return false;
-    }
-
-    public function setView(ViewInterface $view): void
-    {
-        $this->view = $view;
     }
 }

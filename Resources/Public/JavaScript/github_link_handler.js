@@ -11,35 +11,30 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+import LinkBrowser
+	from "@typo3/backend/link-browser.js";
+
 /**
- * Module: TYPO3/CMS/Examples/GitHubLinkHandler
+ * Module: @t3docs/examples/github_link_handler.js
  * Github issue link interaction
  */
-define(['jquery', 'TYPO3/CMS/Recordlist/LinkBrowser'], function($, LinkBrowser) {
-	'use strict';
 
-	/**
-	 *
-	 * @type {{}}
-	 * @exports T3docs/Examples/GitHubLinkHandler
-	 */
-	var GitHubLinkHandler = {};
-
-	$(function() {
-		$('#lgithubform').on('submit', function(event) {
+class GitHubLinkHandler {
+	constructor() {
+		var form_el = document.getElementById("lgithubform");
+		form_el.addEventListener("submit", function(event) {
 			event.preventDefault();
-
-			var value = $(this).find('[name="lgithub"]').val();
+			alert('submitted');
+			var value = document.getElementById('lgithub').value;
 			if (value === 'github:') {
 				return;
 			}
 			if (value.indexOf('github:') === 0) {
-				value = value.substr(7);
+				value = value.substring(7);
 			}
 			LinkBrowser.finalizeFunction('github:' + value);
 		});
-	});
+	}
+}
 
-	return GitHubLinkHandler;
-});
-
+export default new GitHubLinkHandler();

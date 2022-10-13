@@ -60,3 +60,6 @@ services:
 
   T3docs\Examples\Controller\Haiku\ListController:
     public: true
+    
+  T3docs\Examples\LinkHandler\GitHubLinkHandler:
+    public: true
