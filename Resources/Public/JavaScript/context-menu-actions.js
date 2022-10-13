@@ -1,5 +1,5 @@
 /**
- * Module: @t3docs/examples/ContextMenuActions
+ * Module: @t3docs/examples/context-menu-actions
  *
  * JavaScript to handle the click action of the "Hello World" context menu item
  */
