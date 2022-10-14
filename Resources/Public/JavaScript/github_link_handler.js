@@ -24,7 +24,6 @@ class GitHubLinkHandler {
 		var form_el = document.getElementById("lgithubform");
 		form_el.addEventListener("submit", function(event) {
 			event.preventDefault();
-			alert('submitted');
 			var value = document.getElementById('lgithub').value;
 			if (value === 'github:') {
 				return;
