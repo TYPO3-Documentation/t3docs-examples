@@ -28,7 +28,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use ContextualFeedbackSeverity for flash message severity (#87)
 
 ### Fixed
-- Fix GitHub Linkhandler JavaScript (#140)
+- Fix GitHub Linkhandler JavaScript and Template (#140)
 - Forward-port correcting GitHub linkhandler (#133)
 - Fix the count-buttons in FlashMessage example (#135)
 - Fix TCA userfunc PHP warnings when no record is created yet (#134)
