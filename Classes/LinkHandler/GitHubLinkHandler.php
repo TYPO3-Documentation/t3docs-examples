@@ -16,11 +16,11 @@ namespace T3docs\Examples\LinkHandler;
  */
 
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
+use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
-use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3\CMS\Core\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface

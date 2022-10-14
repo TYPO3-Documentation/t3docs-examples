@@ -22,7 +22,6 @@ use TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface;
  */
 class GitHubLinkHandling implements LinkHandlingInterface
 {
-
     /**
      * The Base URN for this link handling to act on
      * @var string
