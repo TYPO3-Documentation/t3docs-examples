@@ -77,8 +77,11 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function canHandleLink(array $linkParts): bool
     {
-        // todo: Will be handled in a follow-up
-        return false;
+        if ($linkParts['type'] !== 'github') {
+            return false;
+        }
+        $this->linkParts = $linkParts['url']??[];
+        return true;
     }
 
     /**
@@ -88,7 +91,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function formatCurrentUrl(): string
     {
-        return '';
+        return 'https://gitub.com/' . $this->configuration['project'] . '/'
+            . $this->configuration['action'] . '/' . $this->linkParts['issue']??'';
     }
 
     /**
@@ -103,8 +107,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->pageRenderer->loadJavaScriptModule('@t3docs/examples/github_link_handler.js');
         $this->view->assign('project', $this->configuration['project']);
         $this->view->assign('action', $this->configuration['action']);
-        $this->view->assign('linkParts', []);
-        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['github'] : '');
+        $this->view->assign('linkParts', $this->linkParts);
+        $this->view->assign('issue', $this->linkParts['issue'] ?? '');
 
         return $this->view->render('LinkBrowser/GitHub');
     }

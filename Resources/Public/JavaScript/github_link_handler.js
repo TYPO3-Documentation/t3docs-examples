@@ -25,13 +25,13 @@ class GitHubLinkHandler {
 		form_el.addEventListener("submit", function(event) {
 			event.preventDefault();
 			var value = document.getElementById('lgithub').value;
-			if (value === 'github:') {
+			if (value === 't3://github?issue=') {
 				return;
 			}
-			if (value.indexOf('github:') === 0) {
-				value = value.substring(7);
+			if (value.indexOf('t3://github?issue=') === 0) {
+				value = value.substring(18);
 			}
-			LinkBrowser.finalizeFunction('github:' + value);
+			LinkBrowser.finalizeFunction('t3://github?issue=' + value);
 		});
 	}
 }
