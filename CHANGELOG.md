@@ -28,6 +28,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use ContextualFeedbackSeverity for flash message severity (#87)
 
 ### Fixed
+- Fix Core Linkhandling (#141)
 - Fix GitHub Linkhandler JavaScript (#140)
 - Forward-port correcting GitHub linkhandler (#133)
 - Fix the count-buttons in FlashMessage example (#135)
