@@ -5,19 +5,29 @@
 <f:layout name="LinkBrowser"/>
 
 <f:section name="Content">
+   <f:debug>{_all}</f:debug>
    <form action="" class="form-horizontal" id="lgithubform">
-      <div class="form-group form-group-sm">
-         <label class="col-4 control-label">
-            <f:translate
-               key="LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github"/>
-         </label>
-         <div class="col-8">
+      <div class="row">
+         <div class="col-12">
+            <f:translate key="LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:gitHubDescription" arguments="{1:action, 2:project}"></f:translate>
+         </div>
+      </div>
+      <div class="row">
+         <label class="col-3 col-form-label" for="lgithub"><f:translate
+            key="LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:gitHubIssueNumber"/></label>
+         <div class="col-9">
             <div class="input-group">
-               <input class="form-control" name="lgithub" id="lgithub" size="20"
-                      type="text" value="{github}"/>
+               <input type="text"
+                      name="lgithub"
+                      id="lgithub"
+                      size="30"
+                      class="form-control"
+                      value="{url}"
+                      placeholder="1234" />
                <div class="input-group-btn">
-                  <input class="btn btn-sm btn-default" type="submit"
-                         value="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:setLink')}"/>
+                  <div class="input-group-btn">
+                     <input class="btn btn-default" type="submit" value="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:setLink')}" />
+                  </div>
                </div>
             </div>
          </div>

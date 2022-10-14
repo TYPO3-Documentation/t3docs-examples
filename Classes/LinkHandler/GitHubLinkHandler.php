@@ -17,7 +17,6 @@ namespace T3docs\Examples\LinkHandler;
 
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
-use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
@@ -78,10 +77,12 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function canHandleLink(array $linkParts): bool
     {
-        if (!isset($linkParts['type']) || $linkParts['type'] !== 'github') {
+        if (!isset($linkParts['github']['github'])) {
             return false;
         }
+        $linkParts['github'] = $linkParts['github']['github'];
         $this->linkParts = $linkParts;
+
         return true;
     }
 
@@ -92,7 +93,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function formatCurrentUrl(): string
     {
-        return $this->linkParts['url']['url'];
+        return $this->linkParts['github'];
     }
 
     /**
@@ -107,7 +108,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->pageRenderer->loadJavaScriptModule('@t3docs/examples/github_link_handler.js');
         $this->view->assign('project', $this->configuration['project']);
         $this->view->assign('action', $this->configuration['action']);
-        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
+        $this->view->assign('linkParts', $this->linkParts);
+        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['github'] : '');
 
         return $this->view->render('LinkBrowser/GitHub');
     }
