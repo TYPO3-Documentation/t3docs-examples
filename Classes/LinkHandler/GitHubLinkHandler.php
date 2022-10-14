@@ -22,50 +22,26 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-use TYPO3Fluid\Fluid\View\ViewInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
 {
     /**
      * Available additional link attributes
      *
-     * 'rel' only works in RTE, still we have to declare support for it.
-     *
      * @var string[]
      */
-    protected $linkAttributes = ['target', 'title', 'class', 'params', 'rel'];
+    protected array $linkAttributes = ['target', 'title', 'class', 'params', 'rel'];
 
-    /**
-     * Parts of the current link
-     *
-     * @var array
-     */
-    protected $linkParts = [];
+    protected array $linkParts = [];
 
-    /**
-     * @var AbstractLinkBrowserController
-     */
-    protected $linkBrowser;
+    protected AbstractLinkBrowserController $linkBrowser;
 
-    /**
-     * @var IconFactory
-     */
-    protected $iconFactory;
+    protected ViewInterface $view;
 
-    /**
-     * @var ViewInterface
-     */
-    protected $view;
+    protected PageRenderer $pageRenderer;
 
-    /**
-     * @var PageRenderer
-     */
-    protected $pageRenderer;
-
-    /**
-     * @var array $configuration
-     */
-    protected $configuration;
+    protected array $configuration;
 
     /**
      * Constructor
@@ -87,7 +63,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
         $this->linkBrowser = $linkBrowser;
-        $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
         $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
@@ -130,12 +105,11 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function render(ServerRequestInterface $request): string
     {
         $this->pageRenderer->loadJavaScriptModule('@t3docs/examples/github_link_handler.js');
-        $view = $this->backendViewFactory->create($request, ['typo3/cms-backend', 'examples']);
-        $view->assign('project', $this->configuration['project']);
-        $view->assign('action', $this->configuration['action']);
-        $view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
+        $this->view->assign('project', $this->configuration['project']);
+        $this->view->assign('action', $this->configuration['action']);
+        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
 
-        return $view->render('LinkBrowser/GitHub');
+        return $this->view->render('LinkBrowser/GitHub');
     }
 
     /**
@@ -171,5 +145,10 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function isUpdateSupported()
     {
         return false;
+    }
+
+    public function setView(ViewInterface $view): void
+    {
+        $this->view = $view;
     }
 }
