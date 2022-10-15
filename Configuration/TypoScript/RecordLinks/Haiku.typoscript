@@ -3,9 +3,8 @@ config.recordLinks.haiku {
    forceLink = 0
 
    typolink {
-      parameter = 1
+      parameter = {$plugin.tx_examples_haiku.settings.singlePid}
       additionalParams.data = field:uid
-      additionalParams.wrap = &tx_example_pi1[haiku]=|
-      useCacheHash = 1
+      additionalParams.wrap = &tx_examples_haiku[action]=show&tx_examples_haiku[haiku]=|
    }
 }
