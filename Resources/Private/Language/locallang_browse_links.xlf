@@ -10,7 +10,10 @@
 				<source>GitHub Issue</source>
 			</trans-unit>
 			<trans-unit id="gitHubIssueNumber" resname="gitHubIssueNumber">
-				<source>GitHub Issue number</source>
+				<source>GitHub issue number</source>
+			</trans-unit>
+			<trans-unit id="gitHubDescription" resname="gitHubDescription">
+				<source>Enter the "%s" number for the GitHub repository "%s".</source>
 			</trans-unit>
 		</body>
 	</file>

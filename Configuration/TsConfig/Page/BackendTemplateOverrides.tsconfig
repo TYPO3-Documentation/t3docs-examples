@@ -1,0 +1,3 @@
+
+# Pattern: templates."composer-name"."something-unique" = "overriding-extension-composer-name":"entry-path"
+templates.typo3/cms-backend.1665726783 = t3docs/examples:Resources/Private/Overrides/Backend
