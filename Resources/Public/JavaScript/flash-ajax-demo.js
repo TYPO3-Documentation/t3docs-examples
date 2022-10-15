@@ -1,6 +1,23 @@
 /**
- * JS code for extension "examples" BE module
+ * Module: @t3docs/examples/flash-message-demo
+ * JavaScript code for extension "examples" backend module
  */
+
+import Notification from "@typo3/backend/notification.js";
+
+class FlashAjaxDemo {
+	constructor() {
+		// todo: Resore Ajax example, see commented out Code below
+		var button_el = document.getElementById('displayJavaScriptFlashAjaxMessage');
+		button_el.addEventListener('click', function(event) {
+			event.preventDefault();
+			Notification.warning('Warning', 'This example is not implemented yet', 5);
+		});
+	}
+}
+
+export default new FlashAjaxDemo();
+/*
 define([
 	   'jquery',
 	   'TYPO3/CMS/Backend/Notification'
@@ -11,9 +28,6 @@ define([
 
 	   };
 
-		/**
-		 * Initializes this module.
-		 */
 		$(function () {
 			$('.action-button').on('click', function () {
 				var table = $(this).attr('name');
@@ -35,3 +49,5 @@ define([
 		return ExamplesApplication;
    }
 );
+
+ */

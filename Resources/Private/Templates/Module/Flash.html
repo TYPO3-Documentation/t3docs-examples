@@ -2,6 +2,12 @@
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <f:layout name="Module"/>
 <f:section name="Content">
+   <f:be.pageRenderer
+      includeJavaScriptModules="{
+         0: '@t3docs/examples/flash-message-demo.js',
+         1: '@t3docs/examples/flash-ajax-demo.js'
+      }"
+   />
    <f:flashMessages/>
 
    <h1>
@@ -12,12 +18,13 @@
       <f:translate key="function_flash_intro"/>
    </p>
    <p>
-      <f:translate key="function_flash_javascript"/>
+      <f:translate key="function_flash_php"/>
    </p>
    <p>
       <f:link.action
          action="count"
          controller="Module"
+         id="countPages"
          title=" {f:translate(key:'function_flash_pages')}"
          class="btn btn-default action-button">
          {f:translate(key:'function_flash_pages')}
@@ -25,11 +32,29 @@
       <f:link.action
          action="count"
          controller="Module"
+         id="countContent"
          arguments="{tablename:'tt_content'}"
          title=" {f:translate(key:'function_flash_pages')}"
          class="btn btn-default action-button">
          {f:translate(key:'function_flash_content_elements')}
       </f:link.action>
+   </p>
+   <p>
+      <f:translate key="function_flash_javascript"/>
+   </p>
+   <p>
+      <a href="#"
+         id="displayJavaScriptFlashMessage"
+         title=" {f:translate(key:'function_flash_javascript_button')}"
+         class="btn btn-default action-button">
+         {f:translate(key:'function_flash_javascript_button')}
+      </a>
+      <a href="#"
+         id="displayJavaScriptFlashAjaxMessage"
+         title=" {f:translate(key:'function_flash_javascript_button')}"
+         class="btn btn-default action-button">
+         {f:translate(key:'function_flash_javascript_button')}
+      </a>
    </p>
 </f:section>
 </html>
