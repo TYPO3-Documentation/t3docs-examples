@@ -1,0 +1,43 @@
+<html
+   xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+   data-namespace-typo3-fluid="true"
+>
+<f:layout name="LinkBrowser"/>
+
+<f:section name="Content">
+   <form action="" class="form-horizontal" id="lgithubform">
+      <f:variable name="LLL">LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf</f:variable>
+      <f:variable name="LLLBackend">LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf</f:variable>
+      <div class="row">
+         <div class="col-12">
+            <f:translate
+               key="{LLL}:gitHubDescription"
+               arguments="{1:action, 2:project}"/>
+         </div>
+      </div>
+      <div class="row">
+         <label class="col-3 col-form-label" for="lgithub"><f:translate
+            key="{LLL}:gitHubIssueNumber"/></label>
+         <div class="col-9">
+            <div class="input-group">
+               <input type="text"
+                      name="lgithub"
+                      id="lgithub"
+                      size="30"
+                      class="form-control"
+                      value="{issue}"
+                      placeholder="1234" />
+               <div class="input-group-btn">
+                  <div class="input-group-btn">
+                     <input
+                        class="btn btn-default"
+                        type="submit"
+                        value="{f:translate(key: '{LLLBackend}:setLink')}" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+</f:section>
+</html>

@@ -29,6 +29,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - Make flash example work with ES6 (#143)
+- Fix Core Linkhandling (#141)
+- Fix GitHub Linkhandler JavaScript (#141)
 - Forward-port correcting GitHub linkhandler (#133)
 - Fix the count-buttons in FlashMessage example (#135)
 - Fix TCA userfunc PHP warnings when no record is created yet (#134)
