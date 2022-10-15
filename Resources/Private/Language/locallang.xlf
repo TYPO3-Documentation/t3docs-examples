@@ -19,7 +19,16 @@
 				<source>The above demonstrates Flash messages by showing one of each type. They can also come without title.</source>
 			</trans-unit>
 			<trans-unit id="function_flash_javascript" xml:space="preserve">
-				<source>It's also possible to pop flash messages in JavaScript. Click one of the buttons below to see some action.</source>
+				<source>It is also possible to pop flash messages in JavaScript. Click one of the buttons below to see some action.</source>
+			</trans-unit>
+			<trans-unit id="function_flash_javascript_button" xml:space="preserve">
+				<source>Flash message by JavaScript</source>
+			</trans-unit>
+			<trans-unit id="function_flash_javascript_ajax_button" xml:space="preserve">
+				<source>Ajax flash message</source>
+			</trans-unit>
+			<trans-unit id="function_flash_php" xml:space="preserve">
+				<source>The following buttons trigger an Extbase action that forwards to this page and gives a flash message response</source>
 			</trans-unit>
 			<trans-unit id="function_flash_content_elements" xml:space="preserve">
 				<source>Count content elements</source>
