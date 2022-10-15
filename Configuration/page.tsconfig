@@ -1,3 +1,4 @@
 @import 'EXT:examples/Configuration/TsConfig/Page/*.tsconfig'
+@import 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/*.tsconfig'
 @import 'EXT:examples/Configuration/TsConfig/Page/Extension/*.tsconfig'
 @import 'EXT:examples/Configuration/TsConfig/Page/Mod/*.tsconfig'

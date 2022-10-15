@@ -1,13 +1,4 @@
 TCEMAIN.linkHandler {
-   haiku {
-      handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-      label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
-      configuration {
-         table = tx_examples_haiku
-      }
-      displayAfter = url
-      scanBefore = page
-   }
    github {
       handler = T3docs\Examples\LinkHandler\GitHubLinkHandler
       label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github

@@ -6,7 +6,9 @@ plugin.tx_examples_haiku {
         layoutRootPath = EXT:examples/Resources/Private/Templates
     }
     settings {
+        # cat=examples//b; type=int+; label=Haiku Single pid: The id of the page where the haiku detail view should be displayed
         singlePid = 0
+        # cat=examples//c; type=int+; label=Haiku list pid: The id of the page where list of haikus is displayed.
         listPid = 0
     }
 }

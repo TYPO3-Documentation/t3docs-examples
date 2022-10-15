@@ -1,0 +1,11 @@
+TCEMAIN.linkHandler {
+    haiku {
+        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+        label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
+        configuration {
+            table = tx_examples_haiku
+        }
+        displayAfter = url
+        scanBefore = page
+    }
+}
