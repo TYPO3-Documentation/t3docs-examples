@@ -7,7 +7,7 @@ import Notification from "@typo3/backend/notification.js";
 
 class FlashAjaxDemo {
 	constructor() {
-		// todo: Resore Ajax example, see commented out Code below
+		// todo: Restore Ajax example, see code commented out below
 		var button_el = document.getElementById('displayJavaScriptFlashAjaxMessage');
 		button_el.addEventListener('click', function(event) {
 			event.preventDefault();
