@@ -537,10 +537,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     {
         $count = $this->tableInformationService->countRecords($tablename);
 
+        $message = LocalizationUtility::translate(
+            key: 'record_count_message',
+            extensionName: 'examples',
+            arguments: [$count, $tablename]
+        );
+
         $this->addFlashMessage(
-            $count . ' records found in table ' . $tablename,
-            'Information',
-            ContextualFeedbackSeverity::INFO
+            messageBody: $message,
+            messageTitle: 'Information',
+            severity: ContextualFeedbackSeverity::INFO
         );
         return $this->redirect('flash');
     }

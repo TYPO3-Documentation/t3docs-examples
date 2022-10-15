@@ -31,7 +31,7 @@
 				<source>Record count</source>
 			</trans-unit>
 			<trans-unit id="record_count_message" xml:space="preserve">
-				<source>{0} record(s) in table &quot;{1}&quot;.</source>
+				<source>%s record(s) in table &quot;%s&quot;.</source>
 			</trans-unit>
 			<trans-unit id="function_log" xml:space="preserve">
 				<source>Create log entries</source>
