@@ -35,7 +35,7 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
         string $target,
         array $conf
     ): LinkResultInterface {
-        $issueId = (int) $linkDetails['issue'];
+        $issueId = (int)$linkDetails['issue'];
         if ($issueId < 1) {
             throw new UnableToLinkException(
                 '"' . $issueId . '" is not a valid GitHub issue number.',
