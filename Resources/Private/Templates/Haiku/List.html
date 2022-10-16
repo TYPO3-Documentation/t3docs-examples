@@ -1,13 +1,38 @@
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
 <f:layout name="Default"/>
 
 <f:section name="main">
    <ul>
       <f:for each="{haikus}" as="haiku">
-         <li><f:link.page pageUid="{settings.singlePid}" additionalParams="{tx_examples_haiku: {action: 'show', haiku: haiku.uid}}">{haiku.title}</f:link.page></li>
+         <li>
+            <f:link.page pageUid="{settings.singlePid}"
+                         additionalParams="{tx_examples_haiku: {action: 'show', haiku: haiku.uid}}">
+               {haiku.title}
+            </f:link.page>
+         </li>
       </f:for>
    </ul>
+   <h2>About haiku seasons: </h2>
+   <p>
+      <f:link.page pageUid="{settings.singlePid}" pageType="1665905735"
+                   additionalParams="{tx_examples_haiku: {action: 'getSeasonList'}}">
+         Download available seasons (JSON)
+      </f:link.page>
+   </p>
+   <p>
+      <f:link.page pageUid="{settings.singlePid}" pageType="1665905735"
+                   additionalParams="{tx_examples_haiku: {action: 'translateSeason', season:'theFifthSeason'}}">
+         What is the fifth season? (JSON)
+      </f:link.page>
+   </p>
+   <p>
+      <f:link.page pageUid="{settings.singlePid}" pageType="1665905735"
+                   additionalParams="{tx_examples_haiku: {action: 'translateSeason', season:'x-mess'}}">
+         Can we translate 'x-mess' into a season?
+      </f:link.page>
+   </p>
 </f:section>
 
 </html>

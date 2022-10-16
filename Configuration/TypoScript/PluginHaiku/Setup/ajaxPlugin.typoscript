@@ -1,0 +1,18 @@
+plugin.tx_examples_haiku_ajax = USER
+plugin.tx_examples_haiku_ajax {
+    userFunc = T3docs\Examples\Controller\Haiku\AjaxController->main
+}
+
+page_haiku_ajax = PAGE
+page_haiku_ajax {
+    typeNum = 1665905735
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type:application/json
+        xhtml_cleaning = 0
+        debug = 0
+        no_cache = 1
+        admPanel = 0
+    }
+    10 = < plugin.tx_examples_haiku_ajax
+}
