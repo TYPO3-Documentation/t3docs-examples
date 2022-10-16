@@ -22,9 +22,7 @@
                             <size>1</size>
                             <suggestOptions>
                                 <default>
-                                    <additionalSearchFields>nav_title, alias,
-                                        url
-                                    </additionalSearchFields>
+                                    <additionalSearchFields>nav_title, alias, url</additionalSearchFields>
                                     <addWhere>AND pages.doktype = 1</addWhere>
                                 </default>
                             </suggestOptions>
