@@ -3,15 +3,10 @@
 namespace T3docs\Examples\Controller\Haiku;
 
 use Psr\Http\Message\ServerRequestInterface;
-use T3docs\Examples\Domain\Repository\HaikuRepository;
-use T3docs\Examples\Service\FlexFormSettingsService;
-use T3docs\Examples\Service\StandaloneViewService;
 use T3docs\Examples\Utility\HaikuSeasonUtility;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
-use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class AjaxController
 {
@@ -23,7 +18,8 @@ class AjaxController
     ) {
     }
 
-    private function getLanguageService(ServerRequestInterface $request): LanguageService {
+    private function getLanguageService(ServerRequestInterface $request): LanguageService
+    {
         return $this->languageServiceFactory->createFromSiteLanguage(
             $request->getAttribute('language')
             ?? $request->getAttribute('site')->getDefaultLanguage()
@@ -48,24 +44,27 @@ class AjaxController
                 [
                     'error' => $e::class,
                     'errorMessage' => $e->getMessage(),
-                ]);
+                ]
+            );
         }
         return $result;
     }
 
-    private function getTranslatedSeasonListAction() : string {
+    private function getTranslatedSeasonListAction(): string
+    {
         $seasons = HaikuSeasonUtility::getSeasons();
         $translatedSeasons = [];
         foreach ($seasons as $season) {
             $translatedSeasons[$season] =
                 $this->languageService->getLL(
-                    HaikuSeasonUtility::TRANSLATION_PATH .$season
+                    HaikuSeasonUtility::TRANSLATION_PATH . $season
                 );
         }
         return json_encode($translatedSeasons);
     }
 
-    private function translateSeasonAction(string $season) {
+    private function translateSeasonAction(string $season)
+    {
         if (!in_array($season, HaikuSeasonUtility::getSeasons())) {
             $this->notFoundAction('Season ' . $season . ' not found');
         }

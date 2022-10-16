@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Add examples for localization in plain PHP (#147)
 - Create a Frontend Plugin without Extbase (#124)
 - Create extended console command example (#121)
 - Example for sending an HTTP request with Guzzle (#113)

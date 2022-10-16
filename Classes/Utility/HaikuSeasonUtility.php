@@ -12,11 +12,13 @@ class HaikuSeasonUtility
     const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
     const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
 
-    public static function getSeasons() {
+    public static function getSeasons()
+    {
         return self::SEASONS;
     }
 
-    public static function getSeasonTranslation(string $season) : string {
+    public static function getSeasonTranslation(string $season): string
+    {
         $languageServiceFactory = GeneralUtility::makeInstance(
             LanguageServiceFactory::class
         );
@@ -28,5 +30,4 @@ class HaikuSeasonUtility
         );
         return $languageService->sL(self::TRANSLATION_PATH . $season);
     }
-
 }
