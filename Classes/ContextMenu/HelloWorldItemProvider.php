@@ -65,7 +65,7 @@ class HelloWorldItemProvider extends AbstractProvider
     }
 
     /**
-     * Registers the additional JavaScript RequireJS callback-module which will allow to display a notification
+     * Registers the additional JavaScript ES6 callback-module which will allow to display a notification
      * whenever the user tries to click on the "Hello World" item.
      * The method is called from AbstractProvider::prepareItems() for each context menu item.
      *
