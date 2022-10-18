@@ -3,23 +3,29 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
 		<header/>
 		<body>
-			<trans-unit id="button.backToList" xml:space="preserve">
+			<trans-unit id="button.backToList" approved="yes">
 				<source>Back to list</source>
+				<target>Zurück zur Übersicht</target>
 			</trans-unit>
-			<trans-unit id="season.spring" xml:space="preserve">
+			<trans-unit id="season.spring" approved="yes">
 				<source>spring</source>
+				<target>Frühling</target>
 			</trans-unit>
-			<trans-unit id="season.summer" xml:space="preserve">
+			<trans-unit id="season.summer" approved="yes">
 				<source>summer</source>
+				<target>Sommer</target>
 			</trans-unit>
-			<trans-unit id="season.autumn" xml:space="preserve">
+			<trans-unit id="season.autumn" approved="yes">
 				<source>autumn</source>
+				<target>Herbst</target>
 			</trans-unit>
-			<trans-unit id="season.winter" xml:space="preserve">
+			<trans-unit id="season.winter" approved="yes">
 				<source>winter</source>
+				<target>Winter</target>
 			</trans-unit>
-			<trans-unit id="season.theFifthSeason" xml:space="preserve">
+			<trans-unit id="season.theFifthSeason" approved="yes">
 				<source>Carnival</source>
+				<target>Fasching</target>
 			</trans-unit>
 		</body>
 	</file>
