@@ -13,7 +13,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
 /**
- * The middleware can be used to receive a list of seasons with their according translation.
+ * This middleware can be used to retrieve a list of seasons with their according translation.
  * To get the correct translation the URL must be within a base path defined in site
  * handling. Some examples:
  * "/en/haiku-season-list" for English translation (if /en is the configured base path)
