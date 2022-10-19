@@ -1,14 +1,17 @@
 <?php
 
-/***************************************************************
- * Extension Manager/Repository config file for ext "examples".
+/*
+ * This file is part of the TYPO3 CMS project.
  *
- * Auto generated 23-11-2016 20:16
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- * Manual updates:
- * Only the data in the array - everything else is removed by next
- * writing. "version" and "dependencies" must not be touched!
- ***************************************************************/
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Core Documentation Code Examples',
