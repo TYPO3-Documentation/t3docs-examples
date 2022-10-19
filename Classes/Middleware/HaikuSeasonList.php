@@ -24,7 +24,7 @@ final class HaikuSeasonList implements MiddlewareInterface
 {
     private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
     private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
-    private const URL_SEGMENT = '/haiku-season-list';
+    private const URL_SEGMENT = '/haiku-season-list.json';
 
     public function __construct(
         private readonly LanguageServiceFactory $languageServiceFactory,
