@@ -87,7 +87,8 @@
             "rm .gitignore",
             "rm .editorconfig",
             "rm .php-cs-fixer.dist.php",
-            "rm -rf Build"
-        ]
+            "rm -rf Build",
+			"rm rector.php"
+		]
     }
 }
