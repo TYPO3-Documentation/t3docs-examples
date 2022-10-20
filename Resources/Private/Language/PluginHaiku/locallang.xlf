@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
-		<header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:43:14+02:00">
+		<header></header>
 		<body>
-			<trans-unit id="button.backToList" xml:space="preserve">
+			<trans-unit id="button.backToList" resname="button.backToList">
 				<source>Back to list</source>
 			</trans-unit>
-			<trans-unit id="season.spring" xml:space="preserve">
-				<source>spring</source>
-			</trans-unit>
-			<trans-unit id="season.summer" xml:space="preserve">
-				<source>summer</source>
-			</trans-unit>
-			<trans-unit id="season.autumn" xml:space="preserve">
+			<trans-unit id="season.autumn" resname="season.autumn">
 				<source>autumn</source>
 			</trans-unit>
-			<trans-unit id="season.winter" xml:space="preserve">
-				<source>winter</source>
+			<trans-unit id="season.spring" resname="season.spring">
+				<source>spring</source>
 			</trans-unit>
-			<trans-unit id="season.theFifthSeason" xml:space="preserve">
+			<trans-unit id="season.summer" resname="season.summer">
+				<source>summer</source>
+			</trans-unit>
+			<trans-unit id="season.theFifthSeason" resname="season.theFifthSeason">
 				<source>Carnival</source>
+			</trans-unit>
+			<trans-unit id="season.winter" resname="season.winter">
+				<source>winter</source>
 			</trans-unit>
 		</body>
 	</file>

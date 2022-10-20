@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
-		<header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:43:25+02:00">
+		<header></header>
 		<body>
-			<trans-unit id="list.title" xml:space="preserve">
-				<source>Haiku poem list</source>
-			</trans-unit>
-			<trans-unit id="list.description" xml:space="preserve">
-				<source>Displays a list of haiku poems.</source>
-			</trans-unit>
-			<trans-unit id="detail.title" xml:space="preserve">
-				<source>Haiku poem detail</source>
-			</trans-unit>
-			<trans-unit id="detail.description" xml:space="preserve">
+			<trans-unit id="detail.description" resname="detail.description">
 				<source>Displays a haiku poem in detail.</source>
 			</trans-unit>
-			<trans-unit id="singlePageUid" xml:space="preserve">
-				<source>Page to display detail view</source>
+			<trans-unit id="detail.title" resname="detail.title">
+				<source>Haiku poem detail</source>
 			</trans-unit>
-			<trans-unit id="listPageUid" xml:space="preserve">
-				<source>Page for "Back to list" link</source>
+			<trans-unit id="list.description" resname="list.description">
+				<source>Displays a list of haiku poems.</source>
+			</trans-unit>
+			<trans-unit id="list.title" resname="list.title">
+				<source>Haiku poem list</source>
+			</trans-unit>
+			<trans-unit id="listPageUid" resname="listPageUid">
+				<source>Page for &#34;Back to list&#34; link</source>
+			</trans-unit>
+			<trans-unit id="singlePageUid" resname="singlePageUid">
+				<source>Page to display detail view</source>
 			</trans-unit>
 		</body>
 	</file>
