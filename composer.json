@@ -61,8 +61,8 @@
         "check:composer:config": "Build/Scripts/runTests.sh -n -s composerNormalize",
         "check:php": [
             "@check:php:lint",
-			"@check:php:cs",
-			"@check:php:rector"
+            "@check:php:cs",
+            "@check:php:rector"
         ],
         "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
         "check:php:lint": "Build/Scripts/runTests.sh -s lint",
@@ -77,7 +77,7 @@
         "fix:composer:config": "Build/Scripts/runTests.sh -s composerNormalize",
         "fix:php": [
             "@fix:php:rector",
-			"@fix:php:cs"
+            "@fix:php:cs"
         ],
         "fix:php:cs": "Build/Scripts/runTests.sh -s cgl",
         "fix:php:rector": "Build/Scripts/runTests.sh -s rector",
