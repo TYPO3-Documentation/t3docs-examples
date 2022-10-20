@@ -80,5 +80,5 @@ indent_style = tab
 indent_size = 2
 
 # YAML-Files
-[*.yaml]
+[{*.yaml, *.yml}]
 indent_size = 2

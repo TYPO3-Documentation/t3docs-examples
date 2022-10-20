@@ -1,43 +1,43 @@
 name: tests
 
 on:
-    push:
-    pull_request:
+  push:
+  pull_request:
 
 jobs:
-    lint:
-        name: Linting
-        runs-on: ubuntu-22.04
-        strategy:
-            matrix:
-                php:
-                    - '8.1'
-                    - '8.2'
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
+  lint:
+    name: Linting
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        php:
+          - '8.1'
+          - '8.2'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-            -   name: Lint PHP
-                run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+      - name: Lint PHP
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
-    code-quality:
-        name: Code Quality
-        runs-on: ubuntu-22.04
-        env:
-            php: '8.1'
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-22.04
+    env:
+      php: '8.1'
 
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-            -   name: Install testing system
-                run: Build/Scripts/runTests.sh -p ${{ php }} -s composerUpdate
+      - name: Install testing system
+        run: Build/Scripts/runTests.sh -p ${{ php }} -s composerUpdate
 
-            -   name: Composer validate
-                run: Build/Scripts/runTests.sh -p ${{ php }} -s composerValidate
+      - name: Composer validate
+        run: Build/Scripts/runTests.sh -p ${{ php }} -s composerValidate
 
-            -   name: Composer normalize
-                run: Build/Scripts/runTests.sh -p ${{ php }} -s composerNormalize -n
+      - name: Composer normalize
+        run: Build/Scripts/runTests.sh -p ${{ php }} -s composerNormalize -n
 
-            -   name: CGL
-                run: Build/Scripts/runTests.sh -n -p ${{ php }} -s cgl
+      - name: CGL
+        run: Build/Scripts/runTests.sh -n -p ${{ php }} -s cgl
