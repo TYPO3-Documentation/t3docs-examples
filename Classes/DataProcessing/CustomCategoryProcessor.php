@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace T3docs\Examples\DataProcessing;
-
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -16,6 +14,8 @@ namespace T3docs\Examples\DataProcessing;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace T3docs\Examples\DataProcessing;
 
 use T3docs\Examples\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

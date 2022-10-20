@@ -1,7 +1,5 @@
 <?php
 
-namespace T3docs\Examples\Controller;
-
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -14,6 +12,8 @@ namespace T3docs\Examples\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Resource\ResourceFactory;

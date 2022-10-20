@@ -1,8 +1,6 @@
 <?php
 
-namespace T3docs\Examples\Controller;
-
-/**
+/*
  * This file is part of the TYPO3 CMS project.
  *
  * It is free software; you can redistribute it and/or modify it under
@@ -14,6 +12,8 @@ namespace T3docs\Examples\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Html\HtmlParser;
