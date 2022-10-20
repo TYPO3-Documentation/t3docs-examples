@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2022-09-18T18:44:59Z" product-name="examples">
-		<header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:43:14+02:00">
+		<header></header>
 		<body>
-			<trans-unit id="button.backToList" approved="yes">
+			<trans-unit id="button.backToList" resname="button.backToList">
 				<source>Back to list</source>
 				<target>Zurück zur Übersicht</target>
 			</trans-unit>
-			<trans-unit id="season.spring" approved="yes">
-				<source>spring</source>
-				<target>Frühling</target>
-			</trans-unit>
-			<trans-unit id="season.summer" approved="yes">
-				<source>summer</source>
-				<target>Sommer</target>
-			</trans-unit>
-			<trans-unit id="season.autumn" approved="yes">
+			<trans-unit id="season.autumn" resname="season.autumn">
 				<source>autumn</source>
 				<target>Herbst</target>
 			</trans-unit>
-			<trans-unit id="season.winter" approved="yes">
-				<source>winter</source>
-				<target>Winter</target>
+			<trans-unit id="season.spring" resname="season.spring">
+				<source>spring</source>
+				<target>Frühling</target>
 			</trans-unit>
-			<trans-unit id="season.theFifthSeason" approved="yes">
+			<trans-unit id="season.summer" resname="season.summer">
+				<source>summer</source>
+				<target>Sommer</target>
+			</trans-unit>
+			<trans-unit id="season.theFifthSeason" resname="season.theFifthSeason">
 				<source>Carnival</source>
 				<target>Fastnacht</target>
+			</trans-unit>
+			<trans-unit id="season.winter" resname="season.winter">
+				<source>winter</source>
+				<target>Winter</target>
 			</trans-unit>
 		</body>
 	</file>

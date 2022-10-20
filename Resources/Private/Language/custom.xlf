@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
-		<header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:42:36+02:00">
+		<header></header>
 		<body>
-			<trans-unit id="pages.title_formlabel" xml:space="preserve">
+			<trans-unit id="pages.title_formlabel" resname="pages.title_formlabel">
 				<source>Most important tile</source>
 			</trans-unit>
 		</body>
