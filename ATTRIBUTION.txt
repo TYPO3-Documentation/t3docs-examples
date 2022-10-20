@@ -1,0 +1,4 @@
+Several icons used in this extension come from the Fugue Collection,
+by Yusuke Kamiyamane.
+
+https://p.yusukekamiyamane.com/
