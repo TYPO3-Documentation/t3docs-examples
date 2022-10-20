@@ -47,6 +47,7 @@ Options:
             - composerUpdate: "composer update", handy if host has no PHP
             - composerValidate: "composer validate"
             - lint: PHP linting
+            - rector: Apply Rector rules
 
     -p <8.1|8.2>
         Specifies the PHP minor version to be used
@@ -54,7 +55,7 @@ Options:
             - 8.2: use PHP 8.2
 
     -n
-        Only with -s cgl and composerNormalize
+        Only with -s cgl, composerNormalize, rector
         Activate dry-run in CGL check and composer normalize that does not actively change files and only prints broken ones.
 
     -u
@@ -185,6 +186,12 @@ case ${TEST_SUITE} in
     lint)
         setUpDockerComposeDotEnv
         docker-compose run lint
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
+    rector)
+        setUpDockerComposeDotEnv
+        docker-compose run rector
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
