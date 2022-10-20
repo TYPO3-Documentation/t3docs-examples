@@ -24,20 +24,20 @@ jobs:
     name: Code Quality
     runs-on: ubuntu-22.04
     env:
-      PHP: '8.1'
+      php: '8.1'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install testing system
-        run: Build/Scripts/runTests.sh -p ${{ env.PHP }} -s composerUpdate
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
 
       - name: Composer validate
-        run: Build/Scripts/runTests.sh -p ${{ env.PHP }} -s composerValidate
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerValidate
 
       - name: Composer normalize
-        run: Build/Scripts/runTests.sh -p ${{ env.PHP }} -s composerNormalize -n
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerNormalize -n
 
       - name: CGL
-        run: Build/Scripts/runTests.sh -n -p ${{ env.PHP }} -s cgl
+        run: Build/Scripts/runTests.sh -n -p ${{ env.php }} -s cgl
