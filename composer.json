@@ -21,6 +21,7 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.28",
+        "rector/rector": "0.14.6",
         "typo3/coding-standards": "^0.5.5"
     },
     "minimum-stability": "dev",
@@ -60,10 +61,12 @@
         "check:composer:config": "Build/Scripts/runTests.sh -n -s composerNormalize",
         "check:php": [
             "@check:php:lint",
-            "@check:php:cs"
+            "@check:php:cs",
+            "@check:php:rector"
         ],
         "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
         "check:php:lint": "Build/Scripts/runTests.sh -s lint",
+        "check:php:rector": "Build/Scripts/runTests.sh -n -s rector",
         "fix": [
             "@fix:composer",
             "@fix:php"
@@ -73,9 +76,11 @@
         ],
         "fix:composer:config": "Build/Scripts/runTests.sh -s composerNormalize",
         "fix:php": [
+            "@fix:php:rector",
             "@fix:php:cs"
         ],
         "fix:php:cs": "Build/Scripts/runTests.sh -s cgl",
+        "fix:php:rector": "Build/Scripts/runTests.sh -s rector",
         "prepare-release": [
             "rm -rf .Build",
             "rm -rf .github",
@@ -83,7 +88,8 @@
             "rm .gitignore",
             "rm .editorconfig",
             "rm .php-cs-fixer.dist.php",
-            "rm -rf Build"
+            "rm -rf Build",
+            "rm rector.php"
         ]
     }
 }

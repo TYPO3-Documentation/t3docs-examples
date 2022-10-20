@@ -34,7 +34,7 @@ class Tca
      */
     public function specialField($configuration, $parentObject)
     {
-        $color = (isset($configuration['parameters']['color'])) ? $configuration['parameters']['color'] : 'red';
+        $color = $configuration['parameters']['color'] ?? 'red';
         $size = (isset($configuration['parameters']['size'])) ? (int)$configuration['parameters']['size'] : 20;
         $formField = '<div style="padding: 5px; background-color: ' . $color . ';">';
         $formField .= '<input type="text" name="' . $configuration['itemFormElName'] . '"';
