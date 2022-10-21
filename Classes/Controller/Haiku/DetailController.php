@@ -61,7 +61,7 @@ class DetailController
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
         $action = $parameter['action'] ?? '';
         try {
-            $result = match ($action) {
+            return match ($action) {
                 'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
                 'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
                 default => $this->notFoundAction('Action ' . $action . ' not found.'),
@@ -69,13 +69,12 @@ class DetailController
         } catch (\Exception $e) {
             $this->notFoundAction($e->getMessage());
         }
-        return $result;
     }
 
     /**
      * @throws PropagateResponseException
      */
-    private function notFoundAction(string $reason)
+    private function notFoundAction(string $reason): never
     {
         throw new PropagateResponseException(
             new Response(
