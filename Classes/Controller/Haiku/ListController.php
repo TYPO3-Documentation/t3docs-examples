@@ -21,13 +21,13 @@ use T3docs\Examples\Service\FlexFormSettingsService;
 use T3docs\Examples\Service\StandaloneViewService;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-class ListController
+final class ListController
 {
     /**
      * The back-reference to the mother cObj object set at call time
      */
-    public ContentObjectRenderer $cObj;
-    public array $conf = [];
+    private ContentObjectRenderer $cObj;
+    private array $conf = [];
 
     public function __construct(
         private readonly HaikuRepository $haikuRepository,
