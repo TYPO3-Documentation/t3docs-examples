@@ -26,13 +26,13 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_74
+        LevelSetList::UP_TO_PHP_74,
     ]);
-    
+
     $rectorConfig->skip([
         AddLiteralSeparatorToNumberRector::class,
         JsonThrowOnErrorRector::class => [
             __DIR__ . '/Classes/Http/MeowInformationRequester.php',
-        ]
+        ],
     ]);
 };
