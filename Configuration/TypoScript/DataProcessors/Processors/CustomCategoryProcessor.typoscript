@@ -1,11 +1,14 @@
 tt_content {
-   examples_dataproccustom =< lib.contentElement
-   examples_dataproccustom {
-      templateName = DataProcCustom
-      dataProcessing.10 = T3docs\Examples\DataProcessing\CustomCategoryProcessor
-      dataProcessing.10 {
-         as = categories
-         categoryList.field = categories
-      }
-   }
+    examples_dataproccustom =< lib.contentElement
+    examples_dataproccustom {
+        templateName = DataProcCustom
+        # Before TYPO3 v12.1 you have to give the fully-qualified class name of the processor
+        # dataProcessing.10 = T3docs\Examples\DataProcessing\CustomCategoryProcessor
+        # Since TYPO3 v12.1 one can also use a (in Services.yaml) configured alias
+        dataProcessing.10 = custom-category
+        dataProcessing.10 {
+            as = categories
+            categoryList.field = categories
+        }
+    }
 }

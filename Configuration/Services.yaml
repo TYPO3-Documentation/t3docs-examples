@@ -63,3 +63,8 @@ services:
     
   T3docs\Examples\LinkHandler\GitHubLinkHandler:
     public: true
+
+  T3docs\Examples\DataProcessing\CustomCategoryProcessor:
+    tags:
+      - name: 'data.processor'
+        identifier: 'custom-category'
