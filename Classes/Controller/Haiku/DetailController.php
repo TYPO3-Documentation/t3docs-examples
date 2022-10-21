@@ -24,14 +24,14 @@ use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-class DetailController
+final class DetailController
 {
     /**
      * The back-reference to the mother cObj object set at call time
      */
-    public ContentObjectRenderer $cObj;
-    public array $conf = [];
-    public StandaloneView $view;
+    private ContentObjectRenderer $cObj;
+    private array $conf = [];
+    private StandaloneView $view;
 
     public function __construct(
         private readonly HaikuRepository $haikuRepository,
