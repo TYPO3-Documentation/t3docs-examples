@@ -24,14 +24,14 @@ use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-class DetailController
+final class DetailController
 {
     /**
      * The back-reference to the mother cObj object set at call time
      */
-    public ContentObjectRenderer $cObj;
-    public array $conf = [];
-    public StandaloneView $view;
+    private ContentObjectRenderer $cObj;
+    private array $conf = [];
+    private StandaloneView $view;
 
     public function __construct(
         private readonly HaikuRepository $haikuRepository,
@@ -61,7 +61,7 @@ class DetailController
         $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
         $action = $parameter['action'] ?? '';
         try {
-            $result = match ($action) {
+            return match ($action) {
                 'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
                 'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
                 default => $this->notFoundAction('Action ' . $action . ' not found.'),
@@ -69,13 +69,12 @@ class DetailController
         } catch (\Exception $e) {
             $this->notFoundAction($e->getMessage());
         }
-        return $result;
     }
 
     /**
      * @throws PropagateResponseException
      */
-    private function notFoundAction(string $reason)
+    private function notFoundAction(string $reason): never
     {
         throw new PropagateResponseException(
             new Response(
