@@ -16,20 +16,23 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\Php70\Rector\Ternary\TernaryToNullCoalescingRector;
+use Rector\Php73\Rector\FuncCall\JsonThrowOnErrorRector;
+use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
+use Rector\Set\ValueObject\LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
         __DIR__ . '/.',
     ]);
 
-    // register a single rule
-    $rectorConfig->rule(TernaryToNullCoalescingRector::class);
-
-    /*
-        Apply all rules for a certain PHP version
-        $rectorConfig->sets([
-                LevelSetList::UP_TO_PHP_74
-        ]);
-    */
+    $rectorConfig->sets([
+        LevelSetList::UP_TO_PHP_74
+    ]);
+    
+    $rectorConfig->skip([
+        AddLiteralSeparatorToNumberRector::class,
+        JsonThrowOnErrorRector::class => [
+            __DIR__ . '/Classes/Http/MeowInformationRequester.php',
+        ]
+    ]);
 };

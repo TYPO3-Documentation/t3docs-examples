@@ -27,7 +27,7 @@ use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
  */
 class GithubLinkBuilder extends AbstractTypolinkBuilder
 {
-    const TYPE_GITHUB = 'github';
+    private const TYPE_GITHUB = 'github';
 
     public function build(
         array &$linkDetails,
