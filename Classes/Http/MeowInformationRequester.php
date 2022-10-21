@@ -59,7 +59,6 @@ final class MeowInformationRequester
         }
 
         // Get the content as a string on a successful request
-        return json_decode($response->getBody()->getContents(), true)['fact']
-            ?? throw new \RuntimeException('No information available');
+        return json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR)['fact'];
     }
 }
