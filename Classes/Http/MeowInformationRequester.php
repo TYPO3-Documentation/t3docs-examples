@@ -32,6 +32,7 @@ final class MeowInformationRequester
 
     /**
      * @throws \JsonException
+     * @throws \RuntimeException
      */
     public function request(): string
     {
