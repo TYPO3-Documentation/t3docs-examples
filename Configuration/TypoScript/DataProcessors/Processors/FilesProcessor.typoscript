@@ -1,14 +1,17 @@
 tt_content {
-   examples_dataprocfiles =< lib.contentElement
-   examples_dataprocfiles {
-      templateName = DataProcFiles
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      dataProcessing.10 {
-         as = images
-         references.fieldName = image
-         references.table = tt_content
-         sorting = title
-         sorting.direction = descending
-      }
-   }
+    examples_dataprocfiles =< lib.contentElement
+    examples_dataprocfiles {
+        templateName = DataProcFiles
+        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        # Since TYPO3 v12.1 one can also use the available alias
+        dataProcessing.10 = files
+        dataProcessing.10 {
+            as = images
+            references.fieldName = image
+            references.table = tt_content
+            sorting = title
+            sorting.direction = descending
+        }
+    }
 }

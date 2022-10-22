@@ -1,34 +1,40 @@
 tt_content {
-   examples_dataprocgallery =< lib.contentElement
-   examples_dataprocgallery {
-      templateName = DataProcGallery
-      dataProcessing {
-         # Process files
-         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-         10 {
-            as = images
-            references.fieldName = image
-            references.table = tt_content
-            sorting = title
-            sorting.direction = descending
-         }
+    examples_dataprocgallery =< lib.contentElement
+    examples_dataprocgallery {
+        templateName = DataProcGallery
+        dataProcessing {
+            # Process files
+            # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+            # 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            # Since TYPO3 v12.1 one can also use the available alias
+            10 = files
+            10 {
+                as = images
+                references.fieldName = image
+                references.table = tt_content
+                sorting = title
+                sorting.direction = descending
+            }
 
-         # Calculate gallery info
-         20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
-         20 {
-            filesProcessedDataKey = images
-            mediaOrientation.field = imageorient
-            numberOfColumns = 4
-            equalMediaHeight.field = imageheight
-            equalMediaWidth.field = imagewidth
-            maxGalleryWidth = 1000
-            maxGalleryWidthInText = 1000
-            columnSpacing = 0
-            borderEnabled.field = imageborder
-            borderWidth = 5
-            borderPadding = 3
-            as = gallery
-         }
-      }
-   }
+            # Calculate gallery info
+            # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+            # 20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
+            # Since TYPO3 v12.1 one can also use the available alias
+            20 = gallery
+            20 {
+                filesProcessedDataKey = images
+                mediaOrientation.field = imageorient
+                numberOfColumns = 4
+                equalMediaHeight.field = imageheight
+                equalMediaWidth.field = imagewidth
+                maxGalleryWidth = 1000
+                maxGalleryWidthInText = 1000
+                columnSpacing = 0
+                borderEnabled.field = imageborder
+                borderWidth = 5
+                borderPadding = 3
+                as = gallery
+            }
+        }
+    }
 }

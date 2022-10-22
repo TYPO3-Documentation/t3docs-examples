@@ -1,10 +1,13 @@
 tt_content {
-   examples_dataprocsite =< lib.contentElement
-   examples_dataprocsite {
-      templateName = DataProcSite
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
-      dataProcessing.10 {
-         as = site
-      }
-   }
+    examples_dataprocsite =< lib.contentElement
+    examples_dataprocsite {
+        templateName = DataProcSite
+        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+        # Since TYPO3 v12.1 one can also use the available alias
+        dataProcessing.10 = site
+        dataProcessing.10 {
+            as = site
+        }
+    }
 }

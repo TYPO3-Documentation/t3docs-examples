@@ -1,15 +1,18 @@
 tt_content {
-   examples_newcontentcsv =< lib.contentElement
-   examples_newcontentcsv {
-      templateName = DataProcCsv
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
-      dataProcessing.10 {
-         if.isTrue.field = bodytext
-         fieldName = bodytext
-         fieldDelimiter.field = tx_examples_separator
-         fieldEnclosure = "
-         maximumColumns.field = imagecols
-         as = myTable
-      }
-   }
+    examples_newcontentcsv =< lib.contentElement
+    examples_newcontentcsv {
+        templateName = DataProcCsv
+        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
+        # Since TYPO3 v12.1 one can also use the available alias
+        dataProcessing.10 = comma-separated-value
+        dataProcessing.10 {
+            if.isTrue.field = bodytext
+            fieldName = bodytext
+            fieldDelimiter.field = tx_examples_separator
+            fieldEnclosure = "
+            maximumColumns.field = imagecols
+            as = myTable
+        }
+    }
 }
