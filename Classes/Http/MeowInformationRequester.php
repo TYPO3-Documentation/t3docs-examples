@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Http;
 
-use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Http\RequestFactory;
 
 final class MeowInformationRequester
