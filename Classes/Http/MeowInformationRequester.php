@@ -28,10 +28,12 @@ final class MeowInformationRequester
     // so we inject it into the class using constructor injection.
     public function __construct(
         private readonly RequestFactory $requestFactory,
-        private readonly LoggerInterface $logger,
     ) {
     }
 
+    /**
+     * @throws \JsonException
+     */
     public function request(): string
     {
         // Additional headers for this specific request
@@ -59,19 +61,10 @@ final class MeowInformationRequester
                 'The request did not return JSON data'
             );
         }
-
-        try {
-            // Get the content as a string on a successful request
-            $content = $response->getBody()->getContents();
-            return json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']
-                ?? throw new \RuntimeException('The response from the service is not as expected.', 1666413230);
-        } catch (\JsonException $e) {
-            $this->logger->error($e->getMessage());
-            throw new \RuntimeException(
-                'The service did not return a valid response. Try again later.',
-                1666413231,
-                $e
-            );
-        }
+        // Get the content as a string on a successful request
+        $content = $response->getBody()->getContents();
+        $result = json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact'];
+        return is_string($result) ? $result
+            : throw new \RuntimeException('The service returned an unexpected format: ' . gettype($result), 1666413230);
     }
 }
