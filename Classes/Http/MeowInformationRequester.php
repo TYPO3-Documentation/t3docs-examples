@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Http;
 
+use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Http\RequestFactory;
 
 final class MeowInformationRequester
@@ -27,6 +28,7 @@ final class MeowInformationRequester
     // so we inject it into the class using constructor injection.
     public function __construct(
         private readonly RequestFactory $requestFactory,
+        private readonly LoggerInterface $logger,
     ) {
     }
 
@@ -58,7 +60,18 @@ final class MeowInformationRequester
             );
         }
 
-        // Get the content as a string on a successful request
-        return json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR)['fact'];
+        try {
+            // Get the content as a string on a successful request
+            $content = $response->getBody()->getContents();
+            return json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']
+                ?? throw new \RuntimeException('The response from the service is not as expected.', 1666413230);
+        } catch (\JsonException $e) {
+            $this->logger->error($e->getMessage());
+            throw new \RuntimeException(
+                'The service did not return a valid response. Try again later.',
+                1666413231,
+                $e
+            );
+        }
     }
 }
