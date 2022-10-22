@@ -62,8 +62,7 @@ final class MeowInformationRequester
         }
         // Get the content as a string on a successful request
         $content = $response->getBody()->getContents();
-        $result = json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact'];
-        return is_string($result) ? $result
-            : throw new \RuntimeException('The service returned an unexpected format: ' . gettype($result), 1666413230);
+        return (string) json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']??
+            throw new \RuntimeException('The service returned an unexpected format. ', 1666413230);
     }
 }
