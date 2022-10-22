@@ -1,10 +1,13 @@
 tt_content {
-   examples_dataprocsitelanguage =< lib.contentElement
-   examples_dataprocsitelanguage {
-      templateName = DataProcSiteLanguage
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteLanguageProcessor
-      dataProcessing.10 {
-         as = language
-      }
-   }
+    examples_dataprocsitelanguage =< lib.contentElement
+    examples_dataprocsitelanguage {
+        templateName = DataProcSiteLanguage
+        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
+        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteLanguageProcessor
+        # Since TYPO3 v12.1 one can also use the available alias
+        dataProcessing.10 = site-language
+        dataProcessing.10 {
+            as = language
+        }
+    }
 }

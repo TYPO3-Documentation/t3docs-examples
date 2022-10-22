@@ -44,3 +44,13 @@ jobs:
 
       - name: Rector
         run: Build/Scripts/runTests.sh -n -p ${{ env.php }} -s rector
+
+  xliff-lint:
+    name: "XLIFF linter"
+    runs-on: ubuntu-22.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "XLIFF lint"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1

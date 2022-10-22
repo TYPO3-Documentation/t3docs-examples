@@ -31,8 +31,5 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->skip([
         AddLiteralSeparatorToNumberRector::class,
-        JsonThrowOnErrorRector::class => [
-            __DIR__ . '/Classes/Http/MeowInformationRequester.php',
-        ],
     ]);
 };

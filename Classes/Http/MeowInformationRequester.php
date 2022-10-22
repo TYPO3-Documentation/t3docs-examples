@@ -30,6 +30,10 @@ final class MeowInformationRequester
     ) {
     }
 
+    /**
+     * @throws \JsonException
+     * @throws \RuntimeException
+     */
     public function request(): string
     {
         // Additional headers for this specific request
@@ -57,9 +61,9 @@ final class MeowInformationRequester
                 'The request did not return JSON data'
             );
         }
-
         // Get the content as a string on a successful request
-        return json_decode($response->getBody()->getContents(), true)['fact']
-            ?? throw new \RuntimeException('No information available');
+        $content = $response->getBody()->getContents();
+        return (string)json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']??
+            throw new \RuntimeException('The service returned an unexpected format.', 1666413230);
     }
 }
