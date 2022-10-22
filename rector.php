@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Php70\Rector\Ternary\TernaryToNullCoalescingRector;
+use Rector\Php73\Rector\FuncCall\JsonThrowOnErrorRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
@@ -25,6 +26,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     // register a single rule
     $rectorConfig->rule(TernaryToNullCoalescingRector::class);
+    $rectorConfig->rule(JsonThrowOnErrorRector::class);
 
     /*
         Apply all rules for a certain PHP version
