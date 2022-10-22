@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- Use aliases for data processors (#159, #160)
 - Introduce Rector (#151)
 - Add a middleware as showcase for translation via PHP (#149)
 - Create a Frontend Plugin without Extbase (#124)
