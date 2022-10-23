@@ -49,7 +49,7 @@ class AdminModuleController
             $GLOBALS['BE_USER']->pushModuleData($moduleData->getModuleIdentifier(), $moduleData->toArray());
         }
 
-        $moduleTemplate = $this->moduleTemplateFactory->create($request, 't3docs/examples');
+        $moduleTemplate = $this->moduleTemplateFactory->create($request);
         $this->setUpDocHeader($request, $moduleTemplate);
 
         $title = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
