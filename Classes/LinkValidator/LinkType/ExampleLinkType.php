@@ -34,14 +34,10 @@ class ExampleLinkType extends AbstractLinktype
     public function getErrorMessage($errorParams)
     {
         $lang = $this->getLanguageService();
-        switch ($errorParams['errno'] ?? 0) {
-            case 404:
-                $message = $lang->getLL('list.report.pagenotfound404');
-                break;
-            default:
-                // fall back to generic error message
-                $message = sprintf($lang->getLL('list.report.externalerror'), $errorParams['errno']);
-        }
-        return $message;
+        return match ($errorParams['errno'] ?? 0) {
+            404 => $lang->getLL('list.report.pagenotfound404'),
+            // fall back to generic error message
+            default => sprintf($lang->getLL('list.report.externalerror'), $errorParams['errno']),
+        };
     }
 }

@@ -53,7 +53,7 @@ final class CreateWizardCommand extends Command
         $bruteForce = (bool)$input->getOption('brute-force');
         try {
             $this->doMagic($io, $wizardName, $bruteForce);
-        } catch (InvalidWizardException $exception) {
+        } catch (InvalidWizardException) {
             return Command::FAILURE;
         }
         return Command::SUCCESS;

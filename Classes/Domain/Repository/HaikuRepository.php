@@ -24,7 +24,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 class HaikuRepository
 {
     private const TABLENAME = 'tx_examples_haiku';
-    private Connection $connection;
+    private readonly Connection $connection;
 
     public function __construct(
         ConnectionPool $connectionPool,

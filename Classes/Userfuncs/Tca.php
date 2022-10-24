@@ -38,7 +38,7 @@ class Tca
         $size = (isset($configuration['parameters']['size'])) ? (int)$configuration['parameters']['size'] : 20;
         $formField = '<div style="padding: 5px; background-color: ' . $color . ';">';
         $formField .= '<input type="text" name="' . $configuration['itemFormElName'] . '"';
-        $formField .= ' value="' . htmlspecialchars($configuration['itemFormElValue']) . '"';
+        $formField .= ' value="' . htmlspecialchars((string)$configuration['itemFormElValue']) . '"';
         $formField .= ' size="' . $size . '"';
         $formField .= ' onchange="' . htmlspecialchars(implode('', $configuration['fieldChangeFunc'])) . '"';
         $formField .= $configuration['onFocus'];

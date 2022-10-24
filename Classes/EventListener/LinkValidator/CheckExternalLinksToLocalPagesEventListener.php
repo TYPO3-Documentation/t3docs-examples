@@ -27,15 +27,10 @@ final class CheckExternalLinksToLocalPagesEventListener
     private const TABLE_NAME = 'tt_content';
     private const FIELD_NAME = 'bodytext';
 
-    private BrokenLinkRepository $brokenLinkRepository;
-    private SoftReferenceParserFactory $softReferenceParserFactory;
-
     public function __construct(
-        BrokenLinkRepository $brokenLinkRepository,
-        SoftReferenceParserFactory $softReferenceParserFactory
+        private readonly BrokenLinkRepository $brokenLinkRepository,
+        private readonly SoftReferenceParserFactory $softReferenceParserFactory,
     ) {
-        $this->brokenLinkRepository = $brokenLinkRepository;
-        $this->softReferenceParserFactory = $softReferenceParserFactory;
     }
 
     public function __invoke(BeforeRecordIsAnalyzedEvent $event): void

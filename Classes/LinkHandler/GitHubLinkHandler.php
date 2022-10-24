@@ -55,7 +55,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
     /**
      * Initialize the handler
      *
-     * @param AbstractLinkBrowserController $linkBrowser
      * @param string $identifier
      * @param array $configuration Page TSconfig
      */
@@ -72,8 +71,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
      * Also stores information locally about currently linked issue
      *
      * @param array $linkParts Link parts as returned from TypoLinkCodecService
-     *
-     * @return bool
      */
     public function canHandleLink(array $linkParts): bool
     {
@@ -86,8 +83,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     /**
      * Format the current link for HTML output
-     *
-     * @return string
      */
     public function formatCurrentUrl(): string
     {
@@ -97,10 +92,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     /**
      * Render the link handler
-     *
-     * @param ServerRequestInterface $request
-     *
-     * @return string
      */
     public function render(ServerRequestInterface $request): string
     {

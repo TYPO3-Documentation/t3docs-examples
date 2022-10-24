@@ -38,13 +38,13 @@ class SpecialFieldElement extends AbstractFormElement
 
         $attributes = [
             'id' => $fieldId,
-            'name' => htmlspecialchars($parameterArray['itemFormElName']),
+            'name' => htmlspecialchars((string)$parameterArray['itemFormElName']),
             'size' => $size,
-            'data-formengine-input-name' => htmlspecialchars($parameterArray['itemFormElName']),
+            'data-formengine-input-name' => htmlspecialchars((string)$parameterArray['itemFormElName']),
             'onChange' => implode('', $parameterArray['fieldChangeFunc']),
         ];
 
-        $attributes['placeholder'] = 'Enter special value for user "' . htmlspecialchars(trim($row['username'])) .
+        $attributes['placeholder'] = 'Enter special value for user "' . htmlspecialchars(trim((string)$row['username'])) .
             '" in size ' . $size;
         $classes = [
             'form-control',
@@ -60,7 +60,7 @@ class SpecialFieldElement extends AbstractFormElement
         $html[] = '<div class="form-wizards-wrap">';
         $html[] = '<div class="form-wizards-element">';
         $html[] = '<div class="form-control-wrap">';
-        $html[] = '<input type="text" value="' . htmlspecialchars($itemValue, ENT_QUOTES) . '" ';
+        $html[] = '<input type="text" value="' . htmlspecialchars((string)$itemValue, ENT_QUOTES) . '" ';
         $html[] = GeneralUtility::implodeAttributes($attributes, true);
         $html[] = ' />';
         $html[] = '</div>';
