@@ -32,7 +32,7 @@ class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordControl
         parent::renderNewRecordControls();
         $label = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:help');
         $text = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:make_choice');
-        $str = '<div><h2 class="uppercase" >' . htmlspecialchars($label) . '</h2>' . $text . '</div>';
+        $str = '<div><h2 class="uppercase" >' . htmlspecialchars((string)$label) . '</h2>' . $text . '</div>';
 
         $this->content .= $str;
     }

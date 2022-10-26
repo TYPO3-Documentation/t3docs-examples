@@ -148,7 +148,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Get page record for tree starting point. May be passed as an argument.
         try {
             $startingPoint = $this->request->getArgument('page');
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             $startingPoint = 1;
         }
         $pageRecord = BackendUtility::getRecord(
@@ -381,7 +381,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 [],
                 ['header' => 'ASC']
             );
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             $contentElements = [];
         }
         // If we just handled a content element, get related data to display as a confirmation
@@ -396,7 +396,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     'image',
                     $element
                 );
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 $fileObjects = [];
             }
         } else {
