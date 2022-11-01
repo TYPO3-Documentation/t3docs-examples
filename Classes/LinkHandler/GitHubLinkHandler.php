@@ -47,7 +47,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        // The
+        // The page renderer is needed to register the JavaScript
         $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
