@@ -18,7 +18,6 @@ namespace T3docs\Examples\LinkHandler;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewInterface;
@@ -34,23 +33,11 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     protected array $linkParts = [];
 
-    protected AbstractLinkBrowserController $linkBrowser;
-
     protected ViewInterface $view;
 
     protected PageRenderer $pageRenderer;
 
     protected array $configuration;
-
-    /**
-     * Constructor
-     */
-    public function __construct(
-        protected readonly BackendViewFactory $backendViewFactory,
-    ) {
-        // remove unsupported link attribute
-        unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
-    }
 
     /**
      * Initialize the handler
@@ -60,7 +47,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        $this->linkBrowser = $linkBrowser;
+        // The
         $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
@@ -86,7 +73,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function formatCurrentUrl(): string
     {
-        return 'https://gitub.com/' . $this->configuration['project'] . '/'
+        return 'https://github.com/' . $this->configuration['project'] . '/'
             . $this->configuration['action'] . '/' . $this->linkParts['issue']??'';
     }
 
