@@ -19,7 +19,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
@@ -35,20 +34,22 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     protected ViewInterface $view;
 
-    protected PageRenderer $pageRenderer;
-
     protected array $configuration;
+
+    public function __construct(
+        // The page renderer is needed to register the JavaScript
+        private readonly PageRenderer $pageRenderer,
+    ) {
+    }
 
     /**
      * Initialize the handler
      *
-     * @param string $identifier
+     * @param string $identifier Key of the current page TSconfig configuration
      * @param array $configuration Page TSconfig
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        // The page renderer is needed to register the JavaScript
-        $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
 
@@ -69,7 +70,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
     }
 
     /**
-     * Format the current link for HTML output
+     * Format the current link for preview in the backend
      */
     public function formatCurrentUrl(): string
     {
@@ -78,7 +79,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
     }
 
     /**
-     * Render the link handler
+     * Render the link browser tab content
      */
     public function render(ServerRequestInterface $request): string
     {
