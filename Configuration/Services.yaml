@@ -62,6 +62,7 @@ services:
     public: true
     
   T3docs\Examples\LinkHandler\GitHubLinkHandler:
+    shared: false
     public: true
 
   T3docs\Examples\DataProcessing\CustomCategoryProcessor:

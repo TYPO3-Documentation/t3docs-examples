@@ -18,9 +18,7 @@ namespace T3docs\Examples\LinkHandler;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
@@ -34,34 +32,24 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     protected array $linkParts = [];
 
-    protected AbstractLinkBrowserController $linkBrowser;
-
     protected ViewInterface $view;
-
-    protected PageRenderer $pageRenderer;
 
     protected array $configuration;
 
-    /**
-     * Constructor
-     */
     public function __construct(
-        protected readonly BackendViewFactory $backendViewFactory,
+        // The page renderer is needed to register the JavaScript
+        private readonly PageRenderer $pageRenderer,
     ) {
-        // remove unsupported link attribute
-        unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
     }
 
     /**
      * Initialize the handler
      *
-     * @param string $identifier
+     * @param string $identifier Key of the current page TSconfig configuration
      * @param array $configuration Page TSconfig
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        $this->linkBrowser = $linkBrowser;
-        $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
 
@@ -82,16 +70,16 @@ class GitHubLinkHandler implements LinkHandlerInterface
     }
 
     /**
-     * Format the current link for HTML output
+     * Format the current link for preview in the backend
      */
     public function formatCurrentUrl(): string
     {
-        return 'https://gitub.com/' . $this->configuration['project'] . '/'
+        return 'https://github.com/' . $this->configuration['project'] . '/'
             . $this->configuration['action'] . '/' . $this->linkParts['issue']??'';
     }
 
     /**
-     * Render the link handler
+     * Render the link browser tab content
      */
     public function render(ServerRequestInterface $request): string
     {
