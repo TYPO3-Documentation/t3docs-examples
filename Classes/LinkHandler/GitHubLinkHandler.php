@@ -15,9 +15,7 @@ namespace T3docs\Examples\LinkHandler;
  */
 
 use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Recordlist\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface;
 use TYPO3Fluid\Fluid\View\ViewInterface;
@@ -42,16 +40,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
     protected $linkParts = [];
 
     /**
-     * @var AbstractLinkBrowserController
-     */
-    protected $linkBrowser;
-
-    /**
-     * @var IconFactory
-     */
-    protected $iconFactory;
-
-    /**
      * @var ViewInterface
      */
     protected $view;
@@ -69,10 +57,9 @@ class GitHubLinkHandler implements LinkHandlerInterface
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(PageRenderer $pageRenderer)
     {
-        // remove unsupported link attribute
-        unset($this->linkAttributes[array_search('params', $this->linkAttributes, true)]);
+        $this->pageRenderer = $pageRenderer;
     }
 
     /**
@@ -84,9 +71,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        $this->linkBrowser = $linkBrowser;
-        $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-        $this->pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $this->configuration = $configuration;
     }
 
@@ -132,8 +116,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->view->getRequest()->setControllerExtensionName('examples');
         $this->view->setTemplateRootPaths(['EXT:examples/Resources/Private/Templates/LinkBrowser']);
 
-        $this->view->assign('project', $this->configuration['project']);
-        $this->view->assign('action', $this->configuration['action']);
+        $this->view->assign('project', $this->configuration['project'] ?? '');
+        $this->view->assign('action', $this->configuration['action'] ?? '');
         $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
 
         $this->view->setTemplate('GitHub');
