@@ -85,7 +85,7 @@ defined('TYPO3') or die();
     );
     // Add TSconfig for new content element wizard
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        "@import 'EXT:examples/Configuration/TSconfig/Page/*.typoscript'"
+        '@import \'EXT:examples/Configuration/page.tsconfig\''
     );
 
     // Register the HTML parser plugin

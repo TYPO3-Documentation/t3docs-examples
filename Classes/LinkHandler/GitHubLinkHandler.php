@@ -116,8 +116,8 @@ class GitHubLinkHandler implements LinkHandlerInterface
         $this->view->getRequest()->setControllerExtensionName('examples');
         $this->view->setTemplateRootPaths(['EXT:examples/Resources/Private/Templates/LinkBrowser']);
 
-        $this->view->assign('project', $this->configuration['project']);
-        $this->view->assign('action', $this->configuration['action']);
+        $this->view->assign('project', $this->configuration['project'] ?? '');
+        $this->view->assign('action', $this->configuration['action'] ?? '');
         $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
 
         $this->view->setTemplate('GitHub');
