@@ -1,0 +1,12 @@
+TCEMAIN.linkHandler {
+   github {
+      handler = T3docs\Examples\LinkHandler\GitHubLinkHandler
+      label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
+      displayAfter = haiku
+      scanBefore = url
+      configuration {
+         project = TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
+         action = issues
+      }
+   }
+}

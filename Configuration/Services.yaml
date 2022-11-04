@@ -20,3 +20,7 @@ services:
          - name: event.listener
            identifier: 'txExampleCheckExternalLinksToLocalPages'
 
+   T3docs\Examples\LinkHandler\GitHubLinkHandler:
+      shared: false
+      public: true
+
