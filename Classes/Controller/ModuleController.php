@@ -219,7 +219,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     public function clipboardAction(
         string $cmd = 'show'
     ): ResponseInterface {
-        $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
+        $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'] ?? '';
         switch ($cmd) {
             case 'debug':
                 $this->debugClipboard();
