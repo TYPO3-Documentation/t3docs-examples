@@ -447,7 +447,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             'pid' => $contentElement['pid'],
         ];
         $data['tt_content'][$contentElement['uid']] = [
-            'image' => $newId,
+            'image' => $newId, // For multiple new references $newId is a comma-separated list
         ];
         //  process the data
         $this->dataHandler->start($data, []);
