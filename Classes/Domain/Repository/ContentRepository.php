@@ -15,12 +15,12 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-return [
-    \T3docs\Examples\Domain\Model\Category::class => [
-        'tableName' => 'sys_category',
-    ],
+namespace T3docs\Examples\Domain\Repository;
 
-    \T3docs\Examples\Domain\Model\Content::class => [
-        'tableName' => 'tt_content',
-    ],
-];
+use T3docs\Examples\Domain\Model\Content;
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
+class ContentRepository extends Repository
+{
+    protected $objectType = Content::class;
+}
