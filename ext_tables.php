@@ -34,13 +34,15 @@ defined('TYPO3') or die();
 
     // Define a new doktype
     $customPageDoktype = 116;
-    $customIconClass = 'tx_examples-archive-page';
-    // Add the new doktype to the list of page types
-    $GLOBALS['PAGES_TYPES'][$customPageDoktype] = [
-        'type' => 'sys',
-        'icon' => $customIconClass,
-        'allowedTables' => '*',
-    ];
+    // Add page type to system
+    $dokTypeRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry::class);
+    $dokTypeRegistry->add(
+        $customPageDoktype,
+        [
+            'type' => 'web',
+            'allowedTables' => '*',
+        ]
+    );
 
     // Add custom doktype to the page tree toolbar
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
