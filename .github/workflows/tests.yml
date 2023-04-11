@@ -3,6 +3,10 @@ name: tests
 on:
   push:
   pull_request:
+  schedule:
+    # run once a month
+    # minute hour day-of-month month day-of-week
+    - cron: '15 0 1 * *'
 
 jobs:
   lint:
