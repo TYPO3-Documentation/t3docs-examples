@@ -47,7 +47,7 @@
         },
         "typo3/cms": {
             "extension-key": "examples",
-            "web-dir": ".Build/web"
+            "web-dir": ".Build/Web"
         }
     },
     "scripts": {
