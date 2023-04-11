@@ -42,7 +42,7 @@ class HelloWorldItemProvider extends AbstractProvider
     {
         // Current table is: $this->table
         // Current UID is: $this->identifier
-//        return $this->table === 'pages';
+        //        return $this->table === 'pages';
         return true;
     }
 
