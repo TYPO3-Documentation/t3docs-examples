@@ -22,6 +22,7 @@ setUpDockerComposeDotEnv() {
         echo "ROOT_DIR=${ROOT_DIR}"
         echo "HOST_USER=${USER}"
         echo "DOCKER_PHP_IMAGE=${DOCKER_PHP_IMAGE}"
+        echo "IMAGE_PREFIX=${IMAGE_PREFIX}"
         echo "SCRIPT_VERBOSE=${SCRIPT_VERBOSE}"
         echo "CGLCHECK_DRY_RUN=${CGLCHECK_DRY_RUN}"
         echo "COMPOSER_NORMALIZE_DRY_RUN=${COMPOSER_NORMALIZE_DRY_RUN}"
@@ -101,6 +102,7 @@ PHP_VERSION="8.1"
 SCRIPT_VERBOSE=0
 CGLCHECK_DRY_RUN=""
 COMPOSER_NORMALIZE_DRY_RUN=""
+IMAGE_PREFIX="ghcr.io/typo3/"
 
 # Option parsing
 # Reset in case getopts has been used previously in the shell

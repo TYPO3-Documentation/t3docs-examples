@@ -1,7 +1,7 @@
 version: '2.3'
 services:
    cgl:
-      image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+      image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
       user: "${HOST_UID}"
       volumes:
          - ${ROOT_DIR}:${ROOT_DIR}
@@ -23,7 +23,7 @@ services:
          "
 
    composer_update:
-      image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+      image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
       user: "${HOST_UID}"
       volumes:
          - ${ROOT_DIR}:${ROOT_DIR}
@@ -45,7 +45,7 @@ services:
          "
 
    composer_validate:
-      image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+      image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
       user: "${HOST_UID}"
       volumes:
          - ${ROOT_DIR}:${ROOT_DIR}
@@ -62,7 +62,7 @@ services:
          "
 
    composer_normalize:
-      image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+      image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
       user: "${HOST_UID}"
       volumes:
          - ${ROOT_DIR}:${ROOT_DIR}
@@ -79,7 +79,7 @@ services:
          "
 
    lint:
-      image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+      image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
       user: "${HOST_UID}"
       volumes:
          - ${ROOT_DIR}:${ROOT_DIR}
@@ -94,7 +94,7 @@ services:
          "
 
    rector:
-       image: typo3/core-testing-${DOCKER_PHP_IMAGE}:latest
+       image: ${IMAGE_PREFIX}core-testing-${DOCKER_PHP_IMAGE}:latest
        user: "${HOST_UID}"
        volumes:
            - ${ROOT_DIR}:${ROOT_DIR}
