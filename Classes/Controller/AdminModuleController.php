@@ -23,6 +23,7 @@ use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Localization\LanguageService;
 
 #[Controller]
 final class AdminModuleController
@@ -36,34 +37,49 @@ final class AdminModuleController
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
     {
-        $GLOBALS['LANG']->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
+        $languageService = $this->getLanguageService();
 
         $allowedOptions = [
             'function' => [
-                'debug' => $GLOBALS['LANG']->getLL('debug'),
-                'password' => $GLOBALS['LANG']->getLL('password'),
-                'index' => $GLOBALS['LANG']->getLL('index'),
+                'debug' => htmlspecialchars(
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug')
+                ),
+                'password' => htmlspecialchars(
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password')
+                ),
+                'index' => htmlspecialchars(
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index')
+                ),
             ],
         ];
 
         $moduleData = $request->getAttribute('moduleData');
         if ($moduleData->cleanUp($allowedOptions)) {
-            $GLOBALS['BE_USER']->pushModuleData($moduleData->getModuleIdentifier(), $moduleData->toArray());
+            $languageService->pushModuleData($moduleData->getModuleIdentifier(), $moduleData->toArray());
         }
 
         $moduleTemplate = $this->moduleTemplateFactory->create($request);
         $this->setUpDocHeader($request, $moduleTemplate);
 
-        $title = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
+        $title = $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
         switch ($moduleData->get('function')) {
             case 'debug':
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.debug'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
+                );
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.password'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
+                );
                 return $this->passwordAction($request, $moduleTemplate);
             default:
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.log'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
+                );
                 return $this->indexAction($request, $moduleTemplate);
         }
     }
@@ -122,5 +138,10 @@ final class AdminModuleController
     private function debugCookies()
     {
         // TODO: do something()
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }
