@@ -36,13 +36,17 @@ final class AdminModuleController
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
     {
-        $GLOBALS['LANG']->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
-
         $allowedOptions = [
             'function' => [
-                'debug' => $GLOBALS['LANG']->getLL('debug'),
-                'password' => $GLOBALS['LANG']->getLL('password'),
-                'index' => $GLOBALS['LANG']->getLL('index'),
+                'debug' => htmlspecialchars(
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug')
+                ),
+                'password' => htmlspecialchars(
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password')
+                ),
+                'index' => htmlspecialchars(
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index')
+                ),
             ],
         ];
 
