@@ -61,13 +61,22 @@ final class AdminModuleController
         $title = $GLOBALS['LANG']->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
         switch ($moduleData->get('function')) {
             case 'debug':
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.debug'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
+                );
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.password'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
+                );
                 return $this->passwordAction($request, $moduleTemplate);
             default:
-                $moduleTemplate->setTitle($title, $GLOBALS['LANG']->getLL('module.menu.log'));
+                $moduleTemplate->setTitle(
+                    $title,
+                    $GLOBALS['LANG']->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
+                );
                 return $this->indexAction($request, $moduleTemplate);
         }
     }
