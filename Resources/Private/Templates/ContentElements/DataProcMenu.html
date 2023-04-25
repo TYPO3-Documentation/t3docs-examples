@@ -5,23 +5,23 @@
    <h2>Output</h2>
    <ul class="nav nav-pills">
       <f:for each="{headerMenu}" as="menuItem">
-         <li class="nav-item {f:if(condition:'{menuItem.children}',then:'dropdown')}">
-            <f:if condition="{menuItem.children}">
+         <li class="nav-item {f:if(condition: menuItem.subPages, then: 'dropdown')}">
+            <f:if condition="{menuItem.hasSubpages}">
                <f:then>
                   <!-- Item has children -->
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                     aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                      <f:if condition="{menuItem.files}">
                         <f:image image="{menuItem.files.0}" class="" width="20"/>
                      </f:if>
-                     {menuItem.title}</a>
+                     {menuItem.title}
+                  </a>
                   <div class="dropdown-menu">
                      <f:for each="{menuItem.children}" as="menuItemLevel2">
                         <f:if condition="{menuItemLevel2.spacer}">
                            <f:then><div class="dropdown-divider"></div></f:then>
                            <f:else>
-                              <f:link.page pageUid="{menuItemLevel2.uid}"
-                                           class="dropdown-item {f:if(condition:'{menuItemLevel2.active}',then:'active')}">
+                              <f:link.page pageUid="{menuItemLevel2.data.uid}"
+                                           class="dropdown-item {f:if(condition: menuItemLevel2.active, then: 'active')}">
                                  {menuItemLevel2.title}
                               </f:link.page>
                            </f:else>
@@ -31,9 +31,9 @@
                </f:then>
                <f:else>
                   <!-- Item has no children -->
-                  <f:link.page pageUid="{menuItem.data.uid}"  class="nav-link {f:if(condition:'{menuItem.active}',then:'active')}">
+                  <f:link.page pageUid="{menuItem.data.uid}" class="nav-link {f:if(condition: menuItem.active, then:'active')}">
                      <f:if condition="{menuItem.files}">
-                        <f:image image="{menuItem.files.0}" class="" width="20"/>
+                        <f:image image="{menuItem.files.0}" width="20"/>
                      </f:if>
                      {menuItem.title}
                   </f:link.page>
@@ -42,5 +42,4 @@
          </li>
       </f:for>
    </ul>
-
 </html>
