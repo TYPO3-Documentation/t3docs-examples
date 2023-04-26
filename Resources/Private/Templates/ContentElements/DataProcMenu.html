@@ -5,7 +5,7 @@
    <h2>Output</h2>
    <ul class="nav nav-pills">
       <f:for each="{headerMenu}" as="menuItem">
-         <li class="nav-item {f:if(condition: menuItem.subPages, then: 'dropdown')}">
+         <li class="nav-item {f:if(condition: menuItem.hasSubpages, then: 'dropdown')}">
             <f:if condition="{menuItem.hasSubpages}">
                <f:then>
                   <!-- Item has children -->
