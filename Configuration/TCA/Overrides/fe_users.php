@@ -26,11 +26,26 @@ $temporaryColumns = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['', 0],
-                ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0', 1],
-                ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1', 2],
-                ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2', '--div--'],
-                ['LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3', 3],
+                [
+                    'label' => '',
+                    'value' => 0,
+                ],
+                [
+                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0',
+                    'value' => 1,
+                ],
+                [
+                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1',
+                    'value' => 2,
+                ],
+                [
+                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2',
+                    'value' => '--div--',
+                ],
+                [
+                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3',
+                    'value' => 3,
+                ],
             ],
             'size' => 1,
             'maxitems' => 1,
