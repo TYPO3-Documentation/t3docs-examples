@@ -28,8 +28,8 @@ $temporaryColumn = [
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
+                    'value' => '',
                 ],
             ],
         ],
@@ -41,12 +41,30 @@ $temporaryColumn = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['Standard CSV data formats', '--div--'],
-                ['Comma separated', ','],
-                ['Semicolon separated', ';'],
-                ['Special formats', '--div--'],
-                ['Pipe separated (TYPO3 tables)', '|'],
-                ['Tab separated', "\t"],
+                [
+                    'label' => 'Standard CSV data formats',
+                    'value' => '--div--',
+                ],
+                [
+                    'label' => 'Comma separated',
+                    'value' => ',',
+                ],
+                [
+                    'label' => 'Semicolon separated',
+                    'value' => ';',
+                ],
+                [
+                    'label' => 'Special formats',
+                    'value' => '--div--',
+                ],
+                [
+                    'label' => 'Pipe separated (TYPO3 tables)',
+                    'value' => '|',
+                ],
+                [
+                    'label' => 'Tab separated',
+                    'value' => "\t",
+                ],
             ],
             'default' => ',',
         ],
@@ -58,7 +76,10 @@ $temporaryColumn = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['None', '0'],
+                [
+                    'label' => 'None',
+                    'value' => '0',
+                ],
             ],
             'foreign_table' => 'sys_category',
             'foreign_table_where' => 'AND {#sys_category}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#sys_category}.{#hidden} = 0 ' .
@@ -165,9 +186,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title',
-        'examples_newcontentcsv',
-        'mimetypes-x-content-table',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title',
+        'value' => 'examples_newcontentcsv',
+        'icon' => 'mimetypes-x-content-table',
     ],
 );
 
@@ -194,9 +215,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
-        'examples_newcontentelement',
-        'content-text',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
+        'value' => 'examples_newcontentelement',
+        'icon' => 'content-text',
     ],
     'textmedia',
     'after'
@@ -227,9 +248,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title',
-        'examples_dataprocdb',
-        'mimetypes-x-content-table',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title',
+        'value' => 'examples_dataprocdb',
+        'icon' => 'mimetypes-x-content-table',
     ],
 );
 
@@ -247,9 +268,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
-        'examples_dataprocmenu',
-        'content-special-uploads',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
+        'value' => 'examples_dataprocmenu',
+        'icon' => 'content-special-uploads',
     ],
 );
 
@@ -266,9 +287,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
-        'examples_dataproclang',
-        'install-manage-language',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
+        'value' => 'examples_dataproclang',
+        'icon' => 'install-manage-language',
     ],
 );
 
@@ -284,9 +305,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
-        'examples_dataprocsite',
-        'apps-pagetree-folder-root',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
+        'value' => 'examples_dataprocsite',
+        'icon' => 'apps-pagetree-folder-root',
     ],
 );
 
@@ -303,9 +324,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title',
-        'examples_dataprocsitelanguage',
-        'content-message',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title',
+        'value' => 'examples_dataprocsitelanguage',
+        'icon' => 'content-message',
     ],
 );
 
@@ -322,9 +343,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
-        'examples_dataprocsplit',
-        'content-timeline',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
+        'value' => 'examples_dataprocsplit',
+        'icon' => 'content-timeline',
     ],
 );
 
@@ -340,9 +361,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title',
-        'examples_dataprocfiles',
-        'content-image',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title',
+        'value' => 'examples_dataprocfiles',
+        'icon' => 'content-image',
     ],
 );
 
@@ -360,9 +381,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title',
-        'examples_dataprocgallery',
-        'content-dashboard',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title',
+        'value' => 'examples_dataprocgallery',
+        'icon' => 'content-dashboard',
     ],
 );
 
@@ -381,9 +402,9 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title',
-        'examples_dataproccustom',
-        'content-dashboard',
+        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title',
+        'value' => 'examples_dataproccustom',
+        'icon' => 'content-dashboard',
     ],
 );
 
