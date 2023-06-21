@@ -37,7 +37,7 @@ final class FlexFormParsingModifyEventListener
         $identifier = $event->getIdentifier();
         if (($identifier['type'] ?? '') === 'my_custom_type') {
             $parsedDataStructure = $event->getDataStructure();
-            $parsedDataStructure['sheets']['sDEF']['ROOT']['TCEforms']['sheetTitle'] = 'Some dynamic custom sheet title';
+            $parsedDataStructure['sheets']['sDEF']['ROOT']['sheetTitle'] = 'Some dynamic custom sheet title';
             $event->setDataStructure($parsedDataStructure);
         }
     }
