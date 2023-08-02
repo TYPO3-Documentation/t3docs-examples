@@ -68,7 +68,3 @@ $GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = [
 ];
 // Add the icon to the icon class configuration
 $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;
-// Add the new doktype to the list of types available from the new page menu at the top of the page tree
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-    'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $customPageDoktype . ')'
-);
