@@ -131,4 +131,9 @@ defined('TYPO3') or die();
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
         'EXT:examples/Resources/Private/Language/de.custom.xlf';
+    
+    // Add default user tsconfig
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+        "@import 'EXT:examples/Configuration/TsConfig/User/*.tsconfig'"
+    );
 })();
