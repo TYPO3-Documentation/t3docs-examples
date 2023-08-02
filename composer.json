@@ -12,13 +12,13 @@
         }
     ],
     "require": {
-        "typo3/cms-backend": "^12.4 || dev-main",
-        "typo3/cms-core": "^12.4 || dev-main",
-        "typo3/cms-extbase": "^12.4 || dev-main",
-        "typo3/cms-fluid": "^12.4 || dev-main",
-        "typo3/cms-fluid-styled-content": "^12.4 || dev-main",
-        "typo3/cms-linkvalidator": "^12.4 || dev-main",
-        "typo3/cms-reactions": "^12.4 || dev-main"
+        "typo3/cms-backend": "^12.4",
+        "typo3/cms-core": "^12.4",
+        "typo3/cms-extbase": "^12.4",
+        "typo3/cms-fluid": "^12.4",
+        "typo3/cms-fluid-styled-content": "^12.4",
+        "typo3/cms-linkvalidator": "^12.4",
+        "typo3/cms-reactions": "^12.4"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.31",
