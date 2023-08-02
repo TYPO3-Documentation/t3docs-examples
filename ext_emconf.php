@@ -24,12 +24,12 @@ $EM_CONF[$_EXTKEY] = [
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'author_company' => '',
-    'version' => '12.0.0',
+    'version' => '13.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.0.0-12.99.99',
-            'fluid_styled_content' => '12.0.0-12.99.99',
-            'linkvalidator' => '12.0.0-12.99.99',
+            'typo3' => '13.0.0-13.9.99',
+            'fluid_styled_content' => '13.0.0-13.9.99',
+            'linkvalidator' => '13.0.0-13.9.99',
         ],
         'conflicts' => [],
         'suggests' => [],
