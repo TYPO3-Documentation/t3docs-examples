@@ -43,9 +43,4 @@ defined('TYPO3') or die();
             'allowedTables' => '*',
         ]
     );
-
-    // Add custom doktype to the page tree toolbar
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-        "@import 'EXT:examples/Configuration/TsConfig/User/*.tsconfig'"
-    );
 })();
