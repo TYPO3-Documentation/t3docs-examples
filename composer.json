@@ -22,8 +22,8 @@
         "typo3/cms-reactions": "dev-main"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.31",
-        "rector/rector": "0.17.1",
+        "ergebnis/composer-normalize": "^2.34",
+        "rector/rector": "0.17.10",
         "typo3/coding-standards": "^0.7.1"
     },
     "minimum-stability": "dev",
