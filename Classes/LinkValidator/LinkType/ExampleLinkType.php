@@ -24,20 +24,23 @@ class ExampleLinkType extends AbstractLinktype
 {
     protected string $identifier = 'example';
 
-    public function checkLink($url, $softRefEntry, $reference)
+    public function checkLink($url, $softRefEntry, $reference): bool
     {
         $isValidUrl = false;
         // TODO: Implement checkLink() method.
         return $isValidUrl;
     }
 
-    public function getErrorMessage($errorParams)
+    public function getErrorMessage($errorParams): string
     {
         $lang = $this->getLanguageService();
         return match ($errorParams['errno'] ?? 0) {
-            404 => $lang->getLL('list.report.pagenotfound404'),
+            404 => $lang->sL('LLL:EXT:linkvalidator/Resources/Private/Language/Module/locallang.xlf:list.report.pagenotfound404'),
             // fall back to generic error message
-            default => sprintf($lang->getLL('list.report.externalerror'), $errorParams['errno']),
+            default => sprintf(
+                $lang->sL('LLL:EXT:linkvalidator/Resources/Private/Language/Module/locallang.xlf:list.report.externalerror'),
+                $errorParams['errno']
+            ),
         };
     }
 }
