@@ -65,7 +65,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
         if ($linkParts['type'] !== 'github') {
             return false;
         }
-        $this->linkParts = $linkParts['url']??[];
+        $this->linkParts = $linkParts['url'] ?? [];
         return true;
     }
 
@@ -75,7 +75,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
     public function formatCurrentUrl(): string
     {
         return 'https://github.com/' . $this->configuration['project'] . '/'
-            . $this->configuration['action'] . '/' . $this->linkParts['issue']??'';
+            . $this->configuration['action'] . '/' . $this->linkParts['issue'] ?? '';
     }
 
     /**
