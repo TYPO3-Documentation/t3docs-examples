@@ -89,7 +89,7 @@ class HelloWorldItemProvider extends AbstractProvider
             $position = array_search('info', array_keys($items), true);
 
             //slices array into two parts
-            $beginning = array_slice($items, 0, $position+1, true);
+            $beginning = array_slice($items, 0, $position + 1, true);
             $end = array_slice($items, $position, null, true);
 
             // adds custom item in the correct position
