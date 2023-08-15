@@ -58,7 +58,7 @@ final class DetailController
         $this->loadFlexFormSettings();
         $this->view = $this->viewService->createView($request, $this->conf, 'Haiku/Detail');
 
-        $parameter = $request->getQueryParams()['tx_examples_haiku']??[];
+        $parameter = $request->getQueryParams()['tx_examples_haiku'] ?? [];
         $action = $parameter['action'] ?? '';
         try {
             return match ($action) {
