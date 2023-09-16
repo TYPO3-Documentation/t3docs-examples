@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:42:36+02:00">
-		<header></header>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" original="EXT:examples/Resources/Private/Language/de.custom.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:42:36+02:00">
+		<header/>
 		<body>
 			<trans-unit id="pages.title_formlabel" resname="pages.title_formlabel">
 				<source>Most important tile</source>

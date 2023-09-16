@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" original="messages" datatype="plaintext" product-name="examples" date="2022-10-20T18:41:02+02:00">
-		<header></header>
+	<file source-language="en" original="EXT:examples/Resources/Private/Language/locallang.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:41:02+02:00">
+		<header/>
 		<body>
 			<trans-unit id="additional_categories" resname="additional_categories">
 				<source>Additional categories</source>

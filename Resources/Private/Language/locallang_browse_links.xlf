@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" original="EXT:recordlist/Resources/Private/Language/locallang_browse_links.xlf" datatype="plaintext" product-name="lang" date="2022-10-20T18:41:26+02:00">
-		<header></header>
+		<header/>
 		<body>
 			<trans-unit id="gitHubDescription" resname="gitHubDescription">
 				<source>Enter the &#34;%s&#34; number for the GitHub repository &#34;%s&#34;.</source>
