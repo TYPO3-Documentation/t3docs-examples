@@ -23,8 +23,7 @@ class TableInformationService
 {
     public function __construct(
         protected readonly ConnectionPool $connectionPool,
-    ) {
-    }
+    ) {}
     /**
      * Returns the count of available records from any table
      */

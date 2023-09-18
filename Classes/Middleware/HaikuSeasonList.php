@@ -43,8 +43,7 @@ final class HaikuSeasonList implements MiddlewareInterface
         private readonly LanguageServiceFactory $languageServiceFactory,
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly StreamFactoryInterface $streamFactory
-    ) {
-    }
+    ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
