@@ -33,8 +33,7 @@ class ExampleReactionType implements ReactionInterface
         private readonly Registry $registry,
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly StreamFactoryInterface $streamFactory,
-    ) {
-    }
+    ) {}
 
     public static function getType(): string
     {
