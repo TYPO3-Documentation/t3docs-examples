@@ -7,7 +7,7 @@ on:
 jobs:
   lint:
     name: Linting
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         php:
@@ -16,20 +16,20 @@ jobs:
           - '8.3'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Lint PHP
         run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
   code-quality:
     name: Code Quality
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       php: '8.1'
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install testing system
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
@@ -48,10 +48,10 @@ jobs:
 
   xliff-lint:
     name: "XLIFF linter"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "XLIFF lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
