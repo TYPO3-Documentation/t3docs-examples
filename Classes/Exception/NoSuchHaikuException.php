@@ -20,6 +20,4 @@ namespace T3docs\Examples\Exception;
 /**
  * Exception thrown if a haiku record was not found
  */
-class NoSuchHaikuException extends \RuntimeException
-{
-}
+class NoSuchHaikuException extends \RuntimeException {}

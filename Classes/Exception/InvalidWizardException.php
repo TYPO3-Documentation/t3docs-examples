@@ -20,6 +20,4 @@ namespace T3docs\Examples\Exception;
 /**
  * Exception thrown if an invalid wizard is requested
  */
-class InvalidWizardException extends \InvalidArgumentException
-{
-}
+class InvalidWizardException extends \InvalidArgumentException {}
