@@ -37,8 +37,7 @@ final class DetailController
         private readonly HaikuRepository $haikuRepository,
         private readonly FlexFormSettingsService $flexFormSettingsService,
         private readonly StandaloneViewService $viewService,
-    ) {
-    }
+    ) {}
 
     /**
      * This setter is called when the plugin is called from UserContentObject (USER)
