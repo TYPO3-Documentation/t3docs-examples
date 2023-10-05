@@ -5,6 +5,16 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Changed
+- Use Configuration/user.tsconfig (#...)
+
+## 12.0.1 - 2023-09-16
+
+### Fixed
+- Streamline XLIFF files (#209)
+
+## 12.0.0 - 2023-08-06
+
 ### Added
 - Use aliases for data processors (#159, #160)
 - Introduce Rector (#151)
