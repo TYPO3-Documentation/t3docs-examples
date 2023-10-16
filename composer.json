@@ -22,7 +22,7 @@
         "typo3/cms-reactions": "dev-main"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.34",
+        "ergebnis/composer-normalize": "~2.39.0",
         "rector/rector": "0.17.10",
         "typo3/coding-standards": "^0.7.1"
     },
@@ -35,9 +35,9 @@
     },
     "config": {
         "allow-plugins": {
+            "ergebnis/composer-normalize": true,
             "typo3/class-alias-loader": true,
-            "typo3/cms-composer-installers": true,
-            "ergebnis/composer-normalize": true
+            "typo3/cms-composer-installers": true
         },
         "bin-dir": ".Build/bin",
         "sort-packages": true,
