@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Changed
+- Use Configuration/user.tsconfig (#214)
+
 ## 12.0.1 - 2023-09-16
 
 ### Fixed
