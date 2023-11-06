@@ -42,7 +42,6 @@ return [
         'workspaces' => 'live',
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-        'extensionName' => 'Examples',
         'iconIdentifier' => 'tx_examples-backend-module',
         'routes' => [
            '_default' => [
