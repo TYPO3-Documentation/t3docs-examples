@@ -53,6 +53,9 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
+    private int $pageUid;
+    private array $exampleConfig;
+
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
         protected readonly IconFactory $iconFactory,

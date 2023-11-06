@@ -8,6 +8,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Use Configuration/user.tsconfig (#214)
 
+### Fixed
+- Dynamic properties in ModuleController (#221)
+
 ## 12.0.1 - 2023-09-16
 
 ### Fixed
