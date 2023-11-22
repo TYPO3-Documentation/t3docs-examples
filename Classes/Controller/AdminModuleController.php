@@ -21,6 +21,7 @@ use TYPO3\CMS\Backend\Attribute\Controller;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -54,7 +55,7 @@ final class AdminModuleController
 
         $moduleData = $request->getAttribute('moduleData');
         if ($moduleData->cleanUp($allowedOptions)) {
-            $languageService->pushModuleData($moduleData->getModuleIdentifier(), $moduleData->toArray());
+            $this->getBackendUser()->pushModuleData($moduleData->getModuleIdentifier(), $moduleData->toArray());
         }
 
         $moduleTemplate = $this->moduleTemplateFactory->create($request);
@@ -142,5 +143,10 @@ final class AdminModuleController
     private function getLanguageService(): LanguageService
     {
         return $GLOBALS['LANG'];
+    }
+
+    private function getBackendUser(): BackendUserAuthentication
+    {
+        return $GLOBALS['BE_USER'];
     }
 }
