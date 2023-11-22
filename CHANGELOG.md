@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - Dynamic properties in ModuleController (#221)
+- Use correct object to call pushModuleData() method in AdminModuleController (#222)
 
 ## 12.0.1 - 2023-09-16
 
