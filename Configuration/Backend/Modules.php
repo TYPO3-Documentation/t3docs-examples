@@ -44,9 +44,9 @@ return [
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
         'iconIdentifier' => 'tx_examples-backend-module',
         'routes' => [
-           '_default' => [
-               'target' => AdminModuleController::class . '::handleRequest',
-           ],
-       ],
+            '_default' => [
+                'target' => AdminModuleController::class . '::handleRequest',
+            ],
+        ],
     ],
 ];
