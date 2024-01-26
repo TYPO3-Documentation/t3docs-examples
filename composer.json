@@ -23,8 +23,8 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.39.0",
-        "rector/rector": "0.17.10",
-        "typo3/coding-standards": "^0.7.1"
+        "friendsofphp/php-cs-fixer": "^3.48",
+        "rector/rector": "0.17.10"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
