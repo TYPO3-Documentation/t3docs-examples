@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Use Configuration/user.tsconfig (#214)
+- Add return type to `ModuleController->initializeAction()`
 
 ### Fixed
 - Dynamic properties in ModuleController (#221)
