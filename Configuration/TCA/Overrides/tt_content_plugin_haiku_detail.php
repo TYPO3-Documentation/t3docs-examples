@@ -22,7 +22,7 @@ defined('TYPO3') or die();
         'tx_examples-haiku',
     ],
     'list_type',
-    'examples'
+    'examples',
 );
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_haiku_detail'] = 'pages,layout,select_key,recursive';
@@ -31,5 +31,5 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_hai
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     'examples_haiku_detail',
-    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuDetail.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuDetail.xml',
 );

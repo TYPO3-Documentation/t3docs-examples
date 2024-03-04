@@ -63,13 +63,13 @@ class HtmlParserController extends ActionController
         // Splitting HTML into blocks defined by <div> and <table> block tags
         $this->view->assign(
             'result1',
-            $this->htmlParser->splitIntoBlock('div,table', $testHTML)
+            $this->htmlParser->splitIntoBlock('div,table', $testHTML),
         );
 
         // Splitting HTML into blocks defined by <img> and <br> single tags
         $this->view->assign(
             'result2',
-            $this->htmlParser->splitTags('img,br', $testHTML)
+            $this->htmlParser->splitTags('img,br', $testHTML),
         );
 
         // Cleaning HTML
@@ -97,8 +97,8 @@ class HtmlParserController extends ActionController
                 $tagCfg,
                 false,
                 false,
-                ['xhtml' => 1]
-            )
+                ['xhtml' => 1],
+            ),
         );
         return $this->htmlResponse();
     }

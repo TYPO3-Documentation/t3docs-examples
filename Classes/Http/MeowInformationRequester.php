@@ -46,18 +46,18 @@ final class MeowInformationRequester
         $response = $this->requestFactory->request(
             self::API_URL,
             'GET',
-            $additionalOptions
+            $additionalOptions,
         );
 
         if ($response->getStatusCode() !== 200) {
             throw new \RuntimeException(
-                'Returned status code is ' . $response->getStatusCode()
+                'Returned status code is ' . $response->getStatusCode(),
             );
         }
 
         if ($response->getHeaderLine('Content-Type') !== 'application/json') {
             throw new \RuntimeException(
-                'The request did not return JSON data'
+                'The request did not return JSON data',
             );
         }
         // Get the content as a string on a successful request

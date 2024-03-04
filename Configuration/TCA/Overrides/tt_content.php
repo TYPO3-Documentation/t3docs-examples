@@ -91,14 +91,14 @@ $temporaryColumn = [
 
 ExtensionManagementUtility::addTCAcolumns(
     'tt_content',
-    $temporaryColumn
+    $temporaryColumn,
 );
 
 ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'access',
     'tx_examples_noprint',
-    'before:editlock'
+    'before:editlock',
 );
 
 // Create various FE plugins to demonstrate FlexForms definition
@@ -111,7 +111,7 @@ ExtensionManagementUtility::addPlugin(
         'examples_pi2',
     ],
     'list_type',
-    'examples'
+    'examples',
 );
 ExtensionManagementUtility::addPlugin(
     [
@@ -119,7 +119,7 @@ ExtensionManagementUtility::addPlugin(
         'examples_pi3',
     ],
     'list_type',
-    'examples'
+    'examples',
 );
 ExtensionManagementUtility::addPlugin(
     [
@@ -127,20 +127,20 @@ ExtensionManagementUtility::addPlugin(
         'examples_pi4',
     ],
     'list_type',
-    'examples'
+    'examples',
 );
 
 // Register the "error" plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Examples',
     'Error',
-    'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror'
+    'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
 );
 // Register the FAL example plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Examples',
     'FalExamples',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title'
+    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title',
 );
 
 // Disable the display of layout and select_key fields for the plugins
@@ -154,17 +154,17 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi2'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi2',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml',
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi3'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi3',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml',
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi4'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
     'examples_pi4',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml',
 );
 
 $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
@@ -220,7 +220,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'icon' => 'content-text',
     ],
     'textmedia',
-    'after'
+    'after',
 );
 
 // Configure the default backend fields for the content element

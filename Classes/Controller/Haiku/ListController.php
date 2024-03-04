@@ -59,7 +59,7 @@ final class ListController
     {
         $this->conf['settings'] = $this->flexFormSettingsService->combineSettings(
             $this->conf['settings'] ?? [],
-            $this->cObj->data['pi_flexform'] ?? ''
+            $this->cObj->data['pi_flexform'] ?? '',
         );
     }
 }

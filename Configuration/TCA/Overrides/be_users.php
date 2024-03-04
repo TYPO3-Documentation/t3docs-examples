@@ -31,5 +31,5 @@ $tempColumnsBackend = [
     'be_users',
     'tx_examples_mobile',
     '',
-    'after:email'
+    'after:email',
 );

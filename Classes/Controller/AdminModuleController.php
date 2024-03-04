@@ -42,13 +42,13 @@ final class AdminModuleController
         $allowedOptions = [
             'function' => [
                 'debug' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug'),
                 ),
                 'password' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password'),
                 ),
                 'index' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index'),
                 ),
             ],
         ];
@@ -66,19 +66,19 @@ final class AdminModuleController
             case 'debug':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug'),
                 );
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password'),
                 );
                 return $this->passwordAction($request, $moduleTemplate);
             default:
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
+                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log'),
                 );
                 return $this->indexAction($request, $moduleTemplate);
         }
@@ -86,7 +86,7 @@ final class AdminModuleController
 
     private function setUpDocHeader(
         ServerRequestInterface $request,
-        ModuleTemplate $view
+        ModuleTemplate $view,
     ) {
         $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
         $list = $buttonBar->makeLinkButton()
@@ -99,7 +99,7 @@ final class AdminModuleController
 
     public function indexAction(
         ServerRequestInterface $request,
-        ModuleTemplate $view
+        ModuleTemplate $view,
     ): ResponseInterface {
         $view->assign('aVariable', 'aValue');
         return $view->renderResponse('AdminModule/Index');
@@ -107,7 +107,7 @@ final class AdminModuleController
 
     protected function debugAction(
         ServerRequestInterface $request,
-        ModuleTemplate $view
+        ModuleTemplate $view,
     ): ResponseInterface {
         $cmd = $request->getParsedBody()['tx_examples_admin_examples']['cmd'] ?? 'cookies';
         switch ($cmd) {
@@ -122,14 +122,14 @@ final class AdminModuleController
             [
                 'cookies' => $request->getCookieParams(),
                 'lastcommand' => $cmd,
-            ]
+            ],
         );
         return $view->renderResponse('AdminModule/Debug');
     }
 
     protected function passwordAction(
         ServerRequestInterface $request,
-        ModuleTemplate $view
+        ModuleTemplate $view,
     ): ResponseInterface {
         // TODO: Do something
         return $view->renderResponse('AdminModule/Password');

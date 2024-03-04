@@ -77,22 +77,22 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $this->addFlashMessage(
             'This is a notice message',
             'Notification',
-            ContextualFeedbackSeverity::NOTICE
+            ContextualFeedbackSeverity::NOTICE,
         );
         $this->addFlashMessage(
             'This is an information message',
             'Information',
-            ContextualFeedbackSeverity::INFO
+            ContextualFeedbackSeverity::INFO,
         );
         $this->addFlashMessage(
             'This is a success message',
             'Hooray!',
-            ContextualFeedbackSeverity::OK
+            ContextualFeedbackSeverity::OK,
         );
         $this->addFlashMessage(
             'This is a warning message',
             'Watch out',
-            ContextualFeedbackSeverity::WARNING
+            ContextualFeedbackSeverity::WARNING,
         );
         $this->addFlashMessage(
             '
@@ -100,13 +100,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 				<p><strong>It shows that flash messages may not contain HTML (anymore, since TYPO3 7 LTS).</strong></p>
 			',
             'Whoops!',
-            ContextualFeedbackSeverity::ERROR
+            ContextualFeedbackSeverity::ERROR,
         );
         $this->addFlashMessage(
             'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
             'Success',
             ContextualFeedbackSeverity::OK,
-            false
+            false,
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
         $view = $this->initializeModuleTemplate($this->request);
@@ -126,16 +126,16 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             [
                 'foo' => 'bar',
                 'bar' => $this,
-            ]
+            ],
         );
         $this->logger->log(
             LogLevel::CRITICAL,
-            'This is an utter failure!'
+            'This is an utter failure!',
         );
         $this->addFlashMessage(
             '3 log entries created',
             '',
-            ContextualFeedbackSeverity::INFO
+            ContextualFeedbackSeverity::INFO,
         );
         $view = $this->initializeModuleTemplate($this->request);
         return $view->renderResponse();
@@ -154,7 +154,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         }
         $pageRecord = BackendUtility::getRecord(
             'pages',
-            $startingPoint
+            $startingPoint,
         );
 
         // Create and initialize the tree object
@@ -166,7 +166,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $html = $this->iconFactory->getIconForRecord(
                 'pages',
                 $pageRecord,
-                Icon::SIZE_SMALL
+                Icon::SIZE_SMALL,
             )->render();
         }
         $tree->tree[] = [
@@ -179,7 +179,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $tree->getTree(
             $startingPoint,
             $depth,
-            ''
+            '',
         );
 
         $view = $this->initializeModuleTemplate($this->request);
@@ -187,7 +187,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         // Pass the tree to the view
         $view->assign(
             'tree',
-            $tree->tree
+            $tree->tree,
         );
         return $view->renderResponse();
     }
@@ -196,7 +196,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * Displays the content of the clipboard
      */
     public function debugAction(
-        string $cmd = 'cookies'
+        string $cmd = 'cookies',
     ): ResponseInterface {
         $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'];
         switch ($cmd) {
@@ -218,7 +218,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * Displays the content of the clipboard
      */
     public function clipboardAction(
-        string $cmd = 'show'
+        string $cmd = 'show',
     ): ResponseInterface {
         $cmd = $_POST['tx_examples_tools_examplesexamples']['cmd'] ?? '';
         switch ($cmd) {
@@ -237,7 +237,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             [
                 'current' => $currentPad,
                 'normal' => $normalPad,
-            ]
+            ],
         );
         $view = $this->initializeModuleTemplate($this->request);
         return $view->renderResponse();
@@ -299,12 +299,12 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
         $editPage1Link = $backendUriBuilder->buildUriFromRoute(
             'record_edit',
-            $uriParameters
+            $uriParameters,
         );
         $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
         $returnUrl = (string)$backendUriBuilder->buildUriFromRoute(
             'web_examples',
-            ['id' => $pageUid, 'action' => 'links']
+            ['id' => $pageUid, 'action' => 'links'],
         );
 
         $uriParameters =
@@ -326,7 +326,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             ];
         $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute(
             'record_edit',
-            $uriParameters
+            $uriParameters,
         );
         $uriParameters =
             [
@@ -349,7 +349,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             ];
         $createHaikuLink = $backendUriBuilder->buildUriFromRoute(
             'record_edit',
-            $uriParameters
+            $uriParameters,
         );
 
         $view = $this->initializeModuleTemplate($this->request);
@@ -358,7 +358,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'editPage1Link' => $editPage1Link,
                 'editPagesDoktypeLink' => $editPagesDoktypeLink,
                 'createHaikuLink' => $createHaikuLink,
-            ]
+            ],
         );
         return $view->renderResponse();
     }
@@ -380,7 +380,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'tt_content',
                 [],
                 [],
-                ['header' => 'ASC']
+                ['header' => 'ASC'],
             );
         } catch (\Exception) {
             $contentElements = [];
@@ -389,13 +389,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         if ((int)$element > 0) {
             $contentElement = BackendUtility::getRecord(
                 'tt_content',
-                (int)$element
+                (int)$element,
             );
             try {
                 $fileObjects = $this->fileRepository->findByRelation(
                     'tt_content',
                     'image',
-                    $element
+                    $element,
                 );
             } catch (\Exception) {
                 $fileObjects = [];
@@ -411,7 +411,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'elements' => $contentElements,
                 'content' => $contentElement,
                 'references' => $fileObjects,
-            ]
+            ],
         );
         return $view->renderResponse();
     }
@@ -424,7 +424,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function fileReferenceCreateAction(
         $file,
-        $element
+        $element,
     ): ResponseInterface {
         // Early return if either item is missing
         if ((int)$file === 0 || (int)$element === 0) {
@@ -434,7 +434,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $fileObject = $this->resourceFactory->getFileObject((int)$file);
         $contentElement = BackendUtility::getRecord(
             'tt_content',
-            (int)$element
+            (int)$element,
         );
         // Assemble DataHandler data
         $newId = 'NEW1234';
@@ -458,9 +458,9 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'create_relation_success',
-                    'examples'
+                    'examples',
                 ),
-                ''
+                '',
             );
         } else {
             foreach ($this->dataHandler->errorLog as $log) {
@@ -468,9 +468,9 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     $log,
                     LocalizationUtility::translate(
                         'create_relation_error',
-                        'examples'
+                        'examples',
                     ),
-                    ContextualFeedbackSeverity::ERROR
+                    ContextualFeedbackSeverity::ERROR,
                 );
             }
         }
@@ -482,7 +482,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 null,
                 [
                     'element' => $contentElement['uid'],
-                ]
+                ],
             );
     }
 
@@ -495,7 +495,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     public function checkPassword(
         string $hashedPassword,
         string $expectedPassword,
-        string $mode
+        string $mode,
     ): bool {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
         return $hashInstance->checkPassword($expectedPassword, $hashedPassword);
@@ -508,7 +508,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         string $passwordAction = 'get',
         string $password = 'joh316',
         string $hashedPassword = '',
-        string $mode = 'FE'
+        string $mode = 'FE',
     ): ResponseInterface {
         $modes = ['FE' => 'FE', 'BE' => 'BE'];
         if ($passwordAction == 'Check') {
@@ -526,7 +526,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'password' => $password,
                 'success' => $success,
                 'passwordAction' => $passwordAction,
-            ]
+            ],
         );
         return $view->renderResponse();
     }
@@ -541,13 +541,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $message = LocalizationUtility::translate(
             key: 'record_count_message',
             extensionName: 'examples',
-            arguments: [$count, $tablename]
+            arguments: [$count, $tablename],
         );
 
         $this->addFlashMessage(
             messageBody: $message,
             messageTitle: 'Information',
-            severity: ContextualFeedbackSeverity::INFO
+            severity: ContextualFeedbackSeverity::INFO,
         );
         return $this->redirect('flash');
     }
@@ -556,7 +556,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * Generates the action menu
      */
     protected function initializeModuleTemplate(
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): ModuleTemplate {
         $menuItems = [
             'flash' => [
@@ -598,7 +598,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 ->setHref($this->uriBuilder->reset()->uriFor(
                     $menuItemConfig['action'],
                     [],
-                    $menuItemConfig['controller']
+                    $menuItemConfig['controller'],
                 ))
                 ->setActive($isActive);
             $menu->addMenuItem($menuItem);
@@ -611,13 +611,13 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
         $view->setTitle(
             $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
-            $context
+            $context,
         );
 
         $permissionClause = $this->getBackendUserAuthentication()->getPagePermsClause(Permission::PAGE_SHOW);
         $pageRecord = BackendUtility::readPageAccess(
             $this->pageUid,
-            $permissionClause
+            $permissionClause,
         );
         if ($pageRecord) {
             $view->getDocHeaderComponent()->setMetaInformation($pageRecord);

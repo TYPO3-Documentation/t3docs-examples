@@ -48,7 +48,7 @@ class HaikuRepository
         // $uid is an integer so we don't have to worry about SQL injections
         $where = $queryBuilder->expr()->eq('uid', $uid);
         $result = $queryBuilder->select('*')->from(self::TABLENAME)->where(
-            $where
+            $where,
         )->executeQuery()->fetchAssociative();
         if (!$result) {
             throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.', 1664390495);
@@ -66,10 +66,10 @@ class HaikuRepository
         // through createNamedParameter. This could cause SQL injections
         $where = $queryBuilder->expr()->eq(
             'title',
-            $queryBuilder->createNamedParameter($title)
+            $queryBuilder->createNamedParameter($title),
         );
         $result = $queryBuilder->select('*')->from(self::TABLENAME)->where(
-            $where
+            $where,
         )->executeQuery()->fetchAssociative();
         if (!$result) {
             throw new NoSuchHaikuException('Haiku with title ' . htmlspecialchars($title) . 'not found.', 1664390496);

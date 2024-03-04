@@ -26,7 +26,7 @@ $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlpa
 $pluginSignature = ExtensionUtility::registerPlugin(
     $extensionKey,
     $pluginName,
-    $pluginTitle
+    $pluginTitle,
 );
 
 // $pluginSignature == "examples_htmlparser"
@@ -39,5 +39,5 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignat
 // Configure FlexForm
 ExtensionManagementUtility::addPiFlexFormValue(
     $pluginSignature,
-    'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml',
 );

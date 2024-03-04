@@ -40,7 +40,7 @@ class CustomCategoryProcessor implements DataProcessorInterface
         ContentObjectRenderer $cObj,
         array $contentObjectConfiguration,
         array $processorConfiguration,
-        array $processedData
+        array $processedData,
     ) {
         if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
             return $processedData;

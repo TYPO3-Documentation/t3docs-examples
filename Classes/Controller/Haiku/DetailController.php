@@ -80,8 +80,8 @@ final class DetailController
                 null,
                 404,
                 [],
-                $reason
-            )
+                $reason,
+            ),
         );
     }
 
@@ -105,7 +105,7 @@ final class DetailController
     {
         $this->conf['settings'] = $this->flexFormSettingsService->combineSettings(
             $this->conf['settings'] ?? [],
-            $this->cObj->data['pi_flexform'] ?? ''
+            $this->cObj->data['pi_flexform'] ?? '',
         );
     }
 }
