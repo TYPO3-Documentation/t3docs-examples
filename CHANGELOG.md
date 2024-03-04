@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Use Configuration/user.tsconfig (#214)
+- Use PHP attribute for tagging event listener
 
 ### Fixed
 - Dynamic properties in ModuleController (#221)

@@ -17,10 +17,14 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\EventListener\LinkValidator;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory;
 use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
 use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
+#[AsEventListener(
+    identifier: 'txExampleCheckExternalLinksToLocalPages',
+)]
 final class CheckExternalLinksToLocalPagesEventListener
 {
     private const LOCAL_DOMAIN = 'example.org';
