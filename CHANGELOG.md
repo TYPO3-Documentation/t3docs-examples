@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Use Configuration/user.tsconfig (#214)
 - Add return type to `ModuleController->initializeAction()` (#233)
-- Use PHP attribute for tagging event listener
+- Use PHP attribute for tagging event listener (#236)
 
 ### Fixed
 - Dynamic properties in ModuleController (#221)
