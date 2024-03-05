@@ -25,15 +25,15 @@ use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 #[AsEventListener(
     identifier: 'txExampleCheckExternalLinksToLocalPages',
 )]
-final class CheckExternalLinksToLocalPagesEventListener
+final readonly class CheckExternalLinksToLocalPagesEventListener
 {
     private const LOCAL_DOMAIN = 'example.org';
     private const TABLE_NAME = 'tt_content';
     private const FIELD_NAME = 'bodytext';
 
     public function __construct(
-        private readonly BrokenLinkRepository $brokenLinkRepository,
-        private readonly SoftReferenceParserFactory $softReferenceParserFactory,
+        private BrokenLinkRepository $brokenLinkRepository,
+        private SoftReferenceParserFactory $softReferenceParserFactory,
     ) {}
 
     public function __invoke(BeforeRecordIsAnalyzedEvent $event): void
