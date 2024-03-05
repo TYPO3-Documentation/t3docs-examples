@@ -39,7 +39,7 @@ class ExampleLinkType extends AbstractLinktype
             // fall back to generic error message
             default => sprintf(
                 $lang->sL('LLL:EXT:linkvalidator/Resources/Private/Language/Module/locallang.xlf:list.report.externalerror'),
-                $errorParams['errno']
+                $errorParams['errno'],
             ),
         };
     }

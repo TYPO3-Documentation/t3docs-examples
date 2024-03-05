@@ -56,7 +56,7 @@ class ExampleReactionType implements ReactionInterface
     public function react(
         ServerRequestInterface $request,
         array $payload,
-        ReactionInstruction $reaction
+        ReactionInstruction $reaction,
     ): ResponseInterface {
         $id = (int)($payload['id'] ?? 0);
         if ($id <= 0) {

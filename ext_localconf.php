@@ -99,7 +99,7 @@ defined('TYPO3') or die();
         ],
         [
             \T3docs\Examples\Controller\ErrorController::class => 'index',
-        ]
+        ],
     );
 
     // Configure the HTML parser plugin
@@ -108,7 +108,7 @@ defined('TYPO3') or die();
         'HtmlParser',
         [
             \T3docs\Examples\Controller\HtmlParserController::class => 'index',
-        ]
+        ],
     );
 
     // Register the FAL examples plugin
@@ -121,7 +121,7 @@ defined('TYPO3') or die();
         // non-cacheable actions
         [
             \T3docs\Examples\Controller\FalExampleController::class => 'index,listFiles,collection',
-        ]
+        ],
     );
 
     // Add custom translations overriding default labels

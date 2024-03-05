@@ -53,7 +53,7 @@ $temporaryColumn = [
     'pages',
     'media',
     '--linebreak--,tx_examples_related_pages',
-    'after:media'
+    'after:media',
 );
 
 // SAME as registered in ext_tables.php

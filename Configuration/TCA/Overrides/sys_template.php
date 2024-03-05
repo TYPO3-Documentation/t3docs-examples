@@ -19,11 +19,11 @@ defined('TYPO3') or die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'examples',
     'Configuration/TypoScript/',
-    'Examples TypoScript'
+    'Examples TypoScript',
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'examples',
     'Configuration/TypoScript/HmenuSpecial/',
-    'Examples: HMENU special userfunc'
+    'Examples: HMENU special userfunc',
 );

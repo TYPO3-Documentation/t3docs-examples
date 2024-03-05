@@ -52,7 +52,7 @@ class FalExampleController extends ActionController
                 [
                     'folder' => $folder,
                     'files' => $files,
-                ]
+                ],
             );
         }
         return $this->htmlResponse();
@@ -70,7 +70,7 @@ class FalExampleController extends ActionController
                 [
                     'collection' => $collection,
                     'files' => $collection->getItems(),
-                ]
+                ],
             );
         }
         return $this->htmlResponse();

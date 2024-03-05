@@ -56,7 +56,7 @@ final class CheckExternalLinksToLocalPagesEventListener
                 self::TABLE_NAME,
                 self::FIELD_NAME,
                 $record['uid'],
-                (string)$record[self::FIELD_NAME]
+                (string)$record[self::FIELD_NAME],
             );
             if (!$parserResult->hasMatched()) {
                 continue;
@@ -68,7 +68,7 @@ final class CheckExternalLinksToLocalPagesEventListener
                 $this->matchUrl(
                     (string)$matchedElement['subst']['tokenValue'],
                     $record,
-                    $results
+                    $results,
                 );
             }
         }
@@ -79,7 +79,7 @@ final class CheckExternalLinksToLocalPagesEventListener
     {
         return $this->softReferenceParserFactory->getParsersBySoftRefParserList(
             $conf['softref'],
-            ['subst']
+            ['subst'],
         );
     }
 

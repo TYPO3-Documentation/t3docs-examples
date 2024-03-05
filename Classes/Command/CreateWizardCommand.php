@@ -34,19 +34,19 @@ final class CreateWizardCommand extends Command
             ->addArgument(
                 'wizardName',
                 InputArgument::OPTIONAL,
-                'The wizard\'s name'
+                'The wizard\'s name',
             )
             ->addOption(
                 'brute-force',
                 'b',
                 InputOption::VALUE_NONE,
-                'Allow the "Wizard of Oz". You can use --brute-force or -b when running command'
+                'Allow the "Wizard of Oz". You can use --brute-force or -b when running command',
             );
     }
 
     protected function execute(
         InputInterface $input,
-        OutputInterface $output
+        OutputInterface $output,
     ): int {
         $io = new SymfonyStyle($input, $output);
         $wizardName = $input->getArgument('wizardName');
@@ -62,13 +62,13 @@ final class CreateWizardCommand extends Command
     private function doMagic(
         SymfonyStyle $io,
         mixed $wizardName,
-        bool $bruteForce
+        bool $bruteForce,
     ) {
         $io->comment('Trying to create wizard ' . $wizardName . '...');
         if ($wizardName === null) {
             $wizardName = (string)$io->ask(
                 'Enter the wizard\'s name (e.g. "Gandalf the Grey")',
-                'Lord Voldermort'
+                'Lord Voldermort',
             );
         }
         if (!$bruteForce && $wizardName === 'Oz') {

@@ -70,5 +70,5 @@ $temporaryColumns = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'fe_users',
-    'tx_examples_options, tx_examples_special'
+    'tx_examples_options, tx_examples_special',
 );

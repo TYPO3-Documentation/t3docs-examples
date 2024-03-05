@@ -42,7 +42,7 @@ final class HaikuSeasonList implements MiddlewareInterface
     public function __construct(
         private readonly LanguageServiceFactory $languageServiceFactory,
         private readonly ResponseFactoryInterface $responseFactory,
-        private readonly StreamFactoryInterface $streamFactory
+        private readonly StreamFactoryInterface $streamFactory,
     ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -61,7 +61,7 @@ final class HaikuSeasonList implements MiddlewareInterface
     private function getSeasons(ServerRequestInterface $request): array
     {
         $languageService = $this->languageServiceFactory->createFromSiteLanguage(
-            $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage()
+            $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage(),
         );
 
         $translatedSeasons = [];

@@ -25,7 +25,7 @@ $extensionKey = 'examples';
 ExtensionManagementUtility::addPlugin(
     [ $pluginTitle, $pluginSignature],
     'list_type',
-    $extensionKey
+    $extensionKey,
 );
 
 // Disable the display of layout and select_key fields for the plugin
@@ -36,5 +36,5 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSi
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi1'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
     $pluginSignature,
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml',
 );

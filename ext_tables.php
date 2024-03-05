@@ -27,7 +27,7 @@ defined('TYPO3') or die();
     ];
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
         'tx_examples_mobile',
-        'after:email'
+        'after:email',
     );
 
     // Settings for new tables, which do not belong to Configuration/TCA
@@ -41,6 +41,6 @@ defined('TYPO3') or die();
         [
             'type' => 'web',
             'allowedTables' => '*',
-        ]
+        ],
     );
 })();

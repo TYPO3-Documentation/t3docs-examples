@@ -33,7 +33,7 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
         array &$linkDetails,
         string $linkText,
         string $target,
-        array $conf
+        array $conf,
     ): LinkResultInterface {
         $issueId = (int)$linkDetails['issue'];
         if ($issueId < 1) {
@@ -42,7 +42,7 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
                 // Use the Unix timestamp of the time of creation of this message
                 1665304602,
                 null,
-                $linkText
+                $linkText,
             );
         }
         $url = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/' . $issueId;
