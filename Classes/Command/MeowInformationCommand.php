@@ -18,12 +18,17 @@ declare(strict_types=1);
 namespace T3docs\Examples\Command;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use T3docs\Examples\Http\MeowInformationRequester;
 
+#[AsCommand(
+    name: 'examples:meow',
+    description: 'Meow Information',
+)]
 final class MeowInformationCommand extends Command
 {
     public function __construct(
