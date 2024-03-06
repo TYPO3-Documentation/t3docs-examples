@@ -12,6 +12,12 @@ services:
     tags:
       - name: linkvalidator.linktype
 
+  T3docs\Examples\Command\DoSomethingCommand:
+    tags:
+      - name: console.command
+        command: 'examples:dosomething'
+        description: 'A command that does nothing and always succeeds.'
+
   T3docs\Examples\Command\CreateWizardCommand:
     tags:
       - name: console.command
