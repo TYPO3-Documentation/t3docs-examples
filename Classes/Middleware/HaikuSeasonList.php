@@ -33,16 +33,16 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
  * "/de/haiku-season-list.json" for German translation (if /de is the configured base path)
  * If the base path is not available in the according site the default language will be used.
  */
-final class HaikuSeasonList implements MiddlewareInterface
+final readonly class HaikuSeasonList implements MiddlewareInterface
 {
     private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
     private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
     private const URL_SEGMENT = '/haiku-season-list.json';
 
     public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-        private readonly ResponseFactoryInterface $responseFactory,
-        private readonly StreamFactoryInterface $streamFactory,
+        private LanguageServiceFactory $languageServiceFactory,
+        private ResponseFactoryInterface $responseFactory,
+        private StreamFactoryInterface $streamFactory,
     ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
