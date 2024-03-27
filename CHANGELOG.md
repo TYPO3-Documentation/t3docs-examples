@@ -11,6 +11,16 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use PHP attribute for tagging event listener (#236)
 - Use PHP attribute for tagging commands where applicable (#237)
 
+## 12.0.3 - 2024-03-27
+
+### Fixed
+- Switch from Controller attribute to AsController attribute (#240)
+- Fix language labels for titles and options in AdminModuleController (#240)
+- Switch value for setShowLabelText() to a valid boolean in AdminModuleController (#240)
+- Remove outdated langDisable and langChildren tags in FlexForms (#248)
+
+## 12.0.2 - 2024-01-26
+
 ### Fixed
 - Dynamic properties in ModuleController (#221)
 - Use correct object to call pushModuleData() method in AdminModuleController (#222)
