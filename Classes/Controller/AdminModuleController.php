@@ -17,7 +17,7 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Backend\Attribute\Controller;
+use TYPO3\CMS\Backend\Attribute\AsController;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
@@ -26,7 +26,7 @@ use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-#[Controller]
+#[AsController]
 final readonly class AdminModuleController
 {
     public function __construct(
@@ -42,13 +42,13 @@ final readonly class AdminModuleController
         $allowedOptions = [
             'function' => [
                 'debug' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug'),
                 ),
                 'password' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password'),
                 ),
                 'index' => htmlspecialchars(
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index'),
                 ),
             ],
         ];
@@ -66,19 +66,19 @@ final readonly class AdminModuleController
             case 'debug':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug'),
                 );
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password'),
                 );
                 return $this->passwordAction($request, $moduleTemplate);
             default:
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log'),
+                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log'),
                 );
                 return $this->indexAction($request, $moduleTemplate);
         }
@@ -92,7 +92,7 @@ final readonly class AdminModuleController
         $list = $buttonBar->makeLinkButton()
             ->setHref('<uri-builder-path>')
             ->setTitle('A Title')
-            ->setShowLabelText('Link')
+            ->setShowLabelText(true)
             ->setIcon($this->iconFactory->getIcon('actions-extension-import', Icon::SIZE_SMALL));
         $buttonBar->addButton($list, ButtonBar::BUTTON_POSITION_LEFT, 1);
     }
