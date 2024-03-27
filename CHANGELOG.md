@@ -11,7 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use PHP attribute for tagging event listener (#236)
 - Use PHP attribute for tagging commands where applicable (#237)
 
-## 12.0.3 - 2024-03-27
+## 12.0.3 - 2024-03-28
 
 ### Fixed
 - Switch from Controller attribute to AsController attribute (#240)
