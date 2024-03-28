@@ -22,9 +22,9 @@
         "typo3/cms-reactions": "^12.4.9"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "~2.39.0",
-        "friendsofphp/php-cs-fixer": "^3.48",
-        "rector/rector": "0.17.10"
+        "ergebnis/composer-normalize": "~2.42.0",
+        "friendsofphp/php-cs-fixer": "^3.52",
+        "rector/rector": "1.0.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
