@@ -17,19 +17,17 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
-use Rector\Set\ValueObject\LevelSetList;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNeverTypeRector;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([
+return RectorConfig::configure()
+    ->withPaths([
         __DIR__ . '/.',
-    ]);
-
-    $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_82,
-    ]);
-
-    $rectorConfig->skip([
+    ])
+    ->withPhpSets()
+    ->withAutoloadPaths([
+        __DIR__ . '/.Build/vendor/autoload.php',
+    ])
+    ->withSkip([
         // AddLiteralSeparatorToNumberRector would make the exception codes more readable.
         // But as they are just timestamps this is not needed/wanted.
         AddLiteralSeparatorToNumberRector::class,
@@ -39,4 +37,3 @@ return static function (RectorConfig $rectorConfig): void {
             __DIR__ . '/Classes/Controller/ErrorController.php',
         ],
     ]);
-};
