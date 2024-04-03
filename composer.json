@@ -18,6 +18,7 @@
         "typo3/cms-extbase": "^12.4.9",
         "typo3/cms-fluid": "^12.4.9",
         "typo3/cms-fluid-styled-content": "^12.4.9",
+        "typo3/cms-impexp": "^12.4.9",
         "typo3/cms-linkvalidator": "^12.4.9",
         "typo3/cms-reactions": "^12.4.9"
     },
