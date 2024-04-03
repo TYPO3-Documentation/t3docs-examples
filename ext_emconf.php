@@ -29,6 +29,7 @@ $EM_CONF[$_EXTKEY] = [
         'depends' => [
             'typo3' => '12.4.9-12.4.99',
             'fluid_styled_content' => '12.4.9-12.4.99',
+            'impexp' => '12.4.9-12.4.99',
             'linkvalidator' => '12.4.9-12.4.99',
         ],
         'conflicts' => [],
