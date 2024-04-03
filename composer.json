@@ -18,7 +18,7 @@
         "typo3/cms-extbase": "dev-main",
         "typo3/cms-fluid": "dev-main",
         "typo3/cms-fluid-styled-content": "dev-main",
-		"typo3/cms-impexp": "dev-main",
+        "typo3/cms-impexp": "dev-main",
         "typo3/cms-linkvalidator": "dev-main",
         "typo3/cms-reactions": "dev-main"
     },
