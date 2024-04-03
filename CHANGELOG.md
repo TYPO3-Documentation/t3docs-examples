@@ -11,6 +11,11 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use PHP attribute for tagging event listener (#236)
 - Use PHP attribute for tagging commands where applicable (#237)
 
+## 12.0.4 - 2024-03-29
+
+### Fixed
+- Use correct version in ext_emconf.php
+
 ## 12.0.3 - 2024-03-28
 
 ### Fixed
