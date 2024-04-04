@@ -11,7 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use PHP attribute for tagging event listener (#236)
 - Use PHP attribute for tagging commands where applicable (#237)
 
-## 12.0.5 - 2024-04-xx
+## 12.0.5 - 2024-04-04
 
 ### Fixed
 - Warning when set up extension (#253)
