@@ -115,7 +115,7 @@ Extending TCA
    and :ref:`t3tca:columns-user-examples`
 
 *  Additional field :php:`tx_examples_noprint` in table :php:`tt_content`
-   ref:`t3coreapi:extending-examples-ttcontent`.
+   :ref:`t3coreapi:extending-examples-ttcontent`.
 
 
 .. _introduction-credits:
