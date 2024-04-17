@@ -47,7 +47,7 @@ The extension introduces a backend module with different pages that introduce on
 *  Accessing the clipboard
 
 *  Edit links: Backend edit links and Usage of View Helpers in the Backend
-   :ref:`t3extbasebook:creating-html-tags-using-tagbasedviewhelper`
+   :ref:`t3coreapi:creating-html-tags-using-tagbasedviewhelper`
 
 *  File references
 
