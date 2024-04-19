@@ -1,9 +1,9 @@
 ﻿.. include:: /Includes.rst.txt
 .. _maintainers:
 
-====================
-Für Wartungspersonal
-====================
+================================
+Pour le personnel de maintenance
+================================
 
 Die meisten Anpassungen, die in den Codebeispielen in diesem Beispiel enthalten sind, sind standardmäßig aktiviert. Wundern
 Sie sich also nicht, wenn Sie hier und da seltsame Dinge in Ihrem TYPO3 Backend finden.

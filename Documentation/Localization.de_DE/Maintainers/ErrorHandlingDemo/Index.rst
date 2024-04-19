@@ -1,14 +1,12 @@
 ﻿.. include:: /Includes.rst.txt
 .. _demo-error-handling:
 
-============================
-Error handling demonstration
-============================
+==================================
+Demonstration der Fehlerbehandlung
+==================================
 
-The extension provides a simple FE plugin for demonstrating error
-handling output in the FE. The settings related to the error handler
-should be changed to provide different output. It seems hard to get
-all the possible output, support for all possible settings may be
-buggy in the Core or has changed over the past and documentation
-should be adapted accordingly.
+Die Erweiterung bietet ein einfaches FE-Plugin zur Demonstration der Fehlerbehandlung im Frontend. Die Einstellungen für
+den Error-Handler sollten geändert werden, um eine andere Ausgabe zu ermöglichen. Es scheint schwer zu sein
+Es scheint schwer zu sein, alle möglichen Ausgaben zu erhalten, die Unterstützung für alle möglichen Einstellungen
+könnte im Core fehlerhaft sein oder sich in der Vergangenheit geändert haben und die Dokumentation sollte entsprechend angepasst werden.
 

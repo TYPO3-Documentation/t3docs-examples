@@ -1,21 +1,18 @@
 ﻿.. include:: /Includes.rst.txt
 .. _users:
 
-============
-Users manual
-============
+================
+Benutzerhandbuch
+================
 
-If you install this extension, a lot of changes will happen to your
-TYPO3 backend. Thus you should take care to install it only in a
-development environment, as you may otherwise run into some surprises.
+Wenn Sie diese Erweiterung installieren, werden viele Änderungen an Ihrem TYPO3-Backend. Daher sollten Sie darauf
+achten, dass Sie die Extension nur in einer Entwicklungsumgebung zu installieren, da es sonst zu Überraschungen kommen kann.
 
-In various parts of the code contained in this extension, you will
-find PHP comments that look like this:
+In verschiedenen Teilen des Codes dieser Extension werden Sie finden Sie PHP-Kommentare, die wie folgt aussehen:
 
 .. code-block:: php
 
    // USAGE: TCA Reference > Additional $TCA features
 
-This points to which manual (and which part of the manual) refers to
-the given code sample. This will help you find where to find the
-related explanations.
+Dies zeigt an, welches Handbuch (und welcher Teil des Handbuchs) sich auf das angegebene Codebeispiel bezieht. Dies
+hilft Ihnen bei der Suche nach den Erklärungen zu finden.

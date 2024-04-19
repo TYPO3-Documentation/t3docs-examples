@@ -1,17 +1,18 @@
 ﻿..  include:: /Includes.rst.txt
 ..  _code-quality:
 
-=============
-Code Qualität
-=============
+=================
+Código de calidad
+=================
 
-Um die Qualität des Codes zu gewährleisten, sind einige Composer-Skripte verfügbar. Diese werden in einem
-Docker-Container ausgeführt, um die gleichen Prüfungen wie bei der GitHub-Aktion.
+o ensure code quality, some Composer scripts are available. These
+are run in a Docker container to ensure the same checks as the
+GitHub action.
 
 :bash:`composer check`
-    Alle Prüfungen durchführen
+    Run all checks
 :bash:`composer check:composer`
-    Alle Prüfungen bezüglich composer.json durchführen
+    Run all checks regarding composer.json
 :bash:`composer check:composer:config`
     Check if :file:`composer.json` is normalized
 :bash:`composer check:php`

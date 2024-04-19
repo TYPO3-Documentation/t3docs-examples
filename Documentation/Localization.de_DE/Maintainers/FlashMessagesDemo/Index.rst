@@ -2,12 +2,12 @@
 .. _demo-error-flash:
 
 
-============================
-Flash messages demonstration
-============================
+===================================
+Demonstration von Flash-Nachrichten
+===================================
 
-The extension's BE module provide a screen for outputting Flash
-messages. Code extracts are used in Core APIs.
+Das BE-Modul der Erweiterung bietet einen Bildschirm für die Ausgabe von Flash Meldungen. Code-Extrakte werden in
+Core-APIs verwendet.
 
 .. figure:: ../../Images/FlashMessages.png
-   :alt: Flash messages produced by the "Examples" BE module
+   :alt: Vom BE-Modul erzeugte "Beispiel" Flash-Nachrichten

@@ -6,7 +6,7 @@ Kerndokumentation Code-Beispiele
 ================================
 
 :Language:
-     en
+     de
 
 :Version:
    |release|
@@ -27,8 +27,7 @@ Kerndokumentation Code-Beispiele
      documentation@typo3.org
 
 :License:
-    Dieses Dokument wird unter der Open Content License veröffentlicht
-    erhältlich bei http://www.opencontent.org/opl.shtml
+    Dieses Dokument wird unter der Open Content License veröffentlicht http://www.opencontent.org/opl.shtml
 
 :Rendered:
    |today|
