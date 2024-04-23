@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<guides xmlns="https://www.phpdoc.org/guides"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.phpdoc.org/guides ../vendor/phpdocumentor/guides-cli/resources/schema/guides.xsd"
+        links-are-relative="true"
+>
+    <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
+               project-home="https://github.com/TYPO3-Documentation/t3docs-examples"
+               project-repository="https://github.com/TYPO3-Documentation/t3docs-examples"
+               project-issues="https://github.com/TYPO3-Documentation/t3docs-examples/issues"
+               edit-on-github-branch="master"
+               edit-on-github="TYPO3-Documentation/t3docs-examples"
+               typo3-core-preferred="stable"
+               interlink-shortcode="t3docs/examples"
+    />
+    <project title="Core documentation code examples"
+             release="master (development)"
+             version="master (development)"
+             copyright="since 2000 by the TYPO3 Documentation Team"
+    />
+    <inventory id="t3coreapi"
+               url="https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/"
+    />
+    <inventory id="t3extbasebook"
+               url="https://docs.typo3.org/m/typo3/book-extbasefluid/master/en-us/"
+    />
+    <inventory id="t3tca"
+               url="https://docs.typo3.org/m/typo3/reference-tca/master/en-us/"
+    />
+    <inventory id="t3tsref"
+               url="https://docs.typo3.org/m/typo3/reference-typoscript/master/en-us/"
+    />
+</guides>

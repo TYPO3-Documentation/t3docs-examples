@@ -2,34 +2,29 @@
 .. _introduction:
 
 ============
-Introduction
+Introducción
 ============
 
 
 .. _introduction-what:
 
-What does it do?
+¿Para qué sirve?
 ================
 
-This extension contains a lot of code samples that are used throughout
-the TYPO3 Core Documentation. The goals are two-fold:
+Esta extensión contiene una gran cantidad de ejemplos de código que se utilizan en todo el TYPO3 Core Documentation.
+Los objetivos son dos:
 
-#. Provide an easy way for users to gain access to these examples for
-   their own use.
+#.  Proporcionar una manera fácil para que los usuarios tengan acceso a estos ejemplos para su propio uso.
 
-#. Store all code examples and content elements in a central place,
-   so that it is easier for documentation maintainers to reproduce
-   the examples from the documentation, in particular when refreshing
-   the screenshots.
+#.  Almacenar todos los ejemplos de código y elementos de contenido en un lugar central, por lo que es más fácil para
+    los mantenedores de la documentación para reproducir los ejemplos de la documentación, en particular al actualizar
+    las capturas de pantalla.
 
-The usage of these examples is **not** explained in this manual. It
-is explained in the relevant documentation.
+El uso de estos ejemplos **no** se explica en este manual. En se explica en la documentación correspondiente.
 
-Not all code examples from the Core Documentation will be moved here
-as it is a rather huge task. Whenever possible code samples are taken
-from the TYPO3 Core itself. Furthermore priority is given to those
-code samples that are related to screenshots.
-
+No todos los ejemplos de código de la Documentación básica se trasladarán aquí ya que es una tarea bastante grande.
+Siempre que sea posible los ejemplos de código se toman de la propia TYPO3 Core. Además se da prioridad a los ejemplos
+de código que están relacionados con capturas de pantalla.
 
 .. _backend_module:
 

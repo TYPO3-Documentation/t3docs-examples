@@ -1,34 +1,33 @@
 ﻿.. include:: /Includes.rst.txt
 .. _introduction:
 
-============
-Introduction
-============
+==========
+Einführung
+==========
 
 
 .. _introduction-what:
 
-What does it do?
-================
+Was macht es?
+=============
 
-This extension contains a lot of code samples that are used throughout
-the TYPO3 Core Documentation. The goals are two-fold:
+Diese Extension enthält viele Codebeispiele, die in der gesamten
+TYPO3 Core Dokumentation verwendet werden. Die Ziele sind zweifach:
 
-#. Provide an easy way for users to gain access to these examples for
-   their own use.
+#.  Sie bieten den Benutzern einen einfachen Zugang zu diesen Beispielen für
+    ihre eigene Verwendung.
 
-#. Store all code examples and content elements in a central place,
-   so that it is easier for documentation maintainers to reproduce
-   the examples from the documentation, in particular when refreshing
-   the screenshots.
+#.  Speichern Sie alle Code-Beispiele und Inhaltselemente an einem zentralen
+    Ort, so dass es für die Dokumentationsbetreuer einfacher ist, die Beispiele
+    aus der Dokumentation zu reproduzieren, insbesondere beim Aktualisieren der Screenshots.
 
-The usage of these examples is **not** explained in this manual. It
-is explained in the relevant documentation.
+Die Verwendung dieser Beispiele wird in diesem Handbuch **nicht** erklärt. Sie
+wird in der entsprechenden Dokumentation erklärt.
 
-Not all code examples from the Core Documentation will be moved here
-as it is a rather huge task. Whenever possible code samples are taken
-from the TYPO3 Core itself. Furthermore priority is given to those
-code samples that are related to screenshots.
+Nicht alle Codebeispiele aus der Kerndokumentation werden hierher verschoben,
+da dies eine ziemlich große Aufgabe ist. Wann immer es möglich ist, werden Code-Beispiele
+aus dem TYPO3 Core selbst übernommen. Außerdem werden die Code-Beispiele bevorzugt,
+die mit Screenshots in Verbindung stehen.
 
 
 .. _backend_module:
