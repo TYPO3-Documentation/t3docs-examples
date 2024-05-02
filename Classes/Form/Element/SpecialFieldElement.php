@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Form\Element;
 
+use TYPO3\CMS\Backend\Form\Behavior\UpdateValueOnFieldChange;
 use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
@@ -41,8 +42,10 @@ class SpecialFieldElement extends AbstractFormElement
             'name' => htmlspecialchars((string)$parameterArray['itemFormElName']),
             'size' => $size,
             'data-formengine-input-name' => htmlspecialchars((string)$parameterArray['itemFormElName']),
-            'onChange' => implode('', $parameterArray['fieldChangeFunc']),
         ];
+        if ($parameterArray['fieldChangeFunc'] instanceof UpdateValueOnFieldChange) {
+            $attributes['onChange'] = $parameterArray['fieldChangeFunc'];
+        }
 
         $attributes['placeholder'] = 'Enter special value for user "' . htmlspecialchars(trim((string)$row['username'])) .
             '" in size ' . $size;
