@@ -38,7 +38,7 @@ final class MeowInformationCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setHelp('Prints random information about cats retrieved from an API call');
     }

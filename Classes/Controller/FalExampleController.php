@@ -24,13 +24,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class FalExampleController extends ActionController
 {
-    protected ResourceFactory $resourceFactory;
-
-    public function injectResourceFactory(ResourceFactory $resourceFactory)
-    {
-        $this->resourceFactory = $resourceFactory;
-    }
-
+    public function __construct(protected ResourceFactory $resourceFactory) {}
     /**
      * Displays a list of links to the other actions.
      */

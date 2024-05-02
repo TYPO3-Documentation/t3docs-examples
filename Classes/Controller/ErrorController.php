@@ -15,6 +15,7 @@
 
 namespace T3docs\Examples\Controller;
 
+use Exception;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 

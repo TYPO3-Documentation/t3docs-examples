@@ -47,7 +47,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      * @param string $identifier Key of the current page TSconfig configuration
      * @param array $configuration Page TSconfig
      */
-    public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
+    public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration): void
     {
         $this->configuration = $configuration;
     }

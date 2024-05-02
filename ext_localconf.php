@@ -13,6 +13,33 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use T3docs\Examples\Controller\ErrorController;
+use T3docs\Examples\Controller\FalExampleController;
+use T3docs\Examples\Controller\HtmlParserController;
+use T3docs\Examples\Form\Element\SpecialFieldElement;
+use T3docs\Examples\LinkHandler\GithubLinkBuilder;
+use T3docs\Examples\LinkHandler\GitHubLinkHandling;
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor;
+use TYPO3\CMS\Core\Log\Writer\DatabaseWriter;
+use TYPO3\CMS\Core\Log\Writer\FileWriter;
+use TYPO3\CMS\Core\Log\Writer\SyslogWriter;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+/*
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
 defined('TYPO3') or die();
 
 // encapsulate all locally defined variables
@@ -48,79 +75,79 @@ defined('TYPO3') or die();
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1609888016] = [
         'nodeName' => 'specialField',
         'priority' => 40,
-        'class' => \T3docs\Examples\Form\Element\SpecialFieldElement::class,
+        'class' => SpecialFieldElement::class,
     ];
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['github'] =
-        \T3docs\Examples\LinkHandler\GithubLinkBuilder::class;
+        GithubLinkBuilder::class;
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']['github'] =
-        \T3docs\Examples\LinkHandler\GitHubLinkHandling::class;
+        GitHubLinkHandling::class;
 
     // Add example configuration for the logging API
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
         // configuration for ERROR level log entries
-        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+        LogLevel::ERROR => [
             // add a FileWriter
-            \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+            FileWriter::class => [
                 // configuration for the writer
-                'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log',
+                'logFile' => Environment::getVarPath() . '/log/typo3_examples.log',
             ],
         ],
     ];
 
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [
-        \TYPO3\CMS\Core\Log\Writer\DatabaseWriter::class => [
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][LogLevel::DEBUG] = [
+        DatabaseWriter::class => [
             'logTable' => 'tx_examples_log',
         ],
     ];
 
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::WARNING] = [
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][LogLevel::WARNING] = [
         // configuration for WARNING severity, including all
         // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
         // add a SyslogWriter
-        \TYPO3\CMS\Core\Log\Writer\SyslogWriter::class => [],
+        SyslogWriter::class => [],
     ];
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processorConfiguration'] = [
         // configuration for ERROR level log entries
-        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+        LogLevel::ERROR => [
             // add a MemoryUsageProcessor
-            \TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor::class => [
+            MemoryUsageProcessor::class => [
                 'formatSize' => true,
             ],
         ],
     ];
 
     // Register the "error " plugin
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    ExtensionUtility::configurePlugin(
         'Examples',
         'Error',
         [
-            \T3docs\Examples\Controller\ErrorController::class => 'index',
+            ErrorController::class => 'index',
         ],
         [
-            \T3docs\Examples\Controller\ErrorController::class => 'index',
+            ErrorController::class => 'index',
         ],
     );
 
     // Configure the HTML parser plugin
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    ExtensionUtility::configurePlugin(
         'Examples',
         'HtmlParser',
         [
-            \T3docs\Examples\Controller\HtmlParserController::class => 'index',
+            HtmlParserController::class => 'index',
         ],
     );
 
     // Register the FAL examples plugin
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    ExtensionUtility::configurePlugin(
         'Examples',
         'FalExamples',
         [
-            \T3docs\Examples\Controller\FalExampleController::class => 'index,listFiles,collection',
+            FalExampleController::class => 'index,listFiles,collection',
         ],
         // non-cacheable actions
         [
-            \T3docs\Examples\Controller\FalExampleController::class => 'index,listFiles,collection',
+            FalExampleController::class => 'index,listFiles,collection',
         ],
     );
 

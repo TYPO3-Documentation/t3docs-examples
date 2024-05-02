@@ -63,7 +63,7 @@ final class CreateWizardCommand extends Command
         SymfonyStyle $io,
         mixed $wizardName,
         bool $bruteForce,
-    ) {
+    ): void {
         $io->comment('Trying to create wizard ' . $wizardName . '...');
         if ($wizardName === null) {
             $wizardName = (string)$io->ask(

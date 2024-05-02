@@ -26,13 +26,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class HtmlParserController extends ActionController
 {
-    protected HtmlParser $htmlParser;
-
-    public function injectHtmlParser(HtmlParser $htmlParser)
-    {
-        $this->htmlParser = $htmlParser;
-    }
-
+    public function __construct(protected HtmlParser $htmlParser) {}
     /**
      * Parses some HTML using TYPO3's HTML parser and sends the result to debug output.
      */
