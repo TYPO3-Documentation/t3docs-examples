@@ -12,11 +12,3 @@ docs: ## Generate projects documentation (from "Documentation" directory)
 test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
 	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
-
-.PHONY: rector
-rector: ## Run rector
-	.Build/bin/rector
-
-.PHONY: fix-cs
-fix-cs: ## Fix PHP coding styles
-	.Build/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
