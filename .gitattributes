@@ -1,3 +1,6 @@
 /.* export-ignore
 /Build export-ignore
 /rector.php export-ignore
+/composer.lock export-ignore
+/composer.json.testing export-ignore
+/composer.json.orig export-ignore
