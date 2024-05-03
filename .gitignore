@@ -1,5 +1,7 @@
 .idea
 .Build
-composer.lock
+/composer.lock
+/composer.json.testing
+/composer.json.orig
 *GENERATED*
 .ddev
