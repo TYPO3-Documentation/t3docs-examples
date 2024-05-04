@@ -61,7 +61,8 @@ Options:
 
     -p <8.1|8.2|8.3>
         Specifies the PHP minor version to be used
-            - 8.2: (default) use PHP 8.2
+            - 8.1: (default) use PHP 8.1
+            - 8.2: use PHP 8.2
             - 8.3: use PHP 8.3
     -n
         Only with -s cgl, composerNormalize, rector
@@ -76,7 +77,7 @@ Options:
         Show this help.
 
 Examples:
-    # Run unit tests using PHP 8.2
+    # Run unit tests using PHP 8.1
     ./Build/Scripts/runTests.sh
 EOF
 }
@@ -117,7 +118,7 @@ while getopts "b:s:p:xy:nhu" OPT; do
             ;;
         p)
             PHP_VERSION=${OPTARG}
-            if ! [[ ${PHP_VERSION} =~ ^(8.2|8.3)$ ]]; then
+            if ! [[ ${PHP_VERSION} =~ ^(8.1|8.2|8.3)$ ]]; then
                 INVALID_OPTIONS+=("p ${OPTARG}")
             fi
             ;;
