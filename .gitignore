@@ -5,3 +5,4 @@
 /composer.json.orig
 *GENERATED*
 .ddev
+/.php-cs-fixer.cache

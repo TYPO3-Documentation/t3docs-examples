@@ -13,10 +13,12 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use T3docs\Examples\Middleware\HaikuSeasonList;
+
 return [
     'frontend' => [
         't3docs/examples/haiku-season-list' => [
-            'target' => \T3docs\Examples\Middleware\HaikuSeasonList::class,
+            'target' => HaikuSeasonList::class,
             'before' => [
                 'typo3/cms-frontend/maintenance-mode',
             ],

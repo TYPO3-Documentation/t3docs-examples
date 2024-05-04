@@ -21,6 +21,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
@@ -31,8 +32,8 @@ use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Resource\FileRepository;
@@ -166,7 +167,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             $html = $this->iconFactory->getIconForRecord(
                 'pages',
                 $pageRecord,
-                Icon::SIZE_SMALL,
+                IconSize::SMALL->value,
             )->render();
         }
         $tree->tree[] = [
@@ -295,7 +296,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction(): ResponseInterface
     {
-        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
+        $backendUriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
         $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
         $editPage1Link = $backendUriBuilder->buildUriFromRoute(
             'record_edit',

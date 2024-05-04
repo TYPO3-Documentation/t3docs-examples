@@ -13,9 +13,11 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use T3docs\Examples\Controller\ModuleController;
+
 return [
     'tx_examples_count' => [
         'path' => '/examples/module/count',
-        'target' => \T3docs\Examples\Controller\ModuleController::class . '::countAction',
+        'target' => ModuleController::class . '::countAction',
     ],
 ];

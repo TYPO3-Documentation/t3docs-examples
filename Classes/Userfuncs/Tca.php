@@ -52,7 +52,7 @@ class Tca
      * @param array $parameters Parameters used to identify the current record
      * @param object $parentObject Calling object (null in this case)
      */
-    public function haikuTitle(&$parameters, $parentObject)
+    public function haikuTitle(&$parameters, $parentObject): void
     {
         $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid'] ?? 0);
         if ($record === null) {

@@ -22,8 +22,8 @@ use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
 #[AsController]
@@ -87,13 +87,13 @@ final readonly class AdminModuleController
     private function setUpDocHeader(
         ServerRequestInterface $request,
         ModuleTemplate $view,
-    ) {
+    ): void {
         $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
         $list = $buttonBar->makeLinkButton()
             ->setHref('<uri-builder-path>')
             ->setTitle('A Title')
             ->setShowLabelText(true)
-            ->setIcon($this->iconFactory->getIcon('actions-extension-import', Icon::SIZE_SMALL));
+            ->setIcon($this->iconFactory->getIcon('actions-extension-import', IconSize::SMALL->value));
         $buttonBar->addButton($list, ButtonBar::BUTTON_POSITION_LEFT, 1);
     }
 
@@ -135,7 +135,7 @@ final readonly class AdminModuleController
         return $view->renderResponse('AdminModule/Password');
     }
 
-    private function debugCookies()
+    private function debugCookies(): void
     {
         // TODO: do something()
     }

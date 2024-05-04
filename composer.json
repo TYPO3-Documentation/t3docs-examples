@@ -26,7 +26,7 @@
         "ergebnis/composer-normalize": "~2.42.0",
         "friendsofphp/php-cs-fixer": "^3.52",
         "phpstan/phpstan": "^1.10",
-        "rector/rector": "1.0.3"
+        "ssch/typo3-rector": "^2.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
