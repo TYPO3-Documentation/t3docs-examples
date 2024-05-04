@@ -18,6 +18,7 @@ namespace T3docs\Examples\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Attribute\AsController;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
@@ -32,6 +33,7 @@ final readonly class AdminModuleController
     public function __construct(
         protected ModuleTemplateFactory $moduleTemplateFactory,
         protected IconFactory $iconFactory,
+        private UriBuilder $uriBuilder,
         // ...
     ) {}
 
@@ -89,8 +91,9 @@ final readonly class AdminModuleController
         ModuleTemplate $view,
     ): void {
         $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
+        $uriBuilderPath = $this->uriBuilder->buildUriFromRoute('web_list', ['id' => 0]);
         $list = $buttonBar->makeLinkButton()
-            ->setHref('<uri-builder-path>')
+            ->setHref($uriBuilderPath)
             ->setTitle('A Title')
             ->setShowLabelText(true)
             ->setIcon($this->iconFactory->getIcon('actions-extension-import', IconSize::SMALL->value));
