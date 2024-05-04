@@ -30,6 +30,7 @@ final class DetailController
      * The back-reference to the mother cObj object set at call time
      */
     private ContentObjectRenderer $cObj;
+    /** @var array<string, mixed> */
     private array $conf = [];
     private StandaloneView $view;
 
@@ -49,6 +50,7 @@ final class DetailController
     }
 
     /**
+     * @param array<string, mixed> $conf
      * @throws PropagateResponseException
      */
     public function main(string $content, array $conf, ServerRequestInterface $request): string

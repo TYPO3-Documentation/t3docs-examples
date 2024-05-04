@@ -19,6 +19,7 @@ namespace T3docs\Examples\EventListener\LinkValidator;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory;
+use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserInterface;
 use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
 use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
@@ -52,6 +53,11 @@ final readonly class CheckExternalLinksToLocalPagesEventListener
         $event->setResults($results);
     }
 
+    /**
+     * @param array<mixed> $record
+     * @param array<mixed> $results
+     * @return array<mixed>
+     */
     private function parseField(array $record, array $results): array
     {
         $conf = $GLOBALS['TCA'][self::TABLE_NAME]['columns'][self::FIELD_NAME]['config'];
@@ -79,6 +85,10 @@ final readonly class CheckExternalLinksToLocalPagesEventListener
         return $results;
     }
 
+    /**
+     * @param array<mixed> $conf
+     * @return SoftReferenceParserInterface[]
+     */
     private function findAllParsers(array $conf): iterable
     {
         return $this->softReferenceParserFactory->getParsersBySoftRefParserList(
@@ -87,6 +97,10 @@ final readonly class CheckExternalLinksToLocalPagesEventListener
         );
     }
 
+    /**
+     * @param array<mixed> $record
+     * @param array<mixed> $results
+     */
     private function matchUrl(string $foundUrl, array $record, array &$results): void
     {
         if (str_contains($foundUrl, self::LOCAL_DOMAIN)) {
@@ -95,6 +109,9 @@ final readonly class CheckExternalLinksToLocalPagesEventListener
         }
     }
 
+    /**
+     * @param array<string, scalar> $record
+     */
     private function addItemToBrokenLinkRepository(array $record, string $foundUrl): void
     {
         $link = [

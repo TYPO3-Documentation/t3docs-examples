@@ -19,6 +19,10 @@ namespace T3docs\Examples\Userfuncs;
 
 class CustomMenu
 {
+    /**
+     * @param array<mixed> $conf
+     * @return array<mixed>
+     */
     public function makeMenuArray(string $content, array $conf): array
     {
         return [

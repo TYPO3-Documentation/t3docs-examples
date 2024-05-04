@@ -21,8 +21,15 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class StandaloneViewService
 {
-    public function createView(ServerRequestInterface $request, array $config, string $templateName, string $format = 'html'): StandaloneView
-    {
+    /**
+     * @param array<string> $config
+     */
+    public function createView(
+        ServerRequestInterface $request,
+        array $config,
+        string $templateName,
+        string $format = 'html',
+    ): StandaloneView {
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setRequest($request);
         $view->setLayoutRootPaths([

@@ -55,6 +55,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     use LoggerAwareTrait;
 
     private int $pageUid;
+    /** @var array<string, mixed>  */
     private array $exampleConfig;
 
     public function __construct(
@@ -210,7 +211,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         return $view->renderResponse();
     }
 
-    protected function debugCookies()
+    protected function debugCookies(): void
     {
         DebugUtility::debug($_COOKIE, 'cookie');
     }
@@ -246,6 +247,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Debugs the content of the clipboard
+     * @return array<string, mixed>
      */
     protected function getClipboard(string $identifier): array
     {
@@ -264,6 +266,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
 
     /**
      * Debugs the content of the clipboard
+     * @return array<string, mixed>
      */
     protected function getCurrentClipboard(): array
     {
@@ -282,7 +285,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
     /**
      * Debugs the content of the clipboard
      */
-    protected function debugClipboard()
+    protected function debugClipboard(): void
     {
         /** @var Clipboard $clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);

@@ -28,11 +28,9 @@ class Tca
     /**
      * Renders a custom, user-defined field.
      *
-     * @param array $configuration
-     * @param UserElement $parentObject
-     * @return string HTML for the field
+     * @param array<mixed> $configuration
      */
-    public function specialField($configuration, $parentObject)
+    public function specialField(array $configuration, UserElement $parentObject): string
     {
         $color = $configuration['parameters']['color'] ?? 'red';
         $size = (isset($configuration['parameters']['size'])) ? (int)$configuration['parameters']['size'] : 20;
@@ -49,10 +47,10 @@ class Tca
     /**
      * Creates custom titles for the records of the tx_examples_haiku table.
      *
-     * @param array $parameters Parameters used to identify the current record
-     * @param object $parentObject Calling object (null in this case)
+     * @param array<mixed> $parameters Parameters used to identify the current record
+     * @param object|null $parentObject Calling object (null in this case)
      */
-    public function haikuTitle(&$parameters, $parentObject): void
+    public function haikuTitle(array &$parameters, object|null $parentObject): void
     {
         $record = BackendUtility::getRecord($parameters['table'], $parameters['row']['uid'] ?? 0);
         if ($record === null) {

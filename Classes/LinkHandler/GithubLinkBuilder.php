@@ -29,6 +29,13 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
 {
     private const TYPE_GITHUB = 'github';
 
+    /**
+     * @param array<mixed> $linkDetails parsed link details by the LinkService
+     * @param string $linkText the link text
+     * @param string $target the target to point to
+     * @param array<mixed> $conf the TypoLink configuration array
+     * @throws UnableToLinkException
+     */
     public function build(
         array &$linkDetails,
         string $linkText,

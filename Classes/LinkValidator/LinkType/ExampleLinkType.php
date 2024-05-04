@@ -15,6 +15,7 @@
 
 namespace T3docs\Examples\LinkValidator\LinkType;
 
+use TYPO3\CMS\Linkvalidator\LinkAnalyzer;
 use TYPO3\CMS\Linkvalidator\Linktype\AbstractLinktype;
 
 /**
@@ -24,14 +25,28 @@ class ExampleLinkType extends AbstractLinktype
 {
     protected string $identifier = 'example';
 
-    public function checkLink($url, $softRefEntry, $reference): bool
+    /**
+     * Checks a given link for validity
+     *
+     * @param string $url Url to check
+     * @param array<mixed> $softRefEntry The soft reference entry which builds the context of that url
+     * @param LinkAnalyzer $reference Parent instance
+     * @return bool TRUE on success or FALSE on error
+     */
+    public function checkLink(string $url, array $softRefEntry, LinkAnalyzer $reference): bool
     {
         $isValidUrl = false;
         // TODO: Implement checkLink() method.
         return $isValidUrl;
     }
 
-    public function getErrorMessage($errorParams): string
+    /**
+     * Generate the localized error message from the error params saved from the parsing
+     *
+     * @param array<mixed> $errorParams All parameters needed for the rendering of the error message
+     * @return string Validation error message
+     */
+    public function getErrorMessage(array $errorParams): string
     {
         $lang = $this->getLanguageService();
         return match ($errorParams['errno'] ?? 0) {

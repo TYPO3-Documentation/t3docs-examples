@@ -24,6 +24,9 @@ use TYPO3\CMS\Core\Utility\StringUtility;
 
 class SpecialFieldElement extends AbstractFormElement
 {
+    /**
+     * @return array<mixed>
+     */
     public function render(): array
     {
         $row = $this->data['databaseRow'];

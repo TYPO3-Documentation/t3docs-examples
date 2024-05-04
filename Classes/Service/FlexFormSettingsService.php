@@ -23,6 +23,9 @@ class FlexFormSettingsService
         protected readonly FlexFormService $flexFormService,
     ) {}
 
+    /**
+     * @return array<mixed>
+     */
     public function combineSettings(mixed $settings, string $flexFormString): array
     {
         // As the data from the TypoScript is user input you cannot be sure about types

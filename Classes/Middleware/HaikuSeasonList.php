@@ -58,6 +58,9 @@ final readonly class HaikuSeasonList implements MiddlewareInterface
             ->withBody($this->streamFactory->createStream($seasons));
     }
 
+    /**
+     * @return array<string, string>
+     */
     private function getSeasons(ServerRequestInterface $request): array
     {
         $languageService = $this->languageServiceFactory->createFromSiteLanguage(

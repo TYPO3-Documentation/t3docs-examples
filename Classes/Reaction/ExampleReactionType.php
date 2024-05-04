@@ -81,6 +81,10 @@ class ExampleReactionType implements ReactionInterface
         $this->registry->set('tx_examples', self::REGISTRY_KEY, $ids);
     }
 
+    /**
+     * @param array<mixed> $data
+     * @throws \JsonException
+     */
     private function jsonResponse(array $data, int $statusCode = 201): ResponseInterface
     {
         return $this->responseFactory
