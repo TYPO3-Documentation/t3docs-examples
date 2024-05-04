@@ -90,7 +90,7 @@ class HtmlParserController extends ActionController
                 $testHTML,
                 $tagCfg,
                 false,
-                false,
+                0,
                 ['xhtml' => 1],
             ),
         );
