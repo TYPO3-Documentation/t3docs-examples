@@ -15,6 +15,7 @@
 
 namespace T3docs\Examples\Controller\Haiku;
 
+use Doctrine\DBAL\Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
 use T3docs\Examples\Service\FlexFormSettingsService;
@@ -27,6 +28,7 @@ final class ListController
      * The back-reference to the mother cObj object set at call time
      */
     private ContentObjectRenderer $cObj;
+    /** @var array<string, mixed> */
     private array $conf = [];
 
     public function __construct(
@@ -35,6 +37,10 @@ final class ListController
         private readonly StandaloneViewService $viewService,
     ) {}
 
+    /**
+     * @param array<string, mixed> $conf
+     * @throws Exception
+     */
     public function main(string $content, array $conf, ServerRequestInterface $request): string
     {
         $this->conf = $conf;

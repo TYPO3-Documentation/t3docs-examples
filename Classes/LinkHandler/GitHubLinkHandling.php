@@ -24,9 +24,8 @@ class GitHubLinkHandling implements LinkHandlingInterface
 {
     /**
      * The Base URN for this link handling to act on
-     * @var string
      */
-    protected $baseUrn = 't3://github';
+    protected string $baseUrn = 't3://github';
 
     /**
      * Returns a string interpretation of the link href query from objects,
@@ -39,6 +38,7 @@ class GitHubLinkHandling implements LinkHandlingInterface
      *  - mailto:mac@safe.com
      *
      * array of data -> string
+     * @param array<string, scalar> $parameters
      */
     public function asString(array $parameters): string
     {
@@ -51,6 +51,8 @@ class GitHubLinkHandling implements LinkHandlingInterface
      * representation.
      *
      * array of strings -> array of data
+     * @param array<string, scalar> $data
+     * @return array<string, scalar>
      */
     public function resolveHandlerData(array $data): array
     {

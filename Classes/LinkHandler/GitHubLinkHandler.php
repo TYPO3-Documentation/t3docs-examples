@@ -30,10 +30,12 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     protected array $linkAttributes = ['target', 'title', 'class', 'params', 'rel'];
 
+    /** @var array<string, mixed> */
     protected array $linkParts = [];
 
     protected ViewInterface $view;
 
+    /** @var array<string, mixed> */
     protected array $configuration;
 
     public function __construct(
@@ -45,10 +47,13 @@ class GitHubLinkHandler implements LinkHandlerInterface
      * Initialize the handler
      *
      * @param string $identifier Key of the current page TSconfig configuration
-     * @param array $configuration Page TSconfig
+     * @param array<string, mixed> $configuration Page TSconfig
      */
-    public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration): void
-    {
+    public function initialize(
+        AbstractLinkBrowserController $linkBrowser,
+        $identifier,
+        array $configuration,
+    ): void {
         $this->configuration = $configuration;
     }
 
@@ -57,7 +62,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      *
      * Also stores information locally about currently linked issue
      *
-     * @param array $linkParts Link parts as returned from TypoLinkCodecService
+     * @param array<string, mixed> $linkParts Link parts as returned from TypoLinkCodecService
      */
     public function canHandleLink(array $linkParts): bool
     {
@@ -108,9 +113,9 @@ class GitHubLinkHandler implements LinkHandlerInterface
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
-    public function getLinkAttributes()
+    public function getLinkAttributes(): array
     {
         return $this->linkAttributes;
     }
@@ -119,7 +124,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      * @param string[] $fieldDefinitions Array of link attribute field definitions
      * @return string[]
      */
-    public function modifyLinkAttributes(array $fieldDefinitions)
+    public function modifyLinkAttributes(array $fieldDefinitions): array
     {
         return $fieldDefinitions;
     }
@@ -129,7 +134,7 @@ class GitHubLinkHandler implements LinkHandlerInterface
      *
      * @return bool
      */
-    public function isUpdateSupported()
+    public function isUpdateSupported(): bool
     {
         return false;
     }

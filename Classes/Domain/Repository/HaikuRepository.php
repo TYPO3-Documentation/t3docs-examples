@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Domain\Repository;
 
+use Doctrine\DBAL\Exception;
 use T3docs\Examples\Exception\NoSuchHaikuException;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -32,6 +33,10 @@ class HaikuRepository
         $this->connection = $connectionPool->getConnectionForTable(self::TABLENAME);
     }
 
+    /**
+     * @return list<array<string,mixed>>
+     * @throws Exception
+     */
     public function findAll(): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
@@ -40,24 +45,28 @@ class HaikuRepository
     }
 
     /**
+     * @return array<string,mixed>
      * @throws NoSuchHaikuException
+     * @throws Exception
      */
     public function findByUid(int $uid): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
-        // $uid is an integer so we don't have to worry about SQL injections
+        // $uid is an integer, so we don't have to worry about SQL injections
         $where = $queryBuilder->expr()->eq('uid', $uid);
         $result = $queryBuilder->select('*')->from(self::TABLENAME)->where(
             $where,
         )->executeQuery()->fetchAssociative();
-        if (!$result) {
+        if ($result === false) {
             throw new NoSuchHaikuException('Haiku with uid ' . $uid . 'not found.', 1664390495);
         }
         return $result;
     }
 
     /**
+     * @return array<string,mixed>
      * @throws NoSuchHaikuException
+     * @throws Exception
      */
     public function findByTitle(string $title): array
     {
