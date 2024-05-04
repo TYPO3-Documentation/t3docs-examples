@@ -3,7 +3,7 @@ includes:
 
 parameters:
   phpVersion: 80200
-  level: 2
+  level: 4
 
   bootstrapFiles:
     - phpstan-typo3-constants.php

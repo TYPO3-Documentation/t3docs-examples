@@ -73,8 +73,16 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function formatCurrentUrl(): string
     {
-        return 'https://github.com/' . $this->configuration['project'] . '/'
-            . $this->configuration['action'] . '/' . $this->linkParts['issue'] ?? '';
+        $issue = '';
+        if (isset($this->linkParts['issue'])) {
+            $issue = $this->linkParts['issue'];
+        }
+        return sprintf(
+            'https://github.com/%s/%s/%s',
+            $this->configuration['project'],
+            $this->configuration['action'],
+            $issue,
+        );
     }
 
     /**
