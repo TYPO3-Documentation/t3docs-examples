@@ -17,8 +17,7 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
@@ -50,10 +49,8 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  *
  * @author Francois Suter (Cobweb) <francois.suter@typo3.org>
  */
-class ModuleController extends ActionController implements LoggerAwareInterface
+class ModuleController extends ActionController
 {
-    use LoggerAwareTrait;
-
     private int $pageUid;
     /** @var array<string, mixed>  */
     private array $exampleConfig;
@@ -68,6 +65,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         protected readonly ConnectionPool $connectionPool,
         protected readonly DataHandler $dataHandler,
         protected readonly TableInformationService $tableInformationService,
+        private readonly LoggerInterface $logger,
     ) {}
 
     /**
@@ -429,19 +427,22 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      * @param int $element Uid of the content element
      */
     public function fileReferenceCreateAction(
-        $file,
-        $element,
+        int $file,
+        int $element,
     ): ResponseInterface {
         // Early return if either item is missing
-        if ((int)$file === 0 || (int)$element === 0) {
+        if ($file === 0 || $element === 0) {
             // NOTE: there would normally a nice error Flash Message added here
             $this->redirect('fileReference');
         }
-        $fileObject = $this->resourceFactory->getFileObject((int)$file);
+        $fileObject = $this->resourceFactory->getFileObject($file);
         $contentElement = BackendUtility::getRecord(
             'tt_content',
-            (int)$element,
+            $element,
         );
+        if ($contentElement === null) {
+            throw new \Exception('Content element with uid ' . $element . ' not found');
+        }
         // Assemble DataHandler data
         $newId = 'NEW1234';
         $data = [];
@@ -465,7 +466,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 LocalizationUtility::translate(
                     'create_relation_success',
                     'examples',
-                ),
+                ) ?? '',
                 '',
             );
         } else {
@@ -475,7 +476,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     LocalizationUtility::translate(
                         'create_relation_error',
                         'examples',
-                    ),
+                    ) ?? '',
                     ContextualFeedbackSeverity::ERROR,
                 );
             }
@@ -492,7 +493,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             );
     }
 
-    public function getPasswordHash(string $password, string $mode): string
+    public function getPasswordHash(string $password, string $mode): string|null
     {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
         return $hashInstance->getHashedPassword($password);
@@ -545,15 +546,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $count = $this->tableInformationService->countRecords($tablename);
 
         $message = LocalizationUtility::translate(
-            key: 'record_count_message',
-            extensionName: 'examples',
-            arguments: [$count, $tablename],
+            'record_count_message',
+            'examples',
+            [$count, $tablename],
         );
 
         $this->addFlashMessage(
-            messageBody: $message,
-            messageTitle: 'Information',
-            severity: ContextualFeedbackSeverity::INFO,
+            $message ?? '',
+            'Information',
+            ContextualFeedbackSeverity::INFO,
         );
         return $this->redirect('flash');
     }
