@@ -159,7 +159,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         );
 
         // Create and initialize the tree object
-        /** @var $tree PageTreeView */
+        /** @var PageTreeView $tree */
         $tree = GeneralUtility::makeInstance(PageTreeView::class);
         $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
         $html = '';
@@ -249,7 +249,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     protected function getClipboard(string $identifier): array
     {
-        /** @var $clipboard Clipboard */
+        /** @var Clipboard $clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
         // Read the clipboard content from the user session
         $clipboard->initializeClipboard();
@@ -267,7 +267,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     protected function getCurrentClipboard(): array
     {
-        /** @var $clipboard Clipboard */
+        /** @var Clipboard $clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
         // Read the clipboard content from the user session
         $clipboard->initializeClipboard();
@@ -284,7 +284,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     protected function debugClipboard()
     {
-        /** @var $clipboard Clipboard */
+        /** @var Clipboard $clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
         // Read the clipboard content from the user session
         $clipboard->initializeClipboard();
@@ -369,7 +369,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      *
      * @param int $element Uid of the just processed content element (see fileReferenceCreateAction)
      */
-    public function fileReferenceAction($element = 0): ResponseInterface
+    public function fileReferenceAction(int $element = 0): ResponseInterface
     {
         // Get all non-deleted content elements (this should normally be put away in a nice, clean
         // repository class; don't do this at home).
@@ -386,11 +386,12 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         } catch (\Exception) {
             $contentElements = [];
         }
+        $files = [];
         // If we just handled a content element, get related data to display as a confirmation
-        if ((int)$element > 0) {
+        if ($element > 0) {
             $contentElement = BackendUtility::getRecord(
                 'tt_content',
-                (int)$element,
+                $element,
             );
             try {
                 $fileObjects = $this->fileRepository->findByRelation(
@@ -398,6 +399,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                     'image',
                     $element,
                 );
+                $files = $this->fileRepository->findByRelation('tt_content', 'image', $element);
             } catch (\Exception) {
                 $fileObjects = [];
             }
@@ -408,7 +410,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         $view = $this->initializeModuleTemplate($this->request);
         $view->assignMultiple(
             [
-                'files' => $this->fileRepository->findAll(),
+                'files' => $files,
                 'elements' => $contentElements,
                 'content' => $contentElement,
                 'references' => $fileObjects,
