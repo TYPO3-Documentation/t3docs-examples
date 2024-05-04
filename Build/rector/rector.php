@@ -27,12 +27,12 @@ use Ssch\TYPO3Rector\Set\Typo3SetList;
 
 return RectorConfig::configure()
     ->withPaths([
-        __DIR__ . '/.',
+        __DIR__ . '/../../.',
     ])
-    ->withImportNames(true, true, false, true)
+    ->withImportNames(importShortClasses: false, removeUnusedImports: true)
     ->withPhpSets()
     ->withAutoloadPaths([
-        __DIR__ . '/.Build/vendor/autoload.php',
+        __DIR__ . '/../../.Build/vendor/autoload.php',
     ])
     ->withSets([
         Typo3SetList::CODE_QUALITY,
@@ -58,6 +58,6 @@ return RectorConfig::configure()
         ReturnNeverTypeRector::class => [
             // We want to keep the ResponseInterface return type of indexAction() to be compatible
             // with the specification, although we just throw an exception for demonstration purpose.
-            __DIR__ . '/Classes/Controller/ErrorController.php',
+            __DIR__ . '/../../Classes/Controller/ErrorController.php',
         ],
     ]);

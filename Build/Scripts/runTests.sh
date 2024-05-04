@@ -297,9 +297,9 @@ case ${TEST_SUITE} in
         ;;
     rector)
         if [ "${CGLCHECK_DRY_RUN}" -eq 1 ]; then
-            COMMAND=(php -dxdebug.mode=off .Build/bin/rector -n --clear-cache "$@")
+            COMMAND=(php -dxdebug.mode=off .Build/bin/rector -n --config=Build/rector/rector.php --clear-cache "$@")
         else
-            COMMAND=(php -dxdebug.mode=off .Build/bin/rector --clear-cache "$@")
+            COMMAND=(php -dxdebug.mode=off .Build/bin/rector --config=Build/rector/rector.php --clear-cache "$@")
         fi
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name rector-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
