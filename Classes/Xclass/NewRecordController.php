@@ -19,6 +19,10 @@ namespace T3docs\Examples\Xclass;
  * This class XCLASSes NewRecordController to modify the layout of the New Record Wizard
  *
  * @author Francois Suter <francois@typo3.org>
+ *
+ * @todo This example is broken and should be removed or fixed. Parent controller changes, most likely already for
+ *       TYPO3 v12. Property `$this->content` does no longer exists, and therefore the example does not demonstrate
+ *       anything working or useful - and will throw E_DEPRECATION with PHP 8.3 and corresponding error level.
  */
 class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
 {

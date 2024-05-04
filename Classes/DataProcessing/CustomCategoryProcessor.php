@@ -46,7 +46,7 @@ class CustomCategoryProcessor implements DataProcessorInterface
             return $processedData;
         }
         // categories by comma separated list
-        $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration ?? []);
+        $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration);
         $categories = [];
         if ($categoryIdList) {
             $categoryIdList = GeneralUtility::intExplode(',', (string)$categoryIdList, true);

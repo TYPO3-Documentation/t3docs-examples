@@ -46,6 +46,9 @@ jobs:
       - name: Rector
         run: Build/Scripts/runTests.sh -n -p ${{ env.php }} -s rector
 
+      - name: PHPStan
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s phpstan
+
   xliff-lint:
     name: "XLIFF linter"
     runs-on: ubuntu-latest
