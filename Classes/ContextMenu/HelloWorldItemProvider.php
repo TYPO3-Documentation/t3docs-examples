@@ -87,21 +87,22 @@ class HelloWorldItemProvider extends AbstractProvider
         // renders an item based on the configuration from $this->itemsConfiguration
         $localItems = $this->prepareItems($this->itemsConfiguration);
 
-        if (isset($items['info'])) {
-            //finds a position of the item after which 'hello' item should be added
-            $position = array_search('info', array_keys($items), true);
-
-            //slices array into two parts
-            $beginning = array_slice($items, 0, $position + 1, true);
-            $end = array_slice($items, $position, null, true);
-
-            // adds custom item in the correct position
-            $items = $beginning + $localItems + $end;
-        } else {
-            $items = $items + $localItems;
+        if (!isset($items['info'])) {
+            // pass items to the next provider
+            return $items + $localItems;
         }
-        //passes array of items to the next item provider
-        return $items;
+        //finds a position of the item after which 'hello' item should be added
+        $position = array_search('info', array_keys($items), true);
+
+        if ($position === false) {
+            return $items + $localItems;
+        }
+        //slices array into two parts
+        $beginning = array_slice($items, 0, $position + 1, true);
+        $end = array_slice($items, $position, null, true);
+
+        // adds custom item in the correct position
+        return $beginning + $localItems + $end;
     }
 
     /**
