@@ -161,7 +161,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         /** @var $tree PageTreeView */
         $tree = GeneralUtility::makeInstance(PageTreeView::class);
         $tree->init('AND ' . $GLOBALS['BE_USER']->getPagePermsClause(1));
-
+        $html = '';
         if ($pageRecord) {
             $html = $this->iconFactory->getIconForRecord(
                 'pages',

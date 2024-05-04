@@ -1,0 +1,19 @@
+includes:
+  - phpstan-baseline.neon
+
+parameters:
+  phpVersion: 80200
+  level: 1
+
+  bootstrapFiles:
+    - phpstan-typo3-constants.php
+
+  paths:
+    - ../../Classes
+    - ../../Configuration
+
+  inferPrivatePropertyTypeFromConstructor: true
+  treatPhpDocTypesAsCertain: false
+
+  # Use local cache dir instead of /tmp
+  tmpDir: ../../.Build/cache
