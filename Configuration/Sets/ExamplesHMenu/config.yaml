@@ -1,0 +1,4 @@
+name: t3docs/examples-hmenu
+label: "Examples: HMENU special userfunc"
+dependencies:
+  - t3docs/examples
