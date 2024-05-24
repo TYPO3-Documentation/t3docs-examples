@@ -64,7 +64,6 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         protected readonly ResourceFactory $resourceFactory,
         protected readonly FileRepository $fileRepository,
         protected readonly ConnectionPool $connectionPool,
-        protected readonly DataHandler $dataHandler,
         protected readonly TableInformationService $tableInformationService,
     ) {}
 
@@ -451,10 +450,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
             'image' => $newId, // For multiple new references $newId is a comma-separated list
         ];
         //  process the data
-        $this->dataHandler->start($data, []);
-        $this->dataHandler->process_datamap();
+
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+        $dataHandler->start($data, []);
+        $dataHandler->process_datamap();
         // Error or success reporting
-        if (count($this->dataHandler->errorLog) === 0) {
+        if (count($dataHandler->errorLog) === 0) {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'create_relation_success',
@@ -463,7 +467,7 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 ''
             );
         } else {
-            foreach ($this->dataHandler->errorLog as $log) {
+            foreach ($dataHandler->errorLog as $log) {
                 $this->addFlashMessage(
                     $log,
                     LocalizationUtility::translate(
