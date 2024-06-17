@@ -21,6 +21,7 @@ use Psr\Http\Message\UriInterface;
 use Psr\Log\LoggerInterface;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
@@ -49,7 +50,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  *
  * @author Francois Suter (Cobweb) <francois.suter@typo3.org>
  */
-class ModuleController extends ActionController implements LoggerAwareInterface
+class ModuleController extends ActionController
 {
 
     private int $pageUid;
