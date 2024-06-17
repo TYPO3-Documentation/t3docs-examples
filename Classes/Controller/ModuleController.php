@@ -17,7 +17,8 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
@@ -49,8 +50,10 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  *
  * @author Francois Suter (Cobweb) <francois.suter@typo3.org>
  */
-class ModuleController extends ActionController
+class ModuleController extends ActionController implements LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     private int $pageUid;
     /** @var array<string, mixed>  */
     private array $exampleConfig;
@@ -64,7 +67,6 @@ class ModuleController extends ActionController
         protected readonly FileRepository $fileRepository,
         protected readonly ConnectionPool $connectionPool,
         protected readonly TableInformationService $tableInformationService,
-        private readonly LoggerInterface $logger,
     ) {}
 
     /**
