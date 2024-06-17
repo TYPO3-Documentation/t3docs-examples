@@ -13,17 +13,10 @@
 	<f:translate key="function_links_intro"/>
 </p>
 <p>
-	<a href="{editPage1Link}">
-		<core:icon identifier="actions-document-open"/>
-		<f:translate key="function_links_edit_page"/> 1
-	</a>
+   <f:render partial="Module/EditPage1Link.html" arguments="{_all}"/>
 </p>
 <p>
-	<f:comment>Would only output the uri: <be:uri.editRecord uid="2" table="pages" returnUrl="foo/bar" /></f:comment>
-	<a href="{be:uri.editRecord(uid:2, table:'pages', returnUrl:'foo/bar')}">
-		<core:icon identifier="actions-document-open"/>
-		<f:translate key="function_links_edit_page"/> 2
-	</a>
+	<f:render partial="Module/EditPage2Link.html" arguments="{_all}"/>
 </p>
 <p>
 	<a href="{editPagesDoktypeLink}">
@@ -32,17 +25,13 @@
 	</a>
 </p>
 <p>
-	<f:comment>Would only output the uri: <be:uri.newRecord pid="1" table="tx_examples_haiku" returnUrl="foo/bar" /></f:comment>
 	<a href="{be:uri.newRecord(pid:1, table:'tx_examples_haiku', returnUrl:'foo/bar')}">
 		<core:icon identifier="actions-document-new"/>
 		<f:translate key="function_links_new_haiku"/>
 	</a>
 </p>
 <p>
-	<a href="{createHaikuLink}">
-		<core:icon identifier="actions-document-new"/>
-		<f:translate key="function_links_new_spring_haiku"/>
-	</a>
+   <f:render partial="Module/CreateHaikuLink.html" arguments="{_all}"/>
 </p>
 </f:section>
 </html>

@@ -17,8 +17,8 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Http\Message\UriInterface;
+use Psr\Log\LoggerInterface;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
@@ -51,9 +51,9 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class ModuleController extends ActionController implements LoggerAwareInterface
 {
-    use LoggerAwareTrait;
 
     private int $pageUid;
+    /** @var array<string, mixed> */
     private array $exampleConfig;
 
     public function __construct(
@@ -65,6 +65,8 @@ class ModuleController extends ActionController implements LoggerAwareInterface
         protected readonly FileRepository $fileRepository,
         protected readonly ConnectionPool $connectionPool,
         protected readonly TableInformationService $tableInformationService,
+        protected readonly LoggerInterface $logger,
+        protected readonly UriBuilder $backendUriBuilder,
     ) {}
 
     /**
@@ -294,62 +296,15 @@ class ModuleController extends ActionController implements LoggerAwareInterface
      */
     public function linksAction(): ResponseInterface
     {
-        $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
-        $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
-        $editPage1Link = $backendUriBuilder->buildUriFromRoute(
-            'record_edit',
-            $uriParameters
-        );
         $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-        $returnUrl = (string)$backendUriBuilder->buildUriFromRoute(
+        $returnUrl = (string)$this->backendUriBuilder->buildUriFromRoute(
             'web_examples',
             ['id' => $pageUid, 'action' => 'links']
         );
 
-        $uriParameters =
-            [
-                'edit' =>
-                    [
-                        'pages' =>
-                            [
-                                1 => 'edit',
-                                2 => 'edit',
-                            ],
-                        'tx_examples_haiku' =>
-                            [
-                                1 => 'edit',
-                            ],
-                    ],
-                'columnsOnly' => 'title,doktype',
-                'returnUrl' => $returnUrl,
-            ];
-        $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute(
-            'record_edit',
-            $uriParameters
-        );
-        $uriParameters =
-            [
-                'edit' =>
-                    [
-                        'tx_examples_haiku' =>
-                            [
-                                1 => 'new',
-                            ],
-                    ],
-                'defVals' =>
-                    [
-                        'tx_examples_haiku' =>
-                            [
-                                'title' => 'New Haiku?',
-                                'season' => 'Spring',
-                            ],
-                    ],
-                'columnsOnly' => 'title,season,color',
-            ];
-        $createHaikuLink = $backendUriBuilder->buildUriFromRoute(
-            'record_edit',
-            $uriParameters
-        );
+        $editPage1Link = $this->getEditPageLink(1, $returnUrl);
+        $editPagesDoktypeLink = $this->getEditDoktypeLink($returnUrl);
+        $createHaikuLink = $this->getCreateHaikuLink($returnUrl);
 
         $view = $this->initializeModuleTemplate($this->request);
         $view->assignMultiple(
@@ -357,9 +312,72 @@ class ModuleController extends ActionController implements LoggerAwareInterface
                 'editPage1Link' => $editPage1Link,
                 'editPagesDoktypeLink' => $editPagesDoktypeLink,
                 'createHaikuLink' => $createHaikuLink,
-            ]
+                'returnUrl' => $returnUrl,
+            ],
         );
         return $view->renderResponse();
+    }
+
+    private function getEditPageLink(int $uid, string $returnUrl): UriInterface
+    {
+        $uriParameters = [
+            'edit' => [
+                'pages' => [
+                    $uid => 'edit',
+                ],
+            ],
+            'returnUrl' => $returnUrl,
+        ];
+        return $this->backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
+    }
+
+    protected function getCreateHaikuLink(string $returnUrl): UriInterface
+    {
+        $uriParameters =
+            [
+                'edit' => [
+                    'tx_examples_haiku' => [
+                        1 => 'new',
+                    ],
+                ],
+                'defVals' => [
+                    'tx_examples_haiku' => [
+                        'title' => 'New Haiku?',
+                        'season' => 'Spring',
+                    ],
+                ],
+                'columnsOnly' => 'title,season,color',
+                'returnUrl' => $returnUrl,
+            ];
+        return $this->backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters
+        );
+    }
+
+    protected function getEditDoktypeLink(string $returnUrl): UriInterface
+    {
+        $uriParameters =
+            [
+                'edit' => [
+                    'pages' => [
+                        1 => 'edit',
+                        2 => 'edit',
+                    ],
+                    'tx_examples_haiku' => [
+                        1 => 'edit',
+                    ],
+                ],
+                'columnsOnly' => 'title,doktype',
+                'returnUrl' => $returnUrl,
+            ];
+        return $this->backendUriBuilder->buildUriFromRoute(
+            'record_edit',
+            $uriParameters,
+        );
     }
 
     /**
