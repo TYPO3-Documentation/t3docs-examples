@@ -351,7 +351,13 @@ class ModuleController extends ActionController
                         'season' => 'Spring',
                     ],
                 ],
-                'columnsOnly' => 'title,season,color',
+                'columnsOnly' => [
+                    'tx_examples_haiku' => [
+                        'title',
+                        'season',
+                        'color',
+                    ],
+                ],
                 'returnUrl' => $returnUrl,
             ];
         return $this->backendUriBuilder->buildUriFromRoute(
@@ -373,7 +379,12 @@ class ModuleController extends ActionController
                         1 => 'edit',
                     ],
                 ],
-                'columnsOnly' => 'title,doktype',
+                'columnsOnly' => [
+                    'pages' => [
+                        'title',
+                        'doktype',
+                    ],
+                ],
                 'returnUrl' => $returnUrl,
             ];
         return $this->backendUriBuilder->buildUriFromRoute(
