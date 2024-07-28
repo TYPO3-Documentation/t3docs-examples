@@ -34,20 +34,6 @@ return [
         ],
     ],
     'columns' => [
-        'hidden' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ],
-                ],
-            ],
-        ],
         'record_type' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type',
@@ -106,8 +92,8 @@ return [
         // (paste this into the description field: This is a very long text that will not wrap when I get to the end of the box, which is very far away, away, away, away, away, away)
         //		'0' => array('showitem' => 'hidden, record_type, title, description;;;nowrap, some_date;;1 '),
         // Additional types
-        '1' => ['showitem' => 'record_type, title '],
-        '2' => ['showitem' => 'title, some_date, hidden, record_type '],
+        '1' => ['showitem' => 'record_type, title, hidden,'],
+        '2' => ['showitem' => 'title, some_date, hidden, record_type,'],
     ],
     'palettes' => [
         '1' => ['showitem' => 'enforce_date'],
