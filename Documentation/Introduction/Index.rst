@@ -129,7 +129,7 @@ Site set settings can be defined through a file like
 Here is the auto-generated listing of all definitions. This is for example
 purposes only, and not yet implemented:
 
-..  typo3:site-set-settings:: EXT:self/Configuration/Sets/Examples/settings.definitions.yaml
+..  typo3:site-set-settings:: PROJECT:/Configuration/Sets/Examples/settings.definitions.yaml
     :name: example-settings-definitions
     :type:
     :Label: Example site set settings definitions
