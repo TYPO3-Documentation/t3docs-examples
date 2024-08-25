@@ -30,8 +30,8 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 final class AdminModuleController
 {
     public function __construct(
-        protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-        protected readonly IconFactory $iconFactory,
+        private readonly ModuleTemplateFactory $moduleTemplateFactory,
+        private readonly IconFactory $iconFactory,
         // ...
     ) {}
 
