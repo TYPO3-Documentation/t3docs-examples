@@ -52,7 +52,6 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class ModuleController extends ActionController
 {
-
     private int $pageUid;
     /** @var array<string, mixed> */
     private array $exampleConfig;
