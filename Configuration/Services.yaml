@@ -5,7 +5,7 @@ services:
     public: false
 
   T3docs\Examples\:
-    resource: '../Classes/*'
+    resource: '../Classes/**'
     exclude: '../Classes/Domain/Model/*'
 
   T3docs\Examples\LinkValidator\LinkType\ExampleLinkType:
