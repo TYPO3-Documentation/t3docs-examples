@@ -31,12 +31,15 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
-ExtensionManagementUtility::addTcaSelectItem(
-    'sys_reaction',
-    'reaction_type',
-    [
-        'label' => ExampleReactionType::getDescription(),
-        'value' => ExampleReactionType::getType(),
-        'icon' => ExampleReactionType::getIconIdentifier(),
-    ],
-);
+if (ExtensionManagementUtility::isLoaded('reactions')) {
+
+    ExtensionManagementUtility::addTcaSelectItem(
+        'sys_reaction',
+        'reaction_type',
+        [
+            'label' => ExampleReactionType::getDescription(),
+            'value' => ExampleReactionType::getType(),
+            'icon' => ExampleReactionType::getIconIdentifier(),
+        ],
+    );
+}
