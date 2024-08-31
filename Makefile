@@ -13,12 +13,15 @@ test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
 	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
 
+.PHONY: fix
+fix: rector fix-cgl## Fix PHP coding styles
+
 .PHONY: rector
 rector: ## Run rector
 	Build/Scripts/runTests.sh -s rector
 
-.PHONY: fix-cs
-fix-cs: ## Fix PHP coding styles
+.PHONY: fix-cgl
+fix-cgl: ## Fix PHP coding styles
 	Build/Scripts/runTests.sh -s cgl
 
 .PHONY: phpstan
@@ -28,3 +31,7 @@ phpstan: ## Run phpstan tests
 .PHONY: phpstan-baseline
 phpstan-baseline: ## Update the phpstan baseline
 	Build/Scripts/runTests.sh -s phpstanBaseline
+
+.PHONY: composerUpdate
+composerUpdate: ## Update composer dependencies
+	Build/Scripts/runTests.sh -s composerUpdate

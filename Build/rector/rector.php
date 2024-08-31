@@ -16,7 +16,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config\RectorConfig;
-use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNeverTypeRector;
 use Ssch\TYPO3Rector\CodeQuality\General\ConvertImplicitVariablesToExplicitGlobalsRector;
@@ -52,9 +51,6 @@ return RectorConfig::configure()
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
     ->withSkip([
-        // AddLiteralSeparatorToNumberRector would make the exception codes more readable.
-        // But as they are just timestamps this is not needed/wanted.
-        AddLiteralSeparatorToNumberRector::class,
         ReturnNeverTypeRector::class => [
             // We want to keep the ResponseInterface return type of indexAction() to be compatible
             // with the specification, although we just throw an exception for demonstration purpose.
