@@ -41,12 +41,6 @@ $temporaryColumn = [
         'config' => [
             'type' => 'check',
             'renderType' => 'checkboxToggle',
-            'items' => [
-                [
-                    'label' => '',
-                    'value' => '',
-                ],
-            ],
         ],
     ],
     'tx_examples_separator' => [
