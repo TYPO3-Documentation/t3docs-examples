@@ -144,6 +144,9 @@ ExtensionUtility::registerPlugin(
     'Examples',
     'Error',
     'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
+    null,
+    'plugin',
+    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description',
 );
 // Register the FAL example plugin
 ExtensionUtility::registerPlugin(
@@ -198,6 +201,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title',
         'value' => 'examples_newcontentcsv',
         'icon' => 'mimetypes-x-content-table',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_description',
     ],
 );
 
@@ -227,6 +232,7 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
         'value' => 'examples_newcontentelement',
         'icon' => 'content-text',
+        'group' => 'default',
     ],
     'textmedia',
     'after',
@@ -260,6 +266,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title',
         'value' => 'examples_dataprocdb',
         'icon' => 'mimetypes-x-content-table',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_description',
     ],
 );
 
@@ -280,6 +288,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
         'value' => 'examples_dataprocmenu',
         'icon' => 'content-special-uploads',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_description',
     ],
 );
 
@@ -299,6 +309,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
         'value' => 'examples_dataproclang',
         'icon' => 'install-manage-language',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_description',
     ],
 );
 
@@ -317,6 +329,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
         'value' => 'examples_dataprocsite',
         'icon' => 'apps-pagetree-folder-root',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_description',
     ],
 );
 
@@ -336,6 +350,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title',
         'value' => 'examples_dataprocsitelanguage',
         'icon' => 'content-message',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_description',
     ],
 );
 
@@ -355,6 +371,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
         'value' => 'examples_dataprocsplit',
         'icon' => 'content-timeline',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_description',
     ],
 );
 
@@ -373,6 +391,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title',
         'value' => 'examples_dataprocfiles',
         'icon' => 'content-image',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_description',
     ],
 );
 
@@ -393,6 +413,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title',
         'value' => 'examples_dataprocgallery',
         'icon' => 'content-dashboard',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_description',
     ],
 );
 
@@ -414,6 +436,8 @@ ExtensionManagementUtility::addTcaSelectItem(
         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title',
         'value' => 'examples_dataproccustom',
         'icon' => 'content-dashboard',
+        'group' => 'dataProcessingExamples',
+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_description',
     ],
 );
 
