@@ -193,6 +193,14 @@ $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_t
             rowDescription,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,';
 
+// Add the group
+ExtensionManagementUtility::addTcaSelectItemGroup(
+    'tt_content',
+    'CType',
+    'dataProcessingExamples',
+    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:dataProcessingExamples',
+);
+
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',

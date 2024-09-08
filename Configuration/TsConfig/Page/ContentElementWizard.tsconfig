@@ -1,3 +1,0 @@
-mod.wizards.newContentElement.wizardItems {
-   dataProcessingExamples.header = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:dataProcessingExamples
-}
