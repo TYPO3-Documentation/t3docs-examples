@@ -145,7 +145,7 @@ ExtensionUtility::registerPlugin(
     'Error',
     'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
     null,
-    'plugin',
+    'plugins',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description',
 );
 // Register the FAL example plugin
