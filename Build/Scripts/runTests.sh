@@ -59,11 +59,12 @@ Options:
 
         If not specified, podman will be used if available. Otherwise, docker is used.
 
-    -p <8.1|8.2|8.3>
+    -p <8.1|8.2|8.3|8.4>
         Specifies the PHP minor version to be used
             - 8.1: (default) use PHP 8.1
             - 8.2: use PHP 8.2
             - 8.3: use PHP 8.3
+            - 8.4: use PHP 8.4
     -n
         Only with -s cgl, composerNormalize, rector
         Activate dry-run in CGL check and composer normalize that does not actively change files and only prints broken ones.
@@ -118,7 +119,7 @@ while getopts "b:s:p:xy:nhu" OPT; do
             ;;
         p)
             PHP_VERSION=${OPTARG}
-            if ! [[ ${PHP_VERSION} =~ ^(8.1|8.2|8.3)$ ]]; then
+            if ! [[ ${PHP_VERSION} =~ ^(8.1|8.2|8.3|8.4)$ ]]; then
                 INVALID_OPTIONS+=("p ${OPTARG}")
             fi
             ;;
