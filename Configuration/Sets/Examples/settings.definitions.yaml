@@ -1,31 +1,111 @@
+categories:
+  Example:
+    label: 'Site settings examples'
+  Example.examples:
+    label: 'Examples'
+    parent: Example
+  BlogExample.types:
+    label: 'Available types'
+    parent: Example
+
 settings:
   example.output.view.templateRootPath:
     default: 'EXT:example/Resources/Private/Templates/'
+    category: Example.examples
     label: 'Path to template root (FE)'
     type: string
     description: ''
   example.output.view.partialRootPath:
     default: 'EXT:example/Resources/Private/Partials/'
+    category: Example.examples
     label: 'Path to template partials (FE)'
     type: string
     description: ''
   example.output.view.layoutRootPath:
     default: 'EXT:example/Resources/Private/Layouts/'
     label: 'Path to template layouts (FE)'
+    category: Example.examples
     type: string
     description: ''
   example.output.pages.excludedDoktypes:
     default: '3, 4, 6, 7, 199, 254'
     label: 'Doktypes to exclude'
+    category: Example.examples
     type: string
     description: ''
   example.output.pages.excludePagesRecursive:
     default: ''
     label: 'List of page uids which should be excluded recursive'
+    category: Example.examples
     type: string
     description: ''
   example.output.pages.additionalWhere:
     default: "{#no_index} = 0 AND {#canonical_link} = ''"
+    category: Example.examples
     label: 'Additional where clause'
     type: string
     description: ''
+
+  example.types.int:
+    type: int
+    default: 42
+    category: BlogExample.types
+    label: 'Type int'
+    description: 'Checks whether the value is already an integer or can be 
+    interpreted as an integer. If yes, the string is converted into an integer.'
+  example.types.number:
+    type: number
+    default: 3.16
+    category: BlogExample.types
+    label: 'Type number'
+    description: 'Checks whether the value is already an integer or float or whether the
+    string can be interpreted as an integer or float. If yes, the string is
+    converted to an integer or float.'
+  example.types.bool:
+    type: bool
+    default: true
+    category: BlogExample.types
+    label: 'Type bool'
+    description: 'Casts the value to a boolean.'
+  example.types.bool-false:
+    type: bool
+    default: false
+    category: BlogExample.types
+    label: 'Type bool'
+    description: 'Casts the value to a boolean.'
+  example.types.string:
+    type: string
+    default: 'EXT:example/Resources/Private/Templates/'
+    category: BlogExample.types
+    label: 'Type string'
+    description: 'Converts almost all data types into a string. If an object has been
+    specified, it must be stringable, otherwise no conversion takes place.
+    Boolean values are converted to "true" and "false".'
+  example.types.text:
+    type: text
+    default: 'EXT:example/Resources/Private/Templates/'
+    category: BlogExample.types
+    label: 'Type text'
+    description: 'Exactly the same as the `string` type. Use it as an alias if someone doesn''t
+    know what to do with `string`.'
+  example.types.stringlist:
+    type: stringlist
+    default:  ['Dog', 'Cat', 'Bird', 'Spider']
+    category: BlogExample.types
+    label: 'Type stringlist'
+    description: 'The value must be an array whose array keys start at 0 and increase by 1 per
+    element. The list in this type is derived from the internal PHP method
+    array_is_list() and has nothing to do with the fact that comma-separated
+    lists can also be converted here.
+
+    The `string` type is executed for each array entry.'
+  example.types.color:
+    type: color
+    default: '#FF8700'
+    category: BlogExample.types
+    label: 'Type text'
+    description: 'Checks whether the specified string can be interpreted as a color code.
+    Entries starting with `rgb`, `rgba` and `#` are permitted here.
+
+    For `#` color codes, for example, the system checks whether they
+    have 3, 6 or 8 digits.'
