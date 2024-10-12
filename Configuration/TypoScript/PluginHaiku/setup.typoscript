@@ -15,10 +15,10 @@ plugin.tx_examples_haiku_list < temp.tx_examples_haiku
 plugin.tx_examples_haiku_list {
     userFunc = T3docs\Examples\Controller\Haiku\ListController->main
 }
-tt_content.list.20.examples_haiku_list =< plugin.tx_examples_haiku_list
+tt_content.examples_haiku_list < plugin.tx_examples_haiku_list
 
 plugin.tx_examples_haiku_detail < temp.tx_examples_haiku
 plugin.tx_examples_haiku_detail {
     userFunc = T3docs\Examples\Controller\Haiku\DetailController->main
 }
-tt_content.list.20.examples_haiku_detail =< plugin.tx_examples_haiku_detail
+tt_content.examples_haiku_detail < plugin.tx_examples_haiku_detail

@@ -13,21 +13,6 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-/*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
-
 defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -110,75 +95,6 @@ ExtensionManagementUtility::addFieldsToPalette(
     'before:editlock',
 );
 
-// Create various FE plugins to demonstrate FlexForms definition
-// USAGE: TCA Reference > $TCA array reference > ['columns'][fieldname]['config'] / TYPE: "flex"
-
-// Add the plugins to the list of plugins
-ExtensionManagementUtility::addPlugin(
-    [
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi2',
-        'examples_pi2',
-    ],
-    'list_type',
-    'examples',
-);
-ExtensionManagementUtility::addPlugin(
-    [
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi3',
-        'examples_pi3',
-    ],
-    'list_type',
-    'examples',
-);
-ExtensionManagementUtility::addPlugin(
-    [
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi4',
-        'examples_pi4',
-    ],
-    'list_type',
-    'examples',
-);
-
-// Register the "error" plugin
-ExtensionUtility::registerPlugin(
-    'Examples',
-    'Error',
-    'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pierror',
-    null,
-    'plugins',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description',
-);
-// Register the FAL example plugin
-ExtensionUtility::registerPlugin(
-    'Examples',
-    'FalExamples',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title',
-);
-
-// Disable the display of layout and select_key fields for the plugins
-// provided by the extension
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi1'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi2'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi3'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_pi4'] = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_error'] = 'layout,select_key,pages';
-
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi2'] = 'pi_flexform';
-ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi2',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml',
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi3'] = 'pi_flexform';
-ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi3',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml',
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi4'] = 'pi_flexform';
-ExtensionManagementUtility::addPiFlexFormValue(
-    'examples_pi4',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds4.xml',
-);
-
 $standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,
@@ -257,28 +173,6 @@ $GLOBALS['TCA']['tt_content']['types']['examples_newcontentelement'] = [
             ],
         ],
     ],
-];
-
-ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'CType',
-    [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_title',
-        'value' => 'examples_dataprocdb',
-        'icon' => 'mimetypes-x-content-table',
-        'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocdb_description',
-    ],
-);
-
-$GLOBALS['TCA']['tt_content']['types']['examples_dataprocdb'] = [
-    'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-            --palette--;;general,
-            --palette--;;headers,
-            pages,
-            recursive,
-    ' . $standardTabs,
 ];
 
 ExtensionManagementUtility::addTcaSelectItem(

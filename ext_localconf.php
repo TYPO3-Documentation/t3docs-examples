@@ -127,6 +127,7 @@ defined('TYPO3') or die();
         [
             ErrorController::class => 'index',
         ],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
     // Configure the HTML parser plugin
@@ -136,6 +137,8 @@ defined('TYPO3') or die();
         [
             HtmlParserController::class => 'index',
         ],
+        [],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
     // Register the FAL examples plugin
@@ -149,6 +152,7 @@ defined('TYPO3') or die();
         [
             FalExampleController::class => 'index,listFiles,collection',
         ],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
     // Add custom translations overriding default labels

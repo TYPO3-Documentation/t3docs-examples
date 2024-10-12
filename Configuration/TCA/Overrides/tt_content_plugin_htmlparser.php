@@ -29,15 +29,16 @@ $pluginSignature = ExtensionUtility::registerPlugin(
     $pluginTitle,
 );
 
-// $pluginSignature == "examples_htmlparser"
-
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]
-    = 'layout,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature]
-    = 'pi_flexform';
-
-// Configure FlexForm
-ExtensionManagementUtility::addPiFlexFormValue(
+// Activate the display of the plug-in flexform field and set FlexForm definition
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Configuration,pi_flexform,',
     $pluginSignature,
+    'after:subheader',
+);
+
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
     'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml',
+    $pluginSignature,
 );
