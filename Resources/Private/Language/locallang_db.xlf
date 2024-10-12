@@ -45,19 +45,19 @@
 			<trans-unit id="pages.tx_examples_related_pages" resname="pages.tx_examples_related_pages">
 				<source>Related pages</source>
 			</trans-unit>
-			<trans-unit id="tt_content.list_type_pi1" resname="tt_content.list_type_pi1">
+			<trans-unit id="tt_content.examples_pi1" resname="tt_content.examples_pi1">
 				<source>Examples: simple FlexForm</source>
 			</trans-unit>
-			<trans-unit id="tt_content.list_type_pi2" resname="tt_content.list_type_pi2">
+			<trans-unit id="tt_content.examples_pi2" resname="tt_content.examples_pi2">
 				<source>Examples: advanced FlexForm</source>
 			</trans-unit>
-			<trans-unit id="tt_content.list_type_pi3" resname="tt_content.list_type_pi3">
+			<trans-unit id="tt_content.examples_pi3" resname="tt_content.examples_pi3">
 				<source>Examples: advanced FlexForm with localization type 1</source>
 			</trans-unit>
-			<trans-unit id="tt_content.list_type_pi4" resname="tt_content.list_type_pi4">
+			<trans-unit id="tt_content.examples_pi4" resname="tt_content.examples_pi4">
 				<source>Examples: advanced FlexForm with localization type 2</source>
 			</trans-unit>
-			<trans-unit id="tt_content.list_type_pierror" resname="tt_content.list_type_pierror">
+			<trans-unit id="tt_content.examples_pierror" resname="tt_content.examples_pierror">
 				<source>Examples: error handling</source>
 			</trans-unit>
 			<trans-unit id="tt_content.tx_examples_main_category" resname="tt_content.tx_examples_main_category">

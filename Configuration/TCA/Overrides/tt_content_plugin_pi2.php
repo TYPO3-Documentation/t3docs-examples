@@ -13,39 +13,27 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+defined('TYPO3') or die();
+
 use TYPO3\CMS\Core\Schema\Struct\SelectItem;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-/*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
+$pluginSignature = 'examples_pi2';
 
-defined('TYPO3') or die();
-
-$pluginSignature = 'examples_haiku_list';
-
+// Add the plugins to the list of plugins
 ExtensionManagementUtility::addPlugin(
     new SelectItem(
         'select',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
+        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.examples_pi2',
         $pluginSignature,
-        'tx_examples-haiku',
+        '',
         'plugins',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
     ),
     'CType',
     'examples',
 );
 
+// Activate the display of the plug-in flexform field and set FlexForm definition
 ExtensionManagementUtility::addToAllTCAtypes(
     'tt_content',
     '--div--;Configuration,pi_flexform,',
@@ -55,6 +43,6 @@ ExtensionManagementUtility::addToAllTCAtypes(
 
 ExtensionManagementUtility::addPiFlexFormValue(
     '*',
-    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml',
     $pluginSignature,
 );
