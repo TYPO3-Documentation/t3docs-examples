@@ -1,0 +1,20 @@
+{
+  "name": "t3docs/blog-example-rector",
+  "description": "Rector in its own package to avoid compability issues.",
+  "license": "GPL-2.0-or-later",
+  "type": "typo3-cms-extension",
+  "authors": [
+    {
+      "name": "TYPO3 Documentation Team and contributors",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "ssch/typo3-rector": "^2.3"
+  },
+  "config": {
+    "bin-dir": ".Build/bin",
+    "sort-packages": true,
+    "vendor-dir": ".Build/vendor"
+  }
+}
