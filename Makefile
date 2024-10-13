@@ -32,6 +32,10 @@ phpstan: ## Run phpstan tests
 phpstan-baseline: ## Update the phpstan baseline
 	Build/Scripts/runTests.sh -s phpstanBaseline
 
+.PHONY: install
+install: composerUpdate ## Update composer dependencies
+
 .PHONY: composerUpdate
 composerUpdate: ## Update composer dependencies
 	Build/Scripts/runTests.sh -s composerUpdate
+	Build/Scripts/runTests.sh -s composerUpdateRector

@@ -6,3 +6,5 @@
 *GENERATED*
 .ddev
 /.php-cs-fixer.cache
+/Build/rector/composer.json.testing
+/Build/rector/composer.lock
