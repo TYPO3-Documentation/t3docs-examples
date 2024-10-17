@@ -13,15 +13,15 @@
     ],
     "require": {
         "php": "^8.2",
-        "typo3/cms-backend": "dev-main",
-        "typo3/cms-core": "dev-main",
-        "typo3/cms-extbase": "dev-main",
-        "typo3/cms-fluid": "dev-main",
-        "typo3/cms-fluid-styled-content": "dev-main",
-        "typo3/cms-impexp": "dev-main",
-		"typo3/cms-install": "dev-main",
-        "typo3/cms-linkvalidator": "dev-main",
-        "typo3/cms-reactions": "dev-main"
+        "typo3/cms-backend": "^13.4 | dev-main",
+        "typo3/cms-core": "^13.4 | dev-main",
+        "typo3/cms-extbase": "^13.4 | dev-main",
+        "typo3/cms-fluid": "^13.4 | dev-main",
+        "typo3/cms-fluid-styled-content": "^13.4 | dev-main",
+        "typo3/cms-impexp": "^13.4 | dev-main",
+		"typo3/cms-install": "^13.4 | dev-main",
+        "typo3/cms-linkvalidator": "^13.4 | dev-main",
+        "typo3/cms-reactions": "^13.4 | dev-main"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.42.0",
