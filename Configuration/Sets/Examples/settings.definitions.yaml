@@ -4,7 +4,7 @@ categories:
   Example.examples:
     label: 'Examples'
     parent: Example
-  BlogExample.types:
+  Example.types:
     label: 'Available types'
     parent: Example
 
@@ -49,14 +49,14 @@ settings:
   example.types.int:
     type: int
     default: 42
-    category: BlogExample.types
+    category: Example.types
     label: 'Type int'
     description: 'Checks whether the value is already an integer or can be 
     interpreted as an integer. If yes, the string is converted into an integer.'
   example.types.number:
     type: number
     default: 3.16
-    category: BlogExample.types
+    category: Example.types
     label: 'Type number'
     description: 'Checks whether the value is already an integer or float or whether the
     string can be interpreted as an integer or float. If yes, the string is
@@ -64,19 +64,19 @@ settings:
   example.types.bool:
     type: bool
     default: true
-    category: BlogExample.types
+    category: Example.types
     label: 'Type bool'
     description: 'Casts the value to a boolean.'
   example.types.bool-false:
     type: bool
     default: false
-    category: BlogExample.types
+    category: Example.types
     label: 'Type bool'
     description: 'Casts the value to a boolean.'
   example.types.string:
     type: string
     default: 'EXT:example/Resources/Private/Templates/'
-    category: BlogExample.types
+    category: Example.types
     label: 'Type string'
     description: 'Converts almost all data types into a string. If an object has been
     specified, it must be stringable, otherwise no conversion takes place.
@@ -84,14 +84,26 @@ settings:
   example.types.text:
     type: text
     default: 'EXT:example/Resources/Private/Templates/'
-    category: BlogExample.types
+    category: Example.types
     label: 'Type text'
     description: 'Exactly the same as the `string` type. Use it as an alias if someone doesn''t
     know what to do with `string`.'
+  example.types.string-enum:
+    type: string
+    default: 'summer'
+    category: Example.types
+    label: 'Type string with enum'
+    enum:
+      spring: 'Spring time'
+      summer: 'Seasons in the sun'
+      fall: 'Wine harvest'
+      winter: 'Cold'
+    description: 'Site settings can provide possible options via the `enum` specifier, that will
+    be selectable in the editor GUI.'
   example.types.stringlist:
     type: stringlist
     default:  ['Dog', 'Cat', 'Bird', 'Spider']
-    category: BlogExample.types
+    category: Example.types
     label: 'Type stringlist'
     description: 'The value must be an array whose array keys start at 0 and increase by 1 per
     element. The list in this type is derived from the internal PHP method
@@ -102,7 +114,7 @@ settings:
   example.types.color:
     type: color
     default: '#FF8700'
-    category: BlogExample.types
+    category: Example.types
     label: 'Type text'
     description: 'Checks whether the specified string can be interpreted as a color code.
     Entries starting with `rgb`, `rgba` and `#` are permitted here.
