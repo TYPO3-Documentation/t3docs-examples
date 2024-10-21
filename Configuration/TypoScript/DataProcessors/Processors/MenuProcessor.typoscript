@@ -2,9 +2,6 @@ tt_content {
     examples_dataprocmenu =< lib.contentElement
     examples_dataprocmenu {
         templateName = DataProcMenu
-        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-        # Since TYPO3 v12.1 one can also use the available alias
         dataProcessing.10 = menu
         dataProcessing.10 {
             levels = 2
@@ -13,9 +10,6 @@ tt_content {
             includeSpacer = 1
             titleField = nav_title // title
             dataProcessing {
-                # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-                # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-                # Since TYPO3 v12.1 one can also use the available alias
                 10 = files
                 10 {
                     references.fieldName = media

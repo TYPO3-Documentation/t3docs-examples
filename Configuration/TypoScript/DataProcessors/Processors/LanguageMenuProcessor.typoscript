@@ -2,9 +2,6 @@ tt_content {
     examples_dataproclang =< lib.contentElement
     examples_dataproclang {
         templateName = DataProcLangMenu
-        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
-        # Since TYPO3 v12.1 one can also use the available alias
         dataProcessing.10 = language-menu
         dataProcessing.10 {
             languages = auto
