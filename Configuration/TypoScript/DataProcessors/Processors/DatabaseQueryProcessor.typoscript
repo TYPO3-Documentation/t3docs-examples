@@ -2,9 +2,6 @@ tt_content {
     examples_dataprocdb =< lib.contentElement
     examples_dataprocdb {
         templateName = DataProcDb
-        # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-        # dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-        # Since TYPO3 v12.1 one can also use the available alias
         dataProcessing.10 = database-query
         dataProcessing.10 {
             if.isTrue.field = pages

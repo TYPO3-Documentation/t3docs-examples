@@ -4,9 +4,6 @@ tt_content {
         templateName = DataProcGallery
         dataProcessing {
             # Process files
-            # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-            # 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-            # Since TYPO3 v12.1 one can also use the available alias
             10 = files
             10 {
                 as = images
@@ -17,9 +14,6 @@ tt_content {
             }
 
             # Calculate gallery info
-            # Before TYPO3 v12.1 you have to specify the fully-qualified class name of the processor
-            # 20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
-            # Since TYPO3 v12.1 one can also use the available alias
             20 = gallery
             20 {
                 filesProcessedDataKey = images
