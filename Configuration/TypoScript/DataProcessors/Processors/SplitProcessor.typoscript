@@ -1,7 +1,7 @@
 tt_content {
     examples_dataprocsplit =< lib.contentElement
     examples_dataprocsplit {
-        templateName = DataProcSplitlitProcessor
+        templateName = DataProcSplit
         dataProcessing.10 = split
         dataProcessing.10 {
             as = urlParts
