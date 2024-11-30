@@ -3,271 +3,271 @@
 	<file source-language="en" original="EXT:examples/Resources/Private/Language/locallang.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:41:02+02:00">
 		<header/>
 		<body>
-			<trans-unit id="additional_categories" resname="additional_categories">
+			<trans-unit id="additional_categories">
 				<source>Additional categories</source>
 			</trans-unit>
-			<trans-unit id="archive_page_type" resname="archive_page_type">
+			<trans-unit id="archive_page_type">
 				<source>Archive page</source>
 			</trans-unit>
-			<trans-unit id="choose_content_element" resname="choose_content_element">
+			<trans-unit id="choose_content_element">
 				<source>Choose a content element</source>
 			</trans-unit>
-			<trans-unit id="choose_file" resname="choose_file">
+			<trans-unit id="choose_file">
 				<source>Choose file</source>
 			</trans-unit>
-			<trans-unit id="collections_plugin_title" resname="collections_plugin_title">
+			<trans-unit id="collections_plugin_title">
 				<source>Examples: Collections usage</source>
 			</trans-unit>
-			<trans-unit id="create_relation" resname="create_relation">
+			<trans-unit id="create_relation">
 				<source>Create relation</source>
 			</trans-unit>
-			<trans-unit id="create_relation_error" resname="create_relation_error">
+			<trans-unit id="create_relation_error">
 				<source>Relation creation error</source>
 			</trans-unit>
-			<trans-unit id="create_relation_success" resname="create_relation_success">
+			<trans-unit id="create_relation_success">
 				<source>The relation was created successfully.</source>
 			</trans-unit>
-			<trans-unit id="csm_view_page" resname="csm_view_page">
+			<trans-unit id="csm_view_page">
 				<source>View page in tree</source>
 			</trans-unit>
-			<trans-unit id="dataProcessingExamples" resname="dataProcessingExamples">
+			<trans-unit id="dataProcessingExamples">
 				<source>DataProcessing examples</source>
 			</trans-unit>
-			<trans-unit id="examples_dataproccustom_description" resname="examples_dataproccustom_description">
+			<trans-unit id="examples_dataproccustom_description">
 				<source>Show category data</source>
 			</trans-unit>
-			<trans-unit id="examples_dataproccustom_title" resname="examples_dataproccustom_title">
+			<trans-unit id="examples_dataproccustom_title">
 				<source>Custom data processor</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocdb_description" resname="examples_dataprocdb_description">
+			<trans-unit id="examples_dataprocdb_description">
 				<source>Show list of Haikus </source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocdb_title" resname="examples_dataprocdb_title">
+			<trans-unit id="examples_dataprocdb_title">
 				<source>DatabaseQueryProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocfiles_description" resname="examples_dataprocfiles_description">
+			<trans-unit id="examples_dataprocfiles_description">
 				<source>Show images</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocfiles_title" resname="examples_dataprocfiles_title">
+			<trans-unit id="examples_dataprocfiles_title">
 				<source>FilesProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocgallery_description" resname="examples_dataprocgallery_description">
+			<trans-unit id="examples_dataprocgallery_description">
 				<source>Show images in gallery </source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocgallery_title" resname="examples_dataprocgallery_title">
+			<trans-unit id="examples_dataprocgallery_title">
 				<source>GalleryProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataproclang_description" resname="examples_dataproclang_description">
+			<trans-unit id="examples_dataproclang_description">
 				<source>Show languge menu</source>
 			</trans-unit>
-			<trans-unit id="examples_dataproclang_title" resname="examples_dataproclang_title">
+			<trans-unit id="examples_dataproclang_title">
 				<source>LanguageMenuProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocmenu_description" resname="examples_dataprocmenu_description">
+			<trans-unit id="examples_dataprocmenu_description">
 				<source>Page menu </source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocmenu_title" resname="examples_dataprocmenu_title">
+			<trans-unit id="examples_dataprocmenu_title">
 				<source>MenuProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsite_description" resname="examples_dataprocsite_description">
+			<trans-unit id="examples_dataprocsite_description">
 				<source>Show site info</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsite_title" resname="examples_dataprocsite_title">
+			<trans-unit id="examples_dataprocsite_title">
 				<source>SiteProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsitelanguage_description" resname="examples_dataprocsitelanguage_description">
+			<trans-unit id="examples_dataprocsitelanguage_description">
 				<source>Show language info</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsitelanguage_title" resname="examples_dataprocsitelanguage_title">
+			<trans-unit id="examples_dataprocsitelanguage_title">
 				<source>SiteLanguageProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsplit_description" resname="examples_dataprocsplit_description">
+			<trans-unit id="examples_dataprocsplit_description">
 				<source>Split data </source>
 			</trans-unit>
-			<trans-unit id="examples_dataprocsplit_title" resname="examples_dataprocsplit_title">
+			<trans-unit id="examples_dataprocsplit_title">
 				<source>SplitProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_newcontentcsv_bodytext" resname="examples_newcontentcsv_bodytext">
+			<trans-unit id="examples_newcontentcsv_bodytext">
 				<source>Please enter CSV data, separated by Semicolon (&#39;;&#39;)</source>
 			</trans-unit>
-			<trans-unit id="examples_newcontentcsv_description" resname="examples_newcontentcsv_description">
+			<trans-unit id="examples_newcontentcsv_description">
 				<source>Output comma separated data</source>
 			</trans-unit>
-			<trans-unit id="examples_newcontentcsv_title" resname="examples_newcontentcsv_title">
+			<trans-unit id="examples_newcontentcsv_title">
 				<source>CommaSeparatedValueProcessor example</source>
 			</trans-unit>
-			<trans-unit id="examples_newcontentelement_description" resname="examples_newcontentelement_description">
+			<trans-unit id="examples_newcontentelement_description">
 				<source>It just displays the content of the field bodytext.</source>
 			</trans-unit>
-			<trans-unit id="examples_newcontentelement_title" resname="examples_newcontentelement_title">
+			<trans-unit id="examples_newcontentelement_title">
 				<source>Example of a custom content element</source>
 			</trans-unit>
-			<trans-unit id="falexample_plugin_title" resname="falexample_plugin_title">
+			<trans-unit id="falexample_plugin_title">
 				<source>Examples: FAL examples</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard" resname="function_clipboard">
+			<trans-unit id="function_clipboard">
 				<source>Clipboard</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_current_pad" resname="function_clipboard_current_pad">
+			<trans-unit id="function_clipboard_current_pad">
 				<source>Current clipboard pad</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_debug" resname="function_clipboard_debug">
+			<trans-unit id="function_clipboard_debug">
 				<source>Show in the debug console</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_files" resname="function_clipboard_files">
+			<trans-unit id="function_clipboard_files">
 				<source>Files</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_intro" resname="function_clipboard_intro">
+			<trans-unit id="function_clipboard_intro">
 				<source>This module displays the content of the clipboard.</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_no_files" resname="function_clipboard_no_files">
+			<trans-unit id="function_clipboard_no_files">
 				<source>No files in this clipboard pad.</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_no_pages" resname="function_clipboard_no_pages">
+			<trans-unit id="function_clipboard_no_pages">
 				<source>No pages in this clipboard pad.</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_normal_pad" resname="function_clipboard_normal_pad">
+			<trans-unit id="function_clipboard_normal_pad">
 				<source>Normal clipboard pad</source>
 			</trans-unit>
-			<trans-unit id="function_clipboard_pages" resname="function_clipboard_pages">
+			<trans-unit id="function_clipboard_pages">
 				<source>Pages</source>
 			</trans-unit>
-			<trans-unit id="function_debug" resname="function_debug">
+			<trans-unit id="function_debug">
 				<source>Debug</source>
 			</trans-unit>
-			<trans-unit id="function_debug_cookies" resname="function_debug_cookies">
+			<trans-unit id="function_debug_cookies">
 				<source>Debug Cookies</source>
 			</trans-unit>
-			<trans-unit id="function_debug_intro" resname="function_debug_intro">
+			<trans-unit id="function_debug_intro">
 				<source>This module demonstrates the debug functionality.</source>
 			</trans-unit>
-			<trans-unit id="function_fileReference" resname="function_fileReference">
+			<trans-unit id="function_fileReference">
 				<source>File references</source>
 			</trans-unit>
-			<trans-unit id="function_fileReference_intro" resname="function_fileReference_intro">
+			<trans-unit id="function_fileReference_intro">
 				<source>This tool demonstrates the creation of File References in the backend. Choose a content element and a file, then click on the &#34;Create relation&#34; button.</source>
 			</trans-unit>
-			<trans-unit id="function_flash" resname="function_flash">
+			<trans-unit id="function_flash">
 				<source>Flash messages</source>
 			</trans-unit>
-			<trans-unit id="function_flash_content_elements" resname="function_flash_content_elements">
+			<trans-unit id="function_flash_content_elements">
 				<source>Count content elements</source>
 			</trans-unit>
-			<trans-unit id="function_flash_intro" resname="function_flash_intro">
+			<trans-unit id="function_flash_intro">
 				<source>The above demonstrates Flash messages by showing one of each type. They can also come without title.</source>
 			</trans-unit>
-			<trans-unit id="function_flash_javascript" resname="function_flash_javascript">
+			<trans-unit id="function_flash_javascript">
 				<source>It is also possible to pop flash messages in JavaScript. Click one of the buttons below to see some action.</source>
 			</trans-unit>
-			<trans-unit id="function_flash_javascript_ajax_button" resname="function_flash_javascript_ajax_button">
+			<trans-unit id="function_flash_javascript_ajax_button">
 				<source>Ajax flash message</source>
 			</trans-unit>
-			<trans-unit id="function_flash_javascript_button" resname="function_flash_javascript_button">
+			<trans-unit id="function_flash_javascript_button">
 				<source>Flash message by JavaScript</source>
 			</trans-unit>
-			<trans-unit id="function_flash_pages" resname="function_flash_pages">
+			<trans-unit id="function_flash_pages">
 				<source>Count pages</source>
 			</trans-unit>
-			<trans-unit id="function_flash_php" resname="function_flash_php">
+			<trans-unit id="function_flash_php">
 				<source>The following buttons trigger an Extbase action that forwards to this page and gives a flash message response</source>
 			</trans-unit>
-			<trans-unit id="function_links" resname="function_links">
+			<trans-unit id="function_links">
 				<source>Edit links</source>
 			</trans-unit>
-			<trans-unit id="function_links_edit_page" resname="function_links_edit_page">
+			<trans-unit id="function_links_edit_page">
 				<source>Edit page</source>
 			</trans-unit>
-			<trans-unit id="function_links_edit_page_1_restricted" resname="function_links_edit_page_1_restricted">
+			<trans-unit id="function_links_edit_page_1_restricted">
 				<source>Edit page 1 (only title and hidden fields)</source>
 			</trans-unit>
-			<trans-unit id="function_links_edit_pages_doktype" resname="function_links_edit_pages_doktype">
+			<trans-unit id="function_links_edit_pages_doktype">
 				<source>Edit title and doktype of pages 1 and 2</source>
 			</trans-unit>
-			<trans-unit id="function_links_intro" resname="function_links_intro">
+			<trans-unit id="function_links_intro">
 				<source>This module shows how to generate links to edit records or create new ones.</source>
 			</trans-unit>
-			<trans-unit id="function_links_new_haiku" resname="function_links_new_haiku">
+			<trans-unit id="function_links_new_haiku">
 				<source>Create a new haiku (blank)</source>
 			</trans-unit>
-			<trans-unit id="function_links_new_haiku_with_title" resname="function_links_new_haiku_with_title">
+			<trans-unit id="function_links_new_haiku_with_title">
 				<source>Create a new haiku with a predefined title</source>
 			</trans-unit>
-			<trans-unit id="function_links_new_spring_haiku" resname="function_links_new_spring_haiku">
+			<trans-unit id="function_links_new_spring_haiku">
 				<source>Create a new haiku for season spring with a predefined title</source>
 			</trans-unit>
-			<trans-unit id="function_links_returnUrl" resname="function_links_returnUrl">
+			<trans-unit id="function_links_returnUrl">
 				<source>with returnUrl to jump back to the module</source>
 			</trans-unit>
-			<trans-unit id="function_log" resname="function_log">
+			<trans-unit id="function_log">
 				<source>Create log entries</source>
 			</trans-unit>
-			<trans-unit id="function_log_create" resname="function_log_create">
+			<trans-unit id="function_log_create">
 				<source>Create entries</source>
 			</trans-unit>
-			<trans-unit id="function_log_intro" resname="function_log_intro">
+			<trans-unit id="function_log_intro">
 				<source>This module creates several log entries every time it is loaded. Click on the button below to reload it and create more entries.</source>
 			</trans-unit>
-			<trans-unit id="function_password" resname="function_password">
+			<trans-unit id="function_password">
 				<source>Password hashes</source>
 			</trans-unit>
-			<trans-unit id="function_password_intro" resname="function_password_intro">
+			<trans-unit id="function_password_intro">
 				<source>This module demonstrates how to create password&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;hashes and how to test them</source>
 			</trans-unit>
-			<trans-unit id="function_tree" resname="function_tree">
+			<trans-unit id="function_tree">
 				<source>Page tree</source>
 			</trans-unit>
-			<trans-unit id="function_tree_intro" resname="function_tree_intro">
+			<trans-unit id="function_tree_intro">
 				<source>This module demonstrates how a page tree can be created and displayed.</source>
 			</trans-unit>
-			<trans-unit id="help" resname="help">
+			<trans-unit id="help">
 				<source>HELP</source>
 			</trans-unit>
-			<trans-unit id="htmlparser_plugin_title" resname="htmlparser_plugin_title">
+			<trans-unit id="htmlparser_plugin_title">
 				<source>Examples: HTML parsing</source>
 			</trans-unit>
-			<trans-unit id="make_choice" resname="make_choice">
+			<trans-unit id="make_choice">
 				<source>- make a choice!</source>
 			</trans-unit>
-			<trans-unit id="mlang_labels_tabdescr" resname="mlang_labels_tabdescr">
+			<trans-unit id="mlang_labels_tabdescr">
 				<source>Core code examples to demonstrate various features</source>
 			</trans-unit>
-			<trans-unit id="mlang_labels_tablabel" resname="mlang_labels_tablabel">
+			<trans-unit id="mlang_labels_tablabel">
 				<source>Examples</source>
 			</trans-unit>
-			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
+			<trans-unit id="mlang_tabs_tab">
 				<source>Examples</source>
 			</trans-unit>
-			<trans-unit id="new_relation" resname="new_relation">
+			<trans-unit id="new_relation">
 				<source>Content element &#34;%1$s&#34; (uid: %2$d) has the following relations:</source>
 			</trans-unit>
-			<trans-unit id="new_relation_confirmation" resname="new_relation_confirmation">
+			<trans-unit id="new_relation_confirmation">
 				<source>Confirmation</source>
 			</trans-unit>
-			<trans-unit id="permissions_header" resname="permissions_header">
+			<trans-unit id="permissions_header">
 				<source>Custom permissions</source>
 			</trans-unit>
-			<trans-unit id="permissions_option1" resname="permissions_option1">
+			<trans-unit id="permissions_option1">
 				<source>Custom permission #1</source>
 			</trans-unit>
-			<trans-unit id="permissions_option1_description" resname="permissions_option1_description">
+			<trans-unit id="permissions_option1_description">
 				<source>This allows the user to save things.</source>
 			</trans-unit>
-			<trans-unit id="permissions_option2" resname="permissions_option2">
+			<trans-unit id="permissions_option2">
 				<source>Custom permission #2</source>
 			</trans-unit>
-			<trans-unit id="permissions_option3" resname="permissions_option3">
+			<trans-unit id="permissions_option3">
 				<source>Custom permission #3</source>
 			</trans-unit>
-			<trans-unit id="pierror_wizard_description" resname="pierror_wizard_description">
+			<trans-unit id="pierror_wizard_description">
 				<source>Displays error in the frontend to demonstrate error reporting in TYPO3.</source>
 			</trans-unit>
-			<trans-unit id="pierror_wizard_title" resname="pierror_wizard_title">
+			<trans-unit id="pierror_wizard_title">
 				<source>Error display</source>
 			</trans-unit>
-			<trans-unit id="record_count_message" resname="record_count_message">
+			<trans-unit id="record_count_message">
 				<source>%s record(s) in table &#34;%s&#34;.</source>
 			</trans-unit>
-			<trans-unit id="record_count_title" resname="record_count_title">
+			<trans-unit id="record_count_title">
 				<source>Record count</source>
 			</trans-unit>
 		</body>
