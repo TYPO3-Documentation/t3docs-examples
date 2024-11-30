@@ -3,205 +3,205 @@
 	<file source-language="en" original="EXT:examples/Resources/Private/Language/locallang_db.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:41:45+02:00">
 		<header/>
 		<body>
-			<trans-unit id="be_users.tx_examples_mobile" resname="be_users.tx_examples_mobile">
+			<trans-unit id="be_users.tx_examples_mobile">
 				<source>Mobile number</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.choosePage" resname="examples.pi_flexform.choosePage">
+			<trans-unit id="examples.pi_flexform.choosePage">
 				<source>Choose a page</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.header" resname="examples.pi_flexform.header">
+			<trans-unit id="examples.pi_flexform.header">
 				<source>Header</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.message" resname="examples.pi_flexform.message">
+			<trans-unit id="examples.pi_flexform.message">
 				<source>Message</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.pageSelector" resname="examples.pi_flexform.pageSelector">
+			<trans-unit id="examples.pi_flexform.pageSelector">
 				<source>Reference page</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.s_Message" resname="examples.pi_flexform.s_Message">
+			<trans-unit id="examples.pi_flexform.s_Message">
 				<source>Message</source>
 			</trans-unit>
-			<trans-unit id="examples.pi_flexform.sheetGeneral" resname="examples.pi_flexform.sheetGeneral">
+			<trans-unit id="examples.pi_flexform.sheetGeneral">
 				<source>General Setup</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_options" resname="fe_users.tx_examples_options">
+			<trans-unit id="fe_users.tx_examples_options">
 				<source>Test</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_options.I.0" resname="fe_users.tx_examples_options.I.0">
+			<trans-unit id="fe_users.tx_examples_options.I.0">
 				<source>Option 1</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_options.I.1" resname="fe_users.tx_examples_options.I.1">
+			<trans-unit id="fe_users.tx_examples_options.I.1">
 				<source>Option 2</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_options.I.2" resname="fe_users.tx_examples_options.I.2">
+			<trans-unit id="fe_users.tx_examples_options.I.2">
 				<source>__Final options:__</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_options.I.3" resname="fe_users.tx_examples_options.I.3">
+			<trans-unit id="fe_users.tx_examples_options.I.3">
 				<source>Option 3</source>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_examples_special" resname="fe_users.tx_examples_special">
+			<trans-unit id="fe_users.tx_examples_special">
 				<source>Special field</source>
 			</trans-unit>
-			<trans-unit id="pages.tx_examples_related_pages" resname="pages.tx_examples_related_pages">
+			<trans-unit id="pages.tx_examples_related_pages">
 				<source>Related pages</source>
 			</trans-unit>
-			<trans-unit id="tt_content.examples_pi1" resname="tt_content.examples_pi1">
+			<trans-unit id="tt_content.examples_pi1">
 				<source>Examples: simple FlexForm</source>
 			</trans-unit>
-			<trans-unit id="tt_content.examples_pi2" resname="tt_content.examples_pi2">
+			<trans-unit id="tt_content.examples_pi2">
 				<source>Examples: advanced FlexForm</source>
 			</trans-unit>
-			<trans-unit id="tt_content.examples_pi3" resname="tt_content.examples_pi3">
+			<trans-unit id="tt_content.examples_pi3">
 				<source>Examples: advanced FlexForm with localization type 1</source>
 			</trans-unit>
-			<trans-unit id="tt_content.examples_pi4" resname="tt_content.examples_pi4">
+			<trans-unit id="tt_content.examples_pi4">
 				<source>Examples: advanced FlexForm with localization type 2</source>
 			</trans-unit>
-			<trans-unit id="tt_content.examples_pierror" resname="tt_content.examples_pierror">
+			<trans-unit id="tt_content.examples_pierror">
 				<source>Examples: error handling</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_examples_main_category" resname="tt_content.tx_examples_main_category">
+			<trans-unit id="tt_content.tx_examples_main_category">
 				<source>Main category</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_examples_noprint" resname="tt_content.tx_examples_noprint">
+			<trans-unit id="tt_content.tx_examples_noprint">
 				<source>No print</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_examples_separator" resname="tt_content.tx_examples_separator">
+			<trans-unit id="tt_content.tx_examples_separator">
 				<source>CSV separator</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy" resname="tx_examples_dummy">
+			<trans-unit id="tx_examples_dummy">
 				<source>Dummy Table</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.description" resname="tx_examples_dummy.description">
+			<trans-unit id="tx_examples_dummy.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.enforce_date" resname="tx_examples_dummy.enforce_date">
+			<trans-unit id="tx_examples_dummy.enforce_date">
 				<source>Enforce date</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.record_type" resname="tx_examples_dummy.record_type">
+			<trans-unit id="tx_examples_dummy.record_type">
 				<source>Type</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.record_type.0" resname="tx_examples_dummy.record_type.0">
+			<trans-unit id="tx_examples_dummy.record_type.0">
 				<source>Normal</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.record_type.1" resname="tx_examples_dummy.record_type.1">
+			<trans-unit id="tx_examples_dummy.record_type.1">
 				<source>Short</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.record_type.2" resname="tx_examples_dummy.record_type.2">
+			<trans-unit id="tx_examples_dummy.record_type.2">
 				<source>Weird</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.some_date" resname="tx_examples_dummy.some_date">
+			<trans-unit id="tx_examples_dummy.some_date">
 				<source>Some date</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_dummy.title" resname="tx_examples_dummy.title">
+			<trans-unit id="tx_examples_dummy.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku" resname="tx_examples_haiku">
+			<trans-unit id="tx_examples_haiku">
 				<source>Haiku</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.angle" resname="tx_examples_haiku.angle">
+			<trans-unit id="tx_examples_haiku.angle">
 				<source>Angle</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.color" resname="tx_examples_haiku.color">
+			<trans-unit id="tx_examples_haiku.color">
 				<source>Color</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.color.description" resname="tx_examples_haiku.color.description">
+			<trans-unit id="tx_examples_haiku.color.description">
 				<source>Choose a color that expresses the mood of your haiku.</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.colorPick" resname="tx_examples_haiku.colorPick">
+			<trans-unit id="tx_examples_haiku.colorPick">
 				<source>Pick a color</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.filesource" resname="tx_examples_haiku.filesource">
+			<trans-unit id="tx_examples_haiku.filesource">
 				<source>Load content from file</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.filestatus" resname="tx_examples_haiku.filestatus">
+			<trans-unit id="tx_examples_haiku.filestatus">
 				<source>File status</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.hidden.description" resname="tx_examples_haiku.hidden.description">
+			<trans-unit id="tx_examples_haiku.hidden.description">
 				<source>Use this field to hide a haiku that should not be published.</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image1" resname="tx_examples_haiku.image1">
+			<trans-unit id="tx_examples_haiku.image1">
 				<source>Images (all controls available)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image2" resname="tx_examples_haiku.image2">
+			<trans-unit id="tx_examples_haiku.image2">
 				<source>Images (no file browser)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image3" resname="tx_examples_haiku.image3">
+			<trans-unit id="tx_examples_haiku.image3">
 				<source>Images (no upload button)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image4" resname="tx_examples_haiku.image4">
+			<trans-unit id="tx_examples_haiku.image4">
 				<source>Images (no list display)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image5" resname="tx_examples_haiku.image5">
+			<trans-unit id="tx_examples_haiku.image5">
 				<source>Images (no delete button)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image6" resname="tx_examples_haiku.image6">
+			<trans-unit id="tx_examples_haiku.image6">
 				<source>Images (no controls at all)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image_fal_group" resname="tx_examples_haiku.image_fal_group">
+			<trans-unit id="tx_examples_haiku.image_fal_group">
 				<source>Images (group-type)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.image_fal_irre" resname="tx_examples_haiku.image_fal_irre">
+			<trans-unit id="tx_examples_haiku.image_fal_irre">
 				<source>Images (inline-type)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.images" resname="tx_examples_haiku.images">
+			<trans-unit id="tx_examples_haiku.images">
 				<source>Images</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.images_fal" resname="tx_examples_haiku.images_fal">
+			<trans-unit id="tx_examples_haiku.images_fal">
 				<source>Images (FAL)</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.poem" resname="tx_examples_haiku.poem">
+			<trans-unit id="tx_examples_haiku.poem">
 				<source>Text</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.poem.description" resname="tx_examples_haiku.poem.description">
+			<trans-unit id="tx_examples_haiku.poem.description">
 				<source>Enter the text of your haiku in this field. The structure of the haiku is very strict. It is composed of three &#34;lines&#34;. Those &#34;lines&#34; must be made of a very precise number of &#34;syllables&#34;: 5 for the first line / 7 for the second line / 5 for the third line.</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.reference_page" resname="tx_examples_haiku.reference_page">
+			<trans-unit id="tx_examples_haiku.reference_page">
 				<source>Reference page</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.related_content" resname="tx_examples_haiku.related_content">
+			<trans-unit id="tx_examples_haiku.related_content">
 				<source>Related content</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.related_content.image" resname="tx_examples_haiku.related_content.image">
+			<trans-unit id="tx_examples_haiku.related_content.image">
 				<source>Contains &#34;image&#34;</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.related_content.typo3" resname="tx_examples_haiku.related_content.typo3">
+			<trans-unit id="tx_examples_haiku.related_content.typo3">
 				<source>Contains &#34;typo3&#34;</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.related_records" resname="tx_examples_haiku.related_records">
+			<trans-unit id="tx_examples_haiku.related_records">
 				<source>Related records</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.relations" resname="tx_examples_haiku.relations">
+			<trans-unit id="tx_examples_haiku.relations">
 				<source>Relations</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season" resname="tx_examples_haiku.season">
+			<trans-unit id="tx_examples_haiku.season">
 				<source>Season</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season.autumn" resname="tx_examples_haiku.season.autumn">
+			<trans-unit id="tx_examples_haiku.season.autumn">
 				<source>Autumn</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season.description" resname="tx_examples_haiku.season.description">
+			<trans-unit id="tx_examples_haiku.season.description">
 				<source>Choose a season from the list or create a new season.</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season.spring" resname="tx_examples_haiku.season.spring">
+			<trans-unit id="tx_examples_haiku.season.spring">
 				<source>Spring</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season.summer" resname="tx_examples_haiku.season.summer">
+			<trans-unit id="tx_examples_haiku.season.summer">
 				<source>Summer</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.season.winter" resname="tx_examples_haiku.season.winter">
+			<trans-unit id="tx_examples_haiku.season.winter">
 				<source>Winter</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.title" resname="tx_examples_haiku.title">
+			<trans-unit id="tx_examples_haiku.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.title.description" resname="tx_examples_haiku.title.description">
+			<trans-unit id="tx_examples_haiku.title.description">
 				<source>Title of the haiku. Haikus are short Japanese poems that follow a very strict structure.</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.weirdness" resname="tx_examples_haiku.weirdness">
+			<trans-unit id="tx_examples_haiku.weirdness">
 				<source>Weirdness</source>
 			</trans-unit>
-			<trans-unit id="tx_examples_haiku.weirdness.description" resname="tx_examples_haiku.weirdness.description">
+			<trans-unit id="tx_examples_haiku.weirdness.description">
 				<source>This is a measure of weirdness. Use the wizard to increase or decrease it.</source>
 			</trans-unit>
 		</body>

@@ -3,22 +3,22 @@
 	<file source-language="en" original="EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:43:25+02:00">
 		<header/>
 		<body>
-			<trans-unit id="detail.description" resname="detail.description">
+			<trans-unit id="detail.description">
 				<source>Displays a haiku poem in detail.</source>
 			</trans-unit>
-			<trans-unit id="detail.title" resname="detail.title">
+			<trans-unit id="detail.title">
 				<source>Haiku poem detail</source>
 			</trans-unit>
-			<trans-unit id="list.description" resname="list.description">
+			<trans-unit id="list.description">
 				<source>Displays a list of haiku poems.</source>
 			</trans-unit>
-			<trans-unit id="list.title" resname="list.title">
+			<trans-unit id="list.title">
 				<source>Haiku poem list</source>
 			</trans-unit>
-			<trans-unit id="listPageUid" resname="listPageUid">
+			<trans-unit id="listPageUid">
 				<source>Page for &#34;Back to list&#34; link</source>
 			</trans-unit>
-			<trans-unit id="singlePageUid" resname="singlePageUid">
+			<trans-unit id="singlePageUid">
 				<source>Page to display detail view</source>
 			</trans-unit>
 		</body>

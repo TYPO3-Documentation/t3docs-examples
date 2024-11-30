@@ -3,7 +3,7 @@
 	<file source-language="en" target-language="de" original="EXT:examples/Resources/Private/Language/de.custom.xlf" datatype="plaintext" product-name="examples" date="2022-10-20T18:42:36+02:00">
 		<header/>
 		<body>
-			<trans-unit id="pages.title_formlabel" resname="pages.title_formlabel">
+			<trans-unit id="pages.title_formlabel">
 				<source>Most important tile</source>
 				<target>Wichtigster Titel</target>
 			</trans-unit>
