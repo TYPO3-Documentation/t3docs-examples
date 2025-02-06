@@ -11,7 +11,7 @@ tt_content {
             as = myHaikus
             // recursively process the images in the records with the FilesProcessor
             dataProcessing {
-                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 = files
                 10 {
                     references.fieldName = image
                 }
