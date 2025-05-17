@@ -16,7 +16,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Core Documentation Code Examples',
     'description' => 'This extension packages a number of code examples from the Core Documentation.',
-    'category' => 'distribution',
+    'category' => 'misc',
     'author' => 'Documentation Team',
     'author_email' => 'documentation@typo3.org',
     'state' => 'stable',
