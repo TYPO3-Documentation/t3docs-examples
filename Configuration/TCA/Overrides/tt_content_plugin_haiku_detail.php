@@ -18,28 +18,14 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
-$pluginSignature = 'examples_haiku_detail';
-
 ExtensionManagementUtility::addPlugin(
     new SelectItem(
         'select',
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title',
-        $pluginSignature,
+        'examples_haiku_detail',
         'tx_examples-haiku',
         'plugins',
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.description',
     ),
-);
-
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $pluginSignature,
-    'after:subheader',
-);
-
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
     'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuDetail.xml',
-    $pluginSignature,
 );
