@@ -23,6 +23,7 @@ use Ssch\TYPO3Rector\CodeQuality\General\ExtEmConfRector;
 use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 use Ssch\TYPO3Rector\Set\Typo3SetList;
+use Ssch\TYPO3Rector\TYPO313\v4\MigratePluginContentElementAndPluginSubtypesRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -47,7 +48,7 @@ return RectorConfig::configure()
         ConvertImplicitVariablesToExplicitGlobalsRector::class,
     ])
     ->withConfiguredRule(ExtEmConfRector::class, [
-        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '13.1.0-13.4.99',
+        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '13.1.0-14.99.99',
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
     ->withSkip([
@@ -56,4 +57,5 @@ return RectorConfig::configure()
             // with the specification, although we just throw an exception for demonstration purpose.
             __DIR__ . '/../../Classes/Controller/ErrorController.php',
         ],
+        MigratePluginContentElementAndPluginSubtypesRector::class,
     ]);

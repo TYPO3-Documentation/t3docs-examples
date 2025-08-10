@@ -167,7 +167,7 @@ class ModuleController extends ActionController
             $html = $this->iconFactory->getIconForRecord(
                 'pages',
                 $pageRecord,
-                IconSize::SMALL->value,
+                IconSize::SMALL,
             )->render();
         }
         $tree->tree[] = [
@@ -469,7 +469,7 @@ class ModuleController extends ActionController
             $element,
         );
         if ($contentElement === null) {
-            throw new \Exception('Content element with uid ' . $element . ' not found');
+            throw new \Exception('Content element with uid ' . $element . ' not found', 8890758947);
         }
         // Assemble DataHandler data
         $newId = 'NEW1234';

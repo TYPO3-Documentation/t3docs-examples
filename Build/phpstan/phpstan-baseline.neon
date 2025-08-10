@@ -4,8 +4,3 @@ parameters:
 			message: "#^Property T3docs\\\\Examples\\\\Controller\\\\ModuleController\\:\\:\\$exampleConfig is never read, only written\\.$#"
 			count: 1
 			path: ../../Classes/Controller/ModuleController.php
-
-		-
-			message: "#^Access to an undefined property T3docs\\\\Examples\\\\Xclass\\\\NewRecordController\\:\\:\\$content\\.$#"
-			count: 1
-			path: ../../Classes/Xclass/NewRecordController.php

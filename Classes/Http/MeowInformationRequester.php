@@ -52,12 +52,14 @@ final readonly class MeowInformationRequester
         if ($response->getStatusCode() !== 200) {
             throw new \RuntimeException(
                 'Returned status code is ' . $response->getStatusCode(),
+                4696129526,
             );
         }
 
         if ($response->getHeaderLine('Content-Type') !== 'application/json') {
             throw new \RuntimeException(
                 'The request did not return JSON data',
+                2722965511,
             );
         }
         // Get the content as a string on a successful request

@@ -57,15 +57,15 @@ class FalExampleController extends ActionController
      */
     public function collectionAction(): ResponseInterface
     {
-        $collection = $this->resourceFactory->getCollectionObject(1);
-        if ($collection) {
-            $collection->loadContents();
+        try {
+            $collection = $this->resourceFactory->getCollectionObject(1);
             $this->view->assignMultiple(
                 [
                     'collection' => $collection,
-                    'files' => $collection->getItems(),
                 ],
             );
+        } catch (\InvalidArgumentException) {
+
         }
         return $this->htmlResponse();
     }

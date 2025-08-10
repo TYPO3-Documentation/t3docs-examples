@@ -18,10 +18,11 @@ namespace T3docs\Examples\Controller\Haiku;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
 use T3docs\Examples\Service\FlexFormSettingsService;
-use T3docs\Examples\Service\StandaloneViewService;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Core\Http\Response;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 final class DetailController
@@ -32,12 +33,11 @@ final class DetailController
     private ContentObjectRenderer $cObj;
     /** @var array<string, mixed> */
     private array $conf = [];
-    private StandaloneView $view;
 
     public function __construct(
         private readonly HaikuRepository $haikuRepository,
         private readonly FlexFormSettingsService $flexFormSettingsService,
-        private readonly StandaloneViewService $viewService,
+        private readonly ViewFactoryInterface $viewFactory,
     ) {}
 
     /**
@@ -57,25 +57,31 @@ final class DetailController
     {
         $this->conf = $conf;
         $this->loadFlexFormSettings();
-        $this->view = $this->viewService->createView($request, $this->conf, 'Haiku/Detail');
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: ['EXT:examples/Resources/Private/Templates'],
+            partialRootPaths: ['EXT:examples/Resources/Private/Partials'],
+            layoutRootPaths: ['EXT:examples/Resources/Private/Layouts'],
+            request: $request,
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
 
         $parameter = $request->getQueryParams()['tx_examples_haiku'] ?? [];
         $action = $parameter['action'] ?? '';
         try {
             return match ($action) {
-                'show' => $this->showAction((int)($parameter['haiku'] ?? 0)),
-                'findByTitle' => $this->findByTitleAction((string)($parameter['haiku_title'] ?? '')),
-                default => $this->notFoundAction('Action ' . $action . ' not found.'),
+                'show' => $this->showAction($view, (int)($parameter['haiku'] ?? 0)),
+                'findByTitle' => $this->findByTitleAction($view, (string)($parameter['haiku_title'] ?? '')),
+                default => $this->notFoundAction($view, 'Action ' . $action . ' not found.'),
             };
         } catch (\Exception $e) {
-            $this->notFoundAction($e->getMessage());
+            $this->notFoundAction($view, $e->getMessage());
         }
     }
 
     /**
      * @throws PropagateResponseException
      */
-    private function notFoundAction(string $reason): never
+    private function notFoundAction(ViewInterface $view, string $reason): never
     {
         throw new PropagateResponseException(
             new Response(
@@ -84,23 +90,24 @@ final class DetailController
                 [],
                 $reason,
             ),
+            3819092385,
         );
     }
 
-    private function showAction(int $haikuId): string
+    private function showAction(ViewInterface $view, int $haikuId): string
     {
-        $this->view->assignMultiple([
+        $view->assignMultiple([
             'haiku' => $this->haikuRepository->findByUid($haikuId),
         ]);
-        return $this->view->render();
+        return $view->render('Haiku/Show');
     }
 
-    private function findByTitleAction(string $haikuTitle): string
+    private function findByTitleAction(ViewInterface $view, string $haikuTitle): string
     {
-        $this->view->assignMultiple([
+        $view->assignMultiple([
             'haiku' => $this->haikuRepository->findByTitle($haikuTitle),
         ]);
-        return $this->view->render();
+        return $view->render('Haiku/List');
     }
 
     private function loadFlexFormSettings(): void
