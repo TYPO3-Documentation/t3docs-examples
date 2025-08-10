@@ -29,8 +29,6 @@ ExtensionManagementUtility::addPlugin(
         '',
         'plugins',
     ),
-    'CType',
-    'examples',
 );
 
 // Activate the display of the plug-in flexform field and set FlexForm definition

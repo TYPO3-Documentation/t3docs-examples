@@ -23,6 +23,7 @@ use Ssch\TYPO3Rector\CodeQuality\General\ExtEmConfRector;
 use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 use Ssch\TYPO3Rector\Set\Typo3SetList;
+use Ssch\TYPO3Rector\TYPO313\v4\MigratePluginContentElementAndPluginSubtypesRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -56,4 +57,5 @@ return RectorConfig::configure()
             // with the specification, although we just throw an exception for demonstration purpose.
             __DIR__ . '/../../Classes/Controller/ErrorController.php',
         ],
+        MigratePluginContentElementAndPluginSubtypesRector::class,
     ]);

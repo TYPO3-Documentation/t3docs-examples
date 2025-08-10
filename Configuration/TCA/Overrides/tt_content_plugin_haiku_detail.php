@@ -29,8 +29,6 @@ ExtensionManagementUtility::addPlugin(
         'plugins',
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.description',
     ),
-    'CType',
-    'examples',
 );
 
 ExtensionManagementUtility::addToAllTCAtypes(

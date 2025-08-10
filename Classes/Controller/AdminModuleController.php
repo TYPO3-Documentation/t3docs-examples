@@ -96,7 +96,7 @@ final readonly class AdminModuleController
             ->setHref($uriBuilderPath)
             ->setTitle('A Title')
             ->setShowLabelText(true)
-            ->setIcon($this->iconFactory->getIcon('actions-extension-import', IconSize::SMALL->value));
+            ->setIcon($this->iconFactory->getIcon('actions-extension-import', IconSize::SMALL));
         $buttonBar->addButton($list, ButtonBar::BUTTON_POSITION_LEFT, 1);
     }
 

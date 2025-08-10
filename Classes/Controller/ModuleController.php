@@ -167,7 +167,7 @@ class ModuleController extends ActionController
             $html = $this->iconFactory->getIconForRecord(
                 'pages',
                 $pageRecord,
-                IconSize::SMALL->value,
+                IconSize::SMALL,
             )->render();
         }
         $tree->tree[] = [

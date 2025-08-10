@@ -19,7 +19,8 @@ use Doctrine\DBAL\Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
 use T3docs\Examples\Service\FlexFormSettingsService;
-use T3docs\Examples\Service\StandaloneViewService;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 final class ListController
@@ -34,7 +35,7 @@ final class ListController
     public function __construct(
         private readonly HaikuRepository $haikuRepository,
         private readonly FlexFormSettingsService $flexFormSettingsService,
-        private readonly StandaloneViewService $viewService,
+        private readonly ViewFactoryInterface $viewFactory,
     ) {}
 
     /**
@@ -45,11 +46,18 @@ final class ListController
     {
         $this->conf = $conf;
         $this->loadFlexFormSettings();
-        $view = $this->viewService->createView($request, $this->conf, 'Haiku/List');
+
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: ['EXT:examples/Resources/Private/Templates'],
+            partialRootPaths: ['EXT:examples/Resources/Private/Partials'],
+            layoutRootPaths: ['EXT:examples/Resources/Private/Layouts'],
+            request: $request,
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
         $view->assignMultiple([
             'haikus' => $this->haikuRepository->findAll(),
         ]);
-        return $view->render();
+        return $view->render('Haiku/List');
     }
 
     /**
