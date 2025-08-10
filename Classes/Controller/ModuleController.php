@@ -111,7 +111,7 @@ class ModuleController extends ActionController
         );
         $this->addFlashMessage('This is a simple message, by default without title and with severity OK.');
         $view = $this->initializeModuleTemplate($this->request);
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Flash');
     }
 
     /**
@@ -139,7 +139,7 @@ class ModuleController extends ActionController
             ContextualFeedbackSeverity::INFO,
         );
         $view = $this->initializeModuleTemplate($this->request);
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Log');
     }
 
     /**
@@ -190,7 +190,7 @@ class ModuleController extends ActionController
             'tree',
             $tree->tree,
         );
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Tree');
     }
 
     /**
@@ -207,7 +207,7 @@ class ModuleController extends ActionController
         }
 
         $view = $this->initializeModuleTemplate($this->request);
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Debug');
     }
 
     protected function debugCookies(): void
@@ -241,7 +241,7 @@ class ModuleController extends ActionController
             ],
         );
         $view = $this->initializeModuleTemplate($this->request);
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Clipboard');
     }
 
     /**
@@ -317,7 +317,7 @@ class ModuleController extends ActionController
                 'returnUrl' => $returnUrl,
             ],
         );
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Links');
     }
 
     private function getEditPageLink(int $uid, string $returnUrl): UriInterface
@@ -445,7 +445,7 @@ class ModuleController extends ActionController
                 'references' => $fileObjects,
             ],
         );
-        return $view->renderResponse();
+        return $view->renderResponse('Module/FileReference');
     }
 
     /**
@@ -568,7 +568,7 @@ class ModuleController extends ActionController
                 'passwordAction' => $passwordAction,
             ],
         );
-        return $view->renderResponse();
+        return $view->renderResponse('Module/Password');
     }
 
     /**
