@@ -13,15 +13,15 @@
     ],
     "require": {
         "php": "^8.2",
-        "typo3/cms-backend": "^13.4 | dev-main",
-        "typo3/cms-core": "^13.4 | dev-main",
-        "typo3/cms-extbase": "^13.4 | dev-main",
-        "typo3/cms-fluid": "^13.4 | dev-main",
-        "typo3/cms-fluid-styled-content": "^13.4 | dev-main",
-        "typo3/cms-impexp": "^13.4 | dev-main",
-		"typo3/cms-install": "^13.4 | dev-main",
-        "typo3/cms-linkvalidator": "^13.4 | dev-main",
-        "typo3/cms-reactions": "^13.4 | dev-main"
+        "typo3/cms-backend": "14.0.x-dev | dev-main",
+        "typo3/cms-core": "14.0.x-dev | dev-main",
+        "typo3/cms-extbase": "14.0.x-dev | dev-main",
+        "typo3/cms-fluid": "14.0.x-dev | dev-main",
+        "typo3/cms-fluid-styled-content": "14.0.x-dev | dev-main",
+        "typo3/cms-impexp": "14.0.x-dev | dev-main",
+		"typo3/cms-install": "14.0.x-dev | dev-main",
+        "typo3/cms-linkvalidator": "14.0.x-dev | dev-main",
+        "typo3/cms-reactions": "14.0.x-dev | dev-main"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.42.0",
@@ -47,7 +47,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "13.0.x-dev"
+            "dev-main": "14.0.x-dev"
         },
         "typo3/cms": {
             "extension-key": "examples",

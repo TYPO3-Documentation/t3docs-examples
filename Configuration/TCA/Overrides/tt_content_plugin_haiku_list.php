@@ -42,17 +42,5 @@ ExtensionManagementUtility::addPlugin(
         'plugins',
         'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
     ),
-);
-
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $pluginSignature,
-    'after:subheader',
-);
-
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
     'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
-    $pluginSignature,
 );

@@ -26,21 +26,8 @@ ExtensionManagementUtility::addPlugin(
         'select',
         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.examples_pi2',
         $pluginSignature,
-        '',
+        'content-plugin',
         'plugins',
     ),
-);
-
-// Activate the display of the plug-in flexform field and set FlexForm definition
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $pluginSignature,
-    'after:subheader',
-);
-
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
     'FILE:EXT:examples/Configuration/Flexforms/flexform_ds2.xml',
-    $pluginSignature,
 );

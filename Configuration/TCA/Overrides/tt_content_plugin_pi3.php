@@ -26,9 +26,10 @@ ExtensionManagementUtility::addPlugin(
         'select',
         'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.examples_pi3',
         $pluginSignature,
-        '',
+        'content-plugin',
         'plugins',
     ),
+    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml',
 );
 
 // Activate the display of the plug-in flexform field and set FlexForm definition

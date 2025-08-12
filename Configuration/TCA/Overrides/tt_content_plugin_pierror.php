@@ -21,7 +21,7 @@ ExtensionUtility::registerPlugin(
     'Examples',
     'Error',
     'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.example_pierror',
-    null,
+    'content-plugin',
     'plugins',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description',
 );

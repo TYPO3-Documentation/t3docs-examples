@@ -21,4 +21,5 @@ ExtensionUtility::registerPlugin(
     'Examples',
     'FalExamples',
     'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title',
+    'content-plugin',
 );
