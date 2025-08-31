@@ -6,12 +6,12 @@ help: ## Displays this list of targets with descriptions
 .PHONY: docs
 docs: ## Generate projects documentation (from "Documentation" directory)
 	mkdir -p Documentation-GENERATED-temp
-	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation
+	docker run --user $(shell id -u):$(shell id -g) --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation
 
 .PHONY: test-docs
 test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
-	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
+	docker run --user $(shell id -u):$(shell id -g) --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
 
 .PHONY: fix
 fix: rector fix-cgl## Fix PHP coding styles
