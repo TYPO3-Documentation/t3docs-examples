@@ -1,7 +1,7 @@
 TCEMAIN.linkHandler {
    github {
       handler = T3docs\Examples\LinkHandler\GitHubLinkHandler
-      label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
+      label = LLL:examples.browse_links:github
       displayAfter = haiku
       scanBefore = url
       configuration {

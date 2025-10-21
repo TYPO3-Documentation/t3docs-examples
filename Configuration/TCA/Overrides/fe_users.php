@@ -36,7 +36,7 @@ defined('TYPO3') or die();
 $temporaryColumns = [
     'tx_examples_options' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options',
+        'label' => 'LLL:examples.db:fe_users.tx_examples_options',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
@@ -46,19 +46,19 @@ $temporaryColumns = [
                     'value' => 0,
                 ],
                 [
-                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.0',
+                    'label' => 'LLL:examples.db:fe_users.tx_examples_options.I.0',
                     'value' => 1,
                 ],
                 [
-                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.1',
+                    'label' => 'LLL:examples.db:fe_users.tx_examples_options.I.1',
                     'value' => 2,
                 ],
                 [
-                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.2',
+                    'label' => 'LLL:examples.db:fe_users.tx_examples_options.I.2',
                     'value' => '--div--',
                 ],
                 [
-                    'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_options.I.3',
+                    'label' => 'LLL:examples.db:fe_users.tx_examples_options.I.3',
                     'value' => 3,
                 ],
             ],
@@ -68,7 +68,7 @@ $temporaryColumns = [
     ],
     'tx_examples_special' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:fe_users.tx_examples_special',
+        'label' => 'LLL:examples.db:fe_users.tx_examples_special',
         'config' => [
             'type' => 'user',
             // renderType needs to be registered in ext_localconf.php

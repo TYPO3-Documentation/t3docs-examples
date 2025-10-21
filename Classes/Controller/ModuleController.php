@@ -602,27 +602,27 @@ class ModuleController extends ActionController
             'flash' => [
                 'controller' => 'Module',
                 'action' => 'flash',
-                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.flash'),
+                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.flash'),
             ],
             'tree' => [
                 'controller' => 'Module',
                 'action' => 'tree',
-                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.tree'),
+                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.tree'),
             ],
             'clipboard' => [
                 'controller' => 'Module',
                 'action' => 'clipboard',
-                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.clipboard'),
+                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.clipboard'),
             ],
             'links' => [
                 'controller' => 'Module',
                 'action' => 'links',
-                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.links'),
+                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.links'),
             ],
             'fileReference' => [
                 'controller' => 'Module',
                 'action' => 'fileReference',
-                'label' => $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang.xlf:module.menu.fileReference'),
+                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.fileReference'),
             ],
         ];
         $view = $this->moduleTemplateFactory->create($request);
@@ -650,7 +650,7 @@ class ModuleController extends ActionController
         $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
 
         $view->setTitle(
-            $this->getLanguageService()->sL('LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+            $this->getLanguageService()->sL('examples.module.mod:mlang_tabs_tab'),
             $context,
         );
 

@@ -29,7 +29,7 @@ use T3docs\Examples\Userfuncs\Tca;
  */
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku',
+        'title' => 'LLL:examples.db:tx_examples_haiku',
         'label' => 'title',
         'label_userFunc' => Tca::class . '->haikuTitle',
         'tstamp' => 'tstamp',
@@ -55,8 +55,8 @@ return [
     'columns' => [
         'title' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.title',
-            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.title.description',
+            'label' => 'LLL:examples.db:tx_examples_haiku.title',
+            'description' => 'LLL:examples.db:tx_examples_haiku.title.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -66,8 +66,8 @@ return [
         ],
         'poem' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.poem',
-            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.poem.description',
+            'label' => 'LLL:examples.db:tx_examples_haiku.poem',
+            'description' => 'LLL:examples.db:tx_examples_haiku.poem.description',
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -79,19 +79,19 @@ return [
 
         ],
         'image' => [
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
+            'label' => 'LLL:core.general:LGL.images',
             'config' => [
                 'type' => 'file',
                 'allowed' => 'common-image-types',
                 'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+                    'createNewRelationLinkTitle' => 'LLL:frontend.ttc:images.addFileReference',
                 ],
             ],
         ],
         'season' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season',
-            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.description',
+            'label' => 'LLL:examples.db:tx_examples_haiku.season',
+            'description' => 'LLL:examples.db:tx_examples_haiku.season.description',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
@@ -100,22 +100,22 @@ return [
                     'items' => [
                         0 =>
                             [
-                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.spring',
+                                0 => 'LLL:examples.db:tx_examples_haiku.season.spring',
                                 1 => 'Spring',
                             ],
                         1 =>
                             [
-                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.summer',
+                                0 => 'LLL:examples.db:tx_examples_haiku.season.summer',
                                 1 => 'Summer',
                             ],
                         2 =>
                             [
-                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.autumn',
+                                0 => 'LLL:examples.db:tx_examples_haiku.season.autumn',
                                 1 => 'Autumn',
                             ],
                         3 =>
                             [
-                                0 => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.season.winter',
+                                0 => 'LLL:examples.db:tx_examples_haiku.season.winter',
                                 1 => 'Winter',
                             ],
                     ],
@@ -125,8 +125,8 @@ return [
         ],
         'weirdness' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness',
-            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.weirdness.description',
+            'label' => 'LLL:examples.db:tx_examples_haiku.weirdness',
+            'description' => 'LLL:examples.db:tx_examples_haiku.weirdness.description',
             'config' => [
                 'type' => 'number',
                 'size' => 10,
@@ -134,8 +134,8 @@ return [
         ],
         'color' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color',
-            'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.color.description',
+            'label' => 'LLL:examples.db:tx_examples_haiku.color',
+            'description' => 'LLL:examples.db:tx_examples_haiku.color.description',
             'config' => [
                 'type' => 'color',
                 'size' => 10,
@@ -143,7 +143,7 @@ return [
         ],
         'angle' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.angle',
+            'label' => 'LLL:examples.db:tx_examples_haiku.angle',
             'config' => [
                 'type' => 'number',
                 'size' => 5,
@@ -162,7 +162,7 @@ return [
         // Use the following TSconfig to show the effect:
         // TCEFORM.tx_examples_haiku.reference_page.PAGE_TSCONFIG_STR = image
         'reference_page' => [
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.reference_page',
+            'label' => 'LLL:examples.db:tx_examples_haiku.reference_page',
             'config' => [
                 'type' => 'select',
                 'foreign_table' => 'pages',
@@ -174,7 +174,7 @@ return [
             ],
         ],
         'related_records' => [
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_records',
+            'label' => 'LLL:examples.db:tx_examples_haiku.related_records',
             'config' => [
                 'type' => 'group',
                 'allowed' => 'pages, tt_content',
@@ -192,7 +192,7 @@ return [
             ],
         ],
         'related_content' => [
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content',
+            'label' => 'LLL:examples.db:tx_examples_haiku.related_content',
             'config' => [
                 'type' => 'select',
                 'foreign_table' => 'tt_content',
@@ -203,11 +203,11 @@ return [
                 'multiSelectFilterItems' => [
                     [
                         'image',
-                        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content.image',
+                        'LLL:examples.db:tx_examples_haiku.related_content.image',
                     ],
                     [
                         'typo3',
-                        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.related_content.typo3',
+                        'LLL:examples.db:tx_examples_haiku.related_content.typo3',
                     ],
                 ],
                 'renderType' => 'selectMultipleSideBySide',
@@ -217,7 +217,7 @@ return [
     'types' => [
         0 =>
             [
-                'showitem' => 'hidden,title,poem,image,season,weirdness,color,angle--div--;LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_haiku.relations,reference_page,related_records,related_content',
+                'showitem' => 'hidden,title,poem,image,season,weirdness,color,angle--div--;LLL:examples.db:tx_examples_haiku.relations,reference_page,related_records,related_content',
             ],
     ],
 ];

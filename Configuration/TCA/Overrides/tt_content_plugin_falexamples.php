@@ -20,6 +20,6 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 ExtensionUtility::registerPlugin(
     'Examples',
     'FalExamples',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:falexample_plugin_title',
+    'LLL:examples.messages:falexample_plugin_title',
     'content-plugin',
 );

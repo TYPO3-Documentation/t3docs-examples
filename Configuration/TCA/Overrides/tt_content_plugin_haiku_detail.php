@@ -21,11 +21,11 @@ defined('TYPO3') or die();
 ExtensionManagementUtility::addPlugin(
     new SelectItem(
         'select',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.title',
+        'LLL:examples.plugin_haiku.db:detail.title',
         'examples_haiku_detail',
         'tx_examples-haiku',
         'plugins',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:detail.description',
+        'LLL:examples.plugin_haiku.db:detail.description',
     ),
     'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuDetail.xml',
 );
