@@ -6,18 +6,16 @@
 
 <f:section name="Content">
    <form action="" class="form-horizontal" id="lgithubform">
-      <f:variable name="LLL">LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf</f:variable>
-      <f:variable name="LLLBackend">LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf</f:variable>
       <div class="row">
          <div class="col-12">
             <f:translate
-               key="{LLL}:gitHubDescription"
+               key="LLL:examples.browse_links:gitHubDescription"
                arguments="{1:action, 2:project}"/>
          </div>
       </div>
       <div class="row">
          <label class="col-3 col-form-label" for="lgithub"><f:translate
-            key="{LLL}:gitHubIssueNumber"/></label>
+            key="LLL:examples.browse_links:gitHubIssueNumber"/></label>
          <div class="col-9">
             <div class="input-group">
                <input type="text"
@@ -32,7 +30,7 @@
                      <input
                         class="btn btn-default"
                         type="submit"
-                        value="{f:translate(key: '{LLLBackend}:setLink')}" />
+                        value="{f:translate(key: 'LLL:backend.browse_links:setLink')}" />
                   </div>
                </div>
             </div>

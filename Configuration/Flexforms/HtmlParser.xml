@@ -3,13 +3,13 @@
         <sDEF>
             <ROOT>
                 <sheetTitle>
-                    LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.sheetGeneral
+                    LLL:examples.db:examples.pi_flexform.sheetGeneral
                 </sheetTitle>
                 <type>array</type>
                 <el>
                     <pageSelector>
                         <label>
-                            LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.pageSelector
+                            LLL:examples.db:examples.pi_flexform.pageSelector
                         </label>
                         <config>
                             <type>select</type>
@@ -17,7 +17,7 @@
                             <items type="array">
                                 <numIndex index="0" type="array">
                                     <numIndex index="0">
-                                        LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.choosePage
+                                        LLL:examples.db:examples.pi_flexform.choosePage
                                     </numIndex>
                                     <numIndex index="1">0</numIndex>
                                 </numIndex>

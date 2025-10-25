@@ -20,8 +20,8 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 ExtensionUtility::registerPlugin(
     'Examples',
     'Error',
-    'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.example_pierror',
+    'LLL:examples.db:tt_content.example_pierror',
     'content-plugin',
     'plugins',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:pierror_wizard_description',
+    'LLL:examples.messages:pierror_wizard_description',
 );

@@ -38,7 +38,7 @@ defined('TYPO3') or die();
     // IMPORTANT: We need to define a dependency on sysext:setup to ensure that the loading order is correct and
     // the configuration is properly applied.
     $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
+        'label' => 'LLL:examples.db:be_users.tx_examples_mobile',
         'type' => 'text',
         'table' => 'be_users',
     ];

@@ -32,7 +32,7 @@ defined('TYPO3') or die();
 
 $tempColumnsBackend = [
     'tx_examples_mobile' => [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:be_users.tx_examples_mobile',
+        'label' => 'LLL:examples.db:be_users.tx_examples_mobile',
         'config' => [
             'type' => 'input',
             'size' => 30,

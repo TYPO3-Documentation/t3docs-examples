@@ -36,7 +36,7 @@ defined('TYPO3') or die();
 $temporaryColumn = [
     'tx_examples_related_pages' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:pages.tx_examples_related_pages',
+        'label' => 'LLL:examples.db:pages.tx_examples_related_pages',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectTree',
@@ -77,7 +77,7 @@ $customIconClass = 'tx_examples-archive-page';
 
 // Add the new doktype to the page type selector
 $GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = [
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+    'LLL:examples.messages:archive_page_type',
     $customPageDoktype,
     $customIconClass,
 ];

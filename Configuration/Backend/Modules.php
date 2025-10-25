@@ -26,7 +26,7 @@ return [
         'access' => 'user',
         'workspaces' => 'live',
         'path' => '/module/page/example',
-        'labels' => 'LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf',
+        'labels' => 'LLL:examples.module.mod',
         'extensionName' => 'Examples',
         'iconIdentifier' => 'tx_examples-backend-module',
         'controllerActions' => [

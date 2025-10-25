@@ -24,7 +24,7 @@ $pluginSignature = 'examples_pi2';
 ExtensionManagementUtility::addPlugin(
     new SelectItem(
         'select',
-        'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.examples_pi2',
+        'LLL:examples.db:tt_content.examples_pi2',
         $pluginSignature,
         'content-plugin',
         'plugins',

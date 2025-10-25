@@ -44,13 +44,13 @@ final readonly class AdminModuleController
         $allowedOptions = [
             'function' => [
                 'debug' => htmlspecialchars(
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:debug'),
+                    $languageService->sL('examples.admin_module.mod:debug'),
                 ),
                 'password' => htmlspecialchars(
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:password'),
+                    $languageService->sL('examples.admin_module.mod:password'),
                 ),
                 'index' => htmlspecialchars(
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:index'),
+                    $languageService->sL('examples.admin_module.mod:index'),
                 ),
             ],
         ];
@@ -63,24 +63,24 @@ final readonly class AdminModuleController
         $moduleTemplate = $this->moduleTemplateFactory->create($request);
         $this->setUpDocHeader($request, $moduleTemplate);
 
-        $title = $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
+        $title = $languageService->sL('examples.admin_module.mod:mlang_tabs_tab');
         switch ($moduleData->get('function')) {
             case 'debug':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug'),
+                    $languageService->sL('examples.admin_module.mod:module.menu.debug'),
                 );
                 return $this->debugAction($request, $moduleTemplate);
             case 'password':
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password'),
+                    $languageService->sL('examples.admin_module.mod:module.menu.password'),
                 );
                 return $this->passwordAction($request, $moduleTemplate);
             default:
                 $moduleTemplate->setTitle(
                     $title,
-                    $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log'),
+                    $languageService->sL('examples.admin_module.mod:module.menu.log'),
                 );
                 return $this->indexAction($request, $moduleTemplate);
         }

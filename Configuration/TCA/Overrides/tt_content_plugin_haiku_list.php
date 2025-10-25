@@ -36,11 +36,11 @@ $pluginSignature = 'examples_haiku_list';
 ExtensionManagementUtility::addPlugin(
     new SelectItem(
         'select',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
+        'LLL:examples.plugin_haiku.db:list.title',
         $pluginSignature,
         'tx_examples-haiku',
         'plugins',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
+        'LLL:examples.plugin_haiku.db:list.description',
     ),
     'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
 );

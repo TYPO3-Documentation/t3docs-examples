@@ -3,13 +3,13 @@
         <sDEF>
             <ROOT>
                 <sheetTitle>
-                    LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:examples.pi_flexform.sheetGeneral
+                    LLL:examples.db:examples.pi_flexform.sheetGeneral
                 </sheetTitle>
                 <type>array</type>
                 <el>
                     <settings.listPid>
                         <label>
-                            LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:listPageUid
+                            LLL:examples.plugin_haiku.messages:listPageUid
                         </label>
                         <config>
                             <type>group</type>

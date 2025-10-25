@@ -17,6 +17,7 @@ namespace T3docs\Examples\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -24,7 +25,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class FalExampleController extends ActionController
 {
-    public function __construct(protected ResourceFactory $resourceFactory) {}
+    public function __construct(
+        protected ResourceFactory $resourceFactory,
+        protected StorageRepository $storageRepository,
+    ) {}
     /**
      * Displays a list of links to the other actions.
      */
@@ -38,7 +42,7 @@ class FalExampleController extends ActionController
      */
     public function listFilesAction(): ResponseInterface
     {
-        $defaultStorage = $this->resourceFactory->getDefaultStorage();
+        $defaultStorage = $this->storageRepository->getDefaultStorage();
         if ($defaultStorage) {
             $folder = $defaultStorage->getFolder('/user_upload/images/galerie/');
             $files = $defaultStorage->getFilesInFolder($folder);

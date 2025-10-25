@@ -15,7 +15,7 @@
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy',
+        'title' => 'LLL:examples.db:tx_examples_dummy',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -36,20 +36,20 @@ return [
     'columns' => [
         'record_type' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type',
+            'label' => 'LLL:examples.db:tx_examples_dummy.record_type',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type.0', 'value' => 0],
-                    ['label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type.1', 'value' => 1],
-                    ['label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.record_type.2', 'value' => 2],
+                    ['label' => 'LLL:examples.db:tx_examples_dummy.record_type.0', 'value' => 0],
+                    ['label' => 'LLL:examples.db:tx_examples_dummy.record_type.1', 'value' => 1],
+                    ['label' => 'LLL:examples.db:tx_examples_dummy.record_type.2', 'value' => 2],
                 ],
             ],
         ],
         'title' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.title',
+            'label' => 'LLL:examples.db:tx_examples_dummy.title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -59,7 +59,7 @@ return [
         ],
         'some_date' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.some_date',
+            'label' => 'LLL:examples.db:tx_examples_dummy.some_date',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'date',
@@ -68,14 +68,14 @@ return [
         ],
         'enforce_date' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.enforce_date',
+            'label' => 'LLL:examples.db:tx_examples_dummy.enforce_date',
             'config' => [
                 'type' => 'check',
             ],
         ],
         'description' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy.description',
+            'label' => 'LLL:examples.db:tx_examples_dummy.description',
             'config' => [
                 'type' => 'text',
                 'cols' => 50,

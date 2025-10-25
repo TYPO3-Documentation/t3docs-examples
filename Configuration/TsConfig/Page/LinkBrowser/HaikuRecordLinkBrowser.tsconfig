@@ -1,7 +1,7 @@
 TCEMAIN.linkHandler {
     haiku {
         handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-        label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
+        label = LLL:examples.browse_links:haiku
         configuration {
             table = tx_examples_haiku
         }

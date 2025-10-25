@@ -58,15 +58,15 @@ defined('TYPO3') or die();
     // USAGE: Core APIs > TYPO3 API overview > Various examples > Custom permission
     $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = [
         'tx_examples_cat1' => [
-            'header' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_header',
+            'header' => 'LLL:examples.messages:permissions_header',
             'items' => [
                 'key1' => [
-                    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
+                    'LLL:examples.messages:permissions_option1',
                     'actions-system-typoscript-documentation-open',
-                    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
+                    'LLL:examples.messages:permissions_option1_description',
                 ],
-                'key2' => ['LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'],
-                'key3' => ['LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option3'],
+                'key2' => ['LLL:examples.messages:permissions_option2'],
+                'key3' => ['LLL:examples.messages:permissions_option3'],
             ],
         ],
     ];
@@ -156,10 +156,10 @@ defined('TYPO3') or die();
     );
 
     // Add custom translations overriding default labels
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['resourceOverrides']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
         'EXT:examples/Resources/Private/Language/custom.xlf';
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['resourceOverrides']['de']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] =
         'EXT:examples/Resources/Private/Language/de.custom.xlf';
 })();

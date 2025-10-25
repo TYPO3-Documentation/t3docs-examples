@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 $temporaryColumn = [
     'tx_examples_noprint' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_noprint',
+        'label' => 'LLL:examples.db:tt_content.tx_examples_noprint',
         'config' => [
             'type' => 'check',
             'renderType' => 'checkboxToggle',
@@ -30,7 +30,7 @@ $temporaryColumn = [
     ],
     'tx_examples_separator' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_separator',
+        'label' => 'LLL:examples.db:tt_content.tx_examples_separator',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
@@ -65,7 +65,7 @@ $temporaryColumn = [
     ],
     'tx_examples_main_category' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_main_category',
+        'label' => 'LLL:examples.db:tt_content.tx_examples_main_category',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
@@ -95,41 +95,41 @@ ExtensionManagementUtility::addFieldsToPalette(
     'before:editlock',
 );
 
-$standardTabs = '--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+$standardTabs = '--div--;LLL:frontend.ttc:tabs.appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+        --div--;LLL:core.form.tabs:language,
             --palette--;;language,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+        --div--;LLL:core.form.tabs:access,
             --palette--;;hidden,
             --palette--;;access,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+        --div--;LLL:core.form.tabs:categories,
             categories,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+        --div--;LLL:core.form.tabs:notes,
             rowDescription,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,';
+        --div--;LLL:core.form.tabs:extended,';
 
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_title',
+        'label' => 'LLL:examples.messages:examples_newcontentcsv_title',
         'value' => 'examples_newcontentcsv',
         'icon' => 'mimetypes-x-content-table',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_description',
+        'description' => 'LLL:examples.messages:examples_newcontentcsv_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_newcontentcsv'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             imagecols,
             tx_examples_separator,
-            bodytext;LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentcsv_bodytext,
+            bodytext;LLL:examples.messages:examples_newcontentcsv_bodytext,
     ' . $standardTabs,
     'columnsOverrides' => [
         'bodytext' => [
@@ -145,7 +145,7 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
+        'label' => 'LLL:examples.messages:examples_newcontentelement_title',
         'value' => 'examples_newcontentelement',
         'icon' => 'content-text',
         'group' => 'default',
@@ -157,11 +157,11 @@ ExtensionManagementUtility::addTcaSelectItem(
 // Configure the default backend fields for the content element
 $GLOBALS['TCA']['tt_content']['types']['examples_newcontentelement'] = [
     'showitem' => '
-           --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+           --div--;LLL:core.form.tabs:general,
                --palette--;;general,
                header; Internal title (not displayed),
-               bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
-           --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+               bodytext;LLL:frontend.ttc:bodytext_formlabel,
+           --div--;LLL:core.form.tabs:access,
                --palette--;;hidden,
                --palette--;;access,
        ',
@@ -179,17 +179,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_title',
+        'label' => 'LLL:examples.messages:examples_dataprocmenu_title',
         'value' => 'examples_dataprocmenu',
         'icon' => 'content-special-uploads',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocmenu_description',
+        'description' => 'LLL:examples.messages:examples_dataprocmenu_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocmenu'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             pages,
@@ -200,17 +200,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_title',
+        'label' => 'LLL:examples.messages:examples_dataproclang_title',
         'value' => 'examples_dataproclang',
         'icon' => 'install-manage-language',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproclang_description',
+        'description' => 'LLL:examples.messages:examples_dataproclang_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataproclang'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
     ' . $standardTabs,
@@ -220,17 +220,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_title',
+        'label' => 'LLL:examples.messages:examples_dataprocsite_title',
         'value' => 'examples_dataprocsite',
         'icon' => 'apps-pagetree-folder-root',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsite_description',
+        'description' => 'LLL:examples.messages:examples_dataprocsite_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsite'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             pages,
@@ -241,17 +241,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_title',
+        'label' => 'LLL:examples.messages:examples_dataprocsitelanguage_title',
         'value' => 'examples_dataprocsitelanguage',
         'icon' => 'content-message',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsitelanguage_description',
+        'description' => 'LLL:examples.messages:examples_dataprocsitelanguage_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsitelanguage'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             pages,
@@ -262,17 +262,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_title',
+        'label' => 'LLL:examples.messages:examples_dataprocsplit_title',
         'value' => 'examples_dataprocsplit',
         'icon' => 'content-timeline',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocsplit_description',
+        'description' => 'LLL:examples.messages:examples_dataprocsplit_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocsplit'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
     ' . $standardTabs,
@@ -282,17 +282,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_title',
+        'label' => 'LLL:examples.messages:examples_dataprocfiles_title',
         'value' => 'examples_dataprocfiles',
         'icon' => 'content-image',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocfiles_description',
+        'description' => 'LLL:examples.messages:examples_dataprocfiles_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocfiles'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             image,
@@ -304,17 +304,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_title',
+        'label' => 'LLL:examples.messages:examples_dataprocgallery_title',
         'value' => 'examples_dataprocgallery',
         'icon' => 'content-dashboard',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataprocgallery_description',
+        'description' => 'LLL:examples.messages:examples_dataprocgallery_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataprocgallery'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             image,
@@ -327,17 +327,17 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_title',
+        'label' => 'LLL:examples.messages:examples_dataproccustom_title',
         'value' => 'examples_dataproccustom',
         'icon' => 'content-dashboard',
         'group' => 'dataProcessingExamples',
-        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_dataproccustom_description',
+        'description' => 'LLL:examples.messages:examples_dataproccustom_description',
     ],
 );
 
 $GLOBALS['TCA']['tt_content']['types']['examples_dataproccustom'] = [
     'showitem' => '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+        --div--;LLL:core.form.tabs:general,
             --palette--;;general,
             --palette--;;headers,
             tx_examples_main_category,

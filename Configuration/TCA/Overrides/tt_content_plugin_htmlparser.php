@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 $pluginSignature = ExtensionUtility::registerPlugin(
     'Examples',
     'HtmlParser',
-    'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title',
+    'LLL:examples.messages:htmlparser_plugin_title',
     'content-plugin',
     'plugins',
     '',

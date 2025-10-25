@@ -50,10 +50,10 @@ class ExampleLinkType extends AbstractLinktype
     {
         $lang = $this->getLanguageService();
         return match ($errorParams['errno'] ?? 0) {
-            404 => $lang->sL('LLL:EXT:linkvalidator/Resources/Private/Language/Module/locallang.xlf:list.report.pagenotfound404'),
+            404 => $lang->sL('LLL:linkvalidator.messages:list.report.pagenotfound404'),
             // fall back to generic error message
             default => sprintf(
-                $lang->sL('LLL:EXT:linkvalidator/Resources/Private/Language/Module/locallang.xlf:list.report.externalerror'),
+                $lang->sL('LLL:linkvalidator.messages:list.report.externalerror'),
                 $errorParams['errno'],
             ),
         };
