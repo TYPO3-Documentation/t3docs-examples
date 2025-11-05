@@ -34,6 +34,13 @@ return [
                 'flash', 'tree', 'clipboard', 'links', 'fileReference', 'fileReferenceCreate', 'count',
             ],
         ],
+        'moduleData' => [
+            'language' => 0,  // Default language
+            'showHidden' => true,
+        ],
+        'sharedModuleData' => [
+            'language' => 'content_language',  // Share language selection
+        ],
     ],
     'admin_examples' => [
         'parent' => 'system',
