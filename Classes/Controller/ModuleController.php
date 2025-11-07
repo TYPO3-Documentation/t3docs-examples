@@ -22,6 +22,7 @@ use Psr\Log\LoggerInterface;
 use T3docs\Examples\Service\TableInformationService;
 use TYPO3\CMS\Backend\Clipboard\Clipboard;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
+use TYPO3\CMS\Backend\Template\Components\ComponentFactory;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Backend\Tree\View\PageTreeView;
@@ -67,6 +68,7 @@ class ModuleController extends ActionController
         protected readonly TableInformationService $tableInformationService,
         protected readonly LoggerInterface $logger,
         protected readonly UriBuilder $backendUriBuilder,
+        protected readonly ComponentFactory $componentFactory,
     ) {}
 
     /**
@@ -649,6 +651,44 @@ class ModuleController extends ActionController
 
         $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
 
+        // Add language selector
+        $languageDropdown = $this->componentFactory->createDropDownButton()
+            ->setShowLabelText(true);
+
+        $activeLanguageTitle = null;
+
+        // Add existing language items first
+        foreach ($existingLanguageItems as $item) {
+            $languageDropdown->addItem($item);
+            if ($item->isActive()) {
+                $activeLanguageTitle = $item->getLabel();
+            }
+        }
+
+        // Add divider and new languages section if applicable
+        if (!empty($newLanguageItems)) {
+            $languageDropdown->addItem($this->componentFactory->createDropDownDivider());
+            $languageDropdown->addItem(
+                $this->componentFactory->createDropDownHeader()->setLabel(
+                    $this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.new_page_translation')
+                )
+            );
+            foreach ($newLanguageItems as $item) {
+                $languageDropdown->addItem($item);
+            }
+        }
+
+        // Set button label to active language and add accessibility label
+        $languageDropdown->setLabel(
+            $activeLanguageTitle ?? $this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.language')
+        );
+        $languageDropdown->setDescribedBy(
+            $this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.language')
+        );
+
+        $view->getDocHeaderComponent()->setLanguageSelector($languageDropdown->render());
+
+        // Set title
         $view->setTitle(
             $this->getLanguageService()->sL('examples.module.mod:mlang_tabs_tab'),
             $context,
