@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,8 +25,10 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use T3docs\Examples\Exception\InvalidWizardException;
+use TYPO3\CMS\Core\Command\NonSchedulableCommandInterface;
 
-final class CreateWizardCommand extends Command
+#[AsCommand('examples:createwizard', 'A command that creates a wizard. It is hidden in the command list. You cannot use it in the scheduler.')]
+final class CreateWizardCommand extends Command implements NonSchedulableCommandInterface
 {
     protected function configure(): void
     {
