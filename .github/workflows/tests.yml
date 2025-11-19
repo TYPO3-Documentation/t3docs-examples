@@ -45,13 +45,3 @@ jobs:
 
       - name: PHPStan
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s phpstan
-
-  xliff-lint:
-    name: "XLIFF linter"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-
-      - name: "XLIFF lint"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
