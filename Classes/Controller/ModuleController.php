@@ -472,7 +472,7 @@ class ModuleController extends ActionController
             $permissionClause,
         );
         if ($pageRecord) {
-            $view->getDocHeaderComponent()->setMetaInformation($pageRecord);
+            $view->getDocHeaderComponent()->setPageBreadcrumb($pageRecord);
         }
         $view->setFlashMessageQueue($this->getFlashMessageQueue());
 
