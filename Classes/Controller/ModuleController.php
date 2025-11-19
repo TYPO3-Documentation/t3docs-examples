@@ -29,9 +29,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
-use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -300,7 +298,7 @@ class ModuleController extends ActionController
     {
         $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
         $returnUrl = (string)$this->backendUriBuilder->buildUriFromRoute(
-            'web_examples',
+            'content_examples_links',
             ['id' => $pageUid, 'action' => 'links'],
         );
 
@@ -393,139 +391,6 @@ class ModuleController extends ActionController
         );
     }
 
-    /**
-     * Displays a form to create relations between content elements and files.
-     *
-     * @param int $element Uid of the just processed content element (see fileReferenceCreateAction)
-     */
-    public function fileReferenceAction(int $element = 0): ResponseInterface
-    {
-        // Get all non-deleted content elements (this should normally be put away in a nice, clean
-        // repository class; don't do this at home).
-        /** @var Connection $connection */
-        $connection = $this->connectionPool->getConnectionForTable('tt_content');
-        try {
-            $contentElements = $connection->select(
-                ['uid', 'header'],
-                'tt_content',
-                [],
-                [],
-                ['header' => 'ASC'],
-            );
-        } catch (\Exception) {
-            $contentElements = [];
-        }
-        $files = [];
-        // If we just handled a content element, get related data to display as a confirmation
-        if ($element > 0) {
-            $contentElement = BackendUtility::getRecord(
-                'tt_content',
-                $element,
-            );
-            try {
-                $fileObjects = $this->fileRepository->findByRelation(
-                    'tt_content',
-                    'image',
-                    $element,
-                );
-                $files = $this->fileRepository->findByRelation('tt_content', 'image', $element);
-            } catch (\Exception) {
-                $fileObjects = [];
-            }
-        } else {
-            $contentElement = null;
-            $fileObjects = [];
-        }
-        $view = $this->initializeModuleTemplate($this->request);
-        $view->assignMultiple(
-            [
-                'files' => $files,
-                'elements' => $contentElements,
-                'content' => $contentElement,
-                'references' => $fileObjects,
-            ],
-        );
-        return $view->renderResponse('Module/FileReference');
-    }
-
-    /**
-     * Creates a file reference and redirects to the form screen.
-     *
-     * @param int $file Uid of the file
-     * @param int $element Uid of the content element
-     */
-    public function fileReferenceCreateAction(
-        int $file,
-        int $element,
-    ): ResponseInterface {
-        // Early return if either item is missing
-        if ($file === 0 || $element === 0) {
-            // NOTE: there would normally a nice error Flash Message added here
-            $this->redirect('fileReference');
-        }
-        $fileObject = $this->resourceFactory->getFileObject($file);
-        $contentElement = BackendUtility::getRecord(
-            'tt_content',
-            $element,
-        );
-        if ($contentElement === null) {
-            throw new \Exception('Content element with uid ' . $element . ' not found', 8890758947);
-        }
-        // Assemble DataHandler data
-        $newId = 'NEW1234';
-        $data = [];
-        $data['sys_file_reference'][$newId] = [
-            'table_local' => 'sys_file',
-            'uid_local' => $fileObject->getUid(),
-            'tablenames' => 'tt_content',
-            'uid_foreign' => $contentElement['uid'],
-            'fieldname' => 'image',
-            'pid' => $contentElement['pid'],
-        ];
-        $data['tt_content'][$contentElement['uid']] = [
-            'image' => $newId, // For multiple new references $newId is a comma-separated list
-        ];
-        //  process the data
-
-        /** @var DataHandler $dataHandler */
-        // Do not inject or reuse the DataHander as it holds state!
-        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
-        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-        $dataHandler->start($data, []);
-        $dataHandler->process_datamap();
-        // Error or success reporting
-        if (count($dataHandler->errorLog) === 0) {
-            $this->addFlashMessage(
-                LocalizationUtility::translate(
-                    'create_relation_success',
-                    'examples',
-                ) ?? '',
-                '',
-            );
-        } else {
-            foreach ($dataHandler->errorLog as $log) {
-                $this->addFlashMessage(
-                    $log,
-                    LocalizationUtility::translate(
-                        'create_relation_error',
-                        'examples',
-                    ) ?? '',
-                    ContextualFeedbackSeverity::ERROR,
-                );
-            }
-        }
-
-        return
-            $this->redirect(
-                'fileReference',
-                null,
-                null,
-                [
-                    'element' => $contentElement['uid'],
-                ],
-            );
-    }
-
     public function getPasswordHash(string $password, string $mode): string|null
     {
         $hashInstance = $this->passwordHashFactory->getDefaultHashInstance($mode);
@@ -598,61 +463,8 @@ class ModuleController extends ActionController
     protected function initializeModuleTemplate(
         ServerRequestInterface $request,
     ): ModuleTemplate {
-        $menuItems = [
-            'flash' => [
-                'controller' => 'Module',
-                'action' => 'flash',
-                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.flash'),
-            ],
-            'tree' => [
-                'controller' => 'Module',
-                'action' => 'tree',
-                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.tree'),
-            ],
-            'clipboard' => [
-                'controller' => 'Module',
-                'action' => 'clipboard',
-                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.clipboard'),
-            ],
-            'links' => [
-                'controller' => 'Module',
-                'action' => 'links',
-                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.links'),
-            ],
-            'fileReference' => [
-                'controller' => 'Module',
-                'action' => 'fileReference',
-                'label' => $this->getLanguageService()->sL('examples.module.messages:module.menu.fileReference'),
-            ],
-        ];
         $view = $this->moduleTemplateFactory->create($request);
-
-        $menu = $view->getDocHeaderComponent()->getMenuRegistry()->makeMenu();
-        $menu->setIdentifier('ExampleModuleMenu');
-
-        $context = '';
-        foreach ($menuItems as $menuItemConfig) {
-            $isActive = $this->request->getControllerActionName() === $menuItemConfig['action'];
-            $menuItem = $menu->makeMenuItem()
-                ->setTitle($menuItemConfig['label'])
-                ->setHref($this->uriBuilder->reset()->uriFor(
-                    $menuItemConfig['action'],
-                    [],
-                    $menuItemConfig['controller'],
-                ))
-                ->setActive($isActive);
-            $menu->addMenuItem($menuItem);
-            if ($isActive) {
-                $context = $menuItemConfig['label'];
-            }
-        }
-
-        $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
-
-        $view->setTitle(
-            $this->getLanguageService()->sL('examples.module.mod:mlang_tabs_tab'),
-            $context,
-        );
+        $view->makeDocHeaderModuleMenu(['id' => $this->pageUid]);
 
         $permissionClause = $this->getBackendUserAuthentication()->getPagePermsClause(Permission::PAGE_SHOW);
         $pageRecord = BackendUtility::readPageAccess(
