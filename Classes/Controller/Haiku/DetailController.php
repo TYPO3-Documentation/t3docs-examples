@@ -18,6 +18,7 @@ namespace T3docs\Examples\Controller\Haiku;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
 use T3docs\Examples\Service\FlexFormSettingsService;
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Core\View\ViewFactoryData;
@@ -53,6 +54,7 @@ final class DetailController
      * @param array<string, mixed> $conf
      * @throws PropagateResponseException
      */
+    #[AsAllowedCallable]
     public function main(string $content, array $conf, ServerRequestInterface $request): string
     {
         $this->conf = $conf;

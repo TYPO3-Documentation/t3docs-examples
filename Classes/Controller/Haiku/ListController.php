@@ -19,6 +19,7 @@ use Doctrine\DBAL\Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\Examples\Domain\Repository\HaikuRepository;
 use T3docs\Examples\Service\FlexFormSettingsService;
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -42,6 +43,7 @@ final class ListController
      * @param array<string, mixed> $conf
      * @throws Exception
      */
+    #[AsAllowedCallable]
     public function main(string $content, array $conf, ServerRequestInterface $request): string
     {
         $this->conf = $conf;
