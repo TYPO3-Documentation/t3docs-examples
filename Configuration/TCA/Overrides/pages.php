@@ -28,7 +28,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
  * The TYPO3 project - inspiring people to share!
  */
 
-defined('TYPO3') or die();
+defined('TYPO3') || die();
 
 // Add a "related pages" field to demonstrate select-type fields with tree rendering
 // USAGE: TCA Reference > $TCA array reference > ['columns'][field name]['config'] / TYPE: "select"

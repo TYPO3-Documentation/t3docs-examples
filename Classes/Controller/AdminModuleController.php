@@ -20,6 +20,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Attribute\AsController;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
+use TYPO3\CMS\Backend\Template\Components\ComponentFactory;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
@@ -34,6 +35,7 @@ final readonly class AdminModuleController
         private ModuleTemplateFactory $moduleTemplateFactory,
         private IconFactory $iconFactory,
         private UriBuilder $uriBuilder,
+        private ComponentFactory $componentFactory,
         // ...
     ) {}
 
@@ -61,7 +63,7 @@ final readonly class AdminModuleController
         }
 
         $moduleTemplate = $this->moduleTemplateFactory->create($request);
-        $this->setUpDocHeader($request, $moduleTemplate);
+        $this->setUpDocHeader($moduleTemplate);
 
         $title = $languageService->sL('examples.admin_module.mod:mlang_tabs_tab');
         switch ($moduleData->get('function')) {
@@ -76,7 +78,7 @@ final readonly class AdminModuleController
                     $title,
                     $languageService->sL('examples.admin_module.mod:module.menu.password'),
                 );
-                return $this->passwordAction($request, $moduleTemplate);
+                return $this->passwordAction($moduleTemplate);
             default:
                 $moduleTemplate->setTitle(
                     $title,
@@ -87,12 +89,11 @@ final readonly class AdminModuleController
     }
 
     private function setUpDocHeader(
-        ServerRequestInterface $request,
         ModuleTemplate $view,
     ): void {
         $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
         $uriBuilderPath = $this->uriBuilder->buildUriFromRoute('web_list', ['id' => 0]);
-        $list = $buttonBar->makeLinkButton()
+        $list = $this->componentFactory->createLinkButton()
             ->setHref($uriBuilderPath)
             ->setTitle('A Title')
             ->setShowLabelText(true)
@@ -108,7 +109,7 @@ final readonly class AdminModuleController
         return $view->renderResponse('AdminModule/Index');
     }
 
-    protected function debugAction(
+    private function debugAction(
         ServerRequestInterface $request,
         ModuleTemplate $view,
     ): ResponseInterface {
@@ -133,8 +134,7 @@ final readonly class AdminModuleController
         return $view->renderResponse('AdminModule/Debug');
     }
 
-    protected function passwordAction(
-        ServerRequestInterface $request,
+    private function passwordAction(
         ModuleTemplate $view,
     ): ResponseInterface {
         // TODO: Do something

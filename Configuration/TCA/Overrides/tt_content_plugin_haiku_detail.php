@@ -16,7 +16,7 @@
 use TYPO3\CMS\Core\Schema\Struct\SelectItem;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-defined('TYPO3') or die();
+defined('TYPO3') || die();
 
 ExtensionManagementUtility::addPlugin(
     new SelectItem(

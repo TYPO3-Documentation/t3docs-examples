@@ -73,17 +73,17 @@ final class DetailController
             return match ($action) {
                 'show' => $this->showAction($view, (int)($parameter['haiku'] ?? 0)),
                 'findByTitle' => $this->findByTitleAction($view, (string)($parameter['haiku_title'] ?? '')),
-                default => $this->notFoundAction($view, 'Action ' . $action . ' not found.'),
+                default => $this->notFoundAction('Action ' . $action . ' not found.'),
             };
         } catch (\Exception $e) {
-            $this->notFoundAction($view, $e->getMessage());
+            $this->notFoundAction($e->getMessage());
         }
     }
 
     /**
      * @throws PropagateResponseException
      */
-    private function notFoundAction(ViewInterface $view, string $reason): never
+    private function notFoundAction(string $reason): never
     {
         throw new PropagateResponseException(
             new Response(
