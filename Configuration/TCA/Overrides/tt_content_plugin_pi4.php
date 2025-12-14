@@ -13,7 +13,7 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-defined('TYPO3') or die();
+defined('TYPO3') || die();
 
 use TYPO3\CMS\Core\Schema\Struct\SelectItem;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

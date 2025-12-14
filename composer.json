@@ -24,10 +24,13 @@
         "typo3/cms-reactions": "14.0.x-dev | dev-main"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "~2.42.0",
+		"ergebnis/composer-normalize": "^2.44",
         "friendsofphp/php-cs-fixer": "^3.52",
-        "phpstan/phpstan": "^1.10"
-    },
+		"phpstan/phpstan": "^2.1.25",
+		"ssch/typo3-rector": "^3.6",
+		"typo3/coding-standards": "^0.8",
+		"typo3/testing-framework": "^9.0"
+	},
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {

@@ -15,47 +15,58 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
+use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
+use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
+use Rector\CodeQuality\Rector\Switch_\SingularSwitchToIfRector;
+use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\Config\RectorConfig;
-use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNeverTypeRector;
-use Ssch\TYPO3Rector\CodeQuality\General\ConvertImplicitVariablesToExplicitGlobalsRector;
+use Rector\Php81\Rector\FuncCall\NullToStrictStringFuncCallArgRector;
+use Rector\ValueObject\PhpVersion;
 use Ssch\TYPO3Rector\CodeQuality\General\ExtEmConfRector;
 use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 use Ssch\TYPO3Rector\Set\Typo3SetList;
-use Ssch\TYPO3Rector\TYPO313\v4\MigratePluginContentElementAndPluginSubtypesRector;
 
 return RectorConfig::configure()
     ->withPaths([
-        __DIR__ . '/../../.',
+        __DIR__ . '/../../Classes',
+        __DIR__ . '/../../Configuration',
+        __DIR__ . '/../../Tests',
+        __DIR__ . '/../../ext_emconf.php',
     ])
-    ->withImportNames(importShortClasses: false, removeUnusedImports: true)
-    ->withPhpSets()
-    ->withAutoloadPaths([
-        __DIR__ . '/../../.Build/vendor/autoload.php',
-    ])
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        typeDeclarations: true,
+        privatization: true,
+        instanceOf: true,
+        earlyReturn: true,
+    )
+    ->withPhpSets(php82: true)
+    ->withPhpVersion(PhpVersion::PHP_82)
     ->withSets([
         Typo3SetList::CODE_QUALITY,
         Typo3SetList::GENERAL,
-        Typo3LevelSetList::UP_TO_TYPO3_13,
+        Typo3LevelSetList::UP_TO_TYPO3_14,
     ])
-    // To have a better analysis from PHPStan, we teach it here some more things
-    ->withPHPStanConfigs([
-        Typo3Option::PHPSTAN_FOR_RECTOR_PATH,
-    ])
-    ->withRules([
-        AddVoidReturnTypeWhereNoReturnRector::class,
-        ConvertImplicitVariablesToExplicitGlobalsRector::class,
-    ])
+    ->withPHPStanConfigs([Typo3Option::PHPSTAN_FOR_RECTOR_PATH])
     ->withConfiguredRule(ExtEmConfRector::class, [
-        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '14.0.0-14.99.99',
+        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '14.0.0-14.3.99',
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
+    ->withConfiguredRule(EncapsedStringsToSprintfRector::class, [
+        'always' => true,
+        // force sprintf even for simple cases
+    ])
+    ->withImportNames(importShortClasses: false, removeUnusedImports: true)
     ->withSkip([
-        ReturnNeverTypeRector::class => [
-            // We want to keep the ResponseInterface return type of indexAction() to be compatible
-            // with the specification, although we just throw an exception for demonstration purpose.
-            __DIR__ . '/../../Classes/Controller/ErrorController.php',
+        NullToStrictStringFuncCallArgRector::class,
+        SimplifyUselessVariableRector::class,
+        SingularSwitchToIfRector::class,
+        FlipTypeControlToUseExclusiveTypeRector::class => [
+            __DIR__ . '/../../Classes/PhpParser/Printer/PrettyTypo3Printer.php',
         ],
-        MigratePluginContentElementAndPluginSubtypesRector::class,
+        '*Build/*',
+        '*Resources/*',
+        '*Model/*',
     ]);

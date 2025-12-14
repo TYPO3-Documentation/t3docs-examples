@@ -51,8 +51,6 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 class ModuleController extends ActionController
 {
     private int $pageUid;
-    /** @var array<string, mixed> */
-    private array $exampleConfig;
 
     public function __construct(
         protected readonly ModuleTemplateFactory $moduleTemplateFactory,
@@ -416,7 +414,7 @@ class ModuleController extends ActionController
         string $mode = 'FE',
     ): ResponseInterface {
         $modes = ['FE' => 'FE', 'BE' => 'BE'];
-        if ($passwordAction == 'Check') {
+        if ($passwordAction === 'Check') {
             $success = $this->checkPassword($hashedPassword, $password, $mode);
         } else {
             $hashedPassword = $this->getPasswordHash($password, $mode);
@@ -485,7 +483,6 @@ class ModuleController extends ActionController
     protected function initializeAction(): void
     {
         $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-        $this->exampleConfig = $this->extensionConfiguration->get('examples') ?? [];
         parent::initializeAction();
     }
 

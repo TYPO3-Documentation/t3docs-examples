@@ -131,8 +131,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     /**
      * We don't support updates since there is no difference to simply set the link again.
-     *
-     * @return bool
      */
     public function isUpdateSupported(): bool
     {
