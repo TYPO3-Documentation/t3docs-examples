@@ -17,12 +17,15 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Userfuncs;
 
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
+
 class CustomMenu
 {
     /**
      * @param array<mixed> $conf
      * @return array<mixed>
      */
+    #[AsAllowedCallable]
     public function makeMenuArray(string $content, array $conf): array
     {
         return [
