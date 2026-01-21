@@ -17,10 +17,12 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand('examples:dosomething', 'A command that does nothing and always succeeds.')]
 final class DoSomethingCommand extends Command
 {
     protected function configure(): void
