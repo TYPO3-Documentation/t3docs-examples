@@ -9,8 +9,11 @@ jobs:
   backport:
     runs-on: ubuntu-latest
     name: Backport
+    permissions:
+      contents: write        # needed to push the backport branch
+      pull-requests: write   # needed to open the PR
     steps:
       - name: Backport
-        uses: m-kuhn/backport@v1.2.6
+        uses: m-kuhn/backport@30b6e83906cc97bad3a02867181d6236becf68f9        
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
