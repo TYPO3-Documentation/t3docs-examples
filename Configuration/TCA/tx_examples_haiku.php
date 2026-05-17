@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -39,7 +41,6 @@ return [
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
-        'searchFields' => 'title,poem',
         'security' => [
             // Allow the haiku table anywhere in the page tree
             'ignorePageTypeRestriction' => true,
@@ -47,10 +48,6 @@ return [
         'typeicon_classes' => [
             'default' => 'tx_examples-haiku',
         ],
-    ],
-    'interface' => [
-        'maxDBListItems' => 5,
-        'maxSingleDBListItems' => 20,
     ],
     'columns' => [
         'title' => [
@@ -121,6 +118,7 @@ return [
                     ],
                     'mode' => '',
                 ],
+                'searchable' => false,
             ],
         ],
         'weirdness' => [
@@ -139,6 +137,7 @@ return [
             'config' => [
                 'type' => 'color',
                 'size' => 10,
+                'searchable' => false,
             ],
         ],
         'angle' => [
