@@ -8,9 +8,8 @@ use PhpCsFixer\Finder;
 return (new Config())
     ->setFinder(
         (new Finder())
-            ->in(__DIR__ . '/../../')
-            ->exclude(__DIR__ . '/../../.Build')
-            ->exclude(__DIR__ . '/../../var')
+            ->in(__DIR__ . '/../../Classes')
+            ->in(__DIR__ . '/../../Configuration')
     )
     ->setRiskyAllowed(true)
     ->setRules([

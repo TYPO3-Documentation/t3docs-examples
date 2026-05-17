@@ -8,3 +8,4 @@
 /.php-cs-fixer.cache
 /Build/rector/composer.json.testing
 /Build/rector/composer.lock
+/var/
