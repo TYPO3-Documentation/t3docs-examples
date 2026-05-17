@@ -17,8 +17,8 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\Upgrades;
 
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
+use TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate;
 
 #[UpgradeWizard('example_extbasePluginListTypeToCTypeUpdate')]
 final class ExtbasePluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
