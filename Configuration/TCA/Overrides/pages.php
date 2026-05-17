@@ -59,4 +59,3 @@ ExtensionManagementUtility::addFieldsToPalette(
     '--linebreak--,tx_examples_related_pages',
     'after:media',
 );
-
