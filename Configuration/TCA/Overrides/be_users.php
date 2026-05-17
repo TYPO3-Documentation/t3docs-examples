@@ -52,12 +52,12 @@ ExtensionManagementUtility::addToAllTCAtypes(
 );
 
 ExtensionManagementUtility::addUserSetting(
-     'mobile',
-     [
-         'label' => 'LLL:examples.db:be_users.tx_examples_mobile',
-         'config' => [
-             'type' => 'input',
-         ],
-     ],
-     'after:email'
+    'mobile',
+    [
+        'label' => 'LLL:examples.db:be_users.tx_examples_mobile',
+        'config' => [
+            'type' => 'input',
+        ],
+    ],
+    'after:email',
 );
