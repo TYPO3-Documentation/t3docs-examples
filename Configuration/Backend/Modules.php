@@ -76,7 +76,8 @@ return [
     'content_examples_clipboard' => [
         'parent' => 'content_examples',
         'position' => ['after' => 'content_examples_tree'],
-        'access' => 'user',
+        // Only visible to users defined in ExampleGate
+        'access' => 'exampleUser',
         'workspaces' => 'live',
         'path' => '/module/page/example/clipboard',
         'labels' => 'examples.module.content_examples_clipboard',
