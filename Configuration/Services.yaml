@@ -12,20 +12,6 @@ services:
     tags:
       - name: linkvalidator.linktype
 
-  T3docs\Examples\Command\DoSomethingCommand:
-    tags:
-      - name: console.command
-        command: 'examples:dosomething'
-        description: 'A command that does nothing and always succeeds.'
-
-  T3docs\Examples\Command\CreateWizardCommand:
-    tags:
-      - name: console.command
-        command: 'examples:createwizard'
-        description: 'A command that creates a wizard. It is hidden in the command list. You cannot use it in the scheduler.'
-        hidden: true
-        schedulable: false
-
   T3docs\Examples\Controller\Haiku\DetailController:
     public: true
 
