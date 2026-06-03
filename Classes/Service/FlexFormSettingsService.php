@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -15,12 +17,12 @@
 
 namespace T3docs\Examples\Service;
 
-use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 
-class FlexFormSettingsService
+readonly class FlexFormSettingsService
 {
     public function __construct(
-        protected readonly FlexFormService $flexFormService,
+        protected FlexFormTools $flexFormTools,
     ) {}
 
     /**
@@ -32,7 +34,7 @@ class FlexFormSettingsService
         if (!is_array($settings ?? false)) {
             $settings = [];
         }
-        $flexForm = $this->flexFormService->convertFlexFormContentToArray($flexFormString);
+        $flexForm = $this->flexFormTools->convertFlexFormContentToArray($flexFormString);
         // As the data from the FlexForm is user input you cannot be sure about types
         if (!is_array($flexForm['settings'] ?? false)) {
             $flexForm['settings'] = [];
