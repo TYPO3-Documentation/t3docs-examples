@@ -28,4 +28,3 @@ install: composerUpdate ## Update composer dependencies
 .PHONY: composerUpdate
 composerUpdate: ## Update composer dependencies
 	Build/Scripts/runTests.sh -s composerUpdate
-	Build/Scripts/runTests.sh -s composerUpdateRector
