@@ -33,17 +33,3 @@ ExtensionManagementUtility::addPlugin(
     ),
     'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml',
 );
-
-// Activate the display of the plug-in flexform field and set FlexForm definition
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $pluginSignature,
-    'after:subheader',
-);
-
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:examples/Configuration/Flexforms/flexform_ds3.xml',
-    $pluginSignature,
-);

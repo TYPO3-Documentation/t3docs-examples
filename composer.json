@@ -13,15 +13,15 @@
     ],
     "require": {
         "php": "^8.2",
-        "typo3/cms-backend": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-core": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-extbase": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-fluid": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-fluid-styled-content": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-impexp": "^14.2 | 14.3.x-dev | dev-main",
-		"typo3/cms-install": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-linkvalidator": "^14.2 | 14.3.x-dev | dev-main",
-        "typo3/cms-reactions": "^14.2 | 14.3.x-dev | dev-main"
+        "typo3/cms-backend": "15.0.x-dev | dev-main",
+        "typo3/cms-core": "15.0.x-dev | dev-main",
+        "typo3/cms-extbase": "15.0.x-dev | dev-main",
+        "typo3/cms-fluid": "15.0.x-dev | dev-main",
+        "typo3/cms-fluid-styled-content": "15.0.x-dev | dev-main",
+        "typo3/cms-impexp": "15.0.x-dev | dev-main",
+		"typo3/cms-install": "15.0.x-dev | dev-main",
+        "typo3/cms-linkvalidator": "15.0.x-dev | dev-main",
+        "typo3/cms-reactions": "15.0.x-dev | dev-main"
     },
     "require-dev": {
 		"ergebnis/composer-normalize": "^2.44",
@@ -29,7 +29,7 @@
 		"phpstan/phpstan": "^2.1.25",
 		"ssch/typo3-rector": "^3.6",
 		"typo3/coding-standards": "^0.8",
-		"typo3/testing-framework": "^9.0"
+		"typo3/testing-framework": "^10.0"
 	},
     "minimum-stability": "dev",
     "prefer-stable": true,
