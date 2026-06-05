@@ -5,15 +5,16 @@ on:
       - closed
       - labeled
 
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
   backport:
-    runs-on: ubuntu-latest
-    name: Backport
-    permissions:
-      contents: write        # needed to push the backport branch
-      pull-requests: write   # needed to open the PR
-    steps:
-      - name: Backport
-        uses: m-kuhn/backport@30b6e83906cc97bad3a02867181d6236becf68f9        
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    uses: TYPO3-Documentation/.github/.github/workflows/reusable-backport.yml@46ed94fb7c10facf478883acfa1c0ecbe55f198b
+    with:
+      label_pattern: "^backport (.+)$"
+    secrets:
+      APP_ID: ${{ secrets.APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
