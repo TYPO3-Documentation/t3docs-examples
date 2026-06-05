@@ -17,31 +17,27 @@ declare(strict_types=1);
 
 namespace T3docs\Examples\LinkHandler;
 
-use TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder;
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Frontend\Typolink\LinkResult;
 use TYPO3\CMS\Frontend\Typolink\LinkResultInterface;
+use TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface;
 use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
 
 /**
  * Builds a TypoLink to a Github issue
  */
-class GithubLinkBuilder extends AbstractTypolinkBuilder
+class GithubLinkBuilder implements TypolinkBuilderInterface
 {
     private const TYPE_GITHUB = 'github';
 
     /**
-     * @param array<mixed> $linkDetails parsed link details by the LinkService
+     * @param array<string, mixed> $linkDetails parsed link details by the LinkService
+     * @param array<string, mixed> $configuration the TypoLink configuration array
      * @param string $linkText the link text
-     * @param string $target the target to point to
-     * @param array<mixed> $conf the TypoLink configuration array
      * @throws UnableToLinkException
      */
-    public function build(
-        array &$linkDetails,
-        string $linkText,
-        string $target,
-        array $conf,
-    ): LinkResultInterface {
+    public function buildLink(array $linkDetails, array $configuration, ServerRequestInterface $request, string $linkText = ''): LinkResultInterface
+    {
         $issueId = (int)$linkDetails['issue'];
         if ($issueId < 1) {
             throw new UnableToLinkException(
@@ -55,8 +51,7 @@ class GithubLinkBuilder extends AbstractTypolinkBuilder
         $url = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/' . $issueId;
 
         return (new LinkResult(self::TYPE_GITHUB, $url))
-            ->withTarget($target)
-            ->withLinkConfiguration($conf)
+            ->withLinkConfiguration($configuration)
             ->withLinkText($linkText);
     }
 }
