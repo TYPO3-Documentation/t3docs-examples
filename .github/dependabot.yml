@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+
+  # Maintained version branches: keep workflow action pins from drifting
+  # behind main (Dependabot only scans the default branch otherwise).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "13.4"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "14.3"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
