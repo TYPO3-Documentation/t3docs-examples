@@ -8,12 +8,41 @@ on:
 
 jobs:
   publish:
+    # A manual run on a branch has no version to publish.
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-      - name: Publish new version to TER
-        uses: tomasnorre/typo3-upload-ter@7982891f20d0b224f67e250e8ea8814d9e5f9671
+      - name: Set up PHP
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
-          api-token: ${{ secrets.TYPO3_API_TOKEN }}
+          php-version: '8.5'
+          # Tailor packs the archive with ext-zip.
+          extensions: zip
+          tools: composer
+
+      # Tailor 2 reads composer.json as the manifest and needs no
+      # ext_emconf.php. Tailor 1, which the former upload action
+      # installed, stops the upload without that file.
+      - name: Install Tailor
+        run: composer global require typo3/tailor:^2.1 --no-interaction --no-progress
+
+      - name: Publish the tag to TER
+        env:
+          TYPO3_API_TOKEN: ${{ secrets.TYPO3_API_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          EXTENSION_KEY="$(jq -r '.extra."typo3/cms"."extension-key"' composer.json)"
+          # The checkout holds the tag as a plain ref, so fetch the tag
+          # object to read the message of an annotated tag. Subject and
+          # body leave out the signature of a signed tag.
+          git fetch --force --depth=1 origin "refs/tags/${TAG}:refs/tags/${TAG}"
+          COMMENT="$(git tag -l --format='%(contents:subject)%0a%0a%(contents:body)' "${TAG}")"
+          if [ -z "${COMMENT}" ]; then
+            COMMENT="$(git log -1 --pretty=%B)"
+          fi
+          composer prepare-release
+          "$(composer global config bin-dir --absolute --quiet)/tailor" ter:publish --comment="${COMMENT}" "${VERSION}" "${EXTENSION_KEY}"

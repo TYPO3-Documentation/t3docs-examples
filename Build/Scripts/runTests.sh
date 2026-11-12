@@ -48,7 +48,6 @@ Options:
             - lint: PHP linting
             - phpstan: PHPStan static analysis
             - phpstanBaseline: Generate PHPStan baseline
-            - rector: Apply Rector rules
             - renderDocumentation
             - testRenderDocumentation
 
@@ -59,13 +58,11 @@ Options:
 
         If not specified, podman will be used if available. Otherwise, docker is used.
 
-    -p <8.2|8.3|8.4>
+    -p <8.5>
         Specifies the PHP minor version to be used
-            - 8.2: (default) use PHP 8.2
-            - 8.3: use PHP 8.3
-            - 8.4: use PHP 8.4
+            - 8.5: (default) use PHP 8.5, which TYPO3 v15 requires
     -n
-        Only with -s cgl, composerNormalize, rector
+        Only with -s cgl, composerNormalize
         Activate dry-run in CGL check and composer normalize that does not actively change files and only prints broken ones.
 
     -u
@@ -77,7 +74,7 @@ Options:
         Show this help.
 
 Examples:
-    # Run unit tests using PHP 8.2
+    # Run the CGL check using PHP 8.5
     ./Build/Scripts/runTests.sh
 EOF
 }
@@ -90,7 +87,7 @@ fi
 
 # Option defaults
 TEST_SUITE="cgl"
-PHP_VERSION="8.2"
+PHP_VERSION="8.5"
 PHP_XDEBUG_ON=0
 PHP_XDEBUG_PORT=9003
 CGLCHECK_DRY_RUN=0
@@ -118,7 +115,7 @@ while getopts "b:s:p:xy:nhu" OPT; do
             ;;
         p)
             PHP_VERSION=${OPTARG}
-            if ! [[ ${PHP_VERSION} =~ ^(8.2|8.3|8.4)$ ]]; then
+            if ! [[ ${PHP_VERSION} =~ ^(8.5)$ ]]; then
                 INVALID_OPTIONS+=("p ${OPTARG}")
             fi
             ;;
@@ -295,15 +292,6 @@ case ${TEST_SUITE} in
     phpstanBaseline)
         COMMAND="php -dxdebug.mode=off .Build/bin/phpstan --configuration=Build/phpstan/phpstan.neon --generate-baseline=Build/phpstan/phpstan-baseline.neon -v"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name phpstan-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
-        SUITE_EXIT_CODE=$?
-        ;;
-    rector)
-        if [ "${CGLCHECK_DRY_RUN}" -eq 1 ]; then
-            COMMAND=(php -dxdebug.mode=off .Build/bin/rector -n --config=Build/rector/rector.php --clear-cache "$@")
-        else
-            COMMAND=(php -dxdebug.mode=off .Build/bin/rector --config=Build/rector/rector.php --clear-cache "$@")
-        fi
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name rector-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     renderDocumentation)

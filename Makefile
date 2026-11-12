@@ -4,11 +4,7 @@ help: ## Displays this list of targets with descriptions
     @grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: fix
-fix: rector fix-cgl## Fix PHP coding styles
-
-.PHONY: rector
-rector: ## Run rector
-	Build/Scripts/runTests.sh -s rector
+fix: fix-cgl ## Fix PHP coding styles
 
 .PHONY: fix-cgl
 fix-cgl: ## Fix PHP coding styles

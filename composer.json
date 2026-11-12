@@ -1,6 +1,6 @@
 {
     "name": "t3docs/examples",
-    "description": "This extension packages a number of code examples from the Core Documentation.",
+    "description": "Core Documentation Code Examples - This extension packages a number of code examples from the Core Documentation.",
     "license": [
         "GPL-2.0+"
     ],
@@ -12,25 +12,24 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "typo3/cms-backend": "15.0.x-dev | dev-main",
-        "typo3/cms-core": "15.0.x-dev | dev-main",
-        "typo3/cms-extbase": "15.0.x-dev | dev-main",
-        "typo3/cms-fluid": "15.0.x-dev | dev-main",
-        "typo3/cms-fluid-styled-content": "15.0.x-dev | dev-main",
-        "typo3/cms-impexp": "15.0.x-dev | dev-main",
-		"typo3/cms-install": "15.0.x-dev | dev-main",
-        "typo3/cms-linkvalidator": "15.0.x-dev | dev-main",
-        "typo3/cms-reactions": "15.0.x-dev | dev-main"
+        "php": "^8.5",
+        "typo3/cms-backend": "15.0.x-dev || dev-main",
+        "typo3/cms-core": "15.0.x-dev || dev-main",
+        "typo3/cms-extbase": "15.0.x-dev || dev-main",
+        "typo3/cms-fluid": "15.0.x-dev || dev-main",
+        "typo3/cms-fluid-styled-content": "15.0.x-dev || dev-main",
+        "typo3/cms-impexp": "15.0.x-dev || dev-main",
+        "typo3/cms-install": "15.0.x-dev || dev-main",
+        "typo3/cms-linkvalidator": "15.0.x-dev || dev-main",
+        "typo3/cms-reactions": "15.0.x-dev || dev-main"
     },
     "require-dev": {
-		"ergebnis/composer-normalize": "^2.44",
-        "friendsofphp/php-cs-fixer": "^3.52",
-		"phpstan/phpstan": "^2.1.25",
-		"ssch/typo3-rector": "^3.6",
-		"typo3/coding-standards": "^0.8",
-		"typo3/testing-framework": "^10.0"
-	},
+        "ergebnis/composer-normalize": "^2.57",
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "phpstan/phpstan": "^2.3",
+        "typo3/coding-standards": "^0.9",
+        "typo3/testing-framework": "^10.0"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
@@ -50,10 +49,14 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "14.3.x-dev"
+            "dev-main": "15.0.x-dev"
         },
         "typo3/cms": {
+            "Package": {
+                "providesPackages": {}
+            },
             "extension-key": "examples",
+            "version": "15.0.0",
             "web-dir": ".Build/Web"
         }
     },
@@ -68,12 +71,10 @@
         "check:composer:config": "Build/Scripts/runTests.sh -n -s composerNormalize",
         "check:php": [
             "@check:php:lint",
-            "@check:php:cs",
-            "@check:php:rector"
+            "@check:php:cs"
         ],
         "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
         "check:php:lint": "Build/Scripts/runTests.sh -s lint",
-        "check:php:rector": "Build/Scripts/runTests.sh -n -s rector",
         "fix": [
             "@fix:composer",
             "@fix:php"
@@ -83,11 +84,9 @@
         ],
         "fix:composer:config": "Build/Scripts/runTests.sh -s composerNormalize",
         "fix:php": [
-            "@fix:php:rector",
             "@fix:php:cs"
         ],
         "fix:php:cs": "Build/Scripts/runTests.sh -s cgl",
-        "fix:php:rector": "Build/Scripts/runTests.sh -s rector",
         "prepare-release": [
             "rm -rf .Build",
             "rm -rf .github",
@@ -95,8 +94,7 @@
             "rm .gitignore",
             "rm .editorconfig",
             "rm .php-cs-fixer.dist.php",
-            "rm -rf Build",
-            "rm rector.php"
+            "rm -rf Build"
         ]
     }
 }
